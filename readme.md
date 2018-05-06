@@ -12,10 +12,10 @@ Enter the following commands into the command line on the Raspberry Pi Zero to i
 
 Connect the DHT 22 Sensor physically with the following PINs
 
-* DHT 22 T/RH Sensor PIN 1 <--> Red Cable <--> Raspberry PIN 1 (3V+)
-* DHT 22 T/RH Sensor PIN 2 <--> Orange Cable <--> Raspberry PIN 7 (GPIO4)
+* DHT 22 T/RH Sensor PIN 1 <--> <span style="color: red">Red Cable</span> <--> Raspberry PIN 1 (3V+)
+* DHT 22 T/RH Sensor PIN 2 <--> <span style="color: orange">Orange Cable</span> <--> Raspberry PIN 7 (GPIO4)
 * DHT 22 T/RH Sensor PIN 3 (no cable attached)
-* DHT 22 T/RH Sensor PIN 4 <--> Brown Cable <--> Raspberry PIN 9 (Ground)
+* DHT 22 T/RH Sensor PIN 4 <--> <span style="color: brown">Brown Cable</span> <--> Raspberry PIN 9 (Ground)
 
 Test the DHT 22 Sensor with the following commands
 
