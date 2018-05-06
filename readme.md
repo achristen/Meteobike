@@ -25,3 +25,11 @@ Run these commands to use the serial port:
     
     $ sudo killall gpsd 
     $ sudo gpsd /dev/ttyS0 -F /var/run/gpsd.sock
+
+An insert at the very end, but above the line `exit` the following command:
+
+    gpsd /dev/ttyS0 -F /var/run/gpsd.sock
+
+This enables that every time the Raspberry Pi Zero is bootet, the command will be executed. You can test the GPS using:
+
+    $ cgps -s
