@@ -2,6 +2,23 @@
 
 ## Installing the DHT 22 Sensor
 
+Enter the following commands into the command line on the Raspberry Pi Zero to install the communication with the Adafruit DHT 22 library:
+
+    $ sudo apt-get update
+    $ sudo apt-get install build-essential python-dev python-openssl git
+    $ git clone https://github.com/adafruit/Adafruit_Python_DHT.git
+    $ cd Adafruit_Python_DHT
+    $ sudo python setup.py install
+
+Connect the DHT 22 Sensor physically with the following PINs
+
+* DHT 22 T/RH Sensor PIN 1 <--> Red Cable <--> Raspberry PIN 1 (3V+)
+* DHT 22 T/RH Sensor PIN 2 <--> Orange Cable <--> Raspberry PIN 7 (GPIO4)
+* DHT 22 T/RH Sensor PIN 3 (no cable attached)
+* DHT 22 T/RH Sensor PIN 4 <--> Brown Cable <--> Raspberry PIN 9 (Ground)
+
+Test the DHT 22 Sensor with the following commands
+
 
 
 ## Installing the GPS Module
