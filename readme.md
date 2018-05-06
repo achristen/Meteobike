@@ -10,20 +10,20 @@ Enter the following commands into the command line on the Raspberry Pi Zero to i
     $ cd Adafruit_Python_DHT
     $ sudo python setup.py install
 
-Turn off the Raspberry Pi Zero. Disconnect Power and all cables. Connect the DHT 22 Sensor physically with the following PINs of the Raspberry Pi Zero:
+Turn off the Raspberry Pi Zero. Disconnect the power cable, the USB cable, and the HDMI cables from the Raspberry Pi Zero. Connect the DHT22 sensor physically using the pre-soldered wires, with the following color coding on the pins of the Raspberry Pi Zero:
 
-| DHT 22 T/RH Sensor | Cable Color | Raspberry Pi Zero |
+| DHT22 T/RH Sensor | Cable Color | Raspberry Pi Zero |
 | ------------------ | ----------- | ----------------- |
 | PIN 1  | <span style="color: red">Red Cable</span>  | PIN 1 (3V+)
 | PIN 2 | <span style="color: orange">Orange Cable</span>  | PIN 7 (GPIO4)
 | PIN 3 | (no cable)  |
 | PIN 4 | <span style="color: brown">Brown Cable</span>  | PIN 9 (Ground)
 
-Reconnect all cables. Restart the Raspberry Pi Zero.
+Double check if the connection is correct. Then reconnect the USB cable, the HDMI cables, and finally the power cable to the Raspberry Pi Zero. The Raspberry Pi Zero restarts, and the green light flashes.
 
-Test the DHT 22 Sensor with the following commands. First start Python in interactive mode:
+Once started, test the DHT 22 Sensor with the following commands in the command line. First start the programming environment for Python in interactive mode:
 
-    $ sudo python 
+    $ python 
     
 Then enter
 
