@@ -33,6 +33,7 @@ This will display the currently measured values.
 
 Next, as an exercise you can calculate the vapour pressure using the Clausius-Clapeyron equation. First calculate the saturation vapour pressure in kPa, then convert RH to vapour pressure. Note that temperature needs to be entered in Kelvins.
 
+    >>> import numpy 
     >>> saturation_vappress = 0.6113 * numpy.exp((2501000.0/461.5)*((1.0/273.15)-(1.0/(temperature+273.15))))
     >>> vappress=(humidity/100.0)*saturation_vappress
     >>> print vappress
