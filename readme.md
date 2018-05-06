@@ -10,16 +10,32 @@ Enter the following commands into the command line on the Raspberry Pi Zero to i
     $ cd Adafruit_Python_DHT
     $ sudo python setup.py install
 
-Connect the DHT 22 Sensor physically with the following PINs
+Turn off the Raspberry Pi Zero. Disconnect Power and all cables. Connect the DHT 22 Sensor physically with the following PINs of the Raspberry Pi Zero:
 
 * DHT 22 T/RH Sensor PIN 1 <--> <span style="color: red">Red Cable</span> <--> Raspberry PIN 1 (3V+)
 * DHT 22 T/RH Sensor PIN 2 <--> <span style="color: orange">Orange Cable</span> <--> Raspberry PIN 7 (GPIO4)
 * DHT 22 T/RH Sensor PIN 3 (no cable attached)
 * DHT 22 T/RH Sensor PIN 4 <--> <span style="color: brown">Brown Cable</span> <--> Raspberry PIN 9 (Ground)
 
-Test the DHT 22 Sensor with the following commands
+Reconnect all cables. Restart the Raspberry Pi Zero.
 
+Test the DHT 22 Sensor with the following commands. First start Python in interactive mode:
 
+    $ sudo python 
+    
+Then enter
+
+    >>> import Adafruit_DHT
+    >>> humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22,4)
+    >>> print temperature, humidity
+  
+This will display the currently measured values.
+
+Next, as an exercise you can calculate the vapour pressure using the Clausius-Clapeyron equation. First calculate the saturation vapour pressure in kPa, then convert RH to vapour pressure. Note that temperature needs to be entered in Kelvins.
+
+    >>> saturation_vappress = 0.6113 * numpy.exp((2501000.0/461.5)*((1.0/273.15)-(1.0/(temperature+273.15))))
+    >>> vappress=(humidity/100.0)*saturation_vappress
+    >>> print vappress
 
 ## Installing the GPS Module
 
