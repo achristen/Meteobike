@@ -21,11 +21,7 @@ Turn off the Raspberry Pi Zero. Disconnect the power cable, the USB cable, and t
 
 Double check if the connection is correct. Then reconnect the USB cable, the HDMI cables, and finally the power cable to the Raspberry Pi Zero. The Raspberry Pi Zero restarts, and the green light flashes.
 
-Once started, test the DHT 22 Sensor with the following commands in the command line. First start the programming environment for Python in interactive mode:
-
-    $ python 
-    
-Then enter
+Once started, test the DHT 22 Sensor with the following commands in Python. First start the Phython environment for Python 2.7 in interactive mode. In Python, enter
 
     >>> import Adafruit_DHT
     >>> humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22,4)
