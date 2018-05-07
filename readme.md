@@ -98,6 +98,12 @@ Next, as an exercise you can calculate the vapour pressure using the Clausius-Cl
 
 ## Installing the GPS Module
 
+The Adafruit Ultimate GPS is a 66 channel GS that can accurately determine location, speed and altitude. It digitally communicates with the Raspberry Pi Zero W over four cables:
+
+![IMG_gps](IMG_gps.jpg)
+
+To enable communication with the Raspberry Pi Zero W, start the Raspberry's console and type
+
     $ sudo apt-get install gpsd gpsd-clients python-gps
     
     $ sudo systemctl stop serial-getty@ttyS0.service 
