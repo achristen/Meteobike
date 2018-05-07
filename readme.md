@@ -69,11 +69,11 @@ You should be able to control your Raspberry Pi Zero W, use the mouse and keybor
 
 ### Installing the DHT 22 Sensor
 
-The DHT22 is a low-cost digital temperature and humidity sensor. It contains a capacitive humidity sensor and a thermistor (resistor that changes with temperature). It transfers data digitally to your Raspberry Pi Zero W. You need jsut three cables to connect the DHT22 to the Raspberry Pi Zero W - one for power (red), one for the signal (orange) and one for the ground (brown).
+The DHT22 is a low-cost digital temperature and humidity sensor. It contains a capacitive humidity sensor and a thermistor (resistor that changes with temperature). It transfers data digitally to your Raspberry Pi Zero W. You need just three cables to connect the DHT22 to the Raspberry Pi Zero W - one for power (red), one for the signal (orange) and one for the ground (brown).
 
 ![IMG_dht22](IMG_dht22.jpg)
 
-To enable communication with the Enter the following commands into the command line on the Raspberry Pi Zero to install the communication with the Adafruit DHT 22 library:
+To enable communication with the DHT22 , enter the following commands into the command line on the Raspberry Pi Zero to install first the Adafruit DHT 22 library:
 
     $ sudo apt-get update
     $ sudo apt-get install build-essential python-dev python-openssl git
@@ -92,33 +92,34 @@ Turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspberry Pi
 
 ![IMG_dht22wiring](IMG_dht22wiring.jpg)
 
-Double check if the connection is correct. Then reconnect the power cable to the Raspberry Pi Zero. The Raspberry Pi Zero restarts, and the green light flashes.
+Double check if the connection is correct. A wrong connection could damage the Ssensor and or the Raspberry Pi Zero. Then reconnect the power cable to the Raspberry Pi Zero. The Raspberry Pi Zero restarts, and its green light flashes.
 
-Once started, test the DHT 22 Sensor with the following commands in Python. First start the Phython environment for Python 2.7 in interactive mode. In Python, enter
+Once started, the DHT 22 Sensor can be polled with the following commands in Python. First start the Phython environment for Python 2.7 in interactive mode. In Python, enter
 
     >>> import Adafruit_DHT
     >>> humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22,4)
     >>> print temperature, humidity
   
-This will display the currently measured values.
+This will display the currently measured values. The system measured temperature and humidity every two seconds.
 
-Next, as an exercise you can calculate the vapour pressure using the Clausius-Clapeyron equation. First calculate the saturation vapour pressure in kPa, then convert RH to vapour pressure. Note that temperature needs to be entered in Kelvins.
+Next, as an exercise you can calculate the vapour pressure using the Clausius-Clapeyron equation. First calculate the saturation vapour pressure in kPa, then convert the relative humidity to vapour pressure. Note that temperature needs to be converted to Kelvins first.
 
     >>> import numpy 
     >>> saturation_vappress = 0.6113 * numpy.exp((2501000.0/461.5)*((1.0/273.15)-(1.0/(temperature+273.15))))
     >>> vappress=(humidity/100.0)*saturation_vappress
     >>> print vappress
+    
+Can you also calculate the dewpoint temperature?    
 
 ## Installing the GPS Module
 
-The Adafruit Ultimate GPS is a 66 channel GS that can accurately determine location, speed and altitude. It digitally communicates with the Raspberry Pi Zero W over four cables:
+The Adafruit Ultimate GPS is a 66 channel Global Positioning System using satellites to accurately determine your location, speed and altitude. It digitally communicates with the Raspberry Pi Zero W over four cables:
 
 ![IMG_gps](IMG_gps.jpg)
 
-To enable communication with the Raspberry Pi Zero W, start the Raspberry's console and type
+To enable communication with the Raspberry Pi Zero W, start the Raspberry's console and type:
 
     $ sudo apt-get install gpsd gpsd-clients python-gps
-    
     $ sudo systemctl stop serial-getty@ttyS0.service 
     $ sudo systemctl disable serial-getty@ttyS0.service
 
@@ -130,18 +131,22 @@ Scroll to the the very bottom of the file with the arrow keys an add this on a n
     
     enable_uart=1
     
-Save and Exit with Strng-O and Strng-X and reboot the Raspberry Pi Zero
+Save and Exit with Ctrl-0 (German: Strg-O) and Ctrl-X (Strg-X) and then reboot the Raspberry Pi Zero.
 
-Run these commands to use the serial port:
+Once rebotted, run these commands to use the serial port:
     
     $ sudo killall gpsd 
     $ sudo gpsd /dev/ttyS0 -F /var/run/gpsd.sock
+    
+Next, edit the file /etc/rc.local using the nano editor:
+
+    $ sudo nano /etc/rc.local 
 
 An insert at the very end, but above the line `exit 0` the following command:
 
     gpsd /dev/ttyS0 -F /var/run/gpsd.sock
     
-This enables that every time the Raspberry Pi Zero is booted, the command will be executed. 
+Now, every time the Raspberry Pi Zero is booted, this command will be executed. 
 
 Turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspberry Pi Zero. Connect the GPS physically using the pre-soldered wires, with the following color coding on the pins of the Raspberry Pi Zero:
 
@@ -159,3 +164,9 @@ Double check if the connection is correct. Then reconnect the USB cable, the HDM
 You can then test the GPS using:
 
     $ cgps -s
+
+# Running the Recording Interface
+
+We want the data from the GPS and the DHT22 to be automatically collected and written into a file. We would also benefit from having the system data displayed in real time on screen. This is done with the python program `meteobike.py`, which you can download on your Raspberry Pi Zero here:
+
+* [Download meteobike.py](meteobike.py)
