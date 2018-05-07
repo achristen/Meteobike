@@ -6,7 +6,7 @@
 
 ## Overview
 
-The mobile system is assembled using the following components:
+Each student builds their own mobile system. It is assembled using the following components:
 
 ![IMG_components](IMG_components.jpg)
 
@@ -18,13 +18,13 @@ The Raspberry Pi Zero W is a microcomputer running a full operating system and p
 
 ![IMG_raspberrypizerow](IMG_raspberrypizerow.jpg)
 
-Your Raspberry Pi Zero W comes with a micro SD cards with the operating sysetm called [Raspbian](https://en.wikipedia.org/wiki/Raspbian) preinstalled. The micro SD is inside the larger SD card adapter. Pull it out and insert it carefully into the card slot.
+Your Raspberry Pi Zero W comes with a micro SD cards with the operating sysetm (called [Raspbian](https://en.wikipedia.org/wiki/Raspbian)) preinstalled. The micro SD is inside the larger SD card adapter. Pull the micro-SD card out and insert it carefully into the card slot. Make sure the "San Disk" logo is up.
 
 ![IMG_sdcard](IMG_sdcard.jpg)
 
-The first time you set-up your Raspberry Pi Zero W you will need a few other components, which can be used for setting-up all systems one after another. This includes a screen, a keyboard and a mouse, and connection cables. 
+The first time you set-up your Raspberry Pi Zero W you will need a few other components, which can be used for setting-up all systems one after another. This includes a screen, a keyboard and a mouse, and connection cables. You share a screen, a keyboard and a mouse, and connection cables for two students each,
 
-Later, once the system is assigned to your wireless networks, you can connect to and operate it though RealVNC, so there is no need for a phsyical keyboard, a mouse or a screen during its operation. All can be controlled though your smartphone.
+Later, once the system is assigned to your wireless networks, you can connect to and operate it though RealVNC, so there is no need for a phsyical keyboard, a mouse or a screen during its operation. All can be controlled though on your smartphone or tablet, or just be operated remotely.
 
 The connection cables and supplies you need are as follows (not shown is the screen):
 
@@ -34,7 +34,7 @@ To connect the screen during the initial set-up, connect the mini-HDMI cable to 
 
 ![IMG_hdmi](IMG_hdmi.jpg)
 
-Next, connect the USB ports. Your Raspberry Pi Zero W hast two USB slots, one (left) is for the USB devices (mouse, keyboard), one (right) is for supplying power. First connect to the USB devices. Because there is only one Port, but you need to connect two devices, you must also add initially a USB HUB. Here is the set-up:
+Next, connect the USB ports. Your Raspberry Pi Zero W hast two mini-USB ports, one (left) is for the USB devices (mouse, keyboard), one (right) is actually only for supplying power. First connect to the USB devices (left). Because there is only one true USB port, but you need to connect two devices, you must also add initially a USB HUB. Here is the set-up:
 
 ![IMG_usbhub](IMG_usbhub.jpg)
 
