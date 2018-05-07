@@ -1,5 +1,7 @@
 # Meteobike
 
+"Meteobike" is a educational Raspberry Pi Zero Project at the University of Freiburg, Chair of Environmental Meteorology. In our course as part of the minor in meteorology and climatology we develop a system to measure, analyze and visualize the urban heat island of Freiburg. We measure temperature and humidity transcects and tag measurement locations with GPS. The system is battery operated and light, so it can be mounted on bikes. Communication with the Raspberry Pi Zero is enabled via wireless network.
+
 ![IMG_meteobike](IMG_meteobike.jpg)
 
 ## Overview
