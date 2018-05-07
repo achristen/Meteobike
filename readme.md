@@ -134,22 +134,21 @@ To enable communication with the Raspberry Pi Zero W, start the Raspberry's cons
     $ sudo systemctl stop serial-getty@ttyS0.service 
     $ sudo systemctl disable serial-getty@ttyS0.service
 
-For the Raspberry Pi Zero we need to enable the serial port on the GPIO pins. Open the "nano" text editor and change the file `config.txt`
+For the Raspberry Pi Zero we need to enable the serial port on the GPIO pins. This requires us to change the configuration file of the Raspberry Pi Zero W. You can use a texteditor, for example the commandline "nano" command and edit the file `config.txt`
     
     $ sudo nano /boot/config.txt
     
-Scroll to the the very bottom of the file with the arrow keys an add this on a new line:
+Scroll to the the very bottom of the file (not with a mouse, but with the arrow keys) and then type this on a new line:
     
     enable_uart=1
     
-Save and Exit with Ctrl-0 (German: Strg-O) and Ctrl-X (Strg-X) and then reboot the Raspberry Pi Zero.
+Save with `Ctrl`+`0` (German: `Strg`+`O`), and then press `Enter`. Next press `Ctrl`+`X` (`Strg`+`X`) to exit the "nano" commandline editor. Finally, reboot the Raspberry Pi Zero.
 
-Once rebotted, run these commands to use the serial port:
+Once rebooted, run this command in the commandline to enable the serial port:
     
-    $ sudo killall gpsd 
     $ sudo gpsd /dev/ttyS0 -F /var/run/gpsd.sock
     
-Next, edit the file /etc/rc.local using the nano editor:
+Next, edit the file /etc/rc.local, again using the "nano" editor:
 
     $ sudo nano /etc/rc.local 
 
@@ -157,9 +156,11 @@ An insert at the very end, but above the line `exit 0` the following command:
 
     gpsd /dev/ttyS0 -F /var/run/gpsd.sock
     
+Save with `Ctrl`+`0` (German: `Strg`+`O`), and then press `Enter`. Next press `Ctrl`+`X` (`Strg`+`X`) to exit the "nano" commandline editor.     
+    
 Now, every time the Raspberry Pi Zero is booted, this command will be executed. 
 
-Turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspberry Pi Zero. Connect the GPS physically using the pre-soldered wires, with the following color coding on the pins of the Raspberry Pi Zero:
+Turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspberry Pi Zero. Connect the GPS physically using the pre-soldered four wires, with the following color coding on the pins of the Raspberry Pi Zero:
 
 | GPS  | Cable Color | Raspberry Pi Zero |
 | ------------------ | ----------- | ----------------- |
@@ -170,9 +171,9 @@ Turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspberry Pi
     
 ![IMG_gpswiring](IMG_gpswiring.jpg)
 
-Double check if the connection is correct. Then reconnect the USB cable, the HDMI cables, and finally the power cable to the Raspberry Pi Zero. The Raspberry Pi Zero restarts, and the green light flashes.  
+Double check if the connection is correct. Then reconnect the power cable to the Raspberry Pi Zero. The Raspberry Pi Zero restarts, and the green light flashes.  
 
-You can then test the GPS using:
+Now, you can then test the GPS using:
 
     $ cgps -s
 
@@ -182,9 +183,9 @@ We want the data from the GPS and the DHT22 to be automatically collected and wr
 
 * [Download meteobike.py](meteobike.py)
 
-You can start `meteobike.py` using the Terminal (assuming your file has been downloaded to the desktop)
+You can start `meteobike.py` using the command line (assuming your file has been downloaded to the desktop)
    
-    $ python /home/pi/Desktop/meteobike.py 
+    $ python ~/Desktop/meteobike.py 
     
 ![SCS_userinterface](SCS_userinterface.png)
     
@@ -207,7 +208,7 @@ You can also place a link - called bash script on your desktop (`meteobike.sh`)
 
 To ensure it works, you must change permissions of the file as follows (make it executable). This way, it can be started with a double-click:
 
-    $ chmod +x  /home/pi/Desktop/meteobike.sh
+    $ chmod +x  ~/Desktop/meteobike.sh
     
 Now you can double-click `meteobike.sh`and to start the user interface.
     
