@@ -185,7 +185,7 @@ Next, make changes to personalize your copy of `meteobike.py`.
 Every time `meteobike.py` is started, it will create a new log-file that contains the data sampled. Here is an example:
 
 ID | Record | Raspberry_Time  | GPS_Time  | Altitude  | Latitude  | Longitude  | Temperature  | RelHumidity  | VapourPressure
---- | --- | --- | --- | --- | --- | --- | --- | --- | 
+--- | --- | --- | --- | --- | --- | --- | --- | --- |  --- | 
 01 | 8 | 2018-05-06 08:29:03 | 2018-05-06T06:29:04.000Z  | 281.700 | 47.991855 | 23.0 | 41.9 | 1.196
 01 | 9 | 2018-05-06 08:29:11 | 2018-05-06T06:29:12.000Z  | 288.000 | 47.991375 | 22.9 | 41.9 | 1.188
 01 | 10 | 2018-05-06 08:29:24 | 2018-05-06T06:29:25.000Z  | 290.000 | 47.991242 | 23.0 | 41.9 | 1.196
