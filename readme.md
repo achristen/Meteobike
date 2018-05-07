@@ -84,7 +84,7 @@ The [DHT22](https://learn.adafruit.com/dht/overview) is a low-cost digital tempe
 
 ![IMG_dht22](IMG_dht22.jpg)
 
-To enable communication with the DHT22 , enter the following commands once into the command line on the Raspberry Pi Zero to install  the Adafruit DHT 22 library. Once the library is installed, you can access it from the programming language Python.
+To enable communication with the DHT22 , enter the following commands once into the `LXTerminal` (the command line) on the Raspberry Pi Zero to install  the Adafruit DHT 22 library. Once the library is installed, you can access it from the programming language Python.
 
     $ sudo apt-get update
     $ sudo apt-get install build-essential python-dev python-openssl git
@@ -128,13 +128,13 @@ The Adafruit Ultimate GPS is a 66 channel Global Positioning System using satell
 
 ![IMG_gps](IMG_gps.jpg)
 
-To enable communication with the Raspberry Pi Zero W, start the Raspberry's console and type:
+To enable communication with the Raspberry Pi Zero W, start the Raspberry's `LXTerminal` and type:
 
     $ sudo apt-get install gpsd gpsd-clients python-gps
     $ sudo systemctl stop serial-getty@ttyS0.service 
     $ sudo systemctl disable serial-getty@ttyS0.service
 
-For the Raspberry Pi Zero we need to enable the serial port on the GPIO pins. This requires us to change the configuration file of the Raspberry Pi Zero W. You can use a texteditor, for example the commandline "nano" command and edit the file `config.txt`
+For the Raspberry Pi Zero we need to enable the serial port on the GPIO pins. This requires us to change the configuration file of the Raspberry Pi Zero W. You can use a texteditor, for example the `nano` command in `LXTerminal` and edit the file `config.txt`
     
     $ sudo nano /boot/config.txt
     
@@ -142,9 +142,9 @@ Scroll to the the very bottom of the file (not with a mouse, but with the arrow 
     
     enable_uart=1
     
-Save with `Ctrl`+`0` (German: `Strg`+`O`), and then press `Enter`. Next press `Ctrl`+`X` (`Strg`+`X`) to exit the "nano" commandline editor. Finally, reboot the Raspberry Pi Zero.
+Save with `Ctrl`+`0` (German: `Strg`+`O`), and then press `Enter`. Next press `Ctrl`+`X` (`Strg`+`X`) to exit the `nano` editor. Finally, reboot the Raspberry Pi Zero.
 
-Once rebooted, run this command in the commandline to enable the serial port:
+Once rebooted, run this command in the `LXTerminal` to enable the serial port:
     
     $ sudo gpsd /dev/ttyS0 -F /var/run/gpsd.sock
     
@@ -152,11 +152,11 @@ Next, edit the file /etc/rc.local, again using the "nano" editor:
 
     $ sudo nano /etc/rc.local 
 
-An insert at the very end, but above the line `exit 0` the following command:
+An insert at the very end, but above the line `exit 0` the following line:
 
     gpsd /dev/ttyS0 -F /var/run/gpsd.sock
     
-Save with `Ctrl`+`0` (German: `Strg`+`O`), and then press `Enter`. Next press `Ctrl`+`X` (`Strg`+`X`) to exit the "nano" commandline editor.     
+Save with `Ctrl`+`0` (German: `Strg`+`O`), and then press `Enter`. Next press `Ctrl`+`X` (`Strg`+`X`) to exit the `nano` commandline editor.     
     
 Now, every time the Raspberry Pi Zero is booted, this command will be executed. 
 
@@ -183,7 +183,7 @@ We want the data from the GPS and the DHT22 to be automatically collected and wr
 
 * [Download meteobike.py](meteobike.py)
 
-You can start `meteobike.py` using the command line (assuming your file has been downloaded to the desktop)
+You can start `meteobike.py` using `LXTerminal` (assuming your file has been downloaded to the desktop)
    
     $ python ~/Desktop/meteobike.py 
     
