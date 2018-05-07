@@ -68,7 +68,7 @@ To enable communication with the Enter the following commands into the command l
     $ cd Adafruit_Python_DHT
     $ sudo python setup.py install
 
-Turn off the Raspberry Pi Zero. Disconnect the power cable, the USB cable, and the HDMI cables from the Raspberry Pi Zero. Connect the DHT22 sensor physically using the pre-soldered wires, with the following color coding on the pins of the Raspberry Pi Zero:
+Turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspberry Pi Zero. Connect the DHT22 sensor physically using the pre-soldered wires, with the following color coding on the pins of the Raspberry Pi Zero:
 
 | DHT22 T/RH Sensor | Cable Color | Raspberry Pi Zero |
 | ------------------ | ----------- | ----------------- |
@@ -77,7 +77,9 @@ Turn off the Raspberry Pi Zero. Disconnect the power cable, the USB cable, and t
 | PIN 3 | (no cable)  |
 | PIN 4 | <span style="color: brown">Brown Cable</span>  | PIN 9 (Ground)
 
-Double check if the connection is correct. Then reconnect the USB cable, the HDMI cables, and finally the power cable to the Raspberry Pi Zero. The Raspberry Pi Zero restarts, and the green light flashes.
+![IMG_dht22wiring](IMG_dht22wiring.jpg)
+
+Double check if the connection is correct. Then reconnect the power cable to the Raspberry Pi Zero. The Raspberry Pi Zero restarts, and the green light flashes.
 
 Once started, test the DHT 22 Sensor with the following commands in Python. First start the Phython environment for Python 2.7 in interactive mode. In Python, enter
 
@@ -119,7 +121,22 @@ Run these commands to use the serial port:
 An insert at the very end, but above the line `exit 0` the following command:
 
     gpsd /dev/ttyS0 -F /var/run/gpsd.sock
+    
+This enables that every time the Raspberry Pi Zero is booted, the command will be executed. 
 
-This enables that every time the Raspberry Pi Zero is bootet, the command will be executed. You can test the GPS using:
+Turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspberry Pi Zero. Connect the GPS physically using the pre-soldered wires, with the following color coding on the pins of the Raspberry Pi Zero:
+
+| GPS  | Cable Color | Raspberry Pi Zero |
+| ------------------ | ----------- | ----------------- |
+| PVIN | <span style="color: black">Black Cable</span>  | PIN 4 (5V+)
+| GND  | <span style="color: black">White Cable</span>  | PIN 6 (Ground)
+| RX   | <span style="color: grey">Grey Cable</span>  | PIN 8 (TXD)
+| TX.  | <span style="color: purple">Purple Cable</span>  | PIN 10 (RXD)
+    
+![IMG_gpswiring](IMG_gpswiring.jpg)
+
+Double check if the connection is correct. Then reconnect the USB cable, the HDMI cables, and finally the power cable to the Raspberry Pi Zero. The Raspberry Pi Zero restarts, and the green light flashes.  
+
+You can then test the GPS using:
 
     $ cgps -s
