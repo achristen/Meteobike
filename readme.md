@@ -193,7 +193,7 @@ Next, make changes to personalize your copy of `meteobike.py`.
 * Replace "01" on line 41 `raspberryid =` to your system#s two digit number. If your system has the number "7" enter "07".
 * Replace "andreas" on line 42 `studentname =` to your first name in quotes.
 
-Every time `meteobike.py` is started, it will create a new log-file that contains the data sampled. Here is an example:
+Every time `meteobike.py` is started, it will create a new data-file that contains the data sampled. Here is an example:
 
 ID | Record | Raspberry_Time  | GPS_Time  | Altitude  | Latitude  | Longitude  | Temperature  | RelHumidity  | VapourPressure
 --- | --- | --- | --- | --- | --- | --- | --- | --- |  --- | 
@@ -201,13 +201,13 @@ ID | Record | Raspberry_Time  | GPS_Time  | Altitude  | Latitude  | Longitude  |
 01 | 9 | 2018-05-06 08:29:11 | 2018-05-06T06:29:12.000Z  | 288.000 | 47.991375 | 22.9 | 41.9 | 1.188
 01 | 10 | 2018-05-06 08:29:24 | 2018-05-06T06:29:25.000Z  | 290.000 | 47.991242 | 23.0 | 41.9 | 1.196
 
-You can also place a link - called bash file on your desktor (`meteobike.sh`)
+You can also place a link - called bash script on your desktop (`meteobike.sh`)
 
 * [Download meteobike.sh](meteobike.sh)
 
-Change permissions of the file as follows, so it is executable, i.e. it can be started with a double-click:
+To ensure it works, you must change permissions of the file as follows (make it executable). This way, it can be started with a double-click:
 
     $ chmod +x  /home/pi/Desktop/meteobike.sh
     
-Then you can double-click `meteobike.sh` to start the user interface and start recording.
+Now you can double-click `meteobike.sh`and to start the user interface.
     
