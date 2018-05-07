@@ -54,7 +54,7 @@ Next, localize the Raspberry Pi Zero W to your language and region. Provide a pa
 
 ### Testing the wireless network
 
-Test the communication with another device (your laptop or smartphone). First activate VNC. Go to settings, and enable "VNC". You can also enable SSH, VNC und IC2.
+Test the communication with another device (your laptop or smartphone). First activate VNC. Go to settings, and enable "VNC". You can also enable SSH, VNC und I2C.
 
 ![SCS_connections.png](SCS_SCS_connections.png)
 
