@@ -12,7 +12,7 @@ The mobile system is assembled using the following components:
 
 ## Preparing the Raspberry Pi Zero
 
-Your Raspberry Pi Zero comes with a micro SD cards with the operating sysetm ([Raspbian](https://en.wikipedia.org/wiki/Raspbian Raspbian)) preinstalled. The micro SD is inside the larger SD card adapter. Pull it out and insert it carefully into the card slot.
+Your Raspberry Pi Zero comes with a micro SD cards with the operating sysetm called [Raspbian](https://en.wikipedia.org/wiki/Raspbian Raspbian) preinstalled. The micro SD is inside the larger SD card adapter. Pull it out and insert it carefully into the card slot.
 
 ## Installing the Sensors
 
