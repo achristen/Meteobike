@@ -18,7 +18,7 @@ The Raspberry Pi Zero W is a microcomputer running a full operating system and p
 
 ![IMG_raspberrypizerow](IMG_raspberrypizerow.jpg)
 
-Your Raspberry Pi Zero W comes with a micro SD cards with the operating sysetm called [Raspbian](https://en.wikipedia.org/wiki/Raspbian Raspbian) preinstalled. The micro SD is inside the larger SD card adapter. Pull it out and insert it carefully into the card slot.
+Your Raspberry Pi Zero W comes with a micro SD cards with the operating sysetm called [Raspbian](https://en.wikipedia.org/wiki/Raspbian) preinstalled. The micro SD is inside the larger SD card adapter. Pull it out and insert it carefully into the card slot.
 
 ![IMG_sdcard](IMG_sdcard.jpg)
 
@@ -51,6 +51,15 @@ Then connect to the wireless network. Click in the menu-bar on the wireless netw
 Next, localize the Raspberry Pi Zero W to your language and region. Provide a password to the Raspberry. Set the same password as the wireless network, so we have all the same password. Make sure it starts with a capital letter. Also change the Hostname to "raspberryXX" where XX is the number of your system (see sheet on your table):
 
 ![SCS_systemname](SCS_systemname.png)
+
+### Testing the wireless network
+
+Test the communication with another device (your laptop or smartphone). First, on your laptop or smartphone install the "VNC Viewer" from "RealVNC":
+
+* On Mac, Windows, or Linux install the [desktop version of the VNC Viewer](https://www.realvnc.com/de/connect/download/viewer/).
+* On iOS devices use the [Apple App Store to download the VNC Viewer](https://itunes.apple.com/us/app/vnc-viewer/id352019548?mt=8
+).
+* On Android devices use  [Google Play to download the VNC Viewer](https://play.google.com/store/apps/details?id=com.realvnc.viewer.android).
 
 ## Installing the Sensors
 
