@@ -10,7 +10,13 @@ The mobile system is assembled using the following components:
 
 ![IMG_components](IMG_components.jpg)
 
-## Installing the DHT 22 Sensor
+## Preparing the Raspberry Pi Zero
+
+Your Raspberry Pi Zero comes with a micro SD cards with the operating sysetm ([Raspbian](https://en.wikipedia.org/wiki/Raspbian Raspbian)) preinstalled. The micro SD is inside the larger SD card adapter. Pull it out and insert it carefully into the card slot.
+
+## Installing the Sensors
+
+### Installing the DHT 22 Sensor
 
 Enter the following commands into the command line on the Raspberry Pi Zero to install the communication with the Adafruit DHT 22 library:
 
