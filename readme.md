@@ -26,7 +26,7 @@ The connection cables and supplies you need are as follows (not shown is the scr
 
 To connect the screen during the initial set-up, connect the mini-HDMI cable to you screen (possibly using a HDMI to VGA adapter if your screen does not support HDMI and only VGA):
 
-![IMG_hdmi](IMG_setup_components.jpg)
+![IMG_hdmi](IMG_hdmi.jpg)
 
 Next, connect the USB ports. Your Raspberry Pi Zero W hast two USB slots, one (left) is for the USB devices (mouse, keyboard), one (right) is for supplying power. First connect to the USB devices. Because there is only one Port, but you need to connect two devices, you must also add initially a USB HUB. Here is the set-up:
 
