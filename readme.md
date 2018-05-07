@@ -48,9 +48,9 @@ Then connect to the wireless network. Click in the menu-bar on the wireless netw
 
 ![SCS_network](SCS_network.jpg)
 
-Next, localize the Raspberry Pi Zero W to your language and region. Go to 
+Next, localize the Raspberry Pi Zero W to your language and region. Provide a password to the Raspberry. Set the same password as the wireless network, so we have all the same password. Make sure it starts with a capital letter. Also change the Hostname to "raspberryXX" where XX is the number of your system (see sheet on your table):
 
-
+![SCS_systemname](SCS_systemname.png)
 
 ## Installing the Sensors
 
