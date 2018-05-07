@@ -1,5 +1,9 @@
 # Meteobike
 
+The mobile system is assembled using the following components:
+
+![IMG_components](IMG_components.jpg)
+
 ## Installing the DHT 22 Sensor
 
 Enter the following commands into the command line on the Raspberry Pi Zero to install the communication with the Adafruit DHT 22 library:
