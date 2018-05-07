@@ -177,12 +177,18 @@ You can start `meteobike.py` using the Terminal (assuming your file has been dow
     
 ![SCS_userinterface](SCS_userinterface.png)
     
-Next mIf it runs, make changes to personalize your copy of `meteobike.py`. 
+Next, make changes to personalize your copy of `meteobike.py`. 
 
 * Replace "01" on line 41 `raspberryid =` to your system#s two digit number. If your system has the number "7" enter "07".
 * Replace "andreas" on line 42 `studentname =` to your first name in quotes.
 
 Every time `meteobike.py` is started, it will create a new log-file that contains the data sampled. Here is an example:
+
+ID | Record | Raspberry_Time | GPS_Time | Altitude | Latitude | Longitude | Temperature | Humidity |
+--- | --- | --- | --- | --- | --- | --- | --- | --- | 
+01 | 8 | 2018-05-06 08:29:03 | 550 | 2018-04-16T15:40:27.000Z  | 281.700 | 47.991855 | 7.845193 | 21.0 | 67.6 |
+01 | 9 | 2018-05-06 08:29:11 | 551 | 2018-04-16T15:40:38.000Z  | 288.000 | 47.991375 | 7.845212 | 21.0 | 67.4 |
+01 | 10 | 2018-05-06 08:29:24 | 552 | 2018-04-16T15:40:43.000Z  | 290.000 | 47.991242 | 7.845180 | 21.0 | 68.0 |
 
 You can also place a link - called bash file on your desktor (`meteobike.sh`)
 
