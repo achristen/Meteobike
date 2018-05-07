@@ -189,10 +189,12 @@ You can start `meteobike.py` using the command line (assuming your file has been
     
 ![SCS_userinterface](SCS_userinterface.png)
     
-Next, make changes to personalize your copy of `meteobike.py`. 
+Next, make changes to personalize your copy of `meteobike.py`. You can, for example, open the Python Development Environment (Version 2.7) and `File > Open`. 
 
 * Replace "01" on line 41 `raspberryid =` to your system#s two digit number. If your system has the number "7" enter "07".
 * Replace "andreas" on line 42 `studentname =` to your first name in quotes.
+
+Then save the modified code `File > Save`. Close the Python Development Environment.
 
 Every time `meteobike.py` is started, it will create a new data-file that contains the data sampled. Here is an example:
 
