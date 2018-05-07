@@ -54,7 +54,11 @@ Next, localize the Raspberry Pi Zero W to your language and region. Provide a pa
 
 ### Testing the wireless network
 
-Test the communication with another device (your laptop or smartphone). First, on your laptop or smartphone install the "VNC Viewer" from "RealVNC":
+Test the communication with another device (your laptop or smartphone). First activate VNC. Go to settings, and enable "VNC". You can also enable SSH, VNC und IC2.
+
+![SCS_connections.png](SCS_SCS_connections.png)
+
+Next, on your laptop or smartphone install the "VNC Viewer" from "RealVNC":
 
 * On Mac, Windows, or Linux install the [desktop version of the VNC Viewer](https://www.realvnc.com/de/connect/download/viewer/).
 * On iOS devices use the [Apple App Store to download the VNC Viewer](https://itunes.apple.com/us/app/vnc-viewer/id352019548?mt=8
