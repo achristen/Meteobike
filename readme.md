@@ -61,7 +61,7 @@ Next, localize the Raspberry Pi Zero W to your language and region. Provide a pa
 
 ### Testing the wireless network
 
-Test the communication with another device (your laptop or smartphone). First activate VNC. Go to settings, and enable "VNC". You can also enable SSH, VNC und I2C.
+Test the communication with another device (your laptop or smartphone). First activate VNC. Go to settings, and enable "VNC". You can also enable SSH und I2C.
 
 ![SCS_connections.png](SCS_connections.png)
 
@@ -72,19 +72,19 @@ Next, on your laptop or smartphone install the "VNC Viewer" from "RealVNC":
 ).
 * On Android devices use  [Google Play to download the VNC Viewer](https://play.google.com/store/apps/details?id=com.realvnc.viewer.android).
 
-Make sure your laptop or smartphone is connected to the same wireless as the Raspberry Pi Zero W. Then start your viewer, connect to the IP address you previously noted (likely `192.168.X.Y`) and enter the suername "pi" with the password we have previously set.
+Make sure your laptop or smartphone is connected to the same wireless as the Raspberry Pi Zero W. Then start your viewer, connect to the IP address you previously noted (likely `192.168.X.Y`) and enter the username "pi" with the password we have previously set.
 
-You should be able to control your Raspberry Pi Zero W, use the mouse and keybord remotely.
+You should be able to control your Raspberry Pi Zero W and you can use a mouse and keybord remotely.
 
 ## Installing the Sensors
 
 ### Installing the DHT 22 Sensor
 
-The DHT22 is a low-cost digital temperature and humidity sensor. It contains a capacitive humidity sensor and a thermistor (resistor that changes with temperature). It transfers data digitally to your Raspberry Pi Zero W. You need just three cables to connect the DHT22 to the Raspberry Pi Zero W - one for power (red), one for the signal (orange) and one for the ground (brown).
+The [DHT22](https://learn.adafruit.com/dht/overview) is a low-cost digital temperature and humidity sensor. It contains a capacitive humidity sensor and a thermistor (resistor that changes with temperature). It transfers data digitally to your Raspberry Pi Zero W. You need just three cables to connect the DHT22 to the Raspberry Pi Zero W - one for power (red), one for the signal (orange) and one for the ground (brown).
 
 ![IMG_dht22](IMG_dht22.jpg)
 
-To enable communication with the DHT22 , enter the following commands into the command line on the Raspberry Pi Zero to install first the Adafruit DHT 22 library:
+To enable communication with the DHT22 , enter the following commands once into the command line on the Raspberry Pi Zero to install  the Adafruit DHT 22 library. Once the library is installed, you can access it from the programming language Python.
 
     $ sudo apt-get update
     $ sudo apt-get install build-essential python-dev python-openssl git
@@ -92,7 +92,7 @@ To enable communication with the DHT22 , enter the following commands into the c
     $ cd Adafruit_Python_DHT
     $ sudo python setup.py install
 
-Turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspberry Pi Zero. Connect the DHT22 sensor physically using the pre-soldered wires, with the following color coding on the pins of the Raspberry Pi Zero:
+Next, turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspberry Pi Zero. Connect the DHT22 sensor physically using the pre-soldered wires, with the following color coding on the pins of the Raspberry Pi Zero:
 
 | DHT22 T/RH Sensor | Cable Color | Raspberry Pi Zero |
 | ------------------ | ----------- | ----------------- |
@@ -103,15 +103,15 @@ Turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspberry Pi
 
 ![IMG_dht22wiring](IMG_dht22wiring.jpg)
 
-Double check if the connection is correct. A wrong connection could damage the Ssensor and or the Raspberry Pi Zero. Then reconnect the power cable to the Raspberry Pi Zero. The Raspberry Pi Zero restarts, and its green light flashes.
+Double check if the connection is correct. A wrong connection could damage the sensor and or the Raspberry Pi Zero. Then reconnect the power cable to the Raspberry Pi Zero. The Raspberry Pi Zero restarts, and its green light flashes.
 
-Once started, the DHT 22 Sensor can be polled with the following commands in Python. First start the Phython environment for Python 2.7 in interactive mode. In Python, enter
+Once started, the DHT 22 Sensor can be polled with the following commands in Python. First start the Phython development environment for Python 2.7 in interactive mode. In Python, enter
 
     >>> import Adafruit_DHT
     >>> humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22,4)
     >>> print temperature, humidity
   
-This will display the currently measured values. The system measured temperature and humidity every two seconds.
+This will display the currently measured values. The system measures temperature and humidity every two seconds.
 
 Next, as an exercise you can calculate the vapour pressure using the Clausius-Clapeyron equation. First calculate the saturation vapour pressure in kPa, then convert the relative humidity to vapour pressure. Note that temperature needs to be converted to Kelvins first.
 
