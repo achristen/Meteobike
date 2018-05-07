@@ -6,7 +6,7 @@
 
 ## Overview
 
-Student build their own mobile systems each. The systems are assembled using the following components:
+Each student builds a own mobile system. Each system will be assembled using the following components:
 
 ![IMG_components](IMG_components.jpg)
 
@@ -14,19 +14,26 @@ Student build their own mobile systems each. The systems are assembled using the
 
 ### Connecting and starting the Raspberry Pi Zero
 
-The Raspberry Pi Zero W is a microcomputer running a full operating system and providing input and output connectivity through a number of interfaces:
+The [Raspberry Pi Zero W](https://shop.pimoroni.de/collections/raspberry-pi/products/raspberry-pi-zero-w?src=raspberrypi) is a microcomputer running a full operating system and providing input and output connectivity through a number of interfaces:
 
 ![IMG_raspberrypizerow](IMG_raspberrypizerow.jpg)
 
-Your Raspberry Pi Zero W comes with a micro SD cards with the operating sysetm (called [Raspbian](https://en.wikipedia.org/wiki/Raspbian)) preinstalled. The micro SD is inside the larger SD card adapter. Pull the micro-SD card out and insert it carefully into the card slot. Make sure the "San Disk" logo is up.
+Your Raspberry Pi Zero W comes with a micro SD cards with the operating sysetm (called [Raspbian](https://en.wikipedia.org/wiki/Raspbian)) preinstalled. The micro SD card is inside the larger regular SD card "adapter". Pull the micro-SD card out and insert it carefully into the card slot. Make sure the logo is up and the hand-painted white number on the back.
 
 ![IMG_sdcard](IMG_sdcard.jpg)
 
-The first time you set-up your Raspberry Pi Zero W you will need a few other components, which can be used for setting-up all systems one after another. This includes a screen, a keyboard and a mouse, and connection cables. You share a screen, a keyboard and a mouse, and connection cables for two students each,
+The first time you set-up your Raspberry Pi Zero W, you will need a few additional components. Those components can be used for setting-up multiple systems in a row. The components you need are 
 
-Later, once the system is assigned to your wireless networks, you can connect to and operate it though RealVNC, so there is no need for a phsyical keyboard, a mouse or a screen during its operation. All can be controlled though on your smartphone or tablet, or just be operated remotely.
+* A screen
+* USB keyboard 
+* USB mouse
+* Various connection cables. 
 
-The connection cables and supplies you need are as follows (not shown is the screen):
+In our course, you share a screen, a keyboard and a mouse, and connection cables between two students each.
+
+Later, once the system is assigned to your wireless networks, you can connect to it without keybord, without mouse and without Screen using RealVNC, so there is no need for a phsyical keyboard, a mouse or a screen during teh bike traverses. All can be controlled though on your smartphone or tablet, or just be operated remotely.
+
+Here are all connection cables and supplies you need for the initial set-up (screen is not shown):
 
 ![IMG_setup_components](IMG_setup_components.jpg)
 
