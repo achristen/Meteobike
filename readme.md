@@ -12,6 +12,12 @@ The mobile system is assembled using the following components:
 
 ## Preparing the Raspberry Pi Zero
 
+### Connecting and starting the Raspberry Pi Zero
+
+The Raspberry Pi Zero W is a microcomputer running a full operating system and providing input and output connectivity through a number of interfaces:
+
+![IMG_raspberrypizerow](IMG_raspberrypizerow.jpg)
+
 Your Raspberry Pi Zero W comes with a micro SD cards with the operating sysetm called [Raspbian](https://en.wikipedia.org/wiki/Raspbian Raspbian) preinstalled. The micro SD is inside the larger SD card adapter. Pull it out and insert it carefully into the card slot.
 
 ![IMG_sdcard](IMG_sdcard.jpg)
@@ -33,6 +39,12 @@ Next, connect the USB ports. Your Raspberry Pi Zero W hast two USB slots, one (l
 ![IMG_usbhub](IMG_usbhub.jpg)
 
 Finally connect the power supply to the right mini USB connector. The Raspberry Pi Zero W now starts up, the green inicator light begins to flash, and instructions follow on your screen.
+
+### Setting-up the wireless network
+
+Follow the instructions on-screen to set-up your Raspberry Pi Zero W. It will automatically reboot after resizing. Then connect to the wireless network. 
+
+Details on the password and network can be found on your desk.
 
 ## Installing the Sensors
 
