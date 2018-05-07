@@ -42,9 +42,15 @@ Finally connect the power supply to the right mini USB connector. The Raspberry 
 
 ### Setting-up the wireless network
 
-Follow the instructions on-screen to set-up your Raspberry Pi Zero W. It will automatically reboot after resizing. Then connect to the wireless network. 
+Follow the instructions on-screen to set-up your Raspberry Pi Zero W. It will automatically reboot after resizing. 
 
-Details on the password and network can be found on your desk.
+Then connect to the wireless network. Click in the menu-bar on the wireless network icon, select our network and enter the password. Details on the password and network can be found on your desk. Hover with the mouse over the network icon to read the IP number. Note the IP number on your sheet on the desk.
+
+![SCS_network](SCS_network.jpg)
+
+Next, localize the Raspberry Pi Zero W to your language and region. Go to 
+
+
 
 ## Installing the Sensors
 
