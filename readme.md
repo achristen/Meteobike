@@ -63,7 +63,7 @@ Next, localize the Raspberry Pi Zero W to your language and region. Provide a pa
 
 Test the communication with another device (your laptop or smartphone). First activate VNC. Go to settings, and enable "VNC". You can also enable SSH, VNC und I2C.
 
-![SCS_connections.png](SCS_SCS_connections.png)
+![SCS_connections.png](SCS_connections.png)
 
 Next, on your laptop or smartphone install the "VNC Viewer" from "RealVNC":
 
