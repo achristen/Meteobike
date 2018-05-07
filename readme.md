@@ -56,7 +56,11 @@ Next, localize the Raspberry Pi Zero W to your language and region. Go to
 
 ### Installing the DHT 22 Sensor
 
-Enter the following commands into the command line on the Raspberry Pi Zero to install the communication with the Adafruit DHT 22 library:
+The DHT22 is a low-cost digital temperature and humidity sensor. It contains a capacitive humidity sensor and a thermistor (resistor that changes with temperature). It transfers data digitally to your Raspberry Pi Zero W. You need jsut three cables to connect the DHT22 to the Raspberry Pi Zero W - one for power (red), one for the signal (orange) and one for the ground (brown).
+
+![IMG_dht22](IMG_dht22.jpg)
+
+To enable communication with the Enter the following commands into the command line on the Raspberry Pi Zero to install the communication with the Adafruit DHT 22 library:
 
     $ sudo apt-get update
     $ sudo apt-get install build-essential python-dev python-openssl git
