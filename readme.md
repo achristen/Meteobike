@@ -24,10 +24,11 @@ Your Raspberry Pi Zero W comes with a micro SD cards with the operating sysetm (
 
 The first time you set-up your Raspberry Pi Zero W, you will need a few additional components. Those components can be used for setting-up multiple systems in a row. The components you need are 
 
-* A screen
+* Screen (HDMI or VGA)
 * USB keyboard 
 * USB mouse
-* Various connection cables. 
+* A USB hub
+* Various interface cables. 
 
 In our course, you share a screen, a keyboard and a mouse, and connection cables between two students each.
 
@@ -41,7 +42,7 @@ To connect the screen during the initial set-up, connect the mini-HDMI cable to 
 
 ![IMG_hdmi](IMG_hdmi.jpg)
 
-Next, connect the USB ports. Your Raspberry Pi Zero W hast two mini-USB ports, one (left) is for the USB devices (mouse, keyboard), one (right) is actually only for supplying power. First connect to the USB devices (left). Because there is only one true USB port, but you need to connect two devices, you must also add initially a USB HUB. Here is the set-up:
+Next, connect the USB ports. Your Raspberry Pi Zero W hast two mini-USB ports, one (left) is for the USB devices (mouse, keyboard), one (right) is actually only for supplying power. First connect to the USB devices (left). Because there is only one true USB port, but you need to connect two devices, you must also add initially a USB hub. Here is the set-up:
 
 ![IMG_usbhub](IMG_usbhub.jpg)
 
@@ -148,7 +149,7 @@ Once rebooted, run this command in the `LXTerminal` to enable the serial port:
     
     $ sudo gpsd /dev/ttyS0 -F /var/run/gpsd.sock
     
-Next, edit the file /etc/rc.local, again using the "nano" editor:
+Next, edit the file /etc/rc.local, again using the `nano` editor:
 
     $ sudo nano /etc/rc.local 
 
