@@ -1,5 +1,9 @@
 # Meteobike
 
+![IMG_meteobike](IMG_meteobike.jpg)
+
+## Overview
+
 The mobile system is assembled using the following components:
 
 ![IMG_components](IMG_components.jpg)
