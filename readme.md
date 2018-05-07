@@ -170,3 +170,27 @@ You can then test the GPS using:
 We want the data from the GPS and the DHT22 to be automatically collected and written into a file. We would also benefit from having the system data displayed in real time on screen. This is done with the python program `meteobike.py`, which you can download on your Raspberry Pi Zero here:
 
 * [Download meteobike.py](meteobike.py)
+
+You can start `meteobike.py` using the Terminal (assuming your file has been downloaded to the desktop)
+   
+    $ python /home/pi/Desktop/meteobike.py 
+    
+![SCS_userinterface](SCS_userinterface.png)
+    
+Next mIf it runs, make changes to personalize your copy of `meteobike.py`. 
+
+* Replace "01" on line 41 `raspberryid =` to your system#s two digit number. If your system has the number "7" enter "07".
+* Replace "andreas" on line 42 `studentname =` to your first name in quotes.
+
+Every time `meteobike.py` is started, it will create a new log-file that contains the data sampled. Here is an example:
+
+You can also place a link - called bash file on your desktor (`meteobike.sh`)
+
+* [Download meteobike.sh](meteobike.sh)
+
+Change permissions of the file as follows, so it is executable, i.e. it can be started with a double-click:
+
+    $ chmod +x  /home/pi/Desktop/meteobike.sh
+    
+Then you can double-click `meteobike.sh` to start the user interface and start recording.
+    
