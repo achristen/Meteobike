@@ -61,6 +61,10 @@ Test the communication with another device (your laptop or smartphone). First, o
 ).
 * On Android devices use  [Google Play to download the VNC Viewer](https://play.google.com/store/apps/details?id=com.realvnc.viewer.android).
 
+Make sure your laptop or smartphone is connected to the same wireless as the Raspberry Pi Zero W. Then start your viewer, connect to the IP address you previously noted (likely `192.168.X.Y`) and enter the suername "pi" with the password we have previously set.
+
+You should be able to control your Raspberry Pi Zero W, use the mouse and keybord remotely.
+
 ## Installing the Sensors
 
 ### Installing the DHT 22 Sensor
