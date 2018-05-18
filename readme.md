@@ -134,7 +134,9 @@ To enable communication with the Raspberry Pi Zero W, start the Raspberry's `LXT
     $ sudo apt-get install gpsd gpsd-clients python-gps
     $ sudo systemctl stop serial-getty@ttyS0.service 
     $ sudo systemctl disable serial-getty@ttyS0.service
-
+    $ sudo systemctl stop gpsd.socket
+	$ sudo systemctl disable gpsd.socket
+    
 For the Raspberry Pi Zero we need to enable the serial port on the GPIO pins. This requires us to change the configuration file of the Raspberry Pi Zero W. You can use a texteditor, for example the `nano` command in `LXTerminal` and edit the file `config.txt`
     
     $ sudo nano /boot/config.txt
@@ -145,7 +147,7 @@ Scroll to the the very bottom of the file (not with a mouse, but with the arrow 
     
 Save with `Ctrl`+`0` (German: `Strg`+`O`), and then press `Enter`. Next press `Ctrl`+`X` (`Strg`+`X`) to exit the `nano` editor. Finally, reboot the Raspberry Pi Zero.
 
-Once rebooted, run this command in the `LXTerminal` to enable the serial port:
+Once rebooted, disable the standard socket, and run this command in the `LXTerminal` to enable the serial port:
     
     $ sudo gpsd /dev/ttyS0 -F /var/run/gpsd.sock
     
