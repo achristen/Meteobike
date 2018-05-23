@@ -217,3 +217,6 @@ To ensure it works, you must change permissions of the file as follows (make it 
     
 Now you can double-click `meteobike.sh`and to start the user interface.
     
+##Assembly of the System
+
+Take your Raspberry Pi system and the following 
