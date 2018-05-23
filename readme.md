@@ -235,11 +235,11 @@ You will use the cirlce hook and loop velcro to attach the sheild and sensor. Pl
 
 ![IMG_velcro](IMG_velcro.jpg)
 
-Pass the wires from the sensors through the sheild and through the largest hole, then press the sensor to the shield and ensure the velcro will hold the two together. 
+Pass the wires from the sensor through the sheild and through the largest hole, then press the sensor to the shield and ensure the velcro will hold the two together. 
 
 Place the shield close to the bag and put the temperature and humidity sensor cord through the large hole in the bag.
 
-Now you must connect the radiation shield and the sensors to the bag. To do this, you will use a HX3 screwdriver to insert the bolt and screw through the sheilds two holes and through the hole that is on the bag. 
+Now you must connect the radiation shield and the sensor to the bag. To do this, you will use a HX3 screwdriver to insert the bolt and screw through the sheilds two holes and through the hole that is on the bag. 
 
 Using a wrench to hold the bolt in place, use the screwdriver to insert the screw into the bolt to hold it secure. Place the 
 thin plastic plate with the same holes on the inside of the bag apply the screw through it and the bolt on the inside. 
