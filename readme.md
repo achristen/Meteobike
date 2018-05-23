@@ -260,7 +260,7 @@ The foam piece that was not altered will be used as the base protection betweem 
 
 The GPS system can be placed into the opposite side of the sensor shield on the inside of the bag. 
 
-##Display the recorded GPS track
+## Display the recorded GPS track
 
 The GPS track is stored by the Raspberry on the desktop as a comma-separated file.
 
