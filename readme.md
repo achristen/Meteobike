@@ -229,7 +229,7 @@ Now that the tube is completely covered with the tape, use the scissors to punct
 
 ![IMG_reflectiveshield](IMG_reflectiveshield.jpg)
 
-To connect the temperature and humidity sensor to the radiation shield, you must unplug the sensor from the Raspberry Pi, please ensure the sensor does not have any power.
+To connect the temperature and humidity sensor to the radiation shield, you must unplug the sensor from the Raspberry Pi, please ensure the sensor is not connected to any source of power.
 
 You will use the cirlce hook and loop velcro to attach the sheild and sensor. Place one piece on the inside of the radiaiton shield, on the side that has 3 holes. It should be located closer to the small hole that is farthest from the large hole. Place the second peice of velcro on the temperature and humidity sensor. 
 
