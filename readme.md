@@ -176,9 +176,11 @@ Turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspberry Pi
 
 Double check if the connection is correct. Then reconnect the power cable to the Raspberry Pi Zero. The Raspberry Pi Zero restarts, and the green light flashes.  
 
-Now, you can then test the GPS using:
+Now, you can test the GPS using:
 
     $ cgps -s
+
+Note: If the GPS is searching for a signal it will flash red 5 times in 10seconds and if it flashes red once in 15 seconds it has been connected to the satellites.
 
 # Running the Recording Interface
 
@@ -256,7 +258,36 @@ There are two locations in the foam where you must use the scissors to remove on
 
 The foam piece that was not altered will be used as the base protection betweem the battery on the bottom of the bag and the Raspberry Pi that will be placed inside the altered foam. 
 
-The GPS system can be slid into the opposite side of temperature anad humidity sensor on the inside of the bag. 
+The GPS system can be placed into the opposite side of the sensor shield on the inside of the bag. 
+
+##Display the recorded GPS track
+
+The GPS track is stored by the Raspberry on the desktop as a comma-separated file.
+
+If the Raspberry is in the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (on the Mac, for example with Cyberduck). 
+
+A graphical representation of the track can be done place on the website http://www.gpsvisualizer.com/map_input
+
+Simple drawing of a track
+At top left choose "With: 1400", then at the top right under "Upload" choose your file  and Click on Draw the map.
+
+Color-coded drawing by temperature
+Under "Track options" click on "advanced options" and make the following settings below:
+
+Colorize by: custom field
+Custom colorization field: temperature
+Spectrum direction: down
+Hue 1: 120
+Hue 2: 0
+
+Then click on "Draw the map”.
+
+There are also option to export it into Google Earth, you could explore and describe. 
+
+Here is an example
+
+![IMG_GPStrack](IMG_GPStrack.jpg)
+
 
 
 
