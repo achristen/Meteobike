@@ -216,7 +216,47 @@ To ensure it works, you must change permissions of the file as follows (make it 
     $ chmod +x  ~/Desktop/meteobike.sh
     
 Now you can double-click `meteobike.sh`and to start the user interface.
-    
-##Assembly of the System
 
-Take your Raspberry Pi system and the following 
+## Assembly of the system
+
+Materials needed to complete the assembly of system: 
+
+![IMG_assembly](IMG_assembly.jpg)
+
+To begin the assembly of the Meteobike system, carefully cut the reflective tape to the length of the white plastic tube. Wrap the tube with the tape lengthwise, cut another piece of the same length and repeat this step with minimal overlap of the first piece of tape. The two pieces of tape should be able to cover the entire tube.
+
+Now that the tube is completely covered with the tape, use the scissors to puncture a hole in the tape where the hole in the tube is located. This is the radiation shield for the temperature and humitidy sensor. 
+
+![IMG_reflectiveshield](IMG_reflectiveshield.jpg)
+
+To connect the temperature and humidity sensor to the radiation shield, you must unplug the sensor from the Raspberry Pi, please ensure the sensor does not have any power.
+
+You will use the cirlce hook and loop velcro to attach the sheild and sensor. Place one piece on the inside of the radiaiton shield, on the side that has 3 holes. It should be located closer to the small hole that is farthest from the large hole. Place the second peice of velcro on the temperature and humidity sensor. 
+
+![IMG_velcro](IMG_velcro.jpg)
+
+Pass the wires from the sensors through the sheild and through the largest hole, then press the sensor to the shield and ensure the velcro will hold the two together. 
+
+Place the shield close to the bag and put the temperature and humidity sensor cord through the large hole in the bag.
+
+Now you must connect the radiation shield and the sensors to the bag. To do this, you will use a HX3 screwdriver to insert the bolt and screw through the sheilds two holes and through the hole that is on the bag. 
+
+Using a wrench to hold the bolt in place, use the screwdriver to insert the screw into the bolt to hold it secure. Place the 
+thin plastic plate with the same holes on the inside of the bag apply the screw through it and the bolt on the inside. 
+
+![IMG_screw](IMG_screw.jpg)
+
+To ensure the protection of the sensor, a special foam is used. As you can see it is structured into cubical formation that allows you to take out the specific size you need. 
+
+When sizing the foam for the Raspberry Pi, you will remove the foam cubes from the arrangement found below
+
+![IMG_foam](IMG_foam.jpg)
+
+There are two locations in the foam where you must use the scissors to remove only half of the cube. This is the location where the power cord and the temperature and humidity sensor cords can be guided. 
+
+The foam piece that was not altered will be used as the base protection betweem the battery on the bottom of the bag and the Raspberry Pi that will be placed inside the altered foam. 
+
+The GPS system can be slid into the opposite side of temperature anad humidity sensor on the inside of the bag. 
+
+
+
