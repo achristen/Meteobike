@@ -223,14 +223,14 @@ Now you can double-click `meteobike.sh` to start the user interface.
 
 Materials needed to complete the assembly of system include: 
 
-*Reflective Tape 
-*Scissors 
-*Sensor Screen/Radiation Shield
-*Bag
-*GPS/T&RH Sensor
-*Velcro
-*Screw & Bolt 
-*Foam
+* Reflective Tape 
+* Scissors 
+* Sensor Screen/Radiation Shield
+* Bag
+* GPS/T&RH Sensor
+* Velcro
+* Screw & Bolt 
+* Foam
 
 ![IMG_assembly](IMG_assembly.jpg)
 
@@ -277,7 +277,7 @@ When sizing the foam for the Raspberry Pi, you will remove the foam cubes from t
 
 ![IMG_foam](IMG_foam.jpg)
 
-There are two locations in the foam where you must use the scissors to remove only half of the cube. This is the location where the power cord and the temperature and humidity sensor cords can be guided. 
+There are two locations in the foam where you must use the scissors to remove only half of the cube. This is the location where the power cable and the temperature and humidity sensor cables can be guided. 
 
 The foam piece that was not altered will be used as the base protection between the battery on the bottom of the bag and the Raspberry Pi that will be placed inside the altered foam. 
 
