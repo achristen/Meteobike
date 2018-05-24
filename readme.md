@@ -1,6 +1,6 @@
 # Meteobike - Mapping urban heat islands with bikes
 
-"Meteobike" is our educational Raspberry Pi Zero Project at the University of Freiburg, [Chair of Environmental Meteorology](http://www.meteo.uni-freiburg.de/). In our course "Tools in Meteorology" (5th Term of our Minor in "Meteorology and Climatology"), we develop a system to measure, analyze and visualize the urban heat island effect. Within a short period (~2 hours), we measure with many systems simulteneously temperature and humidity transcects inside and outside the city and tag measurement locations with GPS. The system is battery operated and light, so it can be mounted on bikes. Communication with the Raspberry Pi Zero to our smartphone is enabled via wireless network.
+"Meteobike" is our educational Raspberry Pi Zero Project at the University of Freiburg, [Chair of Environmental Meteorology](http://www.meteo.uni-freiburg.de/). In our course "Tools in Meteorology" (5th Term of our Minor in "Meteorology and Climatology"), we develop a system to measure, analyze and visualize the urban heat island effect. Within a short period (~2 hours), we measure with many systems simultaneously temperature and humidity transcects inside and outside the city and tag measurement locations with GPS. The system is battery operated and light, so it can be mounted on bikes. Communication with the Raspberry Pi Zero to our smartphone is enabled via wireless network.
 
 ![IMG_meteobike](IMG_meteobike.jpg)
 
@@ -32,7 +32,7 @@ The first time you set-up your Raspberry Pi Zero W, you will need a few addition
 
 In our course, you share a screen, a keyboard and a mouse, and connection cables between two students each.
 
-Later, once the system is assigned to your wireless networks, you can connect to it without keybord, without mouse and without Screen using RealVNC, so there is no need for a phsyical keyboard, a mouse or a screen during teh bike traverses. All can be controlled though on your smartphone or tablet, or just be operated remotely.
+Later, once the system is assigned to your wireless networks, you can connect to it without keybord, without mouse and without Screen using RealVNC, so there is no need for a phsyical keyboard, a mouse or a screen during the bike traverses. All can be controlled on your smartphone or tablet, or just be operated remotely.
 
 Here are all connection cables and supplies you need for the initial set-up (screen is not shown):
 
@@ -42,7 +42,7 @@ To connect the screen during the initial set-up, connect the mini-HDMI cable to 
 
 ![IMG_hdmi](IMG_hdmi.jpg)
 
-Next, connect the USB ports. Your Raspberry Pi Zero W hast two mini-USB ports, one (left) is for the USB devices (mouse, keyboard), one (right) is actually only for supplying power. First connect to the USB devices (left). Because there is only one true USB port, but you need to connect two devices, you must also add initially a USB hub. Here is the set-up:
+Next, connect the USB ports. Your Raspberry Pi Zero W has two mini-USB ports, one (left) is for the USB devices (mouse, keyboard), one (right) is actually only for supplying power. First connect to the USB devices (left). Because there is only one true USB port, but you need to connect two devices, you must also add initially a USB hub. Here is the set-up:
 
 ![IMG_usbhub](IMG_usbhub.jpg)
 
@@ -159,7 +159,7 @@ An insert at the very end, but above the line `exit 0` the following line:
 
     gpsd /dev/ttyS0 -F /var/run/gpsd.sock
     
-Save with `Ctrl`+`0` (German: `Strg`+`O`), and then press `Enter`. Next press `Ctrl`+`X` (`Strg`+`X`) to exit the `nano` commandline editor.     
+Save with `Ctrl`+`0` (German: `Strg`+`O`), and then press `Enter`. Next press `Ctrl`+`X` (`Strg`+`X`) to exit the `nano` command line editor.     
     
 Now, every time the Raspberry Pi Zero is booted, this command will be executed. 
 
@@ -217,29 +217,39 @@ To ensure it works, you must change permissions of the file as follows (make it 
 
     $ chmod +x  ~/Desktop/meteobike.sh
     
-Now you can double-click `meteobike.sh`and to start the user interface.
+Now you can double-click `meteobike.sh` to start the user interface.
 
 ## Assembly of the system
 
-Materials needed to complete the assembly of system: 
+Materials needed to complete the assembly of system include: 
+
+*Reflective Tape 
+*Scissors 
+*Sensor Screen/Radiation Shield
+*Bag
+*GPS/T&RH Sensor
+*Velcro
+*Screw & Bolt 
+*Foam
 
 ![IMG_assembly](IMG_assembly.jpg)
 
-To begin the assembly of the Meteobike system, carefully cut the reflective tape to the length of the white plastic tube. Wrap the tube with the tape lengthwise, cut another piece of the same length and repeat this step with minimal overlap of the first piece of tape. The two pieces of tape should be able to cover the entire tube.
 
-Now that the tube is completely covered with the tape, use the scissors to puncture a hole in the tape where the hole in the tube is located. This is the radiation shield for the temperature and humitidy sensor. 
+To begin the assembly of the Meteobike system, carefully cut the reflective tape to the length of the white plastic tube. Wrap the tube with the tape lengthwise, cut another piece of the same length and repeat this step with minimal overlap of the first piece of tape. The two pieces of tape should cover the entire tube.
 
-![IMG_reflectiveshield](IMG_reflectiveshield.jpg)
+Now that the tube is completely covered with the tape, use the scissors to puncture a hole in the tape where the holes on the tube are located. This is the sensor screen for the temperature and humitidy sensor. 
 
-To connect the temperature and humidity sensor to the radiation shield, you must unplug the sensor from the Raspberry Pi, please ensure the sensor is not connected to any source of power.
+![IMG_sensorscreen](IMG_sensorscreen.jpg)
 
-You will use the cirlce hook and loop velcro to attach the sheild and sensor. Place one piece on the inside of the radiaiton shield, on the side that has 3 holes. It should be located closer to the small hole that is farthest from the large hole. Place the second peice of velcro on the temperature and humidity sensor. 
+To connect the temperature and humidity sensor to the radiation shield, you must disconnect the temperature and humidity sensor from the Raspberry Pi, please ensure the sensor is not connected to any source of power.
+
+You will use the cirlce hook and loop velcro to attach the sheild and sensor. Place one piece on the inside of the radiaiton shield on the side that has 3 holes. It should be located close to the small hole that is farthest from the large hole. Place the second peice of velcro on the back side of the temperature and humidity sensor. 
 
 ![IMG_velcro](IMG_velcro.jpg)
 
-Pass the wires from the sensor through the sheild and through the largest hole, then press the sensor to the shield and ensure the velcro will hold the two together. 
+Pass the wires from the sensor through the shield and through the largest hole, then press the sensor to the shield and ensure the velcro will hold the sensor and shield together. 
 
-Place the shield close to the bag and put the temperature and humidity sensor cord through the large hole in the bag.
+Place the shield close to the bag and put the temperature and humidity sensor wires through the large hole in the bag.
 
 Now you must connect the radiation shield and the sensor to the bag. To do this, you will use a HX3 screwdriver to insert the bolt and screw through the sheilds two holes and through the hole that is on the bag. 
 
@@ -247,6 +257,19 @@ Using a wrench to hold the bolt in place, use the screwdriver to insert the scre
 thin plastic plate with the same holes on the inside of the bag apply the screw through it and the bolt on the inside. 
 
 ![IMG_screw](IMG_screw.jpg)
+
+You can now reconnect the  the DHT22 sensor physically using the pre-soldered wires to the Raspberry Pi W. 
+
+| DHT22 T/RH Sensor | Cable Color | Raspberry Pi Zero |
+| ------------------ | ----------- | ----------------- |
+| PIN 1  | <span style="color: red">Red Cable</span>  | PIN 1 (3V+)
+| PIN 2 | <span style="color: orange">Orange Cable</span>  | PIN 7 (GPIO4)
+| PIN 3 | (no cable)  |
+| PIN 4 | <span style="color: brown">Brown Cable</span>  | PIN 9 (Ground)
+
+![IMG_dht22wiring](IMG_dht22wiring.jpg)
+
+Please double check to make sure the connection is correct. 
 
 To ensure the protection of the sensor, a special foam is used. As you can see it is structured into cubical formation that allows you to take out the specific size you need. 
 
@@ -256,9 +279,13 @@ When sizing the foam for the Raspberry Pi, you will remove the foam cubes from t
 
 There are two locations in the foam where you must use the scissors to remove only half of the cube. This is the location where the power cord and the temperature and humidity sensor cords can be guided. 
 
-The foam piece that was not altered will be used as the base protection betweem the battery on the bottom of the bag and the Raspberry Pi that will be placed inside the altered foam. 
+The foam piece that was not altered will be used as the base protection between the battery on the bottom of the bag and the Raspberry Pi that will be placed inside the altered foam. 
 
 The GPS system can be placed into the opposite side of the sensor shield on the inside of the bag. 
+
+When you have completed the assembly it should look similar to the image below. 
+
+![IMG_complete](IMG_complete.jpg)
 
 ## Display the recorded GPS track
 
