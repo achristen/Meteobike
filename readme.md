@@ -289,7 +289,7 @@ When you have completed the assembly it should look similar to the image below.
 
 ## Connecting the Raspberry Pi with your Smartphone
 
-In a first step, enable your phone to host a Personal Hotspot. Although you do not need to access the Internet, this is required in order to build a network over WiFi to communicate between the Raspberry and your Phone.
+In a first step, enable your phone to host a Personal Hotspot. Although you do not need to access the Internet and you will not use any of your data plan capacity, this is required in order to build a network over WiFi to communicate between the Raspberry and your Phone. However, make sure you do not browse the web or download any files while connected to your Personal Hotspot (otherwise charges will apply to your data plan). Also make sure you use a personal, not the course password to protect your connection.
 
 ![IMG_Hotspot_iPhone.jpg](IMG_Hotspot_iPhone.jpg)
 
@@ -297,7 +297,11 @@ Here is a description (in German) how to [enable a personal hotsopt on your iOS 
 
 Here is a description (in German) how to [enable a personal hotsopt on your Android smartphone](https://praxistipps.chip.de/android-handy-als-wlan-hotspot-einrichten-so-gehts_92113)  
 
-In both cases, make sure you use a personal password, not the group password for the network in our class.
+In both cases, you will now have a WiFi network enabled, and you can connect to the network from the Raspberry Pi Zero. Boot the Raspberry Pi Zero, and then select your Personal Hotspot WiFi. Enter the password, and read off the IP number (hover over the network symbol to see it):
+
+Go back to your phone, and start the VNC app. In the VNC app create a new connection and enter the IP number, e.g. 172.20.10.7 (without the "/", and what comes afterwards). When connecting enter the username "pi" and the previously set VNC password. You should now be able to control your Raspberry Pi Zero as long as the phone and the raspberry are close together.
+
+You can also use the second outlet to keep your phone charged during the exercise, but you must bring your own charger-cable.
 
 ## Display the recorded GPS track
 
