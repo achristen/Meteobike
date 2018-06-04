@@ -301,11 +301,11 @@ In both cases, you will now have a WiFi network enabled, and you can connect to 
 
 Boot the Raspberry Pi Zero, and then change the WiFi network to your Personal Hotspot WiFi name:
 
-![IMG_choose_smartphone.png](IMG_pre_shared_key.png)
+![IMG_choose_smartphone.png](IMG_choose_smartphone.png)
 
 Enter your password when promted:
 
-IMG_pre_shared_key.png
+![IMG_choose_smartphone.png](IMG_pre_shared_key.png)
 
 Then read the IP number (hover over the WiFi symbol in the menu bar to see it) e.g. 172.20.10.7 (without the "/", and what comes afterwards).
 
