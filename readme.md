@@ -291,7 +291,7 @@ When you have completed the assembly it should look similar to the image below.
 
 In a first step, enable your phone to host a Personal Hotspot. Although you do not need to access the Internet and you will not use any of your data plan capacity, this is required in order to build a network over WiFi to communicate between the Raspberry and your Phone. However, make sure you do not browse the web or download any files while connected to your Personal Hotspot (otherwise charges will apply to your data plan). Also make sure you use a personal, not the course password to protect your connection.
 
-![IMG_Hotspot_iPhone.jpg](IMG_Hotspot_iPhone.jpg)
+![IMG_Hotspot_iPhone.jpg](IMG_Hotspot_iPhone.jpg) <!-- .element height="50%" width="50%" -->
 
 Here is a description (in German) how to [enable a personal hotsopt on your iOS smartphone](https://support.apple.com/de-de/HT204023)  
 
@@ -301,7 +301,7 @@ In both cases, you will now have a WiFi network enabled, and you can connect to 
 
 Boot the Raspberry Pi Zero, and then change the WiFi network to your Personal Hotspot WiFi name:
 
-![IMG_choose_smartphone.png](IMG_choose_smartphone.png)
+![IMG_choose_smartphone.png](IMG_pre_shared_key.png)
 
 Enter your password when promted:
 
