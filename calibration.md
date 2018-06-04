@@ -1,9 +1,9 @@
 # Meteobike - Calibration of DHT 22 Sensors
 
-
+Table 1: Calibration coefficients derived from the intercomparison between the DHT22 sensors and the Campbell Scientific CS 215 T/RH Probe.
 
 | DHT22 T/RH Sensor Number |  Error (K) | a1 (Slope) | a0 (Offset) |
-| ------------------ | ----------- | ----------------- |
+| ------------------ | ----------- | ----------------- |  ----------------- |
 | 01 |     0.0775882 |       1.00100 |      0.152556 |
 | 02 |     0.0849309 |       1.04445 |     -0.842947 |
 | 03 |      0.148279 |       1.02379 |     -0.477584 |
