@@ -282,9 +282,13 @@ You can now reconnect the  the DHT22 sensor physically using the pre-soldered wi
 
 Please double check to make sure the connection is correct. 
 
-To ensure the protection of the sensor, a special foam is used. As you can see it is structured into cubical formation that allows you to take out the specific size you need. 
+### Foam Arragnement 
 
-You will be given a 20x28 cubical foam sheet, using this you will remove two 7x12 pieces,one will be for the base and one will be altered to protect the Raspberry Pi system. You should be able to cut out 6 different 7x12 sheets from the original 20x28 sheet. 
+To ensure the protection of the sensor, a special foam is used. As you can see it is structured into cubical formation that allows you to remove the specific size and pattern you need. 
+
+You will be given a 20x28 cubical foam sheet, using this you will remove two 7x12 cube pieces, one will be for the base of your sensor and one will be altered to protect the Raspberry Pi system. 
+
+You should be able to remove 6 different 7x12 sheets from the original 20x28 sheet. 
 
 ![IMG_fullfoam](IMG_fullfoam.jpg)
 
@@ -294,7 +298,7 @@ When sizing the foam for the Raspberry Pi, you will remove the foam cubes from t
 
 ![IMG_alteredfoam](IMG_alteredfoam.jpg)
 
-There is one location in the foam where you must use the scissors to remove only half of the cube. This is the location where the power cable will be guided, this will face down within the bag. 
+There is one location in the foam where you must use the scissors to remove only half of the cube. This is the location where the power cable will be guided and will be faced down in the bag. 
 
 You will now connect the battery and arrange the foam, battery and sensors to be comfortably situated within the bag. 
 
@@ -304,7 +308,7 @@ The arrangement within the bag will consist of the battery at the base, followed
 
 ![IMG_arrangement](IMG_arrangement.jpg)
 
-You must place the Raspberry Pi on top of the altered foam then connect the battery cable under the altered foam where you cut out the half cubes. 
+You must place the Raspberry Pi on top of the altered foam then connect the battery cable to the Raspberry Pi under the altered foam where you cut out the half cubes. 
 
 The GPS system can be placed into the opposite side of the sensor shield on the inside of the bag. 
 
