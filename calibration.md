@@ -51,5 +51,7 @@ Table 2: Error estimates of the uncalibrated and calibrated temperature sensors
  | 19 |      0.486867 |      0.123660
  | 20 |      0.403362 |      0.147125
  | 22 |      0.318474 |      0.127041
+ | All Sensors | 0.28227875 | 0.11613665
+
 
 The Error is calculated as the root mean square error between the uncalibrated  DHT22 sensor and the reference sensor (CS 215), and between the calibrated  DHT22 sensor and the reference sensor (CS 215)
