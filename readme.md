@@ -262,9 +262,9 @@ Pass the wires from the sensor through the shield and through the largest hole, 
 
 Place the shield close to the bag and put the temperature and humidity sensor wires through the large hole in the bag.
 
-Now you must connect the radiation shield and the sensor to the bag. To do this, you will use a HX3 screwdriver to insert the bolt and screw through the sheilds two holes and through the hole that is on the bag. 
+Now you must connect the radiation shield and the sensor to the bag. To do this, you will use a wrench and screwdriver to insert the bolt and screw through the shields two holes and through the hole that is on the bag. 
 
-Using a wrench to hold the bolt in place, use the screwdriver to insert the screw into the bolt to hold it secure. Place the 
+Using the wrench to hold the bolt in place, use the screwdriver to insert the screw into the bolt to hold it secure. Place the 
 thin plastic plate with the same holes on the inside of the bag apply the screw through it and the bolt on the inside. 
 
 ![IMG_boltscrew](IMG_boltscrew.jpg)
