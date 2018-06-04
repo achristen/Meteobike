@@ -291,8 +291,13 @@ When you have completed the assembly it should look similar to the image below.
 
 You can enter the calibration coefficients you derived from the intercomparison directly into the python code. Open the file `Meteobike03.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
 
-			
-
+		temperature_cal_a1 = 1.00000 # enter the calibration coefficient slope for temperature
+		temperature_cal_a0 = 0.00000 # enter the calibration coefficient offset for temperature
+		vappress_cal_a1 = 1.00000 # enter the calibration coefficient slope for vapour pressure
+		vappress_cal_a0 = 0.00000 # enter the calibration coefficient offset for vapour pressure
+		
+Replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in ![Meteobike/Sensor-Calibration/readme.md](Tables 1 and 3 of the calibration diretory, respecively). 	
+		
 ## Connecting the Raspberry Pi with your Smartphone
 
 In a first step, enable your phone to host a Personal Hotspot. Although you do not need to access the Internet and you will not use any of your data plan capacity, this is required in order to build a network over WiFi to communicate between the Raspberry and your Phone. However, make sure you do not browse the web or download any files while connected to your Personal Hotspot (otherwise charges will apply to your data plan). Also make sure you use a personal, not the course password to protect your connection.
