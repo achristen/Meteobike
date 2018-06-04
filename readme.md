@@ -287,6 +287,18 @@ When you have completed the assembly it should look similar to the image below.
 
 ![IMG_complete](IMG_complete.jpg)
 
+## Connecting the Raspberry Pi with your Smartphone
+
+In a first step, enable your phone to host a Personal Hotspot. Although you do not need to access the Internet, this is required in order to build a network over WiFi to communicate between the Raspberry and your Phone.
+
+![IMG_Hotspot_iPhone.jpg](IMG_Hotspot_iPhone.jpg)
+
+Here is a description (in German) how to [enable a personal hotsopt on your iOS smartphone](https://support.apple.com/de-de/HT204023)  
+
+Here is a description (in German) how to [enable a personal hotsopt on your Android smartphone](https://praxistipps.chip.de/android-handy-als-wlan-hotspot-einrichten-so-gehts_92113)  
+
+In both cases, make sure you use a personal password, not the group password for the network in our class.
+
 ## Display the recorded GPS track
 
 The GPS track is stored by the Raspberry on the desktop as a comma-separated file.
