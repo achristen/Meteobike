@@ -267,7 +267,7 @@ Now you must connect the radiation shield and the sensor to the bag. To do this,
 Using a wrench to hold the bolt in place, use the screwdriver to insert the screw into the bolt to hold it secure. Place the 
 thin plastic plate with the same holes on the inside of the bag apply the screw through it and the bolt on the inside. 
 
-![IMG_screw](IMG_screw.jpg)
+![IMG_boltscrew](IMG_boltscrew.jpg)
 
 You can now reconnect the  the DHT22 sensor physically using the pre-soldered wires to the Raspberry Pi W. 
 
