@@ -80,4 +80,4 @@ Table 2: Error estimates of the uncalibrated and calibrated humidity sensors exp
  | 19 |      0.140213 |     0.0523584
  | 20 |      0.125395 |     0.0242715
  | 22 |     0.0749854 |     0.0192715
- | All Sensors | 0.282 | 0.116
+ | All Sensors | 0.108 | 0.032
