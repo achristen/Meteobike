@@ -184,30 +184,30 @@ Note: If the GPS is searching for a signal it will flash red 5 times in 10second
 
 # Running the Recording Interface
 
-We want the data from the GPS and the DHT22 to be automatically collected and written into a file. We would also benefit from having the system data displayed in real time on screen. This is done with the python program `meteobike.py`, which you can download on your Raspberry Pi Zero here:
+We want the data from the GPS and the DHT22 to be automatically collected and written into a file. We would also benefit from having the system data displayed in real time on screen. This is done with the python program `meteobike03.py`, which you can download on your Raspberry Pi Zero here:
 
-* [Download meteobike.py](meteobike.py)
+* [Download meteobike03.py](meteobike03.py)
 
-You can start `meteobike.py` using `LXTerminal` (assuming your file has been downloaded to the desktop)
+You can start `meteobike03.py` using `LXTerminal` (assuming your file has been downloaded to the desktop)
    
-    $ python ~/Desktop/meteobike.py 
+    $ python ~/Desktop/meteobike03.py 
     
 ![SCS_userinterface](SCS_userinterface.png)
     
-Next, make changes to personalize your copy of `meteobike.py`. You can, for example, open the Python Development Environment (Version 2.7) and `File > Open`. 
+Next, make changes to personalize your copy of `meteobike03.py`. You can, for example, open the Python Development Environment (Version 2.7) and `File > Open`. 
 
 * Replace "01" on line 41 `raspberryid =` to your system#s two digit number. If your system has the number "7" enter "07".
 * Replace "andreas" on line 42 `studentname =` to your first name in quotes.
 
 Then save the modified code `File > Save`. Close the Python Development Environment.
 
-Every time `meteobike.py` is started, it will create a new data-file that contains the data sampled. Here is an example:
+Every time `meteobike03.py` is started, it will create a new data-file that contains the data sampled. Here is an example:
 
-ID | Record | Raspberry_Time  | GPS_Time  | Altitude  | Latitude  | Longitude  | Temperature  | RelHumidity  | VapourPressure
---- | --- | --- | --- | --- | --- | --- | --- | --- |  --- | 
-01 | 8 | 2018-05-06 08:29:03 | 2018-05-06T06:29:04.000Z  | 281.700 | 47.991855 | 7.845193 | 23.0 | 41.9 | 1.196
-01 | 9 | 2018-05-06 08:29:11 | 2018-05-06T06:29:12.000Z  | 288.000 | 47.991375 |  7.845212 | 22.9 | 41.9 | 1.188
-01 | 10 | 2018-05-06 08:29:24 | 2018-05-06T06:29:25.000Z  | 290.000 | 47.991242 |  7.845800 | 23.0 | 41.9 | 1.196
+ID | Record | Raspberry_Time  | GPS_Time  | Altitude  | Latitude  | Longitude  | Temperature  | TemperatureRaw  | RelHumidity | RelHumidityRaw | VapourPressure | VapourPressureRaw
+--- | --- | --- | --- | --- | --- | --- | --- | --- |  --- | --- | --- |  --- |
+01 | 8 | 2018-05-06 08:29:03 | 2018-05-06T06:29:04.000Z  | 281.700 | 47.991855 | 7.845193 | 23.0 | 23.1 | 41.9 | 42.0 | 1.196 | 1.192
+01 | 9 | 2018-05-06 08:29:11 | 2018-05-06T06:29:12.000Z  | 288.000 | 47.991375 |  7.845212 | 22.9 | 23.0 | 41.9 |  42.0 | 1.188 | 1.185
+01 | 10 | 2018-05-06 08:29:24 | 2018-05-06T06:29:25.000Z  | 290.000 | 47.991242 |  7.845800 | 23.0 | 23.1 | 41.9 | 42.0 | 1.196 | 1.192
 
 You can also place a link - called bash script on your desktop (`meteobike.sh`)
 
@@ -217,7 +217,18 @@ To ensure it works, you must change permissions of the file as follows (make it 
 
     $ chmod +x  ~/Desktop/meteobike.sh
     
-Now you can double-click `meteobike.sh` to start the user interface.
+Now you can double-click `meteobike.sh` to start the user interface. Later, we will automate the start-up during the boot process.
+
+## Entering the calibration coefficients
+
+You can enter the calibration coefficients you derived from the intercomparison directly into the python code. Open the file `Meteobike03.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
+
+		temperature_cal_a1 = 1.00000
+		temperature_cal_a0 = 0.00000
+		vappress_cal_a1 = 1.00000 
+		vappress_cal_a0 = 0.00000 
+		
+Replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in ![Meteobike/Sensor-Calibration/readme.md](Tables 1 and 3 of the calibration diretory, respecively). make sure yoou use a `.` and not a `,` as the delimiter.	
 
 ## Assembly of the system
 
@@ -287,17 +298,6 @@ When you have completed the assembly it should look similar to the image below.
 
 ![IMG_complete](IMG_complete.jpg)
 
-## Entering the calibration coefficients
-
-You can enter the calibration coefficients you derived from the intercomparison directly into the python code. Open the file `Meteobike03.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
-
-		temperature_cal_a1 = 1.00000 # enter the calibration coefficient slope for temperature
-		temperature_cal_a0 = 0.00000 # enter the calibration coefficient offset for temperature
-		vappress_cal_a1 = 1.00000 # enter the calibration coefficient slope for vapour pressure
-		vappress_cal_a0 = 0.00000 # enter the calibration coefficient offset for vapour pressure
-		
-Replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in ![Meteobike/Sensor-Calibration/readme.md](Tables 1 and 3 of the calibration diretory, respecively). 	
-		
 ## Connecting the Raspberry Pi with your Smartphone
 
 In a first step, enable your phone to host a Personal Hotspot. Although you do not need to access the Internet and you will not use any of your data plan capacity, this is required in order to build a network over WiFi to communicate between the Raspberry and your Phone. However, make sure you do not browse the web or download any files while connected to your Personal Hotspot (otherwise charges will apply to your data plan). Also make sure you use a personal, not the course password to protect your connection.
