@@ -1,6 +1,6 @@
 # Meteobike - Calibration of DHT 22 Sensors
 
-Table 1: Calibration coefficients derived from the intercomparison between the Temperature of the DHT22 sensors 
+Table 1: Calibration coefficients derived from the intercomparison between the temperature of the DHT22 sensors 
 and the Campbell Scientific CS 215 T/RH Probe.
 
 | Sensor # |  a1 (Slope) | a0 (Offset) (K) |
@@ -53,10 +53,35 @@ Table 2: Error estimates of the uncalibrated and calibrated temperature sensors 
  | 22 |      0.318474 |      0.127041
  | All Sensors | 0.282 | 0.116
 
+The RMSE is calculated as the root mean square error between the uncalibrated  DHT22 sensor and the reference sensor (CS 215), and between the calibrated  DHT22 sensor and the reference sensor (CS 215)
 
-The Error is calculated as the root mean square error between the uncalibrated  DHT22 sensor and the reference sensor (CS 215), and between the calibrated  DHT22 sensor and the reference sensor (CS 215)
+Table 3: Calibration coefficients derived from the intercomparison between the vapour pressure of the DHT22 sensors 
+and the Campbell Scientific CS 215 T/RH Probe.
 
-Table 2: Error estimates of the uncalibrated and calibrated humidity sensors expressed as vapour pressure (kPa)
+ | Sensor # |  a1 (Slope) | a0 (Offset) (kPa) |
+ | ------------------ | ----------------- |  ----------------- |
+ | 01 |      0.747301 |      0.294008
+ | 02 |      0.977610 |    -0.0575832
+ | 03 |      0.967182 |    -0.0228499
+ | 04 |      0.932525 |     0.0213291
+ | 05 |       1.01424 |    -0.0749979
+ | 06 |      0.986773 |    -0.0328120
+ | 07 |       1.02176 |    -0.0694172
+ | 08 |      0.855676 |      0.102655
+ | 09 |       1.03315 |     -0.216009
+ | 10 |       1.00230 |     -0.215678
+ | 11 |      0.978226 |    -0.0445895
+ | 12 |      0.987336 |     -0.135979
+ | 13 |      0.984558 |    -0.0857634
+ | 14 |       1.00621 |     -0.123176
+ | 15 |      0.952723 |     0.0190996
+ | 16 |       1.00426 |    -0.0602562
+ | 17 |      0.969038 |     -0.120096
+ | 19 |       1.03063 |     -0.167150
+ | 20 |      0.993556 |     -0.115046
+ | 22 |      0.999856 |    -0.0722907
+
+Table 4: Error estimates of the uncalibrated and calibrated humidity sensors expressed as vapour pressure (kPa)
 
 | Sensor # |  RMSE uncalibrated (kPa) | RMSE calibrated (kPa) |
 | ------------------ | ----------------- |  ----------------- |
