@@ -297,11 +297,21 @@ Here is a description (in German) how to [enable a personal hotsopt on your iOS 
 
 Here is a description (in German) how to [enable a personal hotsopt on your Android smartphone](https://praxistipps.chip.de/android-handy-als-wlan-hotspot-einrichten-so-gehts_92113)  
 
-In both cases, you will now have a WiFi network enabled, and you can connect to the network from the Raspberry Pi Zero. Boot the Raspberry Pi Zero, and then select your Personal Hotspot WiFi. Enter the password, and read off the IP number (hover over the network symbol to see it):
+In both cases, you will now have a WiFi network enabled, and you can connect to the network from the Raspberry Pi Zero. 
 
-Go back to your phone, and start the VNC app. In the VNC app create a new connection and enter the IP number, e.g. 172.20.10.7 (without the "/", and what comes afterwards). When connecting enter the username "pi" and the previously set VNC password. You should now be able to control your Raspberry Pi Zero as long as the phone and the raspberry are close together.
+Boot the Raspberry Pi Zero, and then change the WiFi network to your Personal Hotspot WiFi name:
 
-You can also use the second outlet to keep your phone charged during the exercise, but you must bring your own charger-cable.
+![IMG_choose_smartphone.png](IMG_choose_smartphone.png)
+
+Enter your password when promted:
+
+IMG_pre_shared_key.png
+
+Then read the IP number (hover over the WiFi symbol in the menu bar to see it) e.g. 172.20.10.7 (without the "/", and what comes afterwards).
+
+Go back to your phone and start the VNC app. In the VNC app create a new connection and enter the local IP number you just read, e.g. 172.20.10.7 (without the "/", and what comes afterwards). When connecting enter the username "pi" and the previously set VNC password. You should now be able to control your Raspberry Pi Zero as long as the phone and the raspberry are close together.
+
+You can put the phone into the transparent lid of the bag. You can also use the second outlet of the power bank to keep your phone charged during measurements, but in this case, you must bring your own charger-cable.
 
 ## Display the recorded GPS track
 
