@@ -27,7 +27,7 @@ and the Campbell Scientific CS 215 T/RH Probe.
  | 22|      1.03719 |     -0.780249
 
 
-Table 2: Error estimates of the uncalibrated and calibrated temperature sensors
+Table 2: Error estimates of the uncalibrated and calibrated temperature sensors (K)
 
 | DHT22 T/RH Sensor Number |  RMSE uncalibrated (K) | RMSE calibrated (K) |
 | ------------------ | ----------------- |  ----------------- |
@@ -55,3 +55,29 @@ Table 2: Error estimates of the uncalibrated and calibrated temperature sensors
 
 
 The Error is calculated as the root mean square error between the uncalibrated  DHT22 sensor and the reference sensor (CS 215), and between the calibrated  DHT22 sensor and the reference sensor (CS 215)
+
+Table 2: Error estimates of the uncalibrated and calibrated humidity sensors expressed as vapour pressure (kPa)
+
+| DHT22 T/RH Sensor Number |  RMSE uncalibrated (kPa) | RMSE calibrated (kPa) |
+| ------------------ | ----------------- |  ----------------- |
+ | 01 |      0.157383 |     0.0812384
+ | 02 |     0.0848523 |     0.0110595
+ | 03 |     0.0705401 |     0.0217420
+ | 04 |     0.0780761 |     0.0259108
+ | 05 |     0.0608124 |     0.0218214
+ | 06 |     0.0544992 |     0.0209867
+ | 07 |     0.0501854 |     0.0280690
+ | 08 |      0.121217 |     0.0280824
+ | 09 |      0.184172 |     0.0539723
+ | 10 |      0.218736 |     0.0504370
+ | 11 |     0.0747423 |     0.0199641
+ | 12 |      0.154410 |     0.0284852
+ | 13 |      0.107360 |     0.0221103
+ | 14 |      0.119787 |     0.0315426
+ | 15 |     0.0607505 |     0.0416963
+ | 16 |     0.0596953 |     0.0231641
+ | 17 |      0.163710 |     0.0368133
+ | 19 |      0.140213 |     0.0523584
+ | 20 |      0.125395 |     0.0242715
+ | 22 |     0.0749854 |     0.0192715
+ | All Sensors | 0.282 | 0.116
