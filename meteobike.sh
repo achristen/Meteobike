@@ -1,2 +1,2 @@
 #!/bin/bash
-python ~/Desktop/meteobike.py
+python ~/Desktop/meteobike03.py
