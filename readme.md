@@ -298,7 +298,7 @@ When sizing the foam for the Raspberry Pi, you will remove the foam cubes from t
 
 ![IMG_alteredfoam](IMG_alteredfoam.jpg)
 
-There is one location in the foam where you must use the scissors to remove only half of the cube. This is the location where the power cable will be guided and will be faced down in the bag. 
+There is one location in the foam where you must use the scissors to remove only half of the cube. This is where the power cable will be guided and should be faced down in the bag. 
 
 You will now connect the battery and arrange the foam, battery and sensors to be comfortably situated within the bag. 
 
@@ -310,13 +310,13 @@ The arrangement within the bag will consist of the battery at the base, followed
 
 You must place the Raspberry Pi on top of the altered foam then connect the battery cable to the Raspberry Pi under the altered foam where you cut out the half cubes. 
 
-The GPS system can be placed into the opposite side of the sensor shield on the inside of the bag. 
+The GPS system can be placed into the opposite side of the sensor shield on the inside of the bag where the fabric has been cut. 
 
 When the system is complete, it should look similar to the image below. 
 
 ![IMG_systemcomplete](IMG_systemcomplete.jpg)
 
-Once the system is set up similar to what is viewed above, you can connect your mobile device to the VNC viewer in order to view the progress as you are collecting your data. 
+Once the system is set up similar to what is arranged above, you can connect your mobile device to the VNC viewer in order to see the progress as you are collecting your data. 
 
 Place your mobile device within the front pocket. 
 
