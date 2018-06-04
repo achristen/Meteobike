@@ -254,7 +254,7 @@ Now that the tube is completely covered with the tape, use the scissors to punct
 
 To connect the temperature and humidity sensor to the radiation shield, you must disconnect the temperature and humidity sensor from the Raspberry Pi, please ensure the sensor is not connected to any source of power.
 
-You will use the cirlce hook and loop velcro to attach the sheild and sensor. Place one piece on the inside of the radiaiton shield on the side that has 3 holes. It should be located close to the small hole that is farthest from the large hole. Place the second peice of velcro on the back side of the temperature and humidity sensor. 
+You will use the cirlce hook and loop velcro to attach the sheild and sensor. Place one piece on the inside of the radiaiton shield on the side that has 3 holes. It should be located close to the small hole that is farthest from the large hole. Place the second piece of velcro on the back side of the temperature and humidity sensor. 
 
 ![IMG_velcro](IMG_velcro.jpg)
 
@@ -284,19 +284,41 @@ Please double check to make sure the connection is correct.
 
 To ensure the protection of the sensor, a special foam is used. As you can see it is structured into cubical formation that allows you to take out the specific size you need. 
 
-When sizing the foam for the Raspberry Pi, you will remove the foam cubes from the arrangement found below
+You will be given a 20x28 cubical foam sheet, using this you will remove two 7x12 pieces,one will be for the base and one will be altered to protect the Raspberry Pi system. You should be able to cut out 6 different 7x12 sheets from the original 20x28 sheet. 
 
-![IMG_foam](IMG_foam.jpg)
+![IMG_fullfoam](IMG_fullfoam.jpg)
 
-There are two locations in the foam where you must use the scissors to remove only half of the cube. This is the location where the power cable and the temperature and humidity sensor cables can be guided. 
+![IMG_cutfoam](IMG_cutfoam.jpg)
 
-The foam piece that was not altered will be used as the base protection between the battery on the bottom of the bag and the Raspberry Pi that will be placed inside the altered foam. 
+When sizing the foam for the Raspberry Pi, you will remove the foam cubes from the arrangement found below:
+
+![IMG_alteredfoam](IMG_alteredfoam.jpg)
+
+There is one location in the foam where you must use the scissors to remove only half of the cube. This is the location where the power cable will be guided, this will face down within the bag. 
+
+You will now connect the battery and arrange the foam, battery and sensors to be comfortably situated within the bag. 
+
+![IMG_connection](IMG_connection.jpg)
+
+The arrangement within the bag will consist of the battery at the base, followed with the unaltered foam, the cable for the battery, the altered foam and the Raspberry Pi within. 
+
+![IMG_arrangement](IMG_arrangement.jpg)
+
+You must place the Raspberry Pi on top of the altered foam then connect the battery cable under the altered foam where you cut out the half cubes. 
 
 The GPS system can be placed into the opposite side of the sensor shield on the inside of the bag. 
 
-When you have completed the assembly it should look similar to the image below. 
+When the system is complete, it should look similar to the image below. 
 
-![IMG_complete](IMG_complete.jpg)
+![IMG_systemcomplete](IMG_systemcomplete.jpg)
+
+Once the system is set up similar to what is viewed above, you can connect your mobile device to the VNC viewer in order to view the progress as you are collecting your data. 
+
+Place your mobile device within the front pocket. 
+
+
+![IMG_phone](IMG_phone.jpg)
+
 
 ## Connecting the Raspberry Pi with your Smartphone
 
