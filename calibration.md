@@ -3,7 +3,7 @@
 Table 1: Calibration coefficients derived from the intercomparison between the Temperature of the DHT22 sensors 
 and the Campbell Scientific CS 215 T/RH Probe.
 
-| DHT22 T/RH Sensor Number |  a1 (Slope) | a0 (Offset) (K) |
+| Sensor # |  a1 (Slope) | a0 (Offset) (K) |
 | ------------------ | ----------------- |  ----------------- |
  | 01|      1.00100 |      0.152556
  | 02|      1.04445 |     -0.842947
@@ -29,7 +29,7 @@ and the Campbell Scientific CS 215 T/RH Probe.
 
 Table 2: Error estimates of the uncalibrated and calibrated temperature sensors (K)
 
-| DHT22 T/RH Sensor Number |  RMSE uncalibrated (K) | RMSE calibrated (K) |
+| Sensor # |  RMSE uncalibrated (K) | RMSE calibrated (K) |
 | ------------------ | ----------------- |  ----------------- |
  | 01 |      0.185224 |     0.0775794
  | 02 |      0.347152 |     0.0927080
@@ -58,7 +58,7 @@ The Error is calculated as the root mean square error between the uncalibrated  
 
 Table 2: Error estimates of the uncalibrated and calibrated humidity sensors expressed as vapour pressure (kPa)
 
-| DHT22 T/RH Sensor Number |  RMSE uncalibrated (kPa) | RMSE calibrated (kPa) |
+| Sensor # |  RMSE uncalibrated (kPa) | RMSE calibrated (kPa) |
 | ------------------ | ----------------- |  ----------------- |
  | 01 |      0.157383 |     0.0812384
  | 02 |     0.0848523 |     0.0110595
