@@ -310,15 +310,17 @@ The arrangement within the bag will consist of the battery at the base, followed
 
 You must place the Raspberry Pi on top of the altered foam then connect the battery cable to the Raspberry Pi under the altered foam where you cut out the half cubes. 
 
-The GPS system can be placed into the opposite side of the sensor shield on the inside of the bag where the fabric has been cut. 
+The GPS can be placed into the front pocket. Please make sure the antenna is facing up, this is to ensure a full connection with the satellites and a accurate track recorded. 
 
+![IMG_baggps](IMG_baggps.jpg)
+ 
 When the system is complete, it should look similar to the image below. 
 
-![IMG_systemcomplete](IMG_systemcomplete.jpg)
+![IMG_system.complete](IMG_system.complete.jpg)
 
 Once the system is set up similar to what is arranged above, you can connect your mobile device to the VNC viewer in order to see the progress as you are collecting your data. 
 
-Place your mobile device within the front pocket. 
+Place your mobile device in the front pocket behind the GPS. 
 
 
 ![IMG_phone](IMG_phone.jpg)
