@@ -184,30 +184,30 @@ Note: If the GPS is searching for a signal it will flash red 5 times in 10second
 
 # Running the Recording Interface
 
-We want the data from the GPS and the DHT22 to be automatically collected and written into a file. We would also benefit from having the system data displayed in real time on screen. This is done with the python program `meteobike.py`, which you can download on your Raspberry Pi Zero here:
+We want the data from the GPS and the DHT22 to be automatically collected and written into a file. We would also benefit from having the system data displayed in real time on screen. This is done with the python program `meteobike03.py`, which you can download on your Raspberry Pi Zero here:
 
-* [Download meteobike.py](meteobike.py)
+* [Download meteobike03.py](meteobike03.py)
 
-You can start `meteobike.py` using `LXTerminal` (assuming your file has been downloaded to the desktop)
+You can start `meteobike03.py` using `LXTerminal` (assuming your file has been downloaded to the desktop)
    
-    $ python ~/Desktop/meteobike.py 
+    $ python ~/Desktop/meteobike03.py 
     
 ![SCS_userinterface](SCS_userinterface.png)
     
-Next, make changes to personalize your copy of `meteobike.py`. You can, for example, open the Python Development Environment (Version 2.7) and `File > Open`. 
+Next, make changes to personalize your copy of `meteobike03.py`. You can, for example, open the Python Development Environment (Version 2.7) and `File > Open`. 
 
 * Replace "01" on line 41 `raspberryid =` to your system#s two digit number. If your system has the number "7" enter "07".
 * Replace "andreas" on line 42 `studentname =` to your first name in quotes.
 
 Then save the modified code `File > Save`. Close the Python Development Environment.
 
-Every time `meteobike.py` is started, it will create a new data-file that contains the data sampled. Here is an example:
+Every time `meteobike03.py` is started, it will create a new data-file that contains the data sampled. Here is an example:
 
-ID | Record | Raspberry_Time  | GPS_Time  | Altitude  | Latitude  | Longitude  | Temperature  | RelHumidity  | VapourPressure
---- | --- | --- | --- | --- | --- | --- | --- | --- |  --- | 
-01 | 8 | 2018-05-06 08:29:03 | 2018-05-06T06:29:04.000Z  | 281.700 | 47.991855 | 7.845193 | 23.0 | 41.9 | 1.196
-01 | 9 | 2018-05-06 08:29:11 | 2018-05-06T06:29:12.000Z  | 288.000 | 47.991375 |  7.845212 | 22.9 | 41.9 | 1.188
-01 | 10 | 2018-05-06 08:29:24 | 2018-05-06T06:29:25.000Z  | 290.000 | 47.991242 |  7.845800 | 23.0 | 41.9 | 1.196
+ID | Record | Raspberry_Time  | GPS_Time  | Altitude  | Latitude  | Longitude  | Temperature  | TemperatureRaw  | RelHumidity | RelHumidityRaw | VapourPressure | VapourPressureRaw
+--- | --- | --- | --- | --- | --- | --- | --- | --- |  --- | --- | --- |  --- |
+01 | 8 | 2018-05-06 08:29:03 | 2018-05-06T06:29:04.000Z  | 281.700 | 47.991855 | 7.845193 | 23.0 | 23.1 | 41.9 | 42.0 | 1.196 | 1.192
+01 | 9 | 2018-05-06 08:29:11 | 2018-05-06T06:29:12.000Z  | 288.000 | 47.991375 |  7.845212 | 22.9 | 23.0 | 41.9 |  42.0 | 1.188 | 1.185
+01 | 10 | 2018-05-06 08:29:24 | 2018-05-06T06:29:25.000Z  | 290.000 | 47.991242 |  7.845800 | 23.0 | 23.1 | 41.9 | 42.0 | 1.196 | 1.192
 
 You can also place a link - called bash script on your desktop (`meteobike.sh`)
 
@@ -217,7 +217,18 @@ To ensure it works, you must change permissions of the file as follows (make it 
 
     $ chmod +x  ~/Desktop/meteobike.sh
     
-Now you can double-click `meteobike.sh` to start the user interface.
+Now you can double-click `meteobike.sh` to start the user interface. Later, we will automate the start-up during the boot process.
+
+## Entering the calibration coefficients
+
+You can enter the calibration coefficients you derived from the intercomparison directly into the python code. Open the file `Meteobike03.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
+
+		temperature_cal_a1 = 1.00000
+		temperature_cal_a0 = 0.00000
+		vappress_cal_a1 = 1.00000 
+		vappress_cal_a0 = 0.00000 
+		
+Replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in ![Sensor-Calibration/readme.md](Tables 1 and 3 of the calibration diretory, respecively). make sure you use a `.` and not a `,` as the delimiter.	
 
 ## Assembly of the system
 
@@ -243,7 +254,7 @@ Now that the tube is completely covered with the tape, use the scissors to punct
 
 To connect the temperature and humidity sensor to the radiation shield, you must disconnect the temperature and humidity sensor from the Raspberry Pi, please ensure the sensor is not connected to any source of power.
 
-You will use the cirlce hook and loop velcro to attach the sheild and sensor. Place one piece on the inside of the radiaiton shield on the side that has 3 holes. It should be located close to the small hole that is farthest from the large hole. Place the second peice of velcro on the back side of the temperature and humidity sensor. 
+You will use the cirlce hook and loop velcro to attach the sheild and sensor. Place one piece on the inside of the radiaiton shield on the side that has 3 holes. It should be located close to the small hole that is farthest from the large hole. Place the second piece of velcro on the back side of the temperature and humidity sensor. 
 
 ![IMG_velcro](IMG_velcro.jpg)
 
@@ -251,12 +262,12 @@ Pass the wires from the sensor through the shield and through the largest hole, 
 
 Place the shield close to the bag and put the temperature and humidity sensor wires through the large hole in the bag.
 
-Now you must connect the radiation shield and the sensor to the bag. To do this, you will use a HX3 screwdriver to insert the bolt and screw through the sheilds two holes and through the hole that is on the bag. 
+Now you must connect the radiation shield and the sensor to the bag. To do this, you will use a wrench and screwdriver to insert the bolt and screw through the shields two holes and through the hole that is on the bag. 
 
-Using a wrench to hold the bolt in place, use the screwdriver to insert the screw into the bolt to hold it secure. Place the 
+Using the wrench to hold the bolt in place, use the screwdriver to insert the screw into the bolt to hold it secure. Place the 
 thin plastic plate with the same holes on the inside of the bag apply the screw through it and the bolt on the inside. 
 
-![IMG_screw](IMG_screw.jpg)
+![IMG_boltscrew](IMG_boltscrew.jpg)
 
 You can now reconnect the  the DHT22 sensor physically using the pre-soldered wires to the Raspberry Pi W. 
 
@@ -271,27 +282,83 @@ You can now reconnect the  the DHT22 sensor physically using the pre-soldered wi
 
 Please double check to make sure the connection is correct. 
 
-To ensure the protection of the sensor, a special foam is used. As you can see it is structured into cubical formation that allows you to take out the specific size you need. 
+### Foam Arragnement 
 
-When sizing the foam for the Raspberry Pi, you will remove the foam cubes from the arrangement found below
+To ensure the protection of the sensor, a special foam is used. As you can see it is structured into cubical formation that allows you to remove the specific size and pattern you need. 
 
-![IMG_foam](IMG_foam.jpg)
+You will be given a 20x28 cubical foam sheet, using this you will remove two 7x12 cube pieces, one will be for the base of your sensor and one will be altered to protect the Raspberry Pi system. 
 
-There are two locations in the foam where you must use the scissors to remove only half of the cube. This is the location where the power cable and the temperature and humidity sensor cables can be guided. 
+You should be able to remove 6 different 7x12 sheets from the original 20x28 sheet. 
 
-The foam piece that was not altered will be used as the base protection between the battery on the bottom of the bag and the Raspberry Pi that will be placed inside the altered foam. 
+![IMG_fullfoam](IMG_fullfoam.jpg)
 
-The GPS system can be placed into the opposite side of the sensor shield on the inside of the bag. 
+![IMG_cutfoam](IMG_cutfoam.jpg)
 
-When you have completed the assembly it should look similar to the image below. 
+When sizing the foam for the Raspberry Pi, you will remove the foam cubes from the arrangement found below:
 
-![IMG_complete](IMG_complete.jpg)
+![IMG_alteredfoam](IMG_alteredfoam.jpg)
+
+There is one location in the foam where you must use the scissors to remove only half of the cube. This is where the power cable will be guided and should be faced down in the bag. 
+
+You will now connect the battery and arrange the foam, battery and sensors to be comfortably situated within the bag. 
+
+![IMG_connection](IMG_connection.jpg)
+
+The arrangement within the bag will consist of the battery at the base, followed with the unaltered foam, the cable for the battery, the altered foam and the Raspberry Pi within. 
+
+![IMG_arrangement](IMG_arrangement.jpg)
+
+You must place the Raspberry Pi on top of the altered foam then connect the battery cable to the Raspberry Pi under the altered foam where you cut out the half cubes. 
+
+The GPS can be placed into the front pocket. Please make sure the antenna is facing up, this is to ensure a full connection with the satellites and a accurate track recorded. 
+
+![IMG_baggps](IMG_baggps.jpg)
+ 
+When the system is complete, it should look similar to the image below. 
+
+![IMG_system.complete](IMG_system.complete.jpg)
+
+Once the system is set up similar to what is arranged above, you can connect your mobile device to the VNC viewer in order to see the progress as you are collecting your data. 
+
+Place your mobile device in the front pocket behind the GPS. 
+
+
+![IMG_phone](IMG_phone.jpg)
+
+
+## Connecting the Raspberry Pi with your Smartphone
+
+In a first step, enable your phone to host a Personal Hotspot. Although you do not need to access the Internet and you will not use any of your data plan capacity, this is required in order to build a network over WiFi to communicate between the Raspberry and your Phone. However, make sure you do not browse the web or download any files while connected to your Personal Hotspot (otherwise charges will apply to your data plan). Also make sure you use a personal, not the course password to protect your connection.
+
+![IMG_Hotspot_iPhone.jpg](IMG_Hotspot_iPhone.jpg) <!-- .element height="50%" width="50%" -->
+
+Here is a description (in German) how to [enable a personal hotsopt on your iOS smartphone](https://support.apple.com/de-de/HT204023)  
+
+Here is a description (in German) how to [enable a personal hotsopt on your Android smartphone](https://praxistipps.chip.de/android-handy-als-wlan-hotspot-einrichten-so-gehts_92113)  
+
+In both cases, you will now have a WiFi network enabled, and you can connect to the network from the Raspberry Pi Zero. 
+
+Boot the Raspberry Pi Zero, and then change the WiFi network to your Personal Hotspot WiFi name:
+
+![IMG_choose_smartphone.png](IMG_choose_smartphone.png)
+
+Enter your password when promted:
+
+![IMG_choose_smartphone.png](IMG_pre_shared_key.png)
+
+Then read the IP number (hover over the WiFi symbol in the menu bar to see it) e.g. 172.20.10.7 (without the "/", and what comes afterwards).
+
+Go back to your phone and start the VNC app. In the VNC app create a new connection and enter the local IP number you just read, e.g. 172.20.10.7 (without the "/", and what comes afterwards). When connecting enter the username "pi" and the previously set VNC password. You should now be able to control your Raspberry Pi Zero as long as the phone and the raspberry are close together.
+
+You can put the phone into the transparent lid of the bag. You can also use the second outlet of the power bank to keep your phone charged during measurements, but in this case, you must bring your own charger-cable.
+
+Now you are ready to install the system on your bike.Let's go for a test drive. Make sure the indicator changes from red to yellow, as soon as you are outdoors. The recording will only start if you have a good GPS connection. Drive for about 15 - 20 minutes, and come back to our lab room.
 
 ## Display the recorded GPS track
 
 The GPS track is stored by the Raspberry on the desktop as a comma-separated file.
 
-If the Raspberry is in the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (on the Mac, for example with Cyberduck). 
+If the Raspberry is in the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (on the Mac, for example with "Cyberduck"). 
 
 A graphical representation of the track can be done place on the website http://www.gpsvisualizer.com/map_input
 

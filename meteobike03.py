@@ -6,7 +6,7 @@ using Adafruit's Ultimate GPS and Pimoroni's DHT22 temperature sensor while ridi
 on a bike.
 University of Freiburg
 Environmental Meteology
-Version 1.1
+Version 1.2
 Written by Heinz Christen Mar 2018 
 Modified by Andreas Christen Apr 2018 
 Using the class GpsPoller
@@ -14,7 +14,6 @@ written by Dan Mandle http://dan.mandle.me September 2012 License: GPL 2.0
 Buttons:
 Record:	Start recording in append mode to logfile, but only if gps has fix
 Stop:	Stop recording (Pause)
-Reset:	delete logfile
 Exit:	exit program
 """
 import os,sys
@@ -38,10 +37,17 @@ def get_ip():
         s.close()
     return IP
 
-raspberryid = "01" # enter your raspberry's number
-studentname = "Andreas" # enter your first name - no spaces and no special characters
+raspberryid = "00" # enter your raspberry's number
+studentname = "FirstName" # enter your first name - no spaces and no special characters
+temperature_cal_a1 = 1.00000 # enter the calibration coefficient slope for temperature
+temperature_cal_a0 = 0.00000 # enter the calibration coefficient offset for temperature
+vappress_cal_a1 = 1.00000 # enter the calibration coefficient slope for vapour pressure
+vappress_cal_a0 = 0.00000 # enter the calibration coefficient offset for vapour pressure
+
 window_title = "Meteobike"+raspberryid
-logfile = raspberryid+"-"+studentname+"-"+strftime("-%Y-%m-%d-%H-%M-%S.csv") # construct file name 
+logfile_path = "/home/pi/Desktop/"
+logfile = logfile_path+raspberryid+"-"+studentname+"-"+strftime("%Y-%m-%d-%H-%M-%S.csv") # construct file name 
+font_size=24
 gpsd = None # setting global variables
 recording = False 
 sampling_rate = 5 # sampling rate - minimum number of seconds between samplings
@@ -75,17 +81,10 @@ def record_data():
 	if os.path.isfile(logfile):return
 	else:#write header line
 		f0=open(logfile,"w")
-		f0.write("ID,Record,Raspberry_Time,GPS_Time,Altitude,Latitude,Longitude,Temperature,RelHumidity,VapourPressure\n")
+		f0.write("ID,Record,Raspberry_Time,GPS_Time,Altitude,Latitude,Longitude,Temperature,TemperatureRaw,RelHumidity,RelHumidityRaw,VapourPressure,VapourPressureRaw\n")
 		f0.close()
 def stop_data():
 	global recording
-	recording=False
-	b1.config(state=NORMAL)
-	b2.config(state=DISABLED)
-def reset_data():
-	global recording
-	if os.path.isfile(logfile):
-		os.remove(logfile)
 	recording=False
 	b1.config(state=NORMAL)
 	b2.config(state=DISABLED)
@@ -96,10 +95,18 @@ def start_counting(label):
     counter += 1
     computer_time = strftime("%Y-%m-%d %H:%M:%S")
     dht22_humidity, dht22_temperature = Adafruit_DHT.read_retry(dht22_sensor, dht22_pin)
-    dht22_temperature=round(dht22_temperature,5)
-    dht22_humidity=round(dht22_humidity,5)
-    saturation_vappress = 0.6113 * numpy.exp((2501000.0/461.5)*((1.0/273.15)-(1.0/(dht22_temperature+273.15))))
-    dht22_vappress=round((dht22_humidity/100.0)*saturation_vappress,3)
+    dht22_temperature_raw=round(dht22_temperature,5)
+    dht22_temperature_calib=round(dht22_temperature * temperature_cal_a1 + temperature_cal_a0,3)
+    dht22_temperature = dht22_temperature_calib
+    saturation_vappress_ucalib = 0.6113 * numpy.exp((2501000.0/461.5)*((1.0/273.15)-(1.0/(dht22_temperature_raw+273.15))))
+    saturation_vappress_calib = 0.6113 * numpy.exp((2501000.0/461.5)*((1.0/273.15)-(1.0/(dht22_temperature_calib+273.15))))
+    dht22_vappress=(dht22_humidity/100.0)*saturation_vappress_ucalib
+    dht22_vappress_raw=round(dht22_vappress,3)
+    dht22_vappress_calib=round(dht22_vappress * vappress_cal_a1 + vappress_cal_a0,3)
+    dht22_vappress = dht22_vappress_calib
+    dht22_humidity_raw=round(dht22_humidity,5)
+    dht22_humidity = round(100 * (dht22_vappress_calib / saturation_vappress_calib),5)
+    if dht22_humidity >100:dht22_humidity=100
     gps_time=gpsd.utc
     gps_altitude=gpsd.fix.altitude
     gps_latitude=gpsd.fix.latitude
@@ -121,7 +128,7 @@ def start_counting(label):
     value_vappress.config(text="{0:.3f} kPa".format(dht22_vappress))
     label.config(text=str(counter))
     label.after(1000*sampling_rate, count)
-    if recording:
+    if recording and has_fix:
     	f0=open(logfile,"a")
     	f0.write(raspberryid+",")
     	f0.write(str(counter)+",")
@@ -132,65 +139,68 @@ def start_counting(label):
     	f0.write("{0:.6f}".format(gps_latitude)+",")
     	f0.write("{0:.6f}".format(gps_longitude)+",")
     	f0.write(str(dht22_temperature)+",")
+    	f0.write(str(dht22_temperature_raw)+",")
     	f0.write(str(dht22_humidity)+",")
-    	f0.write(str(dht22_vappress)+"\n")
+    	f0.write(str(dht22_humidity_raw)+",")
+    	f0.write(str(dht22_vappress)+",")
+    	f0.write(str(dht22_vappress_raw)+"\n")
     	f0.close()
   count()
 #define widgets 
 master = Tk()
 master.title(window_title)
-master.geometry("250x290")
-msg1 = Message(master, text = studentname+"'s Meteobike",width=250, font=('Helvetica', 12)).grid(row=0,column=0,columnspan=2)
-msg1 = Message(master, text = "Current IP: "+get_ip(),width=250, font=('Helvetica', 12)).grid(row=1,column=0,columnspan=2)
+master.attributes('-fullscreen', True)
+name1=Label(master, text = " Name", fg="blue", font=('Helvetica', font_size)).grid(row=0,column=0,sticky=W)
+name2=Label(master, text = studentname+"'s Meteobike", fg="blue", font=('Helvetica', font_size)).grid(row=0,column=1,sticky=W,columnspan=2)
+ip1=Label(master, text = " IP", fg="blue", font=('Helvetica', font_size)).grid(row=1,column=0,sticky=W)
+ip2=Label(master, text = get_ip(), fg="blue", font=('Helvetica', font_size)).grid(row=1,column=1,sticky=W,columnspan=2)
 #define labels
-label_counter=Label(master, text=" Counter")
+label_counter=Label(master, text=" Counter", font=('Helvetica', font_size))
 label_counter.grid(row=2,column=0,sticky=W)
-label_ctime=Label(master, text=" Time")
+label_ctime=Label(master, text=" Time", font=('Helvetica', font_size))
 label_ctime.grid(row=3,column=0,sticky=W)
-label_altitude=Label(master, text=" Altitude")
+label_altitude=Label(master, text=" Altitude", font=('Helvetica', font_size))
 label_altitude.grid(row=4,column=0,sticky=W)
-label_latitude=Label(master, text=" Latitude")
+label_latitude=Label(master, text=" Latitude", font=('Helvetica', font_size))
 label_latitude.grid(row=5,column=0,sticky=W)
-label_longitude=Label(master, text=" Longitude")
+label_longitude=Label(master, text=" Longitude", font=('Helvetica', font_size))
 label_longitude.grid(row=6,column=0,sticky=W)
-label_time=Label(master, text=" GPS Time")
+label_time=Label(master, text=" GPS Time", font=('Helvetica', font_size))
 label_time.grid(row=7,column=0,sticky=W)
-label_temperature=Label(master, text=" Temperature")
+label_temperature=Label(master, text=" Temperature", font=('Helvetica', font_size))
 label_temperature.grid(row=8,column=0,sticky=W)
-label_humidity=Label(master, text=" Rel. Humidity")
+label_humidity=Label(master, text=" Rel. Humidity", font=('Helvetica', font_size))
 label_humidity.grid(row=9,column=0,sticky=W)
-label_vappress=Label(master, text=" Vapour Press.")
+label_vappress=Label(master, text=" Vap. Pressure   ", font=('Helvetica', font_size))
 label_vappress.grid(row=10,column=0,sticky=W)
 #define values (constructed also as labels, text will be modified in count)
-value_counter=Label(master, text=" Counter",bg="red")
-value_counter.grid(row=2,column=1,sticky=W)
-value_ctime=Label(master, text=" Time")
-value_ctime.grid(row=3,column=1,sticky=W)
-value_altitude=Label(master, text=" Altitude")
-value_altitude.grid(row=4,column=1,sticky=W)
-value_latitude=Label(master, text=" Latitude")
-value_latitude.grid(row=5,column=1,sticky=W)
-value_longitude=Label(master, text=" Longitude")
-value_longitude.grid(row=6,column=1,sticky=W)
-value_time=Label(master, text=" GPS Time---------------")
-value_time.grid(row=7,column=1,sticky=W)
-value_temperature=Label(master, text=" Temperature")
-value_temperature.grid(row=8,column=1,sticky=W)
-value_humidity=Label(master, text=" Rel. Humidity")
-value_humidity.grid(row=9,column=1,sticky=W)
-value_vappress=Label(master, text=" Vapour Press.")
-value_vappress.grid(row=10,column=1,sticky=W)
+value_counter=Label(master, text=" Counter",bg="red", font=('Helvetica', font_size))
+value_counter.grid(row=2,column=1,sticky=W,columnspan=2)
+value_ctime=Label(master, text=" Time", font=('Helvetica', font_size))
+value_ctime.grid(row=3,column=1,sticky=W,columnspan=2)
+value_altitude=Label(master, text=" Altitude", font=('Helvetica', font_size))
+value_altitude.grid(row=4,column=1,sticky=W,columnspan=2)
+value_latitude=Label(master, text=" Latitude", font=('Helvetica', font_size))
+value_latitude.grid(row=5,column=1,sticky=W,columnspan=2)
+value_longitude=Label(master, text=" Longitude", font=('Helvetica', font_size))
+value_longitude.grid(row=6,column=1,sticky=W,columnspan=2)
+value_time=Label(master, text=" GPS Time ---------------", font=('Helvetica', font_size))
+value_time.grid(row=7,column=1,sticky=W,columnspan=2)
+value_temperature=Label(master, text=" Temperature", font=('Helvetica', font_size))
+value_temperature.grid(row=8,column=1,sticky=W,columnspan=2)
+value_humidity=Label(master, text=" Rel. Humidity", font=('Helvetica', font_size))
+value_humidity.grid(row=9,column=1,sticky=W,columnspan=2)
+value_vappress=Label(master, text=" Vap. Pressure ", font=('Helvetica', font_size))
+value_vappress.grid(row=10,column=1,sticky=W,columnspan=2)
 #initialize value_counter
 start_counting(value_counter)
 #define buttons
 b1=Button(master, text='Record', width=7, state=DISABLED, command=record_data)
 b1.grid(row=12,column=0,sticky=W)
 b2=Button(master, text='Stop', width=7, state=DISABLED, command=stop_data)
-b2.grid(row=12,column=1,sticky=E)
-b3=Button(master, text='Reset', width=7, state=DISABLED, command=reset_data)
-b3.grid(row=13,column=0,sticky=W)
-b4=Button(master, text='Exit', width=7, state=DISABLED, command=exit_program)
-b4.grid(row=13,column=1,sticky=E)
+b2.grid(row=12,column=1,sticky=W)
+b4=Button(master, text='Exit', width=7, state=NORMAL, command=exit_program)
+b4.grid(row=12,column=2,sticky=E)
 recording=True
 record_data()
 #wait in mainloop
