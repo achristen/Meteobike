@@ -52,9 +52,13 @@ Table 2: Error estimates of the uncalibrated and calibrated temperature sensors 
  | 15 |      0.224738 |     0.0945140
  | 16 |      0.250331 |      0.123113
  | 17 |      0.170489 |     0.0947255
+ | 18 |      0.687439 |      0.407758
  | 19 |      0.486867 |      0.123660
  | 20 |      0.403362 |      0.147125
  | 22 |      0.318474 |      0.127041
+ | 23 |      0.571644 |      0.260657
+ | 24 |       1.72423 |      0.515667
+ | 25 |      0.691412 |      0.323559
  | All Sensors | 0.282 | 0.116
 
 The RMSE is calculated as the root mean square error between the uncalibrated  DHT22 sensor and the reference sensor (CS 215), and between the calibrated  DHT22 sensor and the reference sensor (CS 215)
@@ -113,7 +117,11 @@ Table 4: Error estimates of the uncalibrated and calibrated humidity sensors exp
  | 15 |     0.0607505 |     0.0416963
  | 16 |     0.0596953 |     0.0231641
  | 17 |      0.163710 |     0.0368133
+ | 18 |           N/A |           N/A
  | 19 |      0.140213 |     0.0523584
  | 20 |      0.125395 |     0.0242715
  | 22 |     0.0749854 |     0.0192715
+ | 23 |      0.116458 |     0.0353914
+ | 24 |     0.0763277 |     0.0289947
+ | 25 |      0.353044 |     0.0655298
  | All Sensors | 0.108 | 0.032
