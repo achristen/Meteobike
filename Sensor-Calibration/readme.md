@@ -22,10 +22,14 @@ and the Campbell Scientific CS 215 T/RH Probe.
  | 15|      1.03696 |     -0.668770
  | 16|      1.03297 |     -0.324306
  | 17|      1.02717 |     -0.479167
+ | 18|      1.02804 |      -1.10828
  | 19|      1.01206 |      0.286130
  | 20|      1.03318 |     -0.837961
  | 22|      1.03719 |     -0.780249
-
+ | 23 |       1.04431 |      -1.35971
+ | 24 |       1.05906 |      -2.78146
+ | 25 |       1.04104 |      -1.40638
+ 
 
 Table 2: Error estimates of the uncalibrated and calibrated temperature sensors (K)
 
@@ -80,7 +84,10 @@ and the Campbell Scientific CS 215 T/RH Probe.
  | 19 |       1.03063 |     -0.167150
  | 20 |      0.993556 |     -0.115046
  | 22 |      0.999856 |    -0.0722907
-
+ | 23 |       1.00659 |     -0.123444
+ | 24 |      0.975464 |    -0.0224023
+ | 25 |      0.826230 |     0.0572568
+ 
 Table 4: Error estimates of the uncalibrated and calibrated humidity sensors expressed as vapour pressure (kPa)
 
 | Sensor # |  RMSE uncalibrated (kPa) | RMSE calibrated (kPa) |
