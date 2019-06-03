@@ -1,3 +1,5 @@
+Table 3 shows the average number of measurements made per system.
+
 | Meteobike No | Average Measurements per Second |
 | --- | --- |
 | 01 |           NaN |
