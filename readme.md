@@ -221,14 +221,14 @@ Now you can double-click `meteobike.sh` to start the user interface. Later, we w
 
 ## Entering the calibration coefficients
 
-You can enter the calibration coefficients you derived from the intercomparison directly into the python code. Open the file `Meteobike03.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
+You can enter the calibration coefficients we derived from the intercomparison directly into the python code. Open the file `Meteobike03.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
 
 		temperature_cal_a1 = 1.00000
 		temperature_cal_a0 = 0.00000
 		vappress_cal_a1 = 1.00000 
 		vappress_cal_a0 = 0.00000 
 		
-Replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in ![Sensor-Calibration/readme.md](Tables 1 and 3 of the calibration diretory, respecively). make sure you use a `.` and not a `,` as the delimiter.	
+Replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in ![Sensor-Calibration-2019/readme.md](Tables 1 and 3 of the calibration diretory, respecively). make sure you use a `.` and not a `,` as the delimiter.	
 
 ## Assembly of the system
 
