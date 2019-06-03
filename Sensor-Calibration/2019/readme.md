@@ -5,7 +5,7 @@ Table 1: Calibration coefficients for air temperature to be entered for each of 
 
 | Meteobike No | a0 (Offset) | a1 (Slope) | 
 | --- | ---: | ---: | 
-| 01 |           NaN |           NaN |
+| 01 |           N/A |           N/A |
 | 02 |     -0.470601 |       1.02598 |
 | 03 |     -0.127615 |       1.01465 |
 | 04 |     -0.734775 |       1.02768 |
@@ -37,7 +37,7 @@ Table 1: Calibration coefficients for air temperature to be entered for each of 
 | 30 |     -0.652603 |       1.02453 |
 | 31 |     -0.192300 |       1.01851 |
 | 32 |     -0.276903 |       1.02629 |
-| 33 |           NaN |           NaN |
+| 33 |           N/A |           N/A |
 | 34 |     -0.897821 |       1.03172 |
 | 35 |     -0.696297 |       1.02440 |
 
@@ -45,7 +45,7 @@ Table 2: Root mean square error (RMSE) of the raw and calibrated temperatures re
 
 | Meteobike No | RMSE, corrected (K) | RMSE, uncorrected (K) | 
 | --- | ---: | ---: |
-| 01 |           NaN |           NaN |
+| 01 |           N/A |           N/A |
 | 02 |      0.196591 |      0.231302 |
 | 03 |      0.183931 |      0.201206 |
 | 04 |      0.191223 |      0.364712 |
@@ -77,7 +77,7 @@ Table 2: Root mean square error (RMSE) of the raw and calibrated temperatures re
 | 30 |      0.159133 |      0.333117 |
 | 31 |      0.137744 |      0.198777 |
 | 32 |      0.150099 |      0.244403 |
-| 33 |           NaN |           NaN |
+| 33 |           N/A |           N/A |
 | 34 |      0.200642 |      0.422792 |
 | 35 |      0.145233 |      0.324238 |
 
@@ -88,7 +88,7 @@ Table 3: Calibration coefficients to be entered for each of the meteobike system
 
 | Meteobike No | a0 (Offset) | a1 (Slope) | 
 | --- | ---: | ---: 
-| 01 |           NaN |           NaN |
+| 01 |           N/A |           N/A |
 | 02 |     -0.654250 |       1.37302 |
 | 03 |     -0.130181 |      0.983572 |
 | 04 |    -0.0691478 |      0.839989 |
@@ -120,7 +120,7 @@ Table 3: Calibration coefficients to be entered for each of the meteobike system
 | 30 |     0.0103747 |      0.982295 |
 | 31 |     0.0288587 |      0.967222 |
 | 32 |    -0.0684488 |       1.06046 |
-| 33 |           NaN |           NaN |
+| 33 |           N/A |           N/A |
 | 34 |    -0.0728730 |       1.04767 |
 | 35 |    -0.0216740 |      0.975360 |
 
@@ -128,7 +128,7 @@ Table 4: Root mean square error (RMSE) of the raw and calibrated vapour pressure
 
 | Meteobike No | RMSE, corrected (kPa) | RMSE, uncorrected (kPa) | 
 | --- | ---: | ---: |
-| 01 |           NaN |           NaN |
+| 01 |           N/A |           N/A |
 | 02 |      0.345339 |      0.361134 |
 | 03 |     0.0493899 |      0.159477 |
 | 04 |     0.0722892 |      0.308263 |
@@ -160,7 +160,7 @@ Table 4: Root mean square error (RMSE) of the raw and calibrated vapour pressure
 | 30 |     0.0243511 |     0.0272230 |
 | 31 |     0.0229033 |     0.0274469 |
 | 32 |     0.0230312 |     0.0219324 |
-| 33 |           NaN |           NaN |
+| 33 |           N/A |           N/A |
 | 34 |     0.0312251 |     0.0339009 |
 | 35 |     0.0261742 |     0.0606786 |
 
