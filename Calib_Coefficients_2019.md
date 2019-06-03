@@ -1,10 +1,11 @@
-Coefficients to correct Temperatures
+Coefficients to correct temperatures
 ====================================================
 
-Table 1: Calibration coefficients for air temperature to be entered for each of the meteobike systems based on the comparison between the sensor and the CS215 in the climate station at Werthmannstrasse 10 in 2019. In column 4 and 5 is the root mean square error (RMSE) of the raw and calibrated vapour pressure relative to the climate station.
+Table 1: Calibration coefficients for air temperature to be entered for each of the meteobike systems based on the comparison between the sensor and the CS215 in the climate station at Werthmannstrasse 10 in 2019. In column 4 and 5 is the root mean square error (RMSE) of the raw and calibrated vapour pressure relative to the climate station in K.
 
 | Meteobike No | a0 (Offset) | a1 (Slope) | RMSE (Corrected) | RMSE (Raw) |
 | --- | ---: | ---: | ---: | ---: |
+|  | K |   | K | K |
 | 01 |           N/A |           N/A |           N/A |           N/A |
 | 02 |     -0.470601 |       1.02598 |      0.196591 |      0.231302 |
 | 03 |     -0.127615 |       1.01465 |      0.183931 |      0.201206 |
@@ -42,13 +43,14 @@ Table 1: Calibration coefficients for air temperature to be entered for each of 
 | 35 |     -0.696297 |       1.02440 |      0.145233 |      0.324238 |
 
 
-Coefficients to correct Vapour Pressure
+Coefficients to correct vapour pressure
 ====================================================
 
-Table 2: Calibration coefficients to be entered for each of the meteobike systems based on the comparison between the sensor and the CS215 in the climate station at Werthmannstrasse 10 in 2019. In column 4 and 5 is the root mean square error (RMSE) of the raw and calibrated vapour pressure relative to the climate station.
+Table 2: Calibration coefficients to be entered for each of the meteobike systems based on the comparison between the sensor and the CS215 in the climate station at Werthmannstrasse 10 in 2019. In column 4 and 5 is the root mean square error (RMSE) of the raw and calibrated vapour pressure relative to the climate station in kPa.
 
 | Meteobike No | a0 (Offset) | a1 (Slope) | RMSE (Corrected) | RMSE (Raw) |
 | --- | ---: | ---: | ---: | ---: |
+|  | kPa |   | kPa | kPa |
 | 01 |           N/A |           N/A |           N/A |           N/A |
 | 02 |     -0.654250 |       1.37302 |      0.345339 |      0.361134 |
 | 03 |     -0.130181 |      0.983572 |     0.0493899 |      0.159477 |
@@ -85,8 +87,10 @@ Table 2: Calibration coefficients to be entered for each of the meteobike system
 | 34 |    -0.0728730 |       1.04767 |     0.0312251 |     0.0339009 |
 | 35 |    -0.0216740 |      0.975360 |     0.0261742 |     0.0606786 |
 
+Measurement frequency
+===========================
 
-Table 3 shows the average number of measurements made per system.
+Table 3: Average number of measurements made per system.
 
 | Meteobike No | Average Measurements per Second |
 | --- | ---: |
