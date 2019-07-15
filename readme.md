@@ -197,7 +197,7 @@ Note: If the GPS is searching for a signal it will flash red 5 times in 10second
 
 We want the data from the GPS and the DHT22 to be automatically collected and written into a file. We would also benefit from having the system data displayed in real time on screen. This is done with the python program `meteobike03.py`, which you can download on your Raspberry Pi Zero here:
 
-* [Download meteobike03.py](meteobike03.py)
+* [Download meteobike03.py](/Code/meteobike03.py)
 
 You can start `meteobike03.py` using `LXTerminal` (assuming your file has been downloaded to the desktop)
    
@@ -222,7 +222,7 @@ ID | Record | Raspberry_Time  | GPS_Time  | Altitude  | Latitude  | Longitude  |
 
 You can also place a link - called bash script on your desktop (`meteobike.sh`)
 
-* [Download meteobike.sh](meteobike.sh)
+* [Download meteobike.sh](/Code/meteobike.sh)
 
 To ensure it works, you must change permissions of the file as follows (make it executable). This way, it can be started with a double-click:
 
