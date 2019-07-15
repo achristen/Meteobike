@@ -38,7 +38,7 @@ Each point is displayed along with the measured temperature:
 
 ![Images/QGIS_Labels.png](Images/QGIS_Labels.png)
 
-You can further color-code the points based on measured temperatures. Right click again on the new layer and select `Properties...`. Her you can select `Symbology` and choose `Graduated` as the model:
+You can further color-code the points based on measured temperatures. Right click again on the new layer and select `Properties...`. Here you can select `Symbology` and choose `Graduated` as the model:
 
 ![Images/QGIS_ColorByValue.png](Images/QGIS_ColorByValue.png)
 
@@ -83,5 +83,17 @@ Right-click on the new `Joined layer` and select `Open Attribute Table`. You wil
 ![Images/QGIS_Table.png](Images/QGIS_Table.png)
 
 ### Create a rasterized map of the heat island
+
+Essentially the same procedure can also be used to aggregate the measured datapoints in a gridded map. QGIS has an option to create different grids as polygon layers. To create a grid, select menu `Vector` > `Research Tools` > `Create grid...`:
+
+![Images/QGIS_CreateGrid.png](Images/QGIS_CreateGrid.png)
+
+Because it is trendy, you can choose as grid type `Hexagon (polygon)`. To define the area that should be gridded, you can `Select canvas extent` by clicking on the `...` button. Choose an appropriate grid size, e.g. 500 m and click `Run`. A new grid layer will be generated.
+
+In the next step you can repeat what has been described above for the parks, but replace the parks with the grid polygons. I.e. go to the `Toolbox` and select again `Vector general` > `Join attributes by location (summary)`. As 'Input Layer' choose the newly created grid layer )(the hexagons). As join layer choose again your points with temperatures from the meteobike dataset. It is recommended to only select fields for startstics that you need, otherwise the operation will take a long time to be computed.
+
+A new grid layer will be generated which is showing only cells where measurements are located within. You can right-click the new layer and choose `Properties...` attribute a color coding to the grid cells under `Symbology`. Choose `Graduated` as the model.
+
+
 
 
