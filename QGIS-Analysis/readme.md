@@ -8,47 +8,47 @@ Download [QGIS](https://qgis.org) and follow installation instructions, incluing
 
 ## Importing and map Meteobike data in QGIS
 
-In a first step we would like to import and map your meteobike dataset.
+In a first step we would like to import and map your Meteobike dataset.
 
 ### Set-up OSM as background map in QGIS
 
 Open [QGIS](https://qgis.org) and create a new project using `Project` > `New` >. Save the new project under `Project` > `Save As...`. 
 
-In the 'Browser', click on `XYZ Tiles` and double click `OpenStreetMap`. Open Street Map tiles will be shown. Navigate to Freiburg.
+In the 'Browser' to the left, click on `XYZ Tiles` and double click `OpenStreetMap`. Open Street Map tiles will be shown.  At first, you will see the entire World. Use the cursor and zoom fuction to navigate to the city of your data.
 
 ![Images/QGIS_OSMFull.png](Images/QGIS_OSMFull.png)
 
 ### Importing Meteobike data to QGIS
 
-You can import any .csv file into QGIS. Use Menu `Layer` > `Add Layer` > `Add Delimited Text Layer...`:
+You can import any .csv file into QGIS. This means, you can directly input the raw datafiles from the Meteobike system. Alternatively, you can also data that has been merged into a single file and filtered already. Use Menu `Layer` > `Add Layer` > `Add Delimited Text Layer...` to add data from one or multiple meteobike systems.
 
 ![Images/QGIS_CSVImport.png](Images/QGIS_CSVImport.png)
 
-Choose the file of your system (by clicking on the `...`-button in the upper right). 
+Choose the file of your interest (by clicking on the `...`-button in the upper right). 
 
- Under 'File Format' select `CSV (comma separated values)`, under 'Record and Field Options' select `First record has field names` and `Detect field types`. Under 'Geometry Definition' it should automatically select 'Longitude' as `x field` and 'Latitude' as `y field`. 'Sample Data' displays your measurement dataset. Click `Add`.
+Under 'File Format' select `CSV (comma separated values)`, under 'Record and Field Options' select `First record has field names` and `Detect field types`. Under 'Geometry Definition' it should automatically select 'Longitude' as `x field` and 'Latitude' as `y field`. 'Sample Data' displays your measurement dataset. Check if everything looks OK and then click `Add`.
 
-Your trace will be displayed as single measurement points. Right click on the new layer and select `Properties...`. You can display the measured values as numeric labels. Under 'Labels' you can for example select the 'Temperature' field:
+Your measurements will be displayed as single points. Right click on the new layer and select `Properties...`. You can display the measured values as numeric labels. Under 'Labels' you can for example select the 'Temperature' field to show temperatures measured at that point:
 
 ![Images/QGIS_LayerOptions.png](Images/QGIS_LayerOptions.png)
 
-Each point is now geo-referenced and displays the measured temperatures:
+Each point is now geo-referenced on Open Street Map and displays the measured temperatures:
 
 ![Images/QGIS_Labels.png](Images/QGIS_Labels.png)
 
-Alternatively, you can directly import the compiled file (`ALL-SYSTEMS-2019-06-26.csv`) which has all systems corrected for cooling.
+For the course we recommend that you directly import the compiled file (`ALL-SYSTEMS-2019-06-26.csv`) which contains all systems corrected for cooling against the fixed weather station.
 
 ## Create statistics of temperatures in a specific area.
 
-Assume you would like to contrast temperatures measured in a park to those measured in a buil-up area, you need to select points based on geographic location. One option to do this is a 'spatial join'. First you have to define the geographic areas for which you would like to create statistics. In our example we will select temperatures in a park. You can do this with any other dataset, including imported shape files.
+Assume you would like to calculate average temperatures measured in a park and contrast those to temperatures measured in a built-up area. You need to select points based on geographic location, for some areas with irregular shapes. One option to do this is to rund a 'spatial join' - a basic geographic operation. But first you have to define the geographic areas for which you would like to create statistics. In our example we will select temperatures in a park. You can do this with any other dataset, including imported shape files or 'Local Climate Zones' (LCZ).
 
 ### Create a polygon of the area
 
-Create a new layer to draw polygons . First select Menu `Layer` > `Create Layer` > `New Shapefile Layer...`. Under 'File name' select an appropriate name (here, we will call it `parks.shp`) and use the `...`-button to store the shape file locally. As 'Geometry type' choose `Polygon`.
+You must create a new layer to start drawing (or importing) polygons. First select Menu `Layer` > `Create Layer` > `New Shapefile Layer...`. Under 'File name' select an appropriate name (here, we will call it `parks.shp`) and use the `...`-button to store the shape file locally. As 'Geometry type' choose `Polygon`.
 
-You can add properties such as a name to the shape file. For example you can create a field `Name` to provide a name to each polygon. Click `Add to Fields List`. Click `OK` to create the shape file.
+You can add properties to each polygon such as a name (or LCZ code etc.). As an example, we will create a field `Name` to provide the name of each park to the polygons. Name the filed and click `Add to Fields List`. Click `OK` to create the shape file.
 
-Under `Layers` right-click on the 'parks' layer and select `Toggle Editing`. Then click the polygon-drawing icon (![Images/QGIS_Polygon.png](Images/QGIS_Polygon.png)) to draw the area of the park:
+Under `Layers` you will now see a new layer called "Parks". right-click on the 'parks' layer and select `Toggle Editing`. Then click the polygon-drawing icon (![Images/QGIS_Polygon.png](Images/QGIS_Polygon.png)) to draw a first park area:
 
 ![Images/QGIS_DrawPolygon.png](Images/QGIS_DrawPolygon.png)
 
@@ -56,17 +56,19 @@ Close the polygon by right-clicking. A dialog will appear to enter ID and Name (
 
 ![Images/QGIS_PolygonDialog.png](Images/QGIS_PolygonDialog.png)
 
-You can add different polygons the same way. In the end, click again on `Toggle Edit` and save the shape file layer.
+You can finish here, or add additional polygons you would like to add to the conditional statistics the same way. Important: In the end, click again on `Toggle Edit` and save the shape file layer.
 
 ### Select subset of points within polygon
 
-In a next step you would like to select all measurements inside the polygon. Choose menu `Vector` > `Data Management Tools` > `Join Attributes by Location`:
+In a next step you would like to select all measurements inside the selected polygon. Choose menu `Vector` > `Data Management Tools` > `Join Attributes by Location`:
 
 ![Images/QGIS_JoinAttributesLoc.png](Images/QGIS_JoinAttributesLoc.png)
 
-As 'Input Layer' choose your polygons (e.g. 'parks.shp'). As join layer choose your meteobike dataset. Under 'Geometric predictate' you should choose `contains` and under 'Join type' you select `Create separate feature for each located feature (one-to-many)`. Then click on `run`. This will select the points within the polygon. A new layer `Joined layer` will be created.
+As 'Input Layer' choose your polygon (or multiple polygons) (e.g. 'parks.shp'). As join layer choose your points with temperatures from the meteobike dataset. Under 'Geometric predictate' you should choose `contains` and under 'Join type' you select `Create separate feature for each located feature (one-to-many)`. Then click on `run`. This will select all points that fall within the polygon. A new layer `Joined layer` will be created. You can rename the layer.
 
-Right-click on the new `Joined layer` and select `Open Attribute Table`. You will get a list of all points in the polygons (and complemented with the polygon ID and name).
+Right-click on the new `Joined layer` and select `Open Attribute Table`. You will get a list of all points in the polygons (and complemented with the polygon ID and name):
+
+![Images/QGIS_Table.png](Images/QGIS_Table.png)
 
 ### Calculate statistics for subset
 
