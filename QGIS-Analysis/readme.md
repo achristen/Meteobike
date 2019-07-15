@@ -50,11 +50,11 @@ You can add properties such as a name to the shape file. For example you can cre
 
 Under `Layers` right-click on the 'parks' layer and select `Toggle Editing`. Then click the polygon-drawing icon (![Images/QGIS_Polygon.png](Images/QGIS_Polygon.png)) to draw the area of the park:
 
-![Images/QGIS_DrawPolygon.png](Images/QGIS_DrawPolygon.png)
+![Images/QGIS_DrawPolygon.png](Images/QGIS_DrawPolygon.png | width=30)
 
  Close the polygon by right-clicking. A dialog will appear to enter ID and Name (and other fields you have created). Enter and click `OK`:
 
-![Images/QGIS_PolygonDialog.png](Images/QGIS_PolygonDialog.png)
+![Images/QGIS_PolygonDialog.png](Images/QGIS_PolygonDialog.png | width=200)
 
 
 
