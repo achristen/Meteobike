@@ -90,9 +90,9 @@ Essentially the same procedure can also be used to aggregate the measured datapo
 
 Because it is trendy, you can choose as grid type `Hexagon (polygon)`. To define the area that should be gridded, you can `Select canvas extent` by clicking on the `...` button. Choose an appropriate grid size, e.g. 500 m and click `Run`. A new grid layer will be generated.
 
-In the next step you can repeat what has been described above for the parks, but replace the parks with the grid polygons - Go to the `Toolbox` and select again `Vector general` > `Join attributes by location (summary)`. As 'Input Layer' choose the newly created grid layer )(the hexagons). As join layer choose again your points with temperatures from the meteobike dataset. It is recommended to select a limited number fields for startstics (only the ones you need) otherwise the operation will take a long time to be computed:
+![Images/QGIS_HexagonGrid.png](Images/QGIS_HexagonGrid.png)
 
-![Images/QGIS_GridStatistics.png](Images/QGIS_GridStatistics.png)
+In the next step you can repeat what has been described above for the parks, but replace the parks with the grid polygons - Go to the `Toolbox` and select again `Vector general` > `Join attributes by location (summary)`. As 'Input Layer' choose the newly created grid layer )(the hexagons). As join layer choose again your points with temperatures from the meteobike dataset. It is recommended to select a limited number fields for startstics (only the ones you need) otherwise the operation will take a long time to be computed.
 
 A new grid layer will be generated which is showing only cells where measurements are located within. You can right-click the new layer and choose `Properties...` attribute a color coding to the grid cells under `Symbology`. Choose `Graduated` as the model.
 
