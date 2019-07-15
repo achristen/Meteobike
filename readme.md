@@ -1,12 +1,23 @@
 # Meteobike - Mapping urban heat islands with bikes
 
-"Meteobike" is our educational Raspberry Pi Zero Project at the University of Freiburg, [Chair of Environmental Meteorology](http://www.meteo.uni-freiburg.de/). In our course "Tools in Meteorology" (5th Term of our Minor in "Meteorology and Climatology"), we develop a system to measure, analyze and visualize the urban heat island effect. Within a short period (~2 hours), we measure with many systems simultaneously temperature and humidity transcects inside and outside the city and tag measurement locations with GPS. The system is battery operated and light, so it can be mounted on bikes. Communication with the Raspberry Pi Zero to our smartphone is enabled via wireless network.
+"Meteobike" is our educational Raspberry Pi Zero Project at the University of Freiburg, [Chair of Environmental Meteorology](http://www.meteo.uni-freiburg.de/). In our course "Tools in Meteorology" (5th Term of our [Minor in "Meteorology and Climatology"](http://www.meteo.uni-freiburg.de/de/lehre/b-sc-nebenfach)), we develop a system to measure, analyze and visualize the urban heat island effect. Within a short period (~2 hours), we measure with many systems simultaneously temperature and humidity transcects inside and outside the city and tag measurement locations with GPS. The system is battery operated and light, so it can be mounted on bikes. Communication with the Raspberry Pi Zero to our smartphone is enabled via wireless network.
 
 ![IMG_meteobike](IMG_meteobike.jpg)
 
 ## Overview
 
-Each student builds a own mobile system. Each system will be assembled using the following components:
+Students build their own mobile system.s Each system will be assembled using the following components:
+
+| Component | Model | Link to Vendor in Germany | Price |
+| ------------------ | ----------- | ----------- | ---------- | 
+| Microcontroller | Raspberry Pi Zero W | [Pimoroni.de](https://shop.pimoroni.de/products/raspberry-pi-zero-w) | 10 EUR |
+| GPS | Adafruit Ultimate GPS Breakout | [Pimoroni.de](https://shop.pimoroni.de/products/raspberry-pi-zero-w) | 40 EUR |
+| Temperature / Humidity Sensor | DHT22 AM2302  | AZ-Delivery ([Amazon.de](https://www.amazon.de/dp/B06XF4TNT9/)) | 5 EUR |
+| Micro SD Card | NOOBS 16GB microSD | [Pimoroni.de](https://shop.pimoroni.de/products/noobs-microsd-card) | 5 EUR |
+| Battery | POWERADD Pilot 2GS Powerbank 10000mAh* | Poweradd ([Amazon.de](https://www.amazon.de/gp/product/B00J93R7XM/)) |   |
+| Jumper Wires | Elegoo Jumper Wire* | GYE ([Amazon.de](https://www.amazon.de/dp/B01EV70C78/)) |   |
+
+* Can be replaced by any other product
 
 ![IMG_components](IMG_components.jpg)
 
