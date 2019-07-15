@@ -2,7 +2,7 @@
 
 "Meteobike" is our educational Raspberry Pi Zero Project at the University of Freiburg, [Chair of Environmental Meteorology](http://www.meteo.uni-freiburg.de/). In our course "Tools in Meteorology" (5th Term of our [Minor in "Meteorology and Climatology"](http://www.meteo.uni-freiburg.de/de/lehre/b-sc-nebenfach)), we develop a system to measure, analyze and visualize the urban heat island effect. Within a short period (~2 hours), we measure with many systems simultaneously temperature and humidity transcects inside and outside the city and tag measurement locations with GPS. The system is battery operated and light, so it can be mounted on bikes. Communication with the Raspberry Pi Zero to our smartphone is enabled via wireless network.
 
-![IMG_meteobike](IMG_meteobike.jpg)
+![Images/IMG_meteobike](Images/IMG_meteobike.jpg)
 
 ## Overview
 
@@ -19,7 +19,7 @@ Students build their own mobile system.s Each system will be assembled using the
 
 * Can be replaced by any other product
 
-![IMG_components](IMG_components.jpg)
+![Images/IMG_components](Images/IMG_components.jpg)
 
 ## Preparing the Raspberry Pi Zero
 
@@ -27,11 +27,11 @@ Students build their own mobile system.s Each system will be assembled using the
 
 The [Raspberry Pi Zero W](https://shop.pimoroni.de/collections/raspberry-pi/products/raspberry-pi-zero-w?src=raspberrypi) is a microcomputer running a full operating system and providing input and output connectivity through a number of interfaces:
 
-![IMG_raspberrypizerow](IMG_raspberrypizerow.jpg)
+![Images/IMG_raspberrypizerow](Images/IMG_raspberrypizerow.jpg)
 
 Your Raspberry Pi Zero W comes with a micro SD cards with the operating sysetm (called [Raspbian](https://en.wikipedia.org/wiki/Raspbian)) preinstalled. The micro SD card is inside the larger regular SD card "adapter". Pull the micro-SD card out and insert it carefully into the card slot. Make sure the logo is up and the hand-painted white number on the back.
 
-![IMG_sdcard](IMG_sdcard.jpg)
+![Images/IMG_sdcard](Images/IMG_sdcard.jpg)
 
 The first time you set-up your Raspberry Pi Zero W, you will need a few additional components. Those components can be used for setting-up multiple systems in a row. The components you need are 
 
@@ -47,15 +47,15 @@ Later, once the system is assigned to your wireless networks, you can connect to
 
 Here are all connection cables and supplies you need for the initial set-up (screen is not shown):
 
-![IMG_setup_components](IMG_setup_components.jpg)
+![Images/IMG_setup_components](Images/IMG_setup_components.jpg)
 
 To connect the screen during the initial set-up, connect the mini-HDMI cable to you screen (possibly using a HDMI to VGA adapter if your screen does not support HDMI and only VGA):
 
-![IMG_hdmi](IMG_hdmi.jpg)
+![Images/IMG_hdmi](Images/IMG_hdmi.jpg)
 
 Next, connect the USB ports. Your Raspberry Pi Zero W has two mini-USB ports, one (left) is for the USB devices (mouse, keyboard), one (right) is actually only for supplying power. First connect to the USB devices (left). Because there is only one true USB port, but you need to connect two devices, you must also add initially a USB hub. Here is the set-up:
 
-![IMG_usbhub](IMG_usbhub.jpg)
+![Images/IMG_usbhub](Images/IMG_usbhub.jpg)
 
 Finally connect the power supply to the right mini USB connector. The Raspberry Pi Zero W now starts up, the green inicator light begins to flash, and instructions follow on your screen.
 
@@ -65,17 +65,17 @@ Follow the instructions on-screen to set-up your Raspberry Pi Zero W. It will au
 
 Then connect to the wireless network. Click in the menu-bar on the wireless network icon, select our network and enter the password. Details on the password and network can be found on your desk. Hover with the mouse over the network icon to read the IP number. Note the IP number on your sheet on the desk.
 
-![SCS_network](SCS_network.jpg)
+![Images/SCS_network](Images/SCS_network.jpg)
 
 Next, localize the Raspberry Pi Zero W to your language and region. Provide a password to the Raspberry. Set the same password as the wireless network, so we have all the same password. Make sure it starts with a capital letter. Also change the Hostname to "raspberryXX" where XX is the number of your system (see sheet on your table):
 
-![SCS_systemname](SCS_systemname.png)
+![Images/SCS_systemname](Images/SCS_systemname.png)
 
 ### Testing the wireless network
 
 Test the communication with another device (your laptop or smartphone). First activate VNC. Go to settings, and enable "VNC". You can also enable SSH und I2C.
 
-![SCS_connections.png](SCS_connections.png)
+![Images/SCS_connections.png](Images/SCS_connections.png)
 
 Next, on your laptop or smartphone install the "VNC Viewer" from "RealVNC":
 
@@ -94,7 +94,7 @@ You should be able to control your Raspberry Pi Zero W and you can use a mouse a
 
 The [DHT22](https://learn.adafruit.com/dht/overview) is a low-cost digital temperature and humidity sensor. It contains a capacitive humidity sensor and a thermistor (resistor that changes with temperature). It transfers data digitally to your Raspberry Pi Zero W. You need just three cables to connect the DHT22 to the Raspberry Pi Zero W - one for power (red), one for the signal (orange) and one for the ground (brown).
 
-![IMG_dht22](IMG_dht22.jpg)
+![Images/IMG_dht22](Images/IMG_dht22.jpg)
 
 To enable communication with the DHT22 , enter the following commands once into the `LXTerminal` (the command line) on the Raspberry Pi Zero to install  the Adafruit DHT 22 library. Once the library is installed, you can access it from the programming language Python.
 
@@ -113,7 +113,7 @@ Next, turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspbe
 | PIN 3 | (no cable)  |
 | PIN 4 | <span style="color: brown">Brown Cable</span>  | PIN 9 (Ground)
 
-![IMG_dht22wiring](IMG_dht22wiring.jpg)
+![Images/IMG_dht22wiring](Images/IMG_dht22wiring.jpg)
 
 Double check if the connection is correct. A wrong connection could damage the sensor and or the Raspberry Pi Zero. Then reconnect the power cable to the Raspberry Pi Zero. The Raspberry Pi Zero restarts, and its green light flashes.
 
@@ -138,7 +138,7 @@ Can you also calculate the dewpoint temperature?
 
 The Adafruit Ultimate GPS is a 66 channel Global Positioning System using satellites to accurately determine your location, speed and altitude. It digitally communicates with the Raspberry Pi Zero W over four cables:
 
-![IMG_gps](IMG_gps.jpg)
+![Images/IMG_gps](Images/IMG_gps.jpg)
 
 To enable communication with the Raspberry Pi Zero W, start the Raspberry's `LXTerminal` and type:
 
@@ -183,7 +183,7 @@ Turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspberry Pi
 | RX   | <span style="color: grey">Grey Cable</span>  | PIN 8 (TXD)
 | TX.  | <span style="color: purple">Purple Cable</span>  | PIN 10 (RXD)
     
-![IMG_gpswiring](IMG_gpswiring.jpg)
+![Images/IMG_gpswiring](Images/IMG_gpswiring.jpg)
 
 Double check if the connection is correct. Then reconnect the power cable to the Raspberry Pi Zero. The Raspberry Pi Zero restarts, and the green light flashes.  
 
@@ -203,7 +203,7 @@ You can start `meteobike03.py` using `LXTerminal` (assuming your file has been d
    
     $ python ~/Desktop/meteobike03.py 
     
-![SCS_userinterface](SCS_userinterface.png)
+![Images/SCS_userinterface](Images/SCS_userinterface.png)
     
 Next, make changes to personalize your copy of `meteobike03.py`. You can, for example, open the Python Development Environment (Version 2.7) and `File > Open`. 
 
@@ -254,20 +254,20 @@ Materials needed to complete the assembly of system include:
 * Screw & Bolt 
 * Foam
 
-![IMG_assembly](IMG_assembly.jpg)
+![Images/IMG_assembly](Images/IMG_assembly.jpg)
 
 
 To begin the assembly of the Meteobike system, carefully cut the reflective tape to the length of the white plastic tube. Wrap the tube with the tape lengthwise, cut another piece of the same length and repeat this step with minimal overlap of the first piece of tape. The two pieces of tape should cover the entire tube.
 
 Now that the tube is completely covered with the tape, use the scissors to puncture a hole in the tape where the holes on the tube are located. This is the sensor screen for the temperature and humitidy sensor. 
 
-![IMG_sensorscreen](IMG_sensorscreen.jpg)
+![Images/IMG_sensorscreen](Images/IMG_sensorscreen.jpg)
 
 To connect the temperature and humidity sensor to the radiation shield, you must disconnect the temperature and humidity sensor from the Raspberry Pi, please ensure the sensor is not connected to any source of power.
 
 You will use the cirlce hook and loop velcro to attach the sheild and sensor. Place one piece on the inside of the radiaiton shield on the side that has 3 holes. It should be located close to the small hole that is farthest from the large hole. Place the second piece of velcro on the back side of the temperature and humidity sensor. 
 
-![IMG_velcro](IMG_velcro.jpg)
+![Images/IMG_velcro](Images/IMG_velcro.jpg)
 
 Pass the wires from the sensor through the shield and through the largest hole, then press the sensor to the shield and ensure the velcro will hold the sensor and shield together. 
 
@@ -278,7 +278,7 @@ Now you must connect the radiation shield and the sensor to the bag. To do this,
 Using the wrench to hold the bolt in place, use the screwdriver to insert the screw into the bolt to hold it secure. Place the 
 thin plastic plate with the same holes on the inside of the bag apply the screw through it and the bolt on the inside. 
 
-![IMG_boltscrew](IMG_boltscrew.jpg)
+![Images/IMG_boltscrew](Images/IMG_boltscrew.jpg)
 
 You can now reconnect the  the DHT22 sensor physically using the pre-soldered wires to the Raspberry Pi W. 
 
@@ -289,7 +289,7 @@ You can now reconnect the  the DHT22 sensor physically using the pre-soldered wi
 | PIN 3 | (no cable)  |
 | PIN 4 | <span style="color: brown">Brown Cable</span>  | PIN 9 (Ground)
 
-![IMG_dht22wiring](IMG_dht22wiring.jpg)
+![Images/IMG_dht22wiring](Images/IMG_dht22wiring.jpg)
 
 Please double check to make sure the connection is correct. 
 
@@ -301,47 +301,47 @@ You will be given a 20x28 cubical foam sheet, using this you will remove two 7x1
 
 You should be able to remove 6 different 7x12 sheets from the original 20x28 sheet. 
 
-![IMG_fullfoam](IMG_fullfoam.jpg)
+![Images/IMG_fullfoam](Images/IMG_fullfoam.jpg)
 
-![IMG_cutfoam](IMG_cutfoam.jpg)
+![Images/IMG_cutfoam](Images/IMG_cutfoam.jpg)
 
 When sizing the foam for the Raspberry Pi, you will remove the foam cubes from the arrangement found below:
 
-![IMG_alteredfoam](IMG_alteredfoam.jpg)
+![Images/IMG_alteredfoam](Images/IMG_alteredfoam.jpg)
 
 There is one location in the foam where you must use the scissors to remove only half of the cube. This is where the power cable will be guided and should be faced down in the bag. 
 
 You will now connect the battery and arrange the foam, battery and sensors to be comfortably situated within the bag. 
 
-![IMG_connection](IMG_connection.jpg)
+![Images/IMG_connection](Images/IMG_connection.jpg)
 
 The arrangement within the bag will consist of the battery at the base, followed with the unaltered foam, the cable for the battery, the altered foam and the Raspberry Pi within. 
 
-![IMG_arrangement](IMG_arrangement.jpg)
+![Images/IMG_arrangement](Images/IMG_arrangement.jpg)
 
 You must place the Raspberry Pi on top of the altered foam then connect the battery cable to the Raspberry Pi under the altered foam where you cut out the half cubes. 
 
 The GPS can be placed into the front pocket. Please make sure the antenna is facing up, this is to ensure a full connection with the satellites and a accurate track recorded. 
 
-![IMG_baggps](IMG_baggps.jpg)
+![Images/IMG_baggps](Images/IMG_baggps.jpg)
  
 When the system is complete, it should look similar to the image below. 
 
-![IMG_system.complete](IMG_system.complete.jpg)
+![Images/IMG_system.complete](Images/IMG_system.complete.jpg)
 
 Once the system is set up similar to what is arranged above, you can connect your mobile device to the VNC viewer in order to see the progress as you are collecting your data. 
 
 Place your mobile device in the front pocket behind the GPS. 
 
 
-![IMG_phone](IMG_phone.jpg)
+![Images/IMG_phone](Images/IMG_phone.jpg)
 
 
 ## Connecting the Raspberry Pi with your Smartphone
 
 In a first step, enable your phone to host a Personal Hotspot. Although you do not need to access the Internet and you will not use any of your data plan capacity, this is required in order to build a network over WiFi to communicate between the Raspberry and your Phone. However, make sure you do not browse the web or download any files while connected to your Personal Hotspot (otherwise charges will apply to your data plan). Also make sure you use a personal, not the course password to protect your connection.
 
-![IMG_Hotspot_iPhone.jpg](IMG_Hotspot_iPhone.jpg) <!-- .element height="50%" width="50%" -->
+![Images/IMG_Hotspot_iPhone.jpg](Images/IMG_Hotspot_iPhone.jpg) <!-- .element height="50%" width="50%" -->
 
 Here is a description (in German) how to [enable a personal hotsopt on your iOS smartphone](https://support.apple.com/de-de/HT204023)  
 
@@ -351,11 +351,11 @@ In both cases, you will now have a WiFi network enabled, and you can connect to 
 
 Boot the Raspberry Pi Zero, and then change the WiFi network to your Personal Hotspot WiFi name:
 
-![IMG_choose_smartphone.png](IMG_choose_smartphone.png)
+![Images/IMG_choose_smartphone.png](Images/IMG_choose_smartphone.png)
 
 Enter your password when promted:
 
-![IMG_choose_smartphone.png](IMG_pre_shared_key.png)
+![Images/IMG_choose_smartphone.png](Images/IMG_pre_shared_key.png)
 
 Then read the IP number (hover over the WiFi symbol in the menu bar to see it) e.g. 172.20.10.7 (without the "/", and what comes afterwards).
 
@@ -391,7 +391,7 @@ There are also option to export it into Google Earth, you could explore and desc
 
 Here is an example
 
-![IMG_GPStrack](IMG_GPStrack.jpg)
+![Images/IMG_GPStrack](Images/IMG_GPStrack.jpg)
 
 
 
