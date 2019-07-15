@@ -42,7 +42,7 @@ Alternatively, you can directly import the compiled file (`ALL-SYSTEMS-2019-06-2
 
 Assume you would like to contrast temperatures measured in a park to those measured in a buil-up area, you need to select points based on geographic location. One option to do this is a 'spatial join'. First you have to define the geographic areas for which you would like to create statistics. In our example we will select temperatures in a park. You can do this with any other dataset, including imported shape files.
 
-### Create a poligon of the area
+### Create a polygon of the area
 
 Create a new layer to draw polygons . First select Menu `Layer` > `Create Layer` > `New Shapefile Layer...`. Under 'File name' select an appropriate name (here, we will call it `parks.shp`) and use the `...`-button to store the shape file locally. As 'Geometry type' choose `Polygon`.
 
@@ -50,11 +50,25 @@ You can add properties such as a name to the shape file. For example you can cre
 
 Under `Layers` right-click on the 'parks' layer and select `Toggle Editing`. Then click the polygon-drawing icon (![Images/QGIS_Polygon.png](Images/QGIS_Polygon.png)) to draw the area of the park:
 
-![Images/QGIS_DrawPolygon.png](Images/QGIS_DrawPolygon.png | width=30)
+![Images/QGIS_DrawPolygon.png](Images/QGIS_DrawPolygon.png)
 
- Close the polygon by right-clicking. A dialog will appear to enter ID and Name (and other fields you have created). Enter and click `OK`:
+Close the polygon by right-clicking. A dialog will appear to enter ID and Name (and other fields you have created). Enter and click `OK`:
 
-![Images/QGIS_PolygonDialog.png](Images/QGIS_PolygonDialog.png | width=200)
+![Images/QGIS_PolygonDialog.png](Images/QGIS_PolygonDialog.png)
 
+You can add different polygons the same way. In the end, click again on `Toggle Edit` and save the shape file layer.
 
+### Select subset of points within polygon
+
+In a next step you would like to select all measurements inside the polygon. Choose menu `Vector` > `Data Management Tools` > `Join Attributes by Location`:
+
+![Images/QGIS_JoinAttributesLoc.png](Images/QGIS_JoinAttributesLoc.png)
+
+As 'Input Layer' choose your polygons (e.g. 'parks.shp'). As join layer choose your meteobike dataset. Under 'Geometric predictate' you should choose `contains` and under 'Join type' you select `Create separate feature for each located feature (one-to-many)`. Then click on `run`. This will select the points within the polygon. A new layer `Joined layer` will be created.
+
+Right-click on the new `Joined layer` and select `Open Attribute Table`. You will get a list of all points in the polygons (and complemented with the polygon ID and name).
+
+### Calculate statistics for subset
+
+Select menu `Vector` > `Basic Statistics for Fields`. Choose the 'field to calculate statistics' on.
 
