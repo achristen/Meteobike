@@ -24,8 +24,18 @@ You can import any .csv file into QGIS. Use Menu `Layer` > `Add Layer` > `Add De
 
 ![Images/QGIS_CSVImport.png](Images/QGIS_CSVImport.png)
 
-Choose the file of your system (by clicking on the `...`-button in the upper right). Under 'File Format' select `CSV (comma separated values)`, under 'Record and Field Options' select `First record has field names` and `Detect field types`. Under 'Geometry Definition' it should automatically select 'Longitude' as `x field` and 'Latitude' as `y field`. 'Sample Data' displays your measurement dataset. Click `Add`.
+Choose the file of your system (by clicking on the `...`-button in the upper right). Alternatively, you can also select the compiled file (`ALL-SYSTEMS-2019-06-26.csv`) with all systems and corrected for cooling. 
 
-Your trace will be displayed as single measurement points. Right click on the new layer and select `Properties...`. Under 'Labels' you can add numeric labels. Select for example the 'Temperature field' to display the measured temperatures.
+ Under 'File Format' select `CSV (comma separated values)`, under 'Record and Field Options' select `First record has field names` and `Detect field types`. Under 'Geometry Definition' it should automatically select 'Longitude' as `x field` and 'Latitude' as `y field`. 'Sample Data' displays your measurement dataset. Click `Add`.
+
+Your trace will be displayed as single measurement points. Right click on the new layer and select `Properties...`. You can display the measured values as numeric labels. Under 'Labels' you can for example select the 'Temperature' field:
 
 ![Images/QGIS_LayerOptions.png](Images/QGIS_LayerOptions.png)
+
+Each point is now geo-referenced and displays the measured temperatures:
+
+![Images/QGIS_Labels.png](Images/QGIS_Labels.png)
+
+## Create spatial operations in QGIS
+
+### Select temperatures based on a specific subset.
