@@ -79,21 +79,21 @@ Select menu `Vector` > `Basic Statistics for Fields`. Choose your field of inter
 You can open the output file to get all statistics for the points inside the polygon(s):
 
 ```
-Analyzed field: Temperature_diff_K
+Analyzed field: Absolute_temperature_degC
 Count: 21
-Unique values: 15
+Unique values: 14
 NULL (missing) values: 0
-Minimum value: -1.17
-Maximum value: 0.35
-Range: 1.52
-Sum: -10.410000000000002
-Mean value: -0.49571428571428583
-Median value: -0.38
-Standard deviation: 0.3885696778672046
-Coefficient of Variation: -0.7838581397897497
-Minority (rarest occurring value): -1.06
-Majority (most frequently occurring value): -0.27
-First quartile: -0.8
-Third quartile: -0.27
-Interquartile Range (IQR): 0.53
+Minimum value: 28.29
+Maximum value: 29.86
+Range: 1.5700000000000003
+Sum: 610.2899999999998
+Mean value: 29.061428571428564
+Median value: 29.13
+Standard deviation: 0.4053250983767842
+Coefficient of Variation: 0.013947184233581527
+Minority (rarest occurring value): 28.4
+Majority (most frequently occurring value): 29.23
+First quartile: 28.92
+Third quartile: 29.23
+Interquartile Range (IQR): 0.3099999999999987
 ```
