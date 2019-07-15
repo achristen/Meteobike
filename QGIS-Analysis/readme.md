@@ -72,9 +72,11 @@ Right-click on the new `Joined layer` and select `Open Attribute Table`. You wil
 
 ### Calculate statistics for subset
 
-Select menu `Vector` > `Basic Statistics for Fields`. Choose the 'field to calculate statistics' on.
+Select menu `Vector` > `Basic Statistics for Fields`. Choose your field of interest in the 'field to calculate statistics' menu:
 
 ![Images/QGIS_BasicStatistics.png](Images/QGIS_BasicStatistics.png)
+
+You can open the output file to get all statistics for the points inside the polygon(s):
 
 ```
 Analyzed field: Temperature_diff_K
@@ -86,7 +88,6 @@ Maximum value: 0.35
 Range: 1.52
 Sum: -10.410000000000002
 Mean value: -0.49571428571428583
-```
 Median value: -0.38
 Standard deviation: 0.3885696778672046
 Coefficient of Variation: -0.7838581397897497
@@ -95,3 +96,4 @@ Majority (most frequently occurring value): -0.27
 First quartile: -0.8
 Third quartile: -0.27
 Interquartile Range (IQR): 0.53
+```
