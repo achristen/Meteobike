@@ -72,3 +72,4 @@ Right-click on the new `Joined layer` and select `Open Attribute Table`. You wil
 
 Select menu `Vector` > `Basic Statistics for Fields`. Choose the 'field to calculate statistics' on.
 
+![Images/QGIS_BasicStatistics.png](Images/QGIS_BasicStatistics.png)
