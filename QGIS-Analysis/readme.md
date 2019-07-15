@@ -36,6 +36,8 @@ Each point is now geo-referenced on Open Street Map and displays the measured te
 
 ![Images/QGIS_Labels.png](Images/QGIS_Labels.png)
 
+You can further color-code the measured temperatures. Right click again on the new layer and select `Properties...`. Her you can select `Symbology` and choose `Categorized` 
+
 For the course we recommend that you directly import the compiled file (`ALL-SYSTEMS-2019-06-26.csv`) which contains all systems corrected for cooling against the fixed weather station.
 
 ## Create statistics of temperatures in a specific area.
