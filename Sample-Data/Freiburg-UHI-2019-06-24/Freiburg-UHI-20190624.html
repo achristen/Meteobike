@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 35%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        font-size: 10pt;
+        line-height: 30px;
+        padding-left: 10px;
+      }
+      #floating-legend {
+        position: absolute;
+        bottom: 30px;
+        left: 3%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        font-size: 10pt;
+        line-height: 10px;
+        padding-left: 2px;
+      }
+    </style>
+  </head>
+  <body onload="selectSubset(this)">
+    
+    <script>
+      
+      var map;
+      var markers = [];
+      var marker_tags = [];
+      var marker_daytime = [];
+      var marker_param = [];
+      
+      function pinSymbol(color) {
+      return {
+        path: google.maps.SymbolPath.CIRCLE,
+        fillColor: color,
+        fillOpacity: 0.75,
+        strokeColor: '#333',
+        strokeWeight: 1,
+        scale: 9,
+       };
+      }
+      
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: new google.maps.LatLng(47.992836,7.8447268),
+          mapTypeId: 'terrain',
+          styles: [
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#f5f5f5"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#f5f5f5"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#bdbdbd"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.neighborhood",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#eeeeee"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e5e5e5"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#ffffff"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dadada"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e5e5e5"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#eeeeee"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#c9c9c9"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  }
+]
+        });
+
+        // Create a <script> tag and set the geoJSON as the source.
+        var script = document.createElement('script');
+        script.src = 'GeoJSON-20190624.js';
+        document.getElementsByTagName('head')[0].appendChild(script);
+      }
+      
+      // Loop through the results array and place a marker for each
+      // set of coordinates.
+      window.eqfeed_callback = function(results) {
+       for (var j = 0; j < 3; j++) {
+        for (var i = 0; i < results.features.length; i++) {
+          var coords = results.features[i].geometry.coordinates;
+          var latLng = new google.maps.LatLng(coords[1],coords[0]);
+          
+    var color_sel = "#FFFFFF";
+    switch (j) {
+    case 0:
+        var param_sel = Math.round(2 * results.features[i].properties.temperature-26.53525);
+        var string_label = String(Math.round(results.features[i].properties.temperature*10)/10);
+        break;
+    case 1:
+        var param_sel = Math.round(2 * (results.features[i].properties.temperature));
+        var string_label = String(Math.round(results.features[i].properties.temperature*10)/10);
+        break;
+    }
+    
+    marker_param.push(j);
+    
+    switch (param_sel) {
+    case -13:
+        color_sel = "#E3CEF6";
+        break;
+    case -12:
+        color_sel = "#BE81F7";
+        break;
+    case -11:
+        color_sel = "#5F04B4";
+        break;
+    case -10:
+        color_sel = "#084B8A";
+        break;
+    case -9:
+        color_sel = "#4000FF";
+        break;
+    case -8:
+        color_sel = "#2E64FE";
+        break;
+    case -7:
+        color_sel = "#819FF7";
+        break;
+    case -6:
+        color_sel = "#58D3F7";
+        break;
+    case -5:
+        color_sel = "#58FAD0";
+        break;
+    case -4:
+        color_sel = "#6FBF00";
+        break;
+    case -3:
+        color_sel = "#6FBF00";
+        break;
+    case -2:
+        color_sel = "#ABC200";
+        break;
+    case -1:
+        color_sel = "#C6A200";
+        break;
+    case 0:
+        color_sel = "#CA6800";
+        break;
+    case 1:
+        color_sel = "#CE2C00";
+        break;
+    case 2:
+        color_sel = "#D50052";
+        break;
+    case 3:
+        color_sel = "#DD00D9";
+        break;
+    case 4:
+        color_sel = "#A100E1";
+        break;
+};
+
+    var title_sel =  results.features[i].properties.sensor;
+    marker_tags.push(title_sel);
+    
+    if (results.features[i].properties.gpstime == "Daytime") {
+      marker_daytime.push(1);
+    } else {
+      marker_daytime.push(0);
+    }
+
+          var marker = new google.maps.Marker({
+            position: latLng,
+            // label: String(Math.round(results.features[i].properties.temperature)),
+            //title: results.features[i].properties.date+" "+results.features[i].properties.time+" Group: "+results.features[i].properties.group,
+            label: {
+   				 text: string_label,
+    			 color: 'black',
+                 fontSize: "9px"
+                   },
+            icon: pinSymbol(color_sel),
+            map: map
+          });
+          markers.push(marker);
+        } 
+        }
+      }  
+        
+      // Sets the map on all markers in the array.
+      function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(map);
+        }
+      }
+
+      // Shows any markers currently in the array.
+      function showMarkers() {
+        setMapOnAll(map);
+      }
+       
+      function selectSubset(select) {
+      
+      var selectParam = document.navform.paramSelector.options[document.navform.paramSelector.selectedIndex].value;
+      var selectDaytime = document.navform.daytimeSelector.options[document.navform.daytimeSelector.selectedIndex].value;
+      var selectTag = document.navform.tagSelector.options[document.navform.tagSelector.selectedIndex].value;
+      
+        for (var i = 0; i < markers.length; i++) {
+          if (marker_param[i] == selectParam) {
+          if (marker_daytime[i] == selectDaytime) {
+          markers[i].setMap(null); 
+          } else { 
+          if (selectTag == "ALL") {
+          markers[i].setMap(map); 
+          } else {
+          str = marker_tags[i];
+          pos = str.indexOf(selectTag);
+          if (pos == -1) {
+          markers[i].setMap(null); 
+          } else { 
+          markers[i].setMap(map); 
+          }
+          }
+          }
+          } else {
+          markers[i].setMap(null); 
+          }
+        }
+      }
+        
+    </script>
+    <div id="floating-panel"><a href="www.meteo.uni-freiburg.de">Umweltmeteorologie Albert-Ludwigs-Universit&auml;t Freiburg</a> <BR>The urban heat island of Freiburg mapped on bicycles<br>
+	  <font size="1">27 bicycles run concurrently through Freiburg with our open-source <a href="https://github.com/achristen/Meteobike" target="_empty">Meteobike Sensors</a></font><br>
+
+      <form name="navform">
+      <select name="paramSelector" onchange="selectSubset(this)">
+		<option value="0">Air Temperature for 21:30 CEST (&deg;C)</option>
+	  </select>
+     <select name="daytimeSelector" onchange="selectSubset(this)">
+		<!-- <option value="0">June 14, 2018 (21:15-22:30 h)</option> -->
+		<option value="1" selected>June 24, 2019 (21:20-23:10 h)</option>
+	  </select>
+      <select name="tagSelector" onchange="selectSubset(this)">
+		<option value="ALL">All Routes</option>
+		<option value="21">Route R01</option>
+        <option value="10">Route R02</option>
+        <option value="15">Route R03</option>
+        <option value="29">Route R04</option>
+        <option value="09">Route R05</option>
+        <option value="16">Route R06</option>
+        <option value="30">Route R07</option>
+        <option value="20">Route R08</option>
+        <option value="12">Route R09</option>
+        <option value="28">Route R10</option>
+        <option value="25">Route R11</option>
+        <option value="02">Route R12</option>
+        <option value="13">Route R13</option>
+        <option value="27">Route R14</option>
+        <option value="06">Route R15</option>
+        <option value="08">Route R16</option>
+        <option value="11">Route R17</option>
+        <option value="07">Route R18</option>
+        <option value="05">Route R19</option>
+        <option value="03">Route R20</option>
+        <option value="24">Route R21</option>
+        <option value="26">Route R22</option>
+        <option value="14">Route R24</option>
+        <option value="04">Route R25</option>
+        <option value="17">Route R29</option>
+        <option value="18">Route R30</option>
+        <option value="32">Route R31</option>
+	  </select>  </form>
+    </div>
+    <div id="map"></div>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPocWY3P5guE9063TXc3rYK-OW9TnUlQU&callback=initMap">
+    </script>
+  </body>
+</html>
