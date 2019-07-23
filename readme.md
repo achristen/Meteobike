@@ -371,28 +371,35 @@ The GPS track is stored by the Raspberry on the desktop as a comma-separated fil
 
 If the Raspberry is in the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (on the Mac, for example with "Cyberduck"). 
 
-A graphical representation of the track can be done place on the website http://www.gpsvisualizer.com/map_input
+### Simple web-based visualization
 
-Simple drawing of a track
-At top left choose "With: 1400", then at the top right under "Upload" choose your file  and Click on Draw the map.
+A first graphical representation of the track can be done place on the website http://www.gpsvisualizer.com/map_input
 
-Color-coded drawing by temperature
-Under "Track options" click on "advanced options" and make the following settings below:
+At top left choose "With: 1400", then at the top right under "Upload" choose your file  and Click on `Draw the map`.
 
+Color-coded drawing by temperature: Under "Track options" click on "advanced options" and make the following settings below:
+
+```
 Colorize by: custom field
 Custom colorization field: temperature
 Spectrum direction: down
 Hue 1: 120
 Hue 2: 0
+```
 
-Then click on "Draw the map”.
-
-There are also option to export it into Google Earth, you could explore and describe. 
-
-Here is an example
+Then click on `Draw the map`. Here is an example
 
 ![Images/IMG_GPStrack](Images/IMG_GPStrack.jpg)
 
+There are also option to export it into Google Earth.
 
+### Detailed analysis is a geographic information system
 
+You can use the free and open-source Geographic Information System (GIS) [QGIS](https://qgis.org) to perform advanced geographical analysis, including statistics on specific areas of the track or rasterization of many Meteobike traces.
+
+Check out the separate page on [Visualizing Meteobike data wit QGIS](QGIS-Analysis/)...
+
+![QGIS-Analysis/Images/QGIS_SampleGraduated.png](QGIS-Analysis/Images/QGIS_SampleGraduated.png)
+
+![QGIS-Analysis/Images/QGIS_SampleHexagon.png](QGIS-Analysis/Images/QGIS_SampleHexagon.png)
 
