@@ -104,11 +104,11 @@ This way you finally get fancy heat map:
 
 ## Combining the Meteobike data with raster data
 
-Some data sources such as Digital Elevation Models (DEM) or vegetation indices are provided in raster format, rather than vector format. In some application we would like to attribute to our measurements values from rasters, or perform more detailed releif analysis.
+Some data sources such as Digital Elevation Models (DEM) or vegetation indices are provided in raster format, rather than vector format. In some application we would like to attribute values from rasters to our Meteobike measurements, or perform more detailed releif analysis.
 
-### Importing a DEM and displaying contour lines
+### Importing a DEM and atttibuting it with Meteobile data
 
-As an example, we can import a DEM and combine it with the measurements from our Meteobikes. A free source for elevation data  ASTER Global DEM V2  is the [Global Data Explorer](https://gdex.cr.usgs.gov/gdex/), a server provided by USGS and NASA. Use the navigation tools on the website to zoom to the area of your interest. With the rectangular selection tool you can select an area to be downloaded:
+As an example, we can import a DEM and combine it with the measurements from our Meteobikes. A free source for elevation data  ASTER Global DEM V2  is the [Global Data Explorer](https://gdex.cr.usgs.gov/gdex/), which can be obtained from a server at USGS and NASA. Use the navigation tools on the website to zoom to the area of your interest. With the rectangular selection tool you can select an area to be downloaded:
 
 ![Images/QGIS_DataExplorer.png](Images/QGIS_DataExplorer.png)
 
@@ -124,10 +124,20 @@ Right-click to change the appearance of the DEM to have different elevations dis
 
 ![Images/QGIS_Contour.png](Images/QGIS_Contour.png)
 
-You can now display your Meteobike data along teh digital elevation model:
+You can now display your Meteobike data along the digital elevation model:
 
 ![Images/QGIS_DEMSample.png](Images/QGIS_DEMSample.png)
 
-For further terrain analysis and to speed up performance, it may be advantageous to clip and resample the layer into a metric coordinate system.  
+To attribute data (e.g. elevation) from the raster to the measurements, go to the menu `Processing` > `Toolbox`. In the Toolbox choose `SAGA` > `Vector <-> raster` > `Add raster values to points`:
+
+![Images/QGIS_RasterToPoints.png](Images/QGIS_RasterToPoints.png)
+
+Click `Run` to create a new point layer that has the original Meteobike data combined with the data from the DEM (elevation) in the very last column of the 'Attribute Table'. You can now display the data with the elevation from the DEM. Note that the meteobikes already measured elevation (GPS Altitude) that should match the elevation data from the DEM - so there is currently no added value of this. Nevetheless, you can apply this procedure to any raster dataset (slope, catchment area, land cover data). There is a whole range of useful terrain analysis tools available in QGIS / SAGA.
+
+![Images/QGIS_SampleDEMPoints.png](Images/QGIS_SampleDEMPoints.png)
+
+### Importing a DEM and displaying contour lines
+
+For further terrain analysis and to speed-up performance, it may be advantageous to clip and resample the layer into a metric coordinate system.  
 
 
