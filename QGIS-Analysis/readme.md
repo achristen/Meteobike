@@ -106,7 +106,7 @@ This way you finally get fancy heat map:
 
 Some data sources such as Digital Elevation Models (DEM) or vegetation indices are provided in raster format, rather than vector format. In some application we would like to attribute values from rasters to our Meteobike measurements, or perform more detailed releif analysis.
 
-### Importing a DEM and atttibuting it with Meteobile data
+### Importing a DEM and displaying the countour lines
 
 As an example, we can import a DEM and combine it with the measurements from our Meteobikes. A free source for elevation data  ASTER Global DEM V2  is the [Global Data Explorer](https://gdex.cr.usgs.gov/gdex/), which can be obtained from a server at USGS and NASA. Use the navigation tools on the website to zoom to the area of your interest. With the rectangular selection tool you can select an area to be downloaded:
 
@@ -128,16 +128,14 @@ You can now display your Meteobike data along the digital elevation model:
 
 ![Images/QGIS_DEMSample.png](Images/QGIS_DEMSample.png)
 
-To attribute data (e.g. elevation) from the raster to the measurements, go to the menu `Processing` > `Toolbox`. In the Toolbox choose `SAGA` > `Vector <-> raster` > `Add raster values to points`:
+### Merge data from the DEM with the Meteobike data
+
+To attribute data from a raster dataset to the point-measurements, go to the menu `Processing` > `Toolbox`. As an example, we will now attribute the elevation from the DEM to each measurement location of the Meteobike. In the Toolbox choose `SAGA` > `Vector <-> raster` > `Add raster values to points`. SAGA (System for Automated Geoscientific Analyses) is a free, hybrid, cross-platform GIS software that is included in QGIS as a plug-in. It contains many more specific scientific tools to analyze data.
 
 ![Images/QGIS_RasterToPoints.png](Images/QGIS_RasterToPoints.png)
 
-Click `Run` to create a new point layer that has the original Meteobike data combined with the data from the DEM (elevation) in the very last column of the 'Attribute Table'. You can now display the data with the elevation from the DEM. Note that the meteobikes already measured elevation (GPS Altitude) that should match the elevation data from the DEM - so there is currently no added value of this. Nevetheless, you can apply this procedure to any raster dataset (slope, catchment area, land cover data). There is a whole range of useful terrain analysis tools available in QGIS / SAGA.
+Choose the Meteobike Dataset as the 'Points' and the DEM as the 'Grid'. As points do not fall directly in teh center of pixels, you may ant to interpolate the data between pixels (e.g. here 'Interpolation' `[1] Bilinear interpolation`). Click `Run` to create a new point layer that has the original Meteobike data combined with the data from the DEM (elevation). You find the elevation from the DEM in the very last column of the 'Attribute Table'. You can now display the data with the elevation from the DEM. 
 
 ![Images/QGIS_SampleDEMPoints.png](Images/QGIS_SampleDEMPoints.png)
 
-### Importing a DEM and displaying contour lines
-
-For further terrain analysis and to speed-up performance, it may be advantageous to clip and resample the layer into a metric coordinate system.  
-
-
+Note that the meteobikes already measured elevation (GPS Altitude) that should actually match the elevation data from the DEM - so there is currently no added value of doing this. Nevetheless, you can apply this procedure to any raster dataset (slope, catchment area, land cover data). There is a whole range of useful terrain analysis tools available in QGIS / SAGA for further analysis.
