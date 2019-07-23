@@ -82,7 +82,7 @@ Right-click on the new `Joined layer` and select `Open Attribute Table`. You wil
 
 ![Images/QGIS_Table.png](Images/QGIS_Table.png)
 
-### Create a rasterized map of the heat island
+### Create a gridded map of the heat island
 
 Essentially the same procedure can also be used to aggregate the measured datapoints in a gridded map. QGIS has an option to create different grids as polygon layers. To create a grid, select menu `Vector` > `Research Tools` > `Create grid...`:
 
@@ -101,5 +101,33 @@ A new grid layer will be generated which is showing only cells where measurement
 This way you finally get fancy heat map:
 
 ![Images/QGIS_HexagonHeatMap.png](Images/QGIS_HexagonHeatMap.png)
+
+## Combining the Meteobike data with raster data
+
+Some data sources such as Digital Elevation Models (DEM) or vegetation indices are provided in raster format, rather than vector format. In some application we would like to attribute to our measurements values from rasters, or perform more detailed releif analysis.
+
+### Importing a DEM and displaying contour lines
+
+As an example, we can import a DEM and combine it with the measurements from our Meteobikes. A free source for elevation data  ASTER Global DEM V2  is the [Global Data Explorer](https://gdex.cr.usgs.gov/gdex/), a server provided by USGS and NASA. Use the navigation tools on the website to zoom to the area of your interest. With the rectangular selection tool you can select an area to be downloaded:
+
+![Images/QGIS_DataExplorer.png](Images/QGIS_DataExplorer.png)
+
+If you create a free user account, you can download the ASTER Global DEM V2 in GeoTIFF format:
+
+![Images/QGIS_DataExplorerDownload.png](Images/QGIS_DataExplorerDownload.png)
+
+Save the '.tif' file locally on your machine. Then import the ASTER DEM into QGIS using the menu `Layer` > `Add Layer` > `Àdd Raster Layer`. Choose the previous '.tif' file with the ASTER Global DEM V2 as source:
+
+![Images/QGIS_ImportRaster.png](Images/QGIS_ImportRaster.png)
+
+Right-click to change the appearance of the DEM to have different elevations displayed differently. To add countour lines go to the menu `Raster` > `Extraction` > `Contour...`.
+
+![Images/QGIS_Contour.png](Images/QGIS_Contour.png)
+
+You can now display your Meteobike data along teh digital elevation model:
+
+![Images/QGIS_DEMSample.png](Images/QGIS_DEMSample.png)
+
+For further terrain analysis and to speed up performance, it may be advantageous to clip and resample the layer into a metric coordinate system.  
 
 
