@@ -271,16 +271,9 @@ We want the data from the GPS and the DHT22 to be automatically collected and wr
 
 You can start `meteobike04.py` using `LXTerminal` (assuming your file has been downloaded to the desktop)
    
-    $ python ~/Desktop/meteobike03.py 
+    $ python ~/Desktop/meteobike04.py 
    
 ![Images/SCS_userinterface](Images/SCS_userinterface.png)
-    
-Or you can download it to your Raspberry Pi by typing the following commands on your LXTerminal:
-
-	$ git clone https://github.com/sergeantpol/Labs-Progress/tree/master/Meteobike04/meteobike04.py
-	$ cd Meteobike04
-	$ python meteobike04.py
-    
 
 Next, make changes to personalize your copy of `meteobike04.py`. You can, for example, open the Python Development Environment (Version 2.7) and `File > Open`. 
 
