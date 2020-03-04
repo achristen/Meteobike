@@ -6,7 +6,7 @@
 
 ## Overview
 
-Students build their own mobile system.s Each system will be assembled using the following components:
+Students build their own mobile systems. Each system will be assembled using the following components:
 
 | Component | Model | Link to Vendor in Germany | Price |
 | ------------------ | ----------- | ----------- | ---------- | 
