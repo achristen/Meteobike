@@ -72,6 +72,8 @@ Next, localize the Raspberry Pi Zero W to your language and region. Provide a pa
 
 ![Images/SCS_systemname](Images/SCS_systemname.png)
 
+At this point we strongly recommend to reboot your Raspberry Pi.
+
 ### Testing the wireless network
 
 Test the communication with another device (your laptop or smartphone). First activate VNC. Go to settings, and enable "VNC". You can also enable SSH und I2C.
