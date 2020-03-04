@@ -292,7 +292,7 @@ Then save the modified code `File > Save`. Close the Python Development Environm
 Every time `meteobike04.py` is started, it will create a new data-file that contains the data sampled. Here is an example:
 
 ID | Record | Raspberry_Time  | GPS_Time  | Altitude  | Latitude  | Longitude  | Temperature  | TemperatureRaw  | RelHumidity | RelHumidityRaw | VapourPressure | VapourPressureRaw | Velocity |
---- | --- | --- | --- | --- | --- | --- | --- | --- |  --- | --- | --- |  --- |
+--- | --- | --- | --- | --- | --- | --- | --- | --- |  --- | --- | --- |  --- |  --- |
 01 | 8 | 2018-05-06 08:29:03 | 2018-05-06T06:29:04.000Z  | 281.700 | 47.991855 | 7.845193 | 23.0 | 23.1 | 41.9 | 42.0 | 1.196 | 1.192 | 5.14
 01 | 9 | 2018-05-06 08:29:11 | 2018-05-06T06:29:12.000Z  | 288.000 | 47.991375 |  7.845212 | 22.9 | 23.0 | 41.9 |  42.0 | 1.188 | 1.185 | 6.68
 01 | 10 | 2018-05-06 08:29:24 | 2018-05-06T06:29:25.000Z  | 290.000 | 47.991242 |  7.845800 | 23.0 | 23.1 | 41.9 | 42.0 | 1.196 | 1.192 | 3.56
