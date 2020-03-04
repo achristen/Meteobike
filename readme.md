@@ -196,6 +196,73 @@ Now, you can test the GPS using:
 
 Note: If the GPS is searching for a signal it will flash red 5 times in 10seconds and if it flashes red once in 15 seconds it has been connected to the satellites.
 
+## Installing the E-Paper Hat 
+
+This product is an E-paper device adopting the image display technology of Microencapsulated Electrophoretic Display, MED. The E-paper screen display patterns by reflecting the ambient light, so it has no background light requirement. If the board you get is the HAT version like 2.7inch e-Paper HAT, you can directly attach it on the 40PIN GPIO of Raspberry Pi.
+
+### Wiring e-Paper (Part 1)
+
+So this is how your screen should be like. 
+
+![Images/epaper2.7](Images/epaper2.7.jpg)
+
+As you can see there are 8 different wires ready to be adjusted on your Raspberry Pi. So, just take a look to the following tables. 
+
+| e-Paper  | BCM2835 | Raspberry Pi Zero Board |
+| ------------------ | ----------- | ----------------- |
+| VCC  | 3.3V  | 	3.3V
+| GND  | GND  | 	GND
+| DIN  | MOSI  | 	19
+| CLK  | SCLK  | 	23
+| CS   | CE0  |		24
+| DC   | 25  | 		22
+| RST  | 17  | 		11
+| BUSY | 24  | 		18
+
+![Images/rpi_wires](Images/rpi_wires.jpg)
+
+![Images/wiring](Images/wiring.jpg)
+
+### Libraries Installation
+
+#### Install BCM2835 libraries
+
+	wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.60.tar.gz
+	tar zxvf bcm2835-1.60.tar.gz 
+	cd bcm2835-1.60/
+	sudo ./configure
+	sudo make
+	sudo make check
+	sudo make install
+	#For more details, please refer to http://www.airspayce.com/mikem/bcm2835/
+
+#### Install wiringPi libraries
+
+	sudo apt-get install wiringpi
+	#For Pi 4, you need to update it：
+	cd /tmp
+	wget https://project-downloads.drogon.net/wiringpi-latest.deb
+	sudo dpkg -i wiringpi-latest.deb
+	gpio -v
+	#You will get 2.52 information if you install it correctly
+
+#### Install Python libraries
+
+	#python2
+	sudo apt-get update
+	sudo apt-get install python-pip
+	sudo apt-get install python-pil
+	sudo apt-get install python-numpy
+	sudo pip install RPi.GPIO
+	sudo pip install spidev
+
+#### Enabling Keys
+
+Connect the wires as the image below is showing.
+
+![Images/rpipaint_cables_epaper](Images/rpipaint_cables_epaper.jpg)
+
+
 # Running the Recording Interface
 
 We want the data from the GPS and the DHT22 to be automatically collected and written into a file. We would also benefit from having the system data displayed in real time on screen. This is done with the python program `meteobike03.py`, which you can download on your Raspberry Pi Zero here:
