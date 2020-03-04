@@ -149,7 +149,7 @@ To enable communication with the Raspberry Pi Zero W, start the Raspberry's `LXT
     $ sudo systemctl stop serial-getty@ttyS0.service 
     $ sudo systemctl disable serial-getty@ttyS0.service
     $ sudo systemctl stop gpsd.socket
-	$ sudo systemctl disable gpsd.socket
+    $ sudo systemctl disable gpsd.socket
     
 For the Raspberry Pi Zero we need to enable the serial port on the GPIO pins. This requires us to change the configuration file of the Raspberry Pi Zero W. You can use a texteditor, for example the `nano` command in `LXTerminal` and edit the file `config.txt`
     
@@ -225,36 +225,22 @@ As you can see there are 8 different wires ready to be adjusted on your Raspberr
 
 ### Libraries Installation
 
-#### Install BCM2835 libraries
+Just follow this link: https://www.waveshare.com/wiki/2.7inch_e-Paper_HAT 
+Then visit the "Hardware / Software setup" section and follow all the steps from
 
-	wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.60.tar.gz
-	tar zxvf bcm2835-1.60.tar.gz 
-	cd bcm2835-1.60/
-	sudo ./configure
-	sudo make
-	sudo make check
-	sudo make install
-	#For more details, please refer to http://www.airspayce.com/mikem/bcm2835/
+#### Libraries Installation
 
-#### Install wiringPi libraries
+	$ sudo apt-get update
+	$ sudo apt-get install python-pip
+	$ sudo apt-get install python-pil
+	$ sudo apt-get install python-numpy
+	$ sudo pip install RPi.GPIO
+	$ sudo pip install spidev
 
-	sudo apt-get install wiringpi
-	#For Pi 4, you need to update it：
-	cd /tmp
-	wget https://project-downloads.drogon.net/wiringpi-latest.deb
-	sudo dpkg -i wiringpi-latest.deb
-	gpio -v
-	#You will get 2.52 information if you install it correctly
+#### Download examples 
 
-#### Install Python libraries
-
-	#python2
-	sudo apt-get update
-	sudo apt-get install python-pip
-	sudo apt-get install python-pil
-	sudo apt-get install python-numpy
-	sudo pip install RPi.GPIO
-	sudo pip install spidev
+	$ sudo git clone https://github.com/waveshare/e-Paper
+	$ cd e-Paper/RaspberryPi\&JetsonNano/
 
 #### Enabling Keys
 
