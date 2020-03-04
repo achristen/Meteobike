@@ -204,7 +204,7 @@ This product is an E-paper device adopting the image display technology of Micro
 
 So this is how your screen should be like. 
 
-![Images/epaper2.7](Images/epaper2.7.jpg)
+![Images/IMG_epaper2.7.jpg](Images/IMG_epaper2.7.jpg )
 
 As you can see there are 8 different wires ready to be adjusted on your Raspberry Pi. So, just take a look to the following tables. 
 
@@ -219,9 +219,9 @@ As you can see there are 8 different wires ready to be adjusted on your Raspberr
 | RST  | 17  | 		11
 | BUSY | 24  | 		18
 
-![Images/rpi_wires](Images/rpi_wires.jpg)
+![Images/IMG_Rpi_Epaper_wiring.jpg](Images/IMG_Rpi_Epaper_wiring.jpg)
 
-![Images/wiring](Images/wiring.jpg)
+![Images/IMG_Epaper_wired.jpg](Images/IMG_Epaper_wired.jpg)
 
 ### Libraries Installation
 
@@ -260,39 +260,46 @@ As you can see there are 8 different wires ready to be adjusted on your Raspberr
 
 Connect the wires as the image below is showing.
 
-![Images/rpipaint_cables_epaper](Images/rpipaint_cables_epaper.jpg)
+![Images/IMG_Keys_Epaper.jpg](Images/IMG_Keys_Epaper.jpg)
 
 
 # Running the Recording Interface
 
 We want the data from the GPS and the DHT22 to be automatically collected and written into a file. We would also benefit from having the system data displayed in real time on screen. This is done with the python program `meteobike03.py`, which you can download on your Raspberry Pi Zero here:
 
-* [Download meteobike03.py](/Code/meteobike03.py)
+* [Download meteobike04.py](/Code/meteobike04.py)
 
-You can start `meteobike03.py` using `LXTerminal` (assuming your file has been downloaded to the desktop)
+You can start `meteobike04.py` using `LXTerminal` (assuming your file has been downloaded to the desktop)
    
     $ python ~/Desktop/meteobike03.py 
-    
+   
 ![Images/SCS_userinterface](Images/SCS_userinterface.png)
     
-Next, make changes to personalize your copy of `meteobike03.py`. You can, for example, open the Python Development Environment (Version 2.7) and `File > Open`. 
+Or you can download it to your Raspberry Pi by typing the following commands on your LXTerminal:
+
+	$ git clone https://github.com/sergeantpol/Labs-Progress/tree/master/Meteobike04/meteobike04.py
+	$ cd Meteobike04
+	$ python meteobike04.py
+    
+
+Next, make changes to personalize your copy of `meteobike04.py`. You can, for example, open the Python Development Environment (Version 2.7) and `File > Open`. 
 
 * Replace "01" on line 41 `raspberryid =` to your system#s two digit number. If your system has the number "7" enter "07".
 * Replace "andreas" on line 42 `studentname =` to your first name in quotes.
 
 Then save the modified code `File > Save`. Close the Python Development Environment.
 
-Every time `meteobike03.py` is started, it will create a new data-file that contains the data sampled. Here is an example:
+Every time `meteobike04.py` is started, it will create a new data-file that contains the data sampled. Here is an example:
 
-ID | Record | Raspberry_Time  | GPS_Time  | Altitude  | Latitude  | Longitude  | Temperature  | TemperatureRaw  | RelHumidity | RelHumidityRaw | VapourPressure | VapourPressureRaw
+ID | Record | Raspberry_Time  | GPS_Time  | Altitude  | Latitude  | Longitude  | Temperature  | TemperatureRaw  | RelHumidity | RelHumidityRaw | VapourPressure | VapourPressureRaw | Velocity |
 --- | --- | --- | --- | --- | --- | --- | --- | --- |  --- | --- | --- |  --- |
-01 | 8 | 2018-05-06 08:29:03 | 2018-05-06T06:29:04.000Z  | 281.700 | 47.991855 | 7.845193 | 23.0 | 23.1 | 41.9 | 42.0 | 1.196 | 1.192
-01 | 9 | 2018-05-06 08:29:11 | 2018-05-06T06:29:12.000Z  | 288.000 | 47.991375 |  7.845212 | 22.9 | 23.0 | 41.9 |  42.0 | 1.188 | 1.185
-01 | 10 | 2018-05-06 08:29:24 | 2018-05-06T06:29:25.000Z  | 290.000 | 47.991242 |  7.845800 | 23.0 | 23.1 | 41.9 | 42.0 | 1.196 | 1.192
+01 | 8 | 2018-05-06 08:29:03 | 2018-05-06T06:29:04.000Z  | 281.700 | 47.991855 | 7.845193 | 23.0 | 23.1 | 41.9 | 42.0 | 1.196 | 1.192 | 5.14
+01 | 9 | 2018-05-06 08:29:11 | 2018-05-06T06:29:12.000Z  | 288.000 | 47.991375 |  7.845212 | 22.9 | 23.0 | 41.9 |  42.0 | 1.188 | 1.185 | 6.68
+01 | 10 | 2018-05-06 08:29:24 | 2018-05-06T06:29:25.000Z  | 290.000 | 47.991242 |  7.845800 | 23.0 | 23.1 | 41.9 | 42.0 | 1.196 | 1.192 | 3.56
 
-You can also place a link - called bash script on your desktop (`meteobike.sh`)
+You can also place a link - called bash script on your desktop (`meteobike04.sh`)
 
-* [Download meteobike.sh](/Code/meteobike.sh)
+* [Download meteobike.sh](/Code/meteobike04.sh)
 
 To ensure it works, you must change permissions of the file as follows (make it executable). This way, it can be started with a double-click:
 
@@ -302,7 +309,7 @@ Now you can double-click `meteobike.sh` to start the user interface. Later, we w
 
 ## Entering the calibration coefficients
 
-You can enter the calibration coefficients we derived from the intercomparison directly into the python code. Open the file `Meteobike03.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
+You can enter the calibration coefficients we derived from the intercomparison directly into the python code. Open the file `meteobike04.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
 
 		temperature_cal_a1 = 1.00000
 		temperature_cal_a0 = 0.00000
@@ -323,6 +330,7 @@ Materials needed to complete the assembly of system include:
 * Velcro
 * Screw & Bolt 
 * Foam
+* e-Paper Screen
 
 ![Images/IMG_assembly](Images/IMG_assembly.jpg)
 
