@@ -200,7 +200,7 @@ Note: If the GPS is searching for a signal it will flash red 5 times in 10second
 
 This product is an E-paper device adopting the image display technology of Microencapsulated Electrophoretic Display, MED. The E-paper screen display patterns by reflecting the ambient light, so it has no background light requirement. If the board you get is the HAT version like 2.7inch e-Paper HAT, you can directly attach it on the 40PIN GPIO of Raspberry Pi.
 
-### Wiring e-Paper (Part 1)
+### Wiring e-Paper 
 
 So this is how your screen should be like. 
 
@@ -265,7 +265,7 @@ Connect the wires as the image below is showing.
 
 # Running the Recording Interface
 
-We want the data from the GPS and the DHT22 to be automatically collected and written into a file. We would also benefit from having the system data displayed in real time on screen. This is done with the python program `meteobike03.py`, which you can download on your Raspberry Pi Zero here:
+We want the data from the GPS and the DHT22 to be automatically collected and written into a file. We would also benefit from having the system data displayed in real time on screen. This is done with the python program `meteobike04.py`, which you can download on your Raspberry Pi Zero here:
 
 * [Download meteobike04.py](/Code/meteobike04.py)
 
@@ -296,9 +296,9 @@ You can also place a link - called bash script on your desktop (`meteobike04.sh`
 
 To ensure it works, you must change permissions of the file as follows (make it executable). This way, it can be started with a double-click:
 
-    $ chmod +x  ~/Desktop/meteobike.sh
+    $ chmod +x  ~/Desktop/meteobike04.sh
     
-Now you can double-click `meteobike.sh` to start the user interface. Later, we will automate the start-up during the boot process.
+Now you can double-click `meteobike04.sh` to start the user interface. Later, we will automate the start-up during the boot process.
 
 ## Entering the calibration coefficients
 
