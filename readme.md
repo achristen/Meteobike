@@ -411,8 +411,11 @@ Once the system is set up similar to what is arranged above, you can connect you
 
 Place your mobile device in the front pocket behind the GPS. 
 
-
 ![Images/IMG_phone](Images/IMG_phone.jpg)
+
+However, when you are using an e-Paper screen, it should look similar to the image below. 
+
+![Images/IMG_final_epaper](Images/IMG_final_epaper.jpg)
 
 
 ## Connecting the Raspberry Pi with your Smartphone
