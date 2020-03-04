@@ -11,11 +11,12 @@ Students build their own mobile systems. Each system will be assembled using the
 | Component | Model | Link to Vendor in Germany | Price |
 | ------------------ | ----------- | ----------- | ---------- | 
 | Microcontroller | Raspberry Pi Zero W | [Pimoroni.de](https://shop.pimoroni.de/products/raspberry-pi-zero-w) | 10 EUR |
-| GPS | Adafruit Ultimate GPS Breakout | [Pimoroni.de](https://shop.pimoroni.de/products/raspberry-pi-zero-w) | 40 EUR |
+| GPS | Adafruit Ultimate GPS Breakout | [Pimoroni.de](https://shop.pimoroni.com/products/adafruit-ultimate-gps-breakout) | 40 EUR |
 | Temperature / Humidity Sensor | DHT22 AM2302  | AZ-Delivery ([Amazon.de](https://www.amazon.de/dp/B06XF4TNT9/)) | 5 EUR |
 | Micro SD Card | NOOBS 16GB microSD | [Pimoroni.de](https://shop.pimoroni.de/products/noobs-microsd-card) | 5 EUR |
 | Battery | POWERADD Pilot 2GS Powerbank 10000mAh* | Poweradd ([Amazon.de](https://www.amazon.de/gp/product/B00J93R7XM/)) | 15 EUR |
 | Jumper Wires | Elegoo Jumper Wire* | GYE ([Amazon.de](https://www.amazon.de/dp/B01EV70C78/)) | 7 EUR |
+| Screen | 2.7inch e-Paper HAT | [Reichelt.de](https://www.reichelt.de/developer-boards-2-7-e-ink-display-black-white-debo-epa-2-7-p224220.html?trstct=pos_7&nbc=1&&r=1) | 20 EUR |
 
 * Can be replaced by any other product
 
