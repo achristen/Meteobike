@@ -72,7 +72,9 @@ dht22_sensor = Adafruit_DHT.DHT22
 #callback functions
 def exit_program():
 	master.destroy()
-	sys.exit()
+	gpsp.running = False
+	gpsp.join()
+	sys.exit(0)
 def record_data():
 	global recording
 	recording=True
