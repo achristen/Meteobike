@@ -24,7 +24,7 @@ Students build their own mobile systems. Each system will be assembled using the
 
 ## Workshop 1 - Setting up the Raspberry Pi Zero and connecting the sensors 
 
-In this first workshop you will connect the Raspberry Pi Zero to a Mouse, a Keyboard and a Screen to set it up properly. Then we will connect the T/RH sensor and a GPS. If they are working, we will install a user-interface to collect automatically  data.
+In this first workshop you will connect the Raspberry Pi Zero to a mouse, a keyboard and a screen to set it up properly. Then we will connect the temperature/relative humidiy sensor and a GPS. If they are working, we will install a user-interface to collect automatically your data and store it on the SD card.
 
 ### Connecting and starting the Raspberry Pi Zero
 
