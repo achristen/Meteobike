@@ -452,7 +452,7 @@ Now you are ready to install the system on your bike.Let's go for a test drive. 
 
 The GPS track is stored by the Raspberry on the desktop as a comma-separated file.
 
-If the Raspberry is in the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (for example with the free ![https://cyberduck.io](CyberDuck) or the free ![https://filezilla-project.org](FileZilla)). 
+If the Raspberry is in the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (for example with the free [CyberDuck](https://cyberduck.io) or the free [FileZilla](https://filezilla-project.org)). 
 
 ### Simple web-based visualization
 
