@@ -448,13 +448,13 @@ You can put the phone into the transparent lid of the bag. You can also use the 
 
 Now you are ready to install the system on your bike.Let's go for a test drive. Make sure the indicator changes from red to yellow, as soon as you are outdoors. The recording will only start if you have a good GPS connection. Drive for about 15 - 20 minutes, and come back to our lab room.
 
-## Display the recorded GPS track
+## Workshop 3 - Display and analyze the recorded GPS track
 
 The GPS track is stored by the Raspberry on the desktop as a comma-separated file.
 
 If the Raspberry is in the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (for example with FileZilla). 
 
-### Workshop 3 - Simple web-based visualization
+### Simple web-based visualization
 
 A first graphical representation of the track can be done place on the website http://www.gpsvisualizer.com/map_input
 
@@ -476,7 +476,7 @@ Then click on `Draw the map`. Here is an example
 
 There are also option to export it into Google Earth.
 
-#### Detailed analysis is a geographic information system
+### Detailed analysis is a geographic information system
 
 You can use the free and open-source Geographic Information System (GIS) [QGIS](https://qgis.org) to perform advanced geographical analysis, including statistics on specific areas of the track or rasterization of many Meteobike traces.
 
