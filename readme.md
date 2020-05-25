@@ -22,7 +22,9 @@ Students build their own mobile systems. Each system will be assembled using the
 
 ![Images/IMG_components](Images/IMG_components.jpg)
 
-## Preparing the Raspberry Pi Zero
+## Workshop 1 - Setting up the Raspberry Pi Zero and connecting the sensors 
+
+In this first workshop you will connect the Raspberry Pi Zero to a Mouse, a Keyboard and a Screen to set it up properly. Then we will connect the T/RH sensor and a GPS. If they are working, we will install a user-interface to collect automatically  data.
 
 ### Connecting and starting the Raspberry Pi Zero
 
@@ -30,9 +32,13 @@ The [Raspberry Pi Zero W](https://shop.pimoroni.de/collections/raspberry-pi/prod
 
 ![Images/IMG_raspberrypizerow](Images/IMG_raspberrypizerow.jpg)
 
+#### Setting-up the SD-card
+
 Your Raspberry Pi Zero W comes with a micro SD card that contains the operating sysetm (called [Raspbian](https://en.wikipedia.org/wiki/Raspbian)) preinstalled. In some cases, the micro SD card is housed inside the larger regular SD card "adapter". Pull the micro-SD card out and insert it carefully into the card slot. Make sure the logo is up and the hand-painted white number (or sticker) on the back.
 
 ![Images/IMG_sdcard](Images/IMG_sdcard.jpg)
+
+#### Setting-up temporary peripherals (mouse, keyboard, screen)
 
 The first time you set-up your Raspberry Pi Zero W, you will need a few additional components. The components you need are 
 
@@ -58,9 +64,11 @@ To connect your screen to TV during the initial set-up, connect first a mini-HDM
 
 ![Images/IMG_hdmi](Images/IMG_hdmi.jpg)
 
+#### Power-up the system
+
 Finally connect the power supply to the right mini USB connector. The Raspberry Pi Zero W now starts up, the green inicator light begins to flash, and instructions follow on your screen.
 
-### Setting-up the wireless network
+#### Setting-up the wireless network
 
 In case this is a first-time installation, follow the instructions on-screen to set-up your Raspberry Pi Zero W. It will automatically reboot after resizing. In most cases this is not needed, as your OS is already fully installed and operational.
 
@@ -74,7 +82,7 @@ Next, localize the Raspberry Pi Zero W to your language and region. Check if the
 
 At this point we recommend to reboot your Raspberry Pi.
 
-### Testing the wireless network
+#### Remote connection via the wireless network
 
 Test the communication with another device (your laptop or smartphone). First activate VNC. Go to settings, and enable "VNC". You can also enable SSH und I2C.
 
@@ -91,15 +99,15 @@ Make sure your laptop or smartphone is connected to the same wireless as the Ras
 
 You should be able to control your Raspberry Pi Zero W and you can use a mouse and keybord remotely.
 
-## Installing the Sensors
+### Installing the Sensors
 
-### Installing the DHT 22 Sensor
+#### Installing the DHT22 temperature / relative humidity probe
 
 The [DHT22](https://learn.adafruit.com/dht/overview) is a low-cost digital temperature and humidity sensor. It contains a capacitive humidity sensor and a thermistor (resistor that changes with temperature). It transfers data digitally to your Raspberry Pi Zero W. You need just three cables to connect the DHT22 to the Raspberry Pi Zero W - one for power (red), one for the signal (orange) and one for the ground (brown).
 
 ![Images/IMG_dht22](Images/IMG_dht22.jpg)
 
-To enable communication with the DHT22 , enter the following commands once into the `LXTerminal` (the command line) on the Raspberry Pi Zero to install  the Adafruit DHT 22 library. Once the library is installed, you can access it from the programming language Python.
+To enable communication with the DHT22 for the first time, enter the following commands once into the `LXTerminal` (the command line) on the Raspberry Pi Zero to install the Adafruit DHT 22 library. Once the library is installed, you can access it from the programming language Python. If your system has been already in use before, then installing the libray can be skipped as someone else has installed the library beforehand.
 
     $ sudo apt-get update
     $ sudo apt-get install build-essential python-dev python-openssl git
@@ -107,7 +115,9 @@ To enable communication with the DHT22 , enter the following commands once into 
     $ cd Adafruit_Python_DHT
     $ sudo python setup.py install
 
-Next, turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspberry Pi Zero. Connect the DHT22 sensor physically using the pre-soldered wires, with the following color coding on the pins of the Raspberry Pi Zero:
+Next, turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspberry Pi Zero. Connect the DHT22 sensor physically using the pre-soldered wires, while power is off. Never connect any sensors on a live (powered) system as this might damage the board.
+
+Connect the following color coding on the pins of the Raspberry Pi Zero:
 
 | DHT22 T/RH Sensor | Cable Color | Raspberry Pi Zero |
 | ------------------ | ----------- | ----------------- |
@@ -118,9 +128,9 @@ Next, turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspbe
 
 ![Images/IMG_dht22wiring](Images/IMG_dht22wiring.jpg)
 
-Double check if the connection is correct. A wrong connection could damage the sensor and or the Raspberry Pi Zero. Then reconnect the power cable to the Raspberry Pi Zero. The Raspberry Pi Zero restarts, and its green light flashes.
+Double check if the connection is correct. A wrong connection could also damage the sensor and or the Raspberry Pi Zero. Then reconnect the power cable to the Raspberry Pi Zero. The Raspberry Pi Zero restarts, and its green light flashes.
 
-Once started, the DHT 22 Sensor can be polled with the following commands in Python. First start the Phython development environment for Python 2.7 in interactive mode. In Python, enter
+Once started, the DHT 22 Sensor can be polled with the following commands in Python Version 2 (not Version 3!). First start the Phython development environment for Python 2.7 in interactive mode. In Python, enter
 
     >>> import Adafruit_DHT
     >>> humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22,4)
@@ -137,13 +147,17 @@ Next, as an exercise you can calculate the vapour pressure using the Clausius-Cl
     
 Can you also calculate the dewpoint temperature?    
 
-## Installing the GPS Module
+#### Installing the GPS Module
 
 The Adafruit Ultimate GPS is a 66 channel Global Positioning System using satellites to accurately determine your location, speed and altitude. It digitally communicates with the Raspberry Pi Zero W over four cables:
 
 ![Images/IMG_gps](Images/IMG_gps.jpg)
 
-To enable communication with the Raspberry Pi Zero W, start the Raspberry's `LXTerminal` and type:
+##### Enabling serial communication with the GPS Module
+
+To enable communication with the Raspberry Pi Zero W for the very first time, you need to enable serial communication. Again, if the system has been used in years before, then the follwing changes might already be implemented and you can skip to section 'Connecting the GPS'. 
+
+If the serial communication has not been installed, then start the Raspberry's `LXTerminal` and type:
 
     $ sudo apt-get install gpsd gpsd-clients python-gps
     $ sudo systemctl stop serial-getty@ttyS0.service 
@@ -159,7 +173,7 @@ Scroll to the the very bottom of the file (not with a mouse, but with the arrow 
     
     enable_uart=1
     
-Save with `Ctrl`+`0` (German: `Strg`+`O`), and then press `Enter`. Next press `Ctrl`+`X` (`Strg`+`X`) to exit the `nano` editor. Finally, reboot the Raspberry Pi Zero.
+Save with `Ctrl`+`0` (German: `Strg`+`O`), and then press `Enter`. Next press `Ctrl`+`X` (`Strg`+`X`) to exit the `nano` editor. Finally, reboot the Raspberry Pi Zero. 
 
 Once rebooted, disable the standard socket, and run this command in the `LXTerminal` to enable the serial port:
     
@@ -177,6 +191,8 @@ Save with `Ctrl`+`0` (German: `Strg`+`O`), and then press `Enter`. Next press `C
     
 Now, every time the Raspberry Pi Zero is booted, this command will be executed. 
 
+##### Connecting the GPS
+
 Turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspberry Pi Zero. Connect the GPS physically using the pre-soldered four wires, with the following color coding on the pins of the Raspberry Pi Zero:
 
 | GPS  | Cable Color | Raspberry Pi Zero |
@@ -190,19 +206,91 @@ Turn off the Raspberry Pi Zero. Disconnect the power cable from the Raspberry Pi
 
 Double check if the connection is correct. Then reconnect the power cable to the Raspberry Pi Zero. The Raspberry Pi Zero restarts, and the green light flashes.  
 
-Now, you can test the GPS using:
+##### Testing the GPS
+
+Once the Raspberry PI has been restarted, you can test the GPS using the following command on the command line:
 
     $ cgps -s
 
-Note: If the GPS is searching for a signal it will flash red 5 times in 10seconds and if it flashes red once in 15 seconds it has been connected to the satellites.
+Note: If the GPS is searching for a signal it will flash red 5 times in 10 seconds and if it flashes red once in 15 seconds it has been connected to the satellites. The GPS needs to be outdoors (or at least on a balcony or window sill with partial view of the sky) to connect to satellites. It cannot connect to satellites indoors.
 
-## Installing the E-Paper Hat 
+### Running the recording interface
 
-This product is an E-paper device adopting the image display technology of Microencapsulated Electrophoretic Display, MED. The E-paper screen display patterns by reflecting the ambient light, so it has no background light requirement. If the board you get is the HAT version like 2.7inch e-Paper HAT, you can directly attach it on the 40PIN GPIO of Raspberry Pi.
+We want the data from the GPS and the DHT22 to be automatically collected and written into a file. We would also benefit from having the system data displayed in real time on screen. This is done with the python program `meteobike03.py`, which you can download on your Raspberry Pi Zero here - place it on your Raspberry PIs Desktop:
 
-### Wiring e-Paper 
+* [Download meteobike03.py](/Code/meteobike03.py)
 
-So this is how your screen should be like. 
+You can start `meteobike03.py` using `LXTerminal` (assuming your file has been downloaded to the desktop)
+   
+    $ python ~/Desktop/meteobike04.py 
+   
+![Images/SCS_userinterface](Images/SCS_userinterface.png)
+
+Next, make changes to personalize your copy of `meteobike04.py`. You can, for example, open the Python Development Environment (Version 2.7) and `File > Open`. 
+
+* Replace "01" on line 41 `raspberryid =` to your system's two digit number. If your system has the number "7" enter "07".
+* Replace "Andreas" on line 42 `studentname =` to your first name in quotes with a Capital letter. That way you can idenitify your data when we upload it later.
+
+Then save the modified code `File > Save`. Close the Python Development Environment.
+
+Every time `meteobike03.py` is started, it will create a new data-file that contains the data sampled. Here is an example:
+
+ID | Record | Raspberry_Time  | GPS_Time  | Altitude  | Latitude  | Longitude  | Temperature  | TemperatureRaw  | RelHumidity | RelHumidityRaw | VapourPressure | VapourPressureRaw | Velocity |
+--- | --- | --- | --- | --- | --- | --- | --- | --- |  --- | --- | --- |  --- |  --- |
+01 | 8 | 2018-05-06 08:29:03 | 2018-05-06T06:29:04.000Z  | 281.700 | 47.991855 | 7.845193 | 23.0 | 23.1 | 41.9 | 42.0 | 1.196 | 1.192 | 5.14
+01 | 9 | 2018-05-06 08:29:11 | 2018-05-06T06:29:12.000Z  | 288.000 | 47.991375 |  7.845212 | 22.9 | 23.0 | 41.9 |  42.0 | 1.188 | 1.185 | 6.68
+01 | 10 | 2018-05-06 08:29:24 | 2018-05-06T06:29:25.000Z  | 290.000 | 47.991242 |  7.845800 | 23.0 | 23.1 | 41.9 | 42.0 | 1.196 | 1.192 | 3.56
+
+You can also place a link - called bash script on your desktop (`meteobike04.sh`)
+
+* [Download meteobike.sh](/Code/meteobike03.sh)
+
+To ensure it works, you must change permissions of the file as follows (make it executable). This way, it can be started with a double-click:
+
+    $ chmod +x  ~/Desktop/meteobike04.sh
+    
+Now you can double-click `meteobike04.sh` to start the user interface. Later, we will automate the start-up during the boot process.
+
+Now the system is ready to be calibrated. Please return the system to our HiWi who will place it for you in the calibration chamber. You are done with the first workshop - congratulations.
+
+## Workshop 2 - Calibrating the system and finalize the mobile unit
+
+In the second practical workshop you will enter the calibration coefficients to your system, then install the system in a protable bike-bag with a ePaper display, insert the sensor in a radiation shield and power the system from a battery, so it is mobile.
+
+### Entering the calibration coefficients
+
+After we discussed the calibrations, you can enter the calibration coefficients we derived from the intercomparison directly into the python code. Open the file `meteobike04.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
+
+		temperature_cal_a1 = 1.00000
+		temperature_cal_a0 = 0.00000
+		vappress_cal_a1 = 1.00000 
+		vappress_cal_a0 = 0.00000 
+		
+Replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in ![Sensor-Calibration/2019/readme.md](Tables 1 and 3 of the calibration diretory, respecively). make sure you use a `.` and not a `,` as the delimiter.	
+
+### Assembly of the protable system
+
+Materials needed to complete the assembly of system include: 
+
+* Reflective Tape 
+* Scissors 
+* Sensor Screen/Radiation Shield
+* Bag
+* GPS/T&RH Sensor
+* Velcro
+* Screw & Bolt 
+* Foam
+* e-Paper Screen
+
+![Images/IMG_assembly](Images/IMG_assembly.jpg)
+
+### Installing an E-Paper display 
+
+This product is an E-paper device adopting a image display technology called  "microencapsulated electrophoretic display"  (MED). An E-paper displays patterns by reflecting the ambient light, so it has no background light. 
+
+#### Wiring e-Paper 
+
+So this is how your screen should look like:
 
 ![Images/IMG_epaper2.7.jpg](Images/IMG_epaper2.7.jpg )
 
@@ -223,12 +311,12 @@ As you can see there are 8 different wires ready to be adjusted on your Raspberr
 
 ![Images/IMG_Epaper_wired.jpg](Images/IMG_Epaper_wired.jpg)
 
-### Libraries Installation
+#### Installation of required libaraies
 
-Just follow this link: https://www.waveshare.com/wiki/2.7inch_e-Paper_HAT 
+Follow this link: https://www.waveshare.com/wiki/2.7inch_e-Paper_HAT 
 Then visit the "Hardware / Software setup" section and follow all the steps from
 
-#### Libraries Installation
+##### Libraries Installation
 
 	$ sudo apt-get update
 	$ sudo apt-get install python-pip
@@ -237,82 +325,18 @@ Then visit the "Hardware / Software setup" section and follow all the steps from
 	$ sudo pip install RPi.GPIO
 	$ sudo pip install spidev
 
-#### Download examples 
+##### Download examples 
 
 	$ sudo git clone https://github.com/waveshare/e-Paper
 	$ cd e-Paper/RaspberryPi\&JetsonNano/
 
-#### Enabling Keys
+##### Enabling Keys
 
 Connect the wires as the image below is showing.
 
 ![Images/IMG_Keys_Epaper.jpg](Images/IMG_Keys_Epaper.jpg)
 
-
-# Running the Recording Interface
-
-We want the data from the GPS and the DHT22 to be automatically collected and written into a file. We would also benefit from having the system data displayed in real time on screen. This is done with the python program `meteobike04.py`, which you can download on your Raspberry Pi Zero here:
-
-* [Download meteobike04.py](/Code/meteobike04.py)
-
-You can start `meteobike04.py` using `LXTerminal` (assuming your file has been downloaded to the desktop)
-   
-    $ python ~/Desktop/meteobike04.py 
-   
-![Images/SCS_userinterface](Images/SCS_userinterface.png)
-
-Next, make changes to personalize your copy of `meteobike04.py`. You can, for example, open the Python Development Environment (Version 2.7) and `File > Open`. 
-
-* Replace "01" on line 41 `raspberryid =` to your system#s two digit number. If your system has the number "7" enter "07".
-* Replace "andreas" on line 42 `studentname =` to your first name in quotes.
-
-Then save the modified code `File > Save`. Close the Python Development Environment.
-
-Every time `meteobike04.py` is started, it will create a new data-file that contains the data sampled. Here is an example:
-
-ID | Record | Raspberry_Time  | GPS_Time  | Altitude  | Latitude  | Longitude  | Temperature  | TemperatureRaw  | RelHumidity | RelHumidityRaw | VapourPressure | VapourPressureRaw | Velocity |
---- | --- | --- | --- | --- | --- | --- | --- | --- |  --- | --- | --- |  --- |  --- |
-01 | 8 | 2018-05-06 08:29:03 | 2018-05-06T06:29:04.000Z  | 281.700 | 47.991855 | 7.845193 | 23.0 | 23.1 | 41.9 | 42.0 | 1.196 | 1.192 | 5.14
-01 | 9 | 2018-05-06 08:29:11 | 2018-05-06T06:29:12.000Z  | 288.000 | 47.991375 |  7.845212 | 22.9 | 23.0 | 41.9 |  42.0 | 1.188 | 1.185 | 6.68
-01 | 10 | 2018-05-06 08:29:24 | 2018-05-06T06:29:25.000Z  | 290.000 | 47.991242 |  7.845800 | 23.0 | 23.1 | 41.9 | 42.0 | 1.196 | 1.192 | 3.56
-
-You can also place a link - called bash script on your desktop (`meteobike04.sh`)
-
-* [Download meteobike.sh](/Code/meteobike04.sh)
-
-To ensure it works, you must change permissions of the file as follows (make it executable). This way, it can be started with a double-click:
-
-    $ chmod +x  ~/Desktop/meteobike04.sh
-    
-Now you can double-click `meteobike04.sh` to start the user interface. Later, we will automate the start-up during the boot process.
-
-## Entering the calibration coefficients
-
-You can enter the calibration coefficients we derived from the intercomparison directly into the python code. Open the file `meteobike04.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
-
-		temperature_cal_a1 = 1.00000
-		temperature_cal_a0 = 0.00000
-		vappress_cal_a1 = 1.00000 
-		vappress_cal_a0 = 0.00000 
-		
-Replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in ![Sensor-Calibration/2019/readme.md](Tables 1 and 3 of the calibration diretory, respecively). make sure you use a `.` and not a `,` as the delimiter.	
-
-## Assembly of the system
-
-Materials needed to complete the assembly of system include: 
-
-* Reflective Tape 
-* Scissors 
-* Sensor Screen/Radiation Shield
-* Bag
-* GPS/T&RH Sensor
-* Velcro
-* Screw & Bolt 
-* Foam
-* e-Paper Screen
-
-![Images/IMG_assembly](Images/IMG_assembly.jpg)
-
+### Assemble the complete system in a bag
 
 To begin the assembly of the Meteobike system, carefully cut the reflective tape to the length of the white plastic tube. Wrap the tube with the tape lengthwise, cut another piece of the same length and repeat this step with minimal overlap of the first piece of tape. The two pieces of tape should cover the entire tube.
 
@@ -396,8 +420,7 @@ However, when you are using an e-Paper screen, it should look similar to the ima
 
 ![Images/IMG_final_epaper](Images/IMG_final_epaper.jpg)
 
-
-## Connecting the Raspberry Pi with your Smartphone
+### Connecting the Raspberry Pi with your Smartphone
 
 In a first step, enable your phone to host a Personal Hotspot. Although you do not need to access the Internet and you will not use any of your data plan capacity, this is required in order to build a network over WiFi to communicate between the Raspberry and your Phone. However, make sure you do not browse the web or download any files while connected to your Personal Hotspot (otherwise charges will apply to your data plan). Also make sure you use a personal, not the course password to protect your connection.
 
@@ -429,9 +452,9 @@ Now you are ready to install the system on your bike.Let's go for a test drive. 
 
 The GPS track is stored by the Raspberry on the desktop as a comma-separated file.
 
-If the Raspberry is in the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (on the Mac, for example with "Cyberduck"). 
+If the Raspberry is in the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (for example with FileZilla). 
 
-### Simple web-based visualization
+### Workshop 3 - Simple web-based visualization
 
 A first graphical representation of the track can be done place on the website http://www.gpsvisualizer.com/map_input
 
@@ -453,7 +476,7 @@ Then click on `Draw the map`. Here is an example
 
 There are also option to export it into Google Earth.
 
-### Detailed analysis is a geographic information system
+#### Detailed analysis is a geographic information system
 
 You can use the free and open-source Geographic Information System (GIS) [QGIS](https://qgis.org) to perform advanced geographical analysis, including statistics on specific areas of the track or rasterization of many Meteobike traces.
 
