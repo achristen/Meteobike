@@ -30,49 +30,48 @@ The [Raspberry Pi Zero W](https://shop.pimoroni.de/collections/raspberry-pi/prod
 
 ![Images/IMG_raspberrypizerow](Images/IMG_raspberrypizerow.jpg)
 
-Your Raspberry Pi Zero W comes with a micro SD cards with the operating sysetm (called [Raspbian](https://en.wikipedia.org/wiki/Raspbian)) preinstalled. The micro SD card is inside the larger regular SD card "adapter". Pull the micro-SD card out and insert it carefully into the card slot. Make sure the logo is up and the hand-painted white number on the back.
+Your Raspberry Pi Zero W comes with a micro SD card that contains the operating sysetm (called [Raspbian](https://en.wikipedia.org/wiki/Raspbian)) preinstalled. In some cases, the micro SD card is housed inside the larger regular SD card "adapter". Pull the micro-SD card out and insert it carefully into the card slot. Make sure the logo is up and the hand-painted white number (or sticker) on the back.
 
 ![Images/IMG_sdcard](Images/IMG_sdcard.jpg)
 
-The first time you set-up your Raspberry Pi Zero W, you will need a few additional components. Those components can be used for setting-up multiple systems in a row. The components you need are 
+The first time you set-up your Raspberry Pi Zero W, you will need a few additional components. The components you need are 
 
-* Screen (HDMI or VGA)
+* Screen (with a HDMI, VGA or DVI connection)
 * USB keyboard 
 * USB mouse
-* A USB hub
-* Various interface cables. 
+* A USB hub and a micro-USB to USB-A convertor.
 
-In our course, you share a screen, a keyboard and a mouse, and connection cables between two students each.
+In our course, you are provided with a USB Hub, a micro-USB to USB-A. You provide the screen, a USB keyboard and a USB mouse, possibly also a regular HDMI cable.
 
-Later, once the system is assigned to your wireless networks, you can connect to it without keybord, without mouse and without Screen using RealVNC, so there is no need for a phsyical keyboard, a mouse or a screen during the bike traverses. All can be controlled on your smartphone or tablet, or just be operated remotely.
+Later, once the system is assigned to your wireless networks, you can connect to it without keybord, without mouse and without Screen using RealVNC, so there is no need for a phsyical keyboard, a mouse or a screen in later exercises or during the bike traverses. All can be remotely controlled from your laptop, your smartphone or tablet.
 
-Here are all connection cables and supplies you need for the initial set-up (screen is not shown):
+Here are all connection cables and supplies you need for the initial set-up (specific models may vary, screen is not shown):
 
 ![Images/IMG_setup_components](Images/IMG_setup_components.jpg)
 
-To connect the screen during the initial set-up, connect the mini-HDMI cable to you screen (possibly using a HDMI to VGA adapter if your screen does not support HDMI and only VGA):
-
-![Images/IMG_hdmi](Images/IMG_hdmi.jpg)
-
-Next, connect the USB ports. Your Raspberry Pi Zero W has two mini-USB ports, one (left) is for the USB devices (mouse, keyboard), one (right) is actually only for supplying power. First connect to the USB devices (left). Because there is only one true USB port, but you need to connect two devices, you must also add initially a USB hub. Here is the set-up:
+First, connect the USB mouse and keyboard. Your Raspberry Pi Zero W has two mini-USB ports, one (left) is for the USB devices (mouse, keyboard), one (right) is actually only for supplying power (see below). First connect to the USB devices (left). Because there is only one true USB port, but you need to connect two devices, you must also add initially a USB hub. Here is the set-up:
 
 ![Images/IMG_usbhub](Images/IMG_usbhub.jpg)
+
+To connect your screen to TV during the initial set-up, connect first a mini-HDMI to HDMI coverter. Then you can use a regular HDMI cable to connect it to you screen (In rare cases you need a mini-HDMI to VGA adapter if your screen does not support HDMI and only VGA, or a mini-HDMI to DVI adapter if your screen does not support HDMI and only DVI).
+
+![Images/IMG_hdmi](Images/IMG_hdmi.jpg)
 
 Finally connect the power supply to the right mini USB connector. The Raspberry Pi Zero W now starts up, the green inicator light begins to flash, and instructions follow on your screen.
 
 ### Setting-up the wireless network
 
-Follow the instructions on-screen to set-up your Raspberry Pi Zero W. It will automatically reboot after resizing. 
+In case this is a first-time installation, follow the instructions on-screen to set-up your Raspberry Pi Zero W. It will automatically reboot after resizing. In most cases this is not needed, as your OS is already fully installed and operational.
 
-Then connect to the wireless network. Click in the menu-bar on the wireless network icon, select our network and enter the password. Details on the password and network can be found on your desk. Hover with the mouse over the network icon to read the IP number. Note the IP number on your sheet on the desk.
+Then connect to your home wireless network. Click in the menu-bar on the wireless network icon, select your home network and enter your password. Hover with the mouse over the network icon to read the IP number. Note the IP number on a sheet as you will need it later.
 
 ![Images/SCS_network](Images/SCS_network.jpg)
 
-Next, localize the Raspberry Pi Zero W to your language and region. Provide a password to the Raspberry. Set the same password as the wireless network, so we have all the same password. Make sure it starts with a capital letter. Also change the Hostname to "raspberryXX" where XX is the number of your system (see sheet on your table):
+Next, localize the Raspberry Pi Zero W to your language and region. Check if the hostname is "raspberryXX" where XX is the number of your system. This is needed to identify your system.
 
 ![Images/SCS_systemname](Images/SCS_systemname.png)
 
-At this point we strongly recommend to reboot your Raspberry Pi.
+At this point we recommend to reboot your Raspberry Pi.
 
 ### Testing the wireless network
 
