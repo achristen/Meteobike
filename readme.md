@@ -40,6 +40,7 @@ The first time you set-up your Raspberry Pi Zero W, you will need a few addition
 * USB keyboard 
 * USB mouse
 * A USB hub and a micro-USB to USB-A convertor.
+* A power supply
 
 In our course, you are provided with a USB Hub, a micro-USB to USB-A. You provide the screen, a USB keyboard and a USB mouse, possibly also a regular HDMI cable.
 
