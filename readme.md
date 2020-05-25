@@ -107,7 +107,7 @@ The [DHT22](https://learn.adafruit.com/dht/overview) is a low-cost digital tempe
 
 ![Images/IMG_dht22](Images/IMG_dht22.jpg)
 
-To enable communication with the DHT22 for the first time, enter the following commands once into the `LXTerminal` (the command line) on the Raspberry Pi Zero to install the Adafruit DHT 22 library. Once the library is installed, you can access it from the programming language Python. If your system has been already in use before, then installing the libray can be skipped as someone else has installed the library beforehand.
+To enable communication with the DHT22 for the first time, enter the following commands once into the `LXTerminal` (the command line) on the Raspberry Pi Zero to install the Adafruit DHT 22 library. Once the library is installed, you can access it from the programming language Python. If your system has been already in use before, then installing the libray can be skipped (someone else has already installed the library before).
 
     $ sudo apt-get update
     $ sudo apt-get install build-essential python-dev python-openssl git
