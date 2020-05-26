@@ -243,13 +243,13 @@ ID | Record | Raspberry_Time  | GPS_Time  | Altitude  | Latitude  | Longitude  |
 
 You can also place a link - called bash script on your desktop (`meteobike04.sh`)
 
-* [Download meteobike.sh](/Code/meteobike03.sh)
+* [Download meteobike.sh](/Code/meteobike.sh)
 
 To ensure it works, you must change permissions of the file as follows (make it executable). This way, it can be started with a double-click:
 
-    $ chmod +x  ~/Desktop/meteobike04.sh
+    $ chmod +x  ~/Desktop/meteobike.sh
     
-Now you can double-click `meteobike04.sh` to start the user interface. Later, we will automate the start-up during the boot process.
+Now you can double-click `meteobike.sh` to start the user interface. Later, we will automate the start-up during the boot process.
 
 Now the system is ready to be calibrated. Please return the system to our HiWi who will place it for you in the calibration chamber. You are done with the first workshop - congratulations.
 
