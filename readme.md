@@ -259,7 +259,7 @@ In the second practical workshop you will enter the calibration coefficients fro
 
 ### Entering the calibration coefficients
 
-After we discussed the calibrations, you can enter the calibration coefficients we derived from the intercomparison directly into the python code. Open the file `meteobike04.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
+After you watched the online lecture on or calibration results, you should enter the calibration coefficients we derived from the intercomparison directly into the python code. Open the file `meteobike03.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
 
 		temperature_cal_a1 = 1.00000
 		temperature_cal_a0 = 0.00000
@@ -270,7 +270,7 @@ Replace the values `1.00000` and `0.00000` for temperature and vapour pressure b
 
 ### Assembly of the protable system
 
-Materials needed to complete the assembly of system include: 
+Materials needed to complete the assembly of system in this second workshop include: 
 
 * Reflective Tape 
 * Scissors 
@@ -280,13 +280,12 @@ Materials needed to complete the assembly of system include:
 * Velcro
 * Screw & Bolt 
 * Foam
-* e-Paper Screen
 
 ![Images/IMG_assembly](Images/IMG_assembly.jpg)
 
-### Assemble the complete system in a bag
+#### Assembly of the screen (tube)
 
-To begin the assembly of the Meteobike system, carefully cut the reflective tape to the length of the white plastic tube. Wrap the tube with the tape lengthwise, cut another piece of the same length and repeat this step with minimal overlap of the first piece of tape. The two pieces of tape should cover the entire tube.
+To begin the assembly of the Meteobike system, carefully cut the reflective tape to the length of the plastic tube. Wrap the tube with the tape lengthwise, cut another piece of the same length and repeat this step with minimal overlap of the first piece of tape. The two pieces of tape should cover the entire tube. IN some cases the tape has already been glued on the plastic tube.
 
 Now that the tube is completely covered with the tape, use the scissors to puncture a hole in the tape where the holes on the tube are located. This is the sensor screen for the temperature and humitidy sensor. 
 
@@ -302,10 +301,8 @@ Pass the wires from the sensor through the shield and through the largest hole, 
 
 Place the shield close to the bag and put the temperature and humidity sensor wires through the large hole in the bag.
 
-Now you must connect the radiation shield and the sensor to the bag. To do this, you will use a wrench and screwdriver to insert the bolt and screw through the shields two holes and through the hole that is on the bag. 
-
-Using the wrench to hold the bolt in place, use the screwdriver to insert the screw into the bolt to hold it secure. Place the 
-thin plastic plate with the same holes on the inside of the bag apply the screw through it and the bolt on the inside. 
+Now you must connect the radiation shield and the sensor to the bag. To do this, you best use a wrench and screwdriver (if available) to insert the bolt and screw through the shields two holes and through the hole that is on the bag. Using the wrench to hold the bolt in place, use the screwdriver to insert the screw into the bolt to hold it secure. Place the 
+thin plastic plate with the same holes on the inside of the bag apply the screw through it and the bolt on the inside. You can also tighten it by hand, though.
 
 ![Images/IMG_boltscrew](Images/IMG_boltscrew.jpg)
 
@@ -322,7 +319,7 @@ You can now reconnect the  the DHT22 sensor physically using the pre-soldered wi
 
 Please double check to make sure the connection is correct. 
 
-### Foam Arrangement 
+#### Foam arrangement 
 
 To ensure the protection of the sensor, a special foam is used. As you can see it is structured into cubical formation that allows you to remove the specific size and pattern you need. 
 
@@ -348,9 +345,11 @@ The arrangement within the bag will consist of the battery at the base, followed
 
 ![Images/IMG_arrangement](Images/IMG_arrangement.jpg)
 
-You must place the Raspberry Pi on top of the altered foam then connect the battery cable to the Raspberry Pi under the altered foam where you cut out the half cubes. 
+#### Placement of battery, Raspberry Pi and GPS
 
-The GPS can be placed into the front pocket. Please make sure the antenna is facing up, this is to ensure a full connection with the satellites and a accurate track recorded. 
+You must place the Raspberry Pi on top of the altered foam then connect the battery cable to the Raspberry Pi under the altered foam where you cut out the half cubes. This way the Raspberry Pi is not touching the metal surface of the battery (which could lead to shortcuts and ultimately damage).
+
+The GPS should be placed into the front pocket. Please make sure the antenna is facing up, this is to ensure a full connection with the satellites and a accurate track recorded. 
 
 ![Images/IMG_baggps](Images/IMG_baggps.jpg)
  
@@ -358,17 +357,13 @@ When the system is complete, it should look similar to the image below.
 
 ![Images/IMG_system.complete](Images/IMG_system.complete.jpg)
 
-Once the system is set up similar to what is arranged above, you can connect your mobile device to the VNC viewer in order to see the progress as you are collecting your data. 
+### Connecting the Raspberry Pi with your Smartphone
 
-Place your mobile device in the front pocket behind the GPS. 
+Once the system is set up similar to what is arranged above, you can optionally connect your mobile device to the VNC viewer in order to see the progress as you are collecting your data. If you do not have a mobile device, you can skip this step. Next week, we will anyway install an e-Paper.
+
+You could place your mobile device in the front pocket behind the GPS. 
 
 ![Images/IMG_phone](Images/IMG_phone.jpg)
-
-However, when you are using an e-Paper screen, it should look similar to the image below. 
-
-![Images/IMG_final_epaper](Images/IMG_final_epaper.jpg)
-
-### Connecting the Raspberry Pi with your Smartphone
 
 In a first step, enable your phone to host a Personal Hotspot. Although you do not need to access the Internet and you will not use any of your data plan capacity, this is required in order to build a network over WiFi to communicate between the Raspberry and your Phone. However, make sure you do not browse the web or download any files while connected to your Personal Hotspot (otherwise charges will apply to your data plan). Also make sure you use a personal, not the course password to protect your connection.
 
@@ -398,6 +393,10 @@ Now you are ready to install the system on your bike. Let's go for a test drive.
 
 ### Display and analyze the recorded GPS track
 
+The GPS track is stored by the Raspberry on the desktop as a comma-separated file.
+
+If the Raspberry is on the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (for example with the free [CyberDuck](https://cyberduck.io) or the free [FileZilla](https://filezilla-project.org)). You can also use the VNC software to tranfer files.
+
 A first graphical representation of the track can be done place on the website http://www.gpsvisualizer.com/map_input
 
 At top left choose "With: 1400", then at the top right under "Upload" choose your file  and Click on `Draw the map`.
@@ -422,7 +421,7 @@ There are also option to export it into Google Earth.
 
 In the last workshop we will add an E-paper device. An E-Paper uses an image display technology called  "microencapsulated electrophoretic display" (MED). An E-paper displays patterns by reflecting the ambient light, so it has no background light. 
 
-#### Wiring e-Paper 
+#### Wiring the e-Paper 
 
 So this is how your screen should look like:
 
@@ -470,9 +469,13 @@ Connect the wires as the image below is showing.
 
 ![Images/IMG_Keys_Epaper.jpg](Images/IMG_Keys_Epaper.jpg)
 
-The GPS track is stored by the Raspberry on the desktop as a comma-separated file.
 
-If the Raspberry is in the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (for example with the free [CyberDuck](https://cyberduck.io) or the free [FileZilla](https://filezilla-project.org)). 
+
+
+
+When you are using an e-Paper screen, the final system should look similar to the image below. There is no need for using a mobile device anymore.
+
+![Images/IMG_final_epaper](Images/IMG_final_epaper.jpg)
 
 ## Workshop 4 - Detailed analysis is a geographic information system
 
