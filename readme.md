@@ -222,11 +222,11 @@ We want the data from the GPS and the DHT22 to be automatically collected and wr
 
 You can start `meteobike03.py` using `LXTerminal` (assuming your file has been downloaded to the desktop)
    
-    $ python ~/Desktop/meteobike04.py 
+    $ python ~/Desktop/meteobike03.py 
    
 ![Images/SCS_userinterface](Images/SCS_userinterface.png)
 
-Next, make changes to personalize your copy of `meteobike04.py`. You can, for example, open the Python Development Environment (Version 2.7) and `File > Open`. 
+Next, make changes to personalize your copy of `meteobike03.py`. You can, for example, open the Python Development Environment (Version 2.7) and `File > Open`. 
 
 * Replace "01" on line 41 `raspberryid =` to your system's two digit number. If your system has the number "7" enter "07".
 * Replace "Andreas" on line 42 `studentname =` to your first name in quotes with a Capital letter. That way you can idenitify your data when we upload it later.
@@ -241,7 +241,7 @@ ID | Record | Raspberry_Time  | GPS_Time  | Altitude  | Latitude  | Longitude  |
 01 | 9 | 2018-05-06 08:29:11 | 2018-05-06T06:29:12.000Z  | 288.000 | 47.991375 |  7.845212 | 22.9 | 23.0 | 41.9 |  42.0 | 1.188 | 1.185 | 6.68
 01 | 10 | 2018-05-06 08:29:24 | 2018-05-06T06:29:25.000Z  | 290.000 | 47.991242 |  7.845800 | 23.0 | 23.1 | 41.9 | 42.0 | 1.196 | 1.192 | 3.56
 
-You can also place a link - called bash script on your desktop (`meteobike04.sh`)
+You should also place a link - called bash script on your desktop (`meteobike.sh`)
 
 * [Download meteobike.sh](/Code/meteobike.sh)
 
@@ -255,22 +255,22 @@ Now the system is ready to be calibrated. Please return the system to our HiWi w
 
 ## Workshop 2 - Calibrating the system and finalize the mobile unit
 
-In the second practical workshop you will enter the calibration coefficients to your system, then install the system in a protable bike-bag with a ePaper display, insert the sensor in a radiation shield and power the system from a battery, so it is mobile.
+In the second practical workshop you will enter the calibration coefficients from our [Sensor-Calibration/2020/readme.md](calibration in the weather hut) into your system, then install the system in a protable bike-bag, insert the sensor in a radiation shield and power the system from a battery, so it is mobile.
 
 ### Entering the calibration coefficients
 
-After we discussed the calibrations, you can enter the calibration coefficients we derived from the intercomparison directly into the python code. Open the file `meteobike04.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
+After you watched the online lecture on or calibration results, you should enter the calibration coefficients we derived from the intercomparison directly into the python code. Open the file `meteobike03.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
 
 		temperature_cal_a1 = 1.00000
 		temperature_cal_a0 = 0.00000
 		vappress_cal_a1 = 1.00000 
 		vappress_cal_a0 = 0.00000 
 		
-Replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in ![Sensor-Calibration/2019/readme.md](Tables 1 and 3 of the calibration diretory, respecively). make sure you use a `.` and not a `,` as the delimiter.	
+Replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in [Sensor-Calibration/2020/readme.md](Tables 1 and 3 of the calibration diretory, respecively). Make sure you use a `.` and not a `,` as the delimiter.	
 
 ### Assembly of the protable system
 
-Materials needed to complete the assembly of system include: 
+Materials needed to complete the assembly of system in this second workshop include: 
 
 * Reflective Tape 
 * Scissors 
@@ -280,15 +280,150 @@ Materials needed to complete the assembly of system include:
 * Velcro
 * Screw & Bolt 
 * Foam
-* e-Paper Screen
 
 ![Images/IMG_assembly](Images/IMG_assembly.jpg)
 
-### Installing an E-Paper display 
+#### Assembly of the screen (tube)
 
-This product is an E-paper device adopting a image display technology called  "microencapsulated electrophoretic display"  (MED). An E-paper displays patterns by reflecting the ambient light, so it has no background light. 
+To begin the assembly of the Meteobike system, carefully cut the reflective tape to the length of the plastic tube. Wrap the tube with the tape lengthwise, cut another piece of the same length and repeat this step with minimal overlap of the first piece of tape. The two pieces of tape should cover the entire tube. IN some cases the tape has already been glued on the plastic tube.
 
-#### Wiring e-Paper 
+Now that the tube is completely covered with the tape, use the scissors to puncture a hole in the tape where the holes on the tube are located. This is the sensor screen for the temperature and humitidy sensor. 
+
+![Images/IMG_sensorscreen](Images/IMG_sensorscreen.jpg)
+
+To connect the temperature and humidity sensor to the radiation shield, you must disconnect the temperature and humidity sensor from the Raspberry Pi, please ensure the sensor is not connected to any source of power.
+
+You will use the cirlce hook and loop velcro to attach the sheild and sensor. Place one piece on the inside of the radiaiton shield on the side that has 3 holes. It should be located close to the small hole that is farthest from the large hole. Place the second piece of velcro on the back side of the temperature and humidity sensor. 
+
+![Images/IMG_velcro](Images/IMG_velcro.jpg)
+
+Pass the wires from the sensor through the shield and through the largest hole, then press the sensor to the shield and ensure the velcro will hold the sensor and shield together. 
+
+Place the shield close to the bag and put the temperature and humidity sensor wires through the large hole in the bag.
+
+Now you must connect the radiation shield and the sensor to the bag. To do this, you best use a wrench and screwdriver (if available) to insert the bolt and screw through the shields two holes and through the hole that is on the bag. Using the wrench to hold the bolt in place, use the screwdriver to insert the screw into the bolt to hold it secure. Place the 
+thin plastic plate with the same holes on the inside of the bag apply the screw through it and the bolt on the inside. You can also tighten it by hand, though.
+
+![Images/IMG_boltscrew](Images/IMG_boltscrew.jpg)
+
+You can now reconnect the  the DHT22 sensor physically using the pre-soldered wires to the Raspberry Pi W. 
+
+| DHT22 T/RH Sensor | Cable Color | Raspberry Pi Zero |
+| ------------------ | ----------- | ----------------- |
+| PIN 1  | <span style="color: red">Red Cable</span>  | PIN 1 (3V+)
+| PIN 2 | <span style="color: orange">Orange Cable</span>  | PIN 7 (GPIO4)
+| PIN 3 | (no cable)  |
+| PIN 4 | <span style="color: brown">Brown Cable</span>  | PIN 9 (Ground)
+
+![Images/IMG_dht22wiring](Images/IMG_dht22wiring.jpg)
+
+Please double check to make sure the connection is correct. 
+
+#### Foam arrangement 
+
+To ensure the protection of the sensor, a special foam is used. As you can see it is structured into cubical formation that allows you to remove the specific size and pattern you need. 
+
+You will be given a 20x28 cubical foam sheet, using this you will remove two 7x12 cube pieces, one will be for the base of your sensor and one will be altered to protect the Raspberry Pi system. 
+
+You should be able to remove 6 different 7x12 sheets from the original 20x28 sheet. 
+
+![Images/IMG_fullfoam](Images/IMG_fullfoam.jpg)
+
+![Images/IMG_cutfoam](Images/IMG_cutfoam.jpg)
+
+When sizing the foam for the Raspberry Pi, you will remove the foam cubes from the arrangement found below:
+
+![Images/IMG_alteredfoam](Images/IMG_alteredfoam.jpg)
+
+There is one location in the foam where you must use the scissors to remove only half of the cube. This is where the power cable will be guided and should be faced down in the bag. 
+
+You will now connect the battery and arrange the foam, battery and sensors to be comfortably situated within the bag. 
+
+![Images/IMG_connection](Images/IMG_connection.jpg)
+
+The arrangement within the bag will consist of the battery at the base, followed with the unaltered foam, the cable for the battery, the altered foam and the Raspberry Pi within. 
+
+![Images/IMG_arrangement](Images/IMG_arrangement.jpg)
+
+#### Placement of battery, Raspberry Pi and GPS
+
+You must place the Raspberry Pi on top of the altered foam then connect the battery cable to the Raspberry Pi under the altered foam where you cut out the half cubes. This way the Raspberry Pi is not touching the metal surface of the battery (which could lead to shortcuts and ultimately damage).
+
+The GPS should be placed into the front pocket. Please make sure the antenna is facing up, this is to ensure a full connection with the satellites and a accurate track recorded. 
+
+![Images/IMG_baggps](Images/IMG_baggps.jpg)
+ 
+When the system is complete, it should look similar to the image below. 
+
+![Images/IMG_system.complete](Images/IMG_system.complete.jpg)
+
+### Connecting the Raspberry Pi with your Smartphone
+
+Once the system is set up similar to what is arranged above, you can optionally connect your mobile device to the VNC viewer in order to see the progress as you are collecting your data. If you do not have a mobile device, you can skip this step. Next week, we will anyway install an e-Paper.
+
+You could place your mobile device in the front pocket behind the GPS. 
+
+![Images/IMG_phone](Images/IMG_phone.jpg)
+
+In a first step, enable your phone to host a Personal Hotspot. Although you do not need to access the Internet and you will not use any of your data plan capacity, this is required in order to build a network over WiFi to communicate between the Raspberry and your Phone. However, make sure you do not browse the web or download any files while connected to your Personal Hotspot (otherwise charges will apply to your data plan). Also make sure you use a personal, not the course password to protect your connection.
+
+![Images/IMG_Hotspot_iPhone.jpg](Images/IMG_Hotspot_iPhone.jpg) <!-- .element height="50%" width="50%" -->
+
+Here is a description (in German) how to [enable a personal hotsopt on your iOS smartphone](https://support.apple.com/de-de/HT204023)  
+
+Here is a description (in German) how to [enable a personal hotsopt on your Android smartphone](https://praxistipps.chip.de/android-handy-als-wlan-hotspot-einrichten-so-gehts_92113)  
+
+In both cases, you will now have a WiFi network enabled, and you can connect to the network from the Raspberry Pi Zero. 
+
+Boot the Raspberry Pi Zero, and then change the WiFi network to your Personal Hotspot WiFi name:
+
+![Images/IMG_choose_smartphone.png](Images/IMG_choose_smartphone.png)
+
+Enter your password when promted:
+
+![Images/IMG_choose_smartphone.png](Images/IMG_pre_shared_key.png)
+
+Then read the IP number (hover over the WiFi symbol in the menu bar to see it) e.g. 172.20.10.7 (without the "/", and what comes afterwards).
+
+Go back to your phone and start the VNC app. In the VNC app create a new connection and enter the local IP number you just read, e.g. 172.20.10.7 (without the "/", and what comes afterwards). When connecting enter the username "pi" and the previously set VNC password. You should now be able to control your Raspberry Pi Zero as long as the phone and the raspberry are close together.
+
+You can put the phone into the transparent lid of the bag. You can also use the second outlet of the power bank to keep your phone charged during measurements, but in this case, you must bring your own charger-cable.
+
+Now you are ready to install the system on your bike. Let's go for a test drive. Make sure the indicator changes from red to yellow, as soon as you are outdoors. The recording will only start if you have a good GPS connection. Drive for about 15 - 20 minutes, and come back to see if the data has been recorded.
+
+### Display and analyze the recorded GPS track
+
+The GPS track is stored by the Raspberry on the desktop as a comma-separated file.
+
+If the Raspberry is on the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (for example with the free [CyberDuck](https://cyberduck.io) or the free [FileZilla](https://filezilla-project.org)). You can also use the VNC software to tranfer files.
+
+A first graphical representation of the track can be done place on the website http://www.gpsvisualizer.com/map_input
+
+At top left choose "With: 1400", then at the top right under "Upload" choose your file  and Click on `Draw the map`.
+
+Color-coded drawing by temperature: Under "Track options" click on "advanced options" and make the following settings below:
+
+```
+Colorize by: custom field
+Custom colorization field: temperature
+Spectrum direction: down
+Hue 1: 120
+Hue 2: 0
+```
+
+Then click on `Draw the map`. Here is an example
+
+![Images/IMG_GPStrack](Images/IMG_GPStrack.jpg)
+
+There are also option to export it into Google Earth.
+
+## Workshop 3 - Installing an E-Paper display and feedback buttons
+
+Information for the 2020 class: Do not attempt to install the E-Paper now. The instructions below refer to an older version of the E-paper. This section will be updated for the Workshop 3 next week.
+
+In the last workshop we will add an E-paper device. An E-Paper uses an image display technology called  "microencapsulated electrophoretic display" (MED). An E-paper displays patterns by reflecting the ambient light, so it has no background light. 
+
+#### Wiring the e-Paper 
 
 So this is how your screen should look like:
 
@@ -336,147 +471,11 @@ Connect the wires as the image below is showing.
 
 ![Images/IMG_Keys_Epaper.jpg](Images/IMG_Keys_Epaper.jpg)
 
-### Assemble the complete system in a bag
-
-To begin the assembly of the Meteobike system, carefully cut the reflective tape to the length of the white plastic tube. Wrap the tube with the tape lengthwise, cut another piece of the same length and repeat this step with minimal overlap of the first piece of tape. The two pieces of tape should cover the entire tube.
-
-Now that the tube is completely covered with the tape, use the scissors to puncture a hole in the tape where the holes on the tube are located. This is the sensor screen for the temperature and humitidy sensor. 
-
-![Images/IMG_sensorscreen](Images/IMG_sensorscreen.jpg)
-
-To connect the temperature and humidity sensor to the radiation shield, you must disconnect the temperature and humidity sensor from the Raspberry Pi, please ensure the sensor is not connected to any source of power.
-
-You will use the cirlce hook and loop velcro to attach the sheild and sensor. Place one piece on the inside of the radiaiton shield on the side that has 3 holes. It should be located close to the small hole that is farthest from the large hole. Place the second piece of velcro on the back side of the temperature and humidity sensor. 
-
-![Images/IMG_velcro](Images/IMG_velcro.jpg)
-
-Pass the wires from the sensor through the shield and through the largest hole, then press the sensor to the shield and ensure the velcro will hold the sensor and shield together. 
-
-Place the shield close to the bag and put the temperature and humidity sensor wires through the large hole in the bag.
-
-Now you must connect the radiation shield and the sensor to the bag. To do this, you will use a wrench and screwdriver to insert the bolt and screw through the shields two holes and through the hole that is on the bag. 
-
-Using the wrench to hold the bolt in place, use the screwdriver to insert the screw into the bolt to hold it secure. Place the 
-thin plastic plate with the same holes on the inside of the bag apply the screw through it and the bolt on the inside. 
-
-![Images/IMG_boltscrew](Images/IMG_boltscrew.jpg)
-
-You can now reconnect the  the DHT22 sensor physically using the pre-soldered wires to the Raspberry Pi W. 
-
-| DHT22 T/RH Sensor | Cable Color | Raspberry Pi Zero |
-| ------------------ | ----------- | ----------------- |
-| PIN 1  | <span style="color: red">Red Cable</span>  | PIN 1 (3V+)
-| PIN 2 | <span style="color: orange">Orange Cable</span>  | PIN 7 (GPIO4)
-| PIN 3 | (no cable)  |
-| PIN 4 | <span style="color: brown">Brown Cable</span>  | PIN 9 (Ground)
-
-![Images/IMG_dht22wiring](Images/IMG_dht22wiring.jpg)
-
-Please double check to make sure the connection is correct. 
-
-### Foam Arragnement 
-
-To ensure the protection of the sensor, a special foam is used. As you can see it is structured into cubical formation that allows you to remove the specific size and pattern you need. 
-
-You will be given a 20x28 cubical foam sheet, using this you will remove two 7x12 cube pieces, one will be for the base of your sensor and one will be altered to protect the Raspberry Pi system. 
-
-You should be able to remove 6 different 7x12 sheets from the original 20x28 sheet. 
-
-![Images/IMG_fullfoam](Images/IMG_fullfoam.jpg)
-
-![Images/IMG_cutfoam](Images/IMG_cutfoam.jpg)
-
-When sizing the foam for the Raspberry Pi, you will remove the foam cubes from the arrangement found below:
-
-![Images/IMG_alteredfoam](Images/IMG_alteredfoam.jpg)
-
-There is one location in the foam where you must use the scissors to remove only half of the cube. This is where the power cable will be guided and should be faced down in the bag. 
-
-You will now connect the battery and arrange the foam, battery and sensors to be comfortably situated within the bag. 
-
-![Images/IMG_connection](Images/IMG_connection.jpg)
-
-The arrangement within the bag will consist of the battery at the base, followed with the unaltered foam, the cable for the battery, the altered foam and the Raspberry Pi within. 
-
-![Images/IMG_arrangement](Images/IMG_arrangement.jpg)
-
-You must place the Raspberry Pi on top of the altered foam then connect the battery cable to the Raspberry Pi under the altered foam where you cut out the half cubes. 
-
-The GPS can be placed into the front pocket. Please make sure the antenna is facing up, this is to ensure a full connection with the satellites and a accurate track recorded. 
-
-![Images/IMG_baggps](Images/IMG_baggps.jpg)
- 
-When the system is complete, it should look similar to the image below. 
-
-![Images/IMG_system.complete](Images/IMG_system.complete.jpg)
-
-Once the system is set up similar to what is arranged above, you can connect your mobile device to the VNC viewer in order to see the progress as you are collecting your data. 
-
-Place your mobile device in the front pocket behind the GPS. 
-
-![Images/IMG_phone](Images/IMG_phone.jpg)
-
-However, when you are using an e-Paper screen, it should look similar to the image below. 
+When you are using an e-Paper screen, the final system should look similar to the image below. There is no need for using a mobile device anymore.
 
 ![Images/IMG_final_epaper](Images/IMG_final_epaper.jpg)
 
-### Connecting the Raspberry Pi with your Smartphone
-
-In a first step, enable your phone to host a Personal Hotspot. Although you do not need to access the Internet and you will not use any of your data plan capacity, this is required in order to build a network over WiFi to communicate between the Raspberry and your Phone. However, make sure you do not browse the web or download any files while connected to your Personal Hotspot (otherwise charges will apply to your data plan). Also make sure you use a personal, not the course password to protect your connection.
-
-![Images/IMG_Hotspot_iPhone.jpg](Images/IMG_Hotspot_iPhone.jpg) <!-- .element height="50%" width="50%" -->
-
-Here is a description (in German) how to [enable a personal hotsopt on your iOS smartphone](https://support.apple.com/de-de/HT204023)  
-
-Here is a description (in German) how to [enable a personal hotsopt on your Android smartphone](https://praxistipps.chip.de/android-handy-als-wlan-hotspot-einrichten-so-gehts_92113)  
-
-In both cases, you will now have a WiFi network enabled, and you can connect to the network from the Raspberry Pi Zero. 
-
-Boot the Raspberry Pi Zero, and then change the WiFi network to your Personal Hotspot WiFi name:
-
-![Images/IMG_choose_smartphone.png](Images/IMG_choose_smartphone.png)
-
-Enter your password when promted:
-
-![Images/IMG_choose_smartphone.png](Images/IMG_pre_shared_key.png)
-
-Then read the IP number (hover over the WiFi symbol in the menu bar to see it) e.g. 172.20.10.7 (without the "/", and what comes afterwards).
-
-Go back to your phone and start the VNC app. In the VNC app create a new connection and enter the local IP number you just read, e.g. 172.20.10.7 (without the "/", and what comes afterwards). When connecting enter the username "pi" and the previously set VNC password. You should now be able to control your Raspberry Pi Zero as long as the phone and the raspberry are close together.
-
-You can put the phone into the transparent lid of the bag. You can also use the second outlet of the power bank to keep your phone charged during measurements, but in this case, you must bring your own charger-cable.
-
-Now you are ready to install the system on your bike.Let's go for a test drive. Make sure the indicator changes from red to yellow, as soon as you are outdoors. The recording will only start if you have a good GPS connection. Drive for about 15 - 20 minutes, and come back to our lab room.
-
-## Workshop 3 - Display and analyze the recorded GPS track
-
-The GPS track is stored by the Raspberry on the desktop as a comma-separated file.
-
-If the Raspberry is in the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (for example with the free [CyberDuck](https://cyberduck.io) or the free [FileZilla](https://filezilla-project.org)). 
-
-### Simple web-based visualization
-
-A first graphical representation of the track can be done place on the website http://www.gpsvisualizer.com/map_input
-
-At top left choose "With: 1400", then at the top right under "Upload" choose your file  and Click on `Draw the map`.
-
-Color-coded drawing by temperature: Under "Track options" click on "advanced options" and make the following settings below:
-
-```
-Colorize by: custom field
-Custom colorization field: temperature
-Spectrum direction: down
-Hue 1: 120
-Hue 2: 0
-```
-
-Then click on `Draw the map`. Here is an example
-
-![Images/IMG_GPStrack](Images/IMG_GPStrack.jpg)
-
-There are also option to export it into Google Earth.
-
-### Detailed analysis is a geographic information system
+## Workshop 4 - Detailed analysis is a geographic information system
 
 You can use the free and open-source Geographic Information System (GIS) [QGIS](https://qgis.org) to perform advanced geographical analysis, including statistics on specific areas of the track or rasterization of many Meteobike traces.
 
