@@ -255,7 +255,7 @@ Now the system is ready to be calibrated. Please return the system to our HiWi w
 
 ## Workshop 2 - Calibrating the system and finalize the mobile unit
 
-In the second practical workshop you will enter the calibration coefficients to your system, then install the system in a protable bike-bag with a ePaper display, insert the sensor in a radiation shield and power the system from a battery, so it is mobile.
+In the second practical workshop you will enter the calibration coefficients to your system, then install the system in a protable bike-bag, insert the sensor in a radiation shield and power the system from a battery, so it is mobile.
 
 ### Entering the calibration coefficients
 
@@ -283,58 +283,6 @@ Materials needed to complete the assembly of system include:
 * e-Paper Screen
 
 ![Images/IMG_assembly](Images/IMG_assembly.jpg)
-
-### Installing an E-Paper display 
-
-This product is an E-paper device adopting a image display technology called  "microencapsulated electrophoretic display"  (MED). An E-paper displays patterns by reflecting the ambient light, so it has no background light. 
-
-#### Wiring e-Paper 
-
-So this is how your screen should look like:
-
-![Images/IMG_epaper2.7.jpg](Images/IMG_epaper2.7.jpg )
-
-As you can see there are 8 different wires ready to be adjusted on your Raspberry Pi. So, just take a look to the following tables. 
-
-| e-Paper  | BCM2835 | Raspberry Pi Zero Board |
-| ------------------ | ----------- | ----------------- |
-| VCC  | 3.3V  | 	3.3V
-| GND  | GND  | 	GND
-| DIN  | MOSI  | 	19
-| CLK  | SCLK  | 	23
-| CS   | CE0  |		24
-| DC   | 25  | 		22
-| RST  | 17  | 		11
-| BUSY | 24  | 		18
-
-![Images/IMG_Rpi_Epaper_wiring.jpg](Images/IMG_Rpi_Epaper_wiring.jpg)
-
-![Images/IMG_Epaper_wired.jpg](Images/IMG_Epaper_wired.jpg)
-
-#### Installation of required libaraies
-
-Follow this link: https://www.waveshare.com/wiki/2.7inch_e-Paper_HAT 
-Then visit the "Hardware / Software setup" section and follow all the steps from
-
-##### Libraries Installation
-
-	$ sudo apt-get update
-	$ sudo apt-get install python-pip
-	$ sudo apt-get install python-pil
-	$ sudo apt-get install python-numpy
-	$ sudo pip install RPi.GPIO
-	$ sudo pip install spidev
-
-##### Download examples 
-
-	$ sudo git clone https://github.com/waveshare/e-Paper
-	$ cd e-Paper/RaspberryPi\&JetsonNano/
-
-##### Enabling Keys
-
-Connect the wires as the image below is showing.
-
-![Images/IMG_Keys_Epaper.jpg](Images/IMG_Keys_Epaper.jpg)
 
 ### Assemble the complete system in a bag
 
@@ -374,7 +322,7 @@ You can now reconnect the  the DHT22 sensor physically using the pre-soldered wi
 
 Please double check to make sure the connection is correct. 
 
-### Foam Arragnement 
+### Foam Arrangement 
 
 To ensure the protection of the sensor, a special foam is used. As you can see it is structured into cubical formation that allows you to remove the specific size and pattern you need. 
 
@@ -446,15 +394,9 @@ Go back to your phone and start the VNC app. In the VNC app create a new connect
 
 You can put the phone into the transparent lid of the bag. You can also use the second outlet of the power bank to keep your phone charged during measurements, but in this case, you must bring your own charger-cable.
 
-Now you are ready to install the system on your bike.Let's go for a test drive. Make sure the indicator changes from red to yellow, as soon as you are outdoors. The recording will only start if you have a good GPS connection. Drive for about 15 - 20 minutes, and come back to our lab room.
+Now you are ready to install the system on your bike. Let's go for a test drive. Make sure the indicator changes from red to yellow, as soon as you are outdoors. The recording will only start if you have a good GPS connection. Drive for about 15 - 20 minutes, and come back to see if the data has been recorded.
 
-## Workshop 3 - Display and analyze the recorded GPS track
-
-The GPS track is stored by the Raspberry on the desktop as a comma-separated file.
-
-If the Raspberry is in the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (for example with the free [CyberDuck](https://cyberduck.io) or the free [FileZilla](https://filezilla-project.org)). 
-
-### Simple web-based visualization
+### Display and analyze the recorded GPS track
 
 A first graphical representation of the track can be done place on the website http://www.gpsvisualizer.com/map_input
 
@@ -476,7 +418,63 @@ Then click on `Draw the map`. Here is an example
 
 There are also option to export it into Google Earth.
 
-### Detailed analysis is a geographic information system
+## Workshop 3 - Installing an E-Paper display and fine-tune the system
+
+In the last workshop we will add an E-paper device. An E-Paper uses an image display technology called  "microencapsulated electrophoretic display" (MED). An E-paper displays patterns by reflecting the ambient light, so it has no background light. 
+
+#### Wiring e-Paper 
+
+So this is how your screen should look like:
+
+![Images/IMG_epaper2.7.jpg](Images/IMG_epaper2.7.jpg )
+
+As you can see there are 8 different wires ready to be adjusted on your Raspberry Pi. So, just take a look to the following tables. 
+
+| e-Paper  | BCM2835 | Raspberry Pi Zero Board |
+| ------------------ | ----------- | ----------------- |
+| VCC  | 3.3V  | 	3.3V
+| GND  | GND  | 	GND
+| DIN  | MOSI  | 	19
+| CLK  | SCLK  | 	23
+| CS   | CE0  |		24
+| DC   | 25  | 		22
+| RST  | 17  | 		11
+| BUSY | 24  | 		18
+
+![Images/IMG_Rpi_Epaper_wiring.jpg](Images/IMG_Rpi_Epaper_wiring.jpg)
+
+![Images/IMG_Epaper_wired.jpg](Images/IMG_Epaper_wired.jpg)
+
+#### Installation of required libaraies
+
+Follow this link: https://www.waveshare.com/wiki/2.7inch_e-Paper_HAT 
+Then visit the "Hardware / Software setup" section and follow all the steps from
+
+##### Libraries Installation
+
+	$ sudo apt-get update
+	$ sudo apt-get install python-pip
+	$ sudo apt-get install python-pil
+	$ sudo apt-get install python-numpy
+	$ sudo pip install RPi.GPIO
+	$ sudo pip install spidev
+
+##### Download examples 
+
+	$ sudo git clone https://github.com/waveshare/e-Paper
+	$ cd e-Paper/RaspberryPi\&JetsonNano/
+
+##### Enabling Keys
+
+Connect the wires as the image below is showing.
+
+![Images/IMG_Keys_Epaper.jpg](Images/IMG_Keys_Epaper.jpg)
+
+The GPS track is stored by the Raspberry on the desktop as a comma-separated file.
+
+If the Raspberry is in the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (for example with the free [CyberDuck](https://cyberduck.io) or the free [FileZilla](https://filezilla-project.org)). 
+
+## Workshop 4 - Detailed analysis is a geographic information system
 
 You can use the free and open-source Geographic Information System (GIS) [QGIS](https://qgis.org) to perform advanced geographical analysis, including statistics on specific areas of the track or rasterization of many Meteobike traces.
 
