@@ -417,7 +417,7 @@ Then click on `Draw the map`. Here is an example
 
 There are also option to export it into Google Earth.
 
-## Workshop 3 - Installing an E-Paper display and fine-tune the system
+## Workshop 3 - Installing an E-Paper display and feedback buttons
 
 Information for the 2020 class: Do not attempt to install the E-Paper now. The instructions below refer to an older version of the E-paper. This section will be updated for the Workshop 3 next week.
 
