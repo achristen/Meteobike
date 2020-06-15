@@ -222,11 +222,11 @@ We want the data from the GPS and the DHT22 to be automatically collected and wr
 
 You can start `meteobike03.py` using `LXTerminal` (assuming your file has been downloaded to the desktop)
    
-    $ python ~/Desktop/meteobike04.py 
+    $ python ~/Desktop/meteobike03.py 
    
 ![Images/SCS_userinterface](Images/SCS_userinterface.png)
 
-Next, make changes to personalize your copy of `meteobike04.py`. You can, for example, open the Python Development Environment (Version 2.7) and `File > Open`. 
+Next, make changes to personalize your copy of `meteobike03.py`. You can, for example, open the Python Development Environment (Version 2.7) and `File > Open`. 
 
 * Replace "01" on line 41 `raspberryid =` to your system's two digit number. If your system has the number "7" enter "07".
 * Replace "Andreas" on line 42 `studentname =` to your first name in quotes with a Capital letter. That way you can idenitify your data when we upload it later.
@@ -241,7 +241,7 @@ ID | Record | Raspberry_Time  | GPS_Time  | Altitude  | Latitude  | Longitude  |
 01 | 9 | 2018-05-06 08:29:11 | 2018-05-06T06:29:12.000Z  | 288.000 | 47.991375 |  7.845212 | 22.9 | 23.0 | 41.9 |  42.0 | 1.188 | 1.185 | 6.68
 01 | 10 | 2018-05-06 08:29:24 | 2018-05-06T06:29:25.000Z  | 290.000 | 47.991242 |  7.845800 | 23.0 | 23.1 | 41.9 | 42.0 | 1.196 | 1.192 | 3.56
 
-You can also place a link - called bash script on your desktop (`meteobike04.sh`)
+You should also place a link - called bash script on your desktop (`meteobike.sh`)
 
 * [Download meteobike.sh](/Code/meteobike.sh)
 
@@ -255,7 +255,7 @@ Now the system is ready to be calibrated. Please return the system to our HiWi w
 
 ## Workshop 2 - Calibrating the system and finalize the mobile unit
 
-In the second practical workshop you will enter the calibration coefficients to your system, then install the system in a protable bike-bag, insert the sensor in a radiation shield and power the system from a battery, so it is mobile.
+In the second practical workshop you will enter the calibration coefficients from our [Sensor-Calibration/2020/readme.md](calibration in the weather hut) into your system, then install the system in a protable bike-bag, insert the sensor in a radiation shield and power the system from a battery, so it is mobile.
 
 ### Entering the calibration coefficients
 
@@ -266,7 +266,7 @@ After we discussed the calibrations, you can enter the calibration coefficients 
 		vappress_cal_a1 = 1.00000 
 		vappress_cal_a0 = 0.00000 
 		
-Replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in ![Sensor-Calibration/2019/readme.md](Tables 1 and 3 of the calibration diretory, respecively). make sure you use a `.` and not a `,` as the delimiter.	
+Replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in [Sensor-Calibration/2020/readme.md](Tables 1 and 3 of the calibration diretory, respecively). Make sure you use a `.` and not a `,` as the delimiter.	
 
 ### Assembly of the protable system
 
