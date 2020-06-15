@@ -419,6 +419,8 @@ There are also option to export it into Google Earth.
 
 ## Workshop 3 - Installing an E-Paper display and fine-tune the system
 
+Information for the 2020 class: Do not attempt to install the E-Paper now. The instructions below refer to an older version of the E-paper. This section will be updated for the Workshop 3 next week.
+
 In the last workshop we will add an E-paper device. An E-Paper uses an image display technology called  "microencapsulated electrophoretic display" (MED). An E-paper displays patterns by reflecting the ambient light, so it has no background light. 
 
 #### Wiring the e-Paper 
@@ -468,10 +470,6 @@ Then visit the "Hardware / Software setup" section and follow all the steps from
 Connect the wires as the image below is showing.
 
 ![Images/IMG_Keys_Epaper.jpg](Images/IMG_Keys_Epaper.jpg)
-
-
-
-
 
 When you are using an e-Paper screen, the final system should look similar to the image below. There is no need for using a mobile device anymore.
 
