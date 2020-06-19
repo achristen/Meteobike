@@ -431,16 +431,16 @@ So this is how your screen should look like:
 
 As you can see there are 8 different wires ready to be adjusted on your Raspberry Pi. So, just take a look to the following tables. 
 
-| e-Paper  | BCM2835 | Raspberry Pi Zero Board |
-| ------------------ | ----------- | ----------------- |
-| VCC  | 3.3V  | 	3.3V
-| GND  | GND  | 	GND
-| DIN  | MOSI  | 	19
-| CLK  | SCLK  | 	23
-| CS   | CE0  |		24
-| DC   | 25  | 		22
-| RST  | 17  | 		11
-| BUSY | 24  | 		18
+| Wire color | e-Paper  | BCM2835 | Raspberry Pi Zero Board |
+| ------------------ | ------------------ | ----------- | ----------------- |
+| Grey | VCC  | 3.3V  | 	3.3V
+| Brown | GND  | GND  | 	GND
+| Blue | DIN  | MOSI  | 	19
+| Yellow | CLK  | SCLK  | 	23
+| Orange | CS   | CE0  |		24
+| Green | DC   | 25  | 		22
+| White | RST  | 17  | 		11
+| Purple | BUSY | 24  | 		18
 
 ![Images/IMG_Rpi_Epaper_wiring.jpg](Images/IMG_Rpi_Epaper_wiring.jpg)
 
