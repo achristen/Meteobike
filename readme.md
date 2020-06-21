@@ -488,7 +488,17 @@ For experts - Further details on the set-up can be found on the [Wireframe webpa
 
 Use the e-Paper version of the Meteobike program called `meteobike_epaper.py` which can be found [here](https://github.com/achristen/Meteobike/blob/master/Code/meteobike_epaper.py).
 
-Place the file `meteobike_epaper.py`. You can start the e-Paper version of Meteobike by typing the following command into LXTerminal:
+Place the file `meteobike_epaper.py` on the Raspberry Pi's desktop. Open the file and change on lines 41 - 46 the system-specific information (your Meteobike No, your name, and [calibration coefficients](https://github.com/achristen/Meteobike/tree/master/Sensor-Calibration/2020))
+
+	raspberryid = "52" # enter your raspberry's number
+	studentname = "Andreas" # enter your first name - no spaces and no special characters
+	temperature_cal_a1 = 1.00000 # enter the calibration coefficient slope for temperature
+	temperature_cal_a0 = 0.00000 # enter the calibration coefficient offset for temperature
+	vappress_cal_a1 = 1.00000 # enter the calibration coefficient slope for vapour pressure
+	vappress_cal_a0 = 0.00000 # enter the calibration coefficient offset for vapour pressure
+
+
+You can start the e-Paper version of Meteobike by typing the following command into LXTerminal:
 
 $ python ~/Desktop/meteobike_epaper.py 
 
@@ -496,7 +506,7 @@ There will be no on-screen window anymore, but the program should display all it
 
 ![Images/IMG_epaper_display.png](Images/IMG_epaper_display.png)
 
-First, the ePaper will display a welcome screen ("Boot screen", left), instruction on the sue of the command keys below the screen (we will install them next, they do not yet work). After about 10 seconds the e-Paper will every five measurements refresh and display the latest data ("Measurement screen", right). The arrows next to the measurement values will indicate if a variable is increasing, being unchanged or decreasing. Any displayed line in red will show that there is an error (for example if the GPS has not found enough satellites yet).
+First, the ePaper will display a welcome screen ("Boot screen", left), with instructions on how to use the keys below the screen (we will install them next, they do not yet work). After about 10 seconds the e-Paper will refresh and display the latest data ("Measurement screen", right). It will refresh every 5 measurements (about every 40 seconds). The arrows next to the measurement values will indicate if a variable is increasing, is unchanged or decreasing. Any line displayed in red will show alerts (for example if the GPS has not found enough satellites yet or if there is no WiFi network).
 
 Next change the `meteobike.sh` script to point to `meteobike_epaper.py` instead of `meteobike03.py`, so at every start-up of the Raspberry Pi W Zero, the e-Paper version is started instead of the old version.
 

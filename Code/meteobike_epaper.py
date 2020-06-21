@@ -347,7 +347,6 @@ while True:
          drawblack.line((left_spacing, 170, epd.width-left_spacing, 170), fill = 0)
          drawblack.text((left_spacing,last_line-5*line_spacing_14), studentname+"'s Meteobike", font = font14, fill = 0)
          drawblack.text((left_spacing,last_line-4*line_spacing_14), 'Meteobike #' +raspberryid, font = font14, fill = 0)
-         drawblack.text((left_spacing,last_line-3*line_spacing_14), 'IP: ' +get_ip(), font = font14, fill = 0)
          if get_ip()=='127.0.0.1':
              drawred.text((left_spacing,last_line-3*line_spacing_14), 'No WiFi connection', font = font14, fill = 0)
          else: drawblack.text((left_spacing,last_line-3*line_spacing_14), 'IP: ' +get_ip(), font = font14, fill = 0)   
@@ -386,7 +385,6 @@ while True:
              drawblack.line((left_spacing, 170, epd.width-left_spacing, 170), fill = 0)
              drawblack.text((left_spacing,last_line-5*line_spacing_14), studentname+"'s Meteobike", font = font14, fill = 0)
              drawblack.text((left_spacing,last_line-4*line_spacing_14), 'Meteobike #' +raspberryid, font = font14, fill = 0)
-             drawblack.text((left_spacing,last_line-3*line_spacing_14), 'IP: ' +get_ip(), font = font14, fill = 0)
              if get_ip()=='127.0.0.1':
                  drawred.text((left_spacing,last_line-3*line_spacing_14), 'No WiFi connection', font = font14, fill = 0)
              else: drawblack.text((left_spacing,last_line-3*line_spacing_14), 'IP: ' +get_ip(), font = font14, fill = 0)   
