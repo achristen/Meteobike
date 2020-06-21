@@ -425,7 +425,7 @@ An E-Paper uses an imaging display technology called  "microencapsulated electro
 
 #### Wiring the e-Paper 
 
-We are using the [https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT_(B)](Wireframe 2.7inch e-Paper) hat that can display black and red color with a resolution of 800 x 480 pixels. Here is how your screen should look like from the back:
+We are using the [Wireframe 2.7inch e-Paper Hat](https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT_(B)) hat that can display black and red color with a resolution of 800 x 480 pixels. Here is how your screen should look like from the back:
 
 ![Images/IMG_epaper2.7.jpg](Images/IMG_epaper2.7.jpg )
 
