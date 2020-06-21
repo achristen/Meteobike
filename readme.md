@@ -434,15 +434,15 @@ Next, turn off your Raspberry Pi W Zero and disconnect the power cable. There ar
  Plug the white plastic connection to the back 
 
 | Wire color | e-Paper  | Raspberry Pi Zero Board |
-| ------------------ | ------------------ | ----------- | ----------------- |
-| Grey | VCC  | 3.3V
-| Brown | GND  | GND
-| Blue | DIN  | 19
-| Yellow | CLK  | 23
-| Orange | CS   | 24
-| Green | DC   | 22
-| White | RST  | 11
-| Purple | BUSY | 18
+| ------------------ | ------------------ | ----------- |
+| Grey | VCC  | 3.3V |
+| Brown | GND  | GND |
+| Blue | DIN  | 19 |
+| Yellow | CLK  | 23 |
+| Orange | CS   | 24 |
+| Green | DC   | 22 |
+| White | RST  | 11 |
+| Purple | BUSY | 18 |
 
 On the Raspberry Pi W Zero you connect the wires exactly according to this map.
 
