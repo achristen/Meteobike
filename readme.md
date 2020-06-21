@@ -457,11 +457,11 @@ Next, turn off your Raspberry Pi W Zero and disconnect the power cable. There ar
 
 On the Raspberry Pi W Zero you connect the wires exactly according to this map.
 
-![Images/IMG_Rpi_Epaper_wiring.jpg](Images/IMG_Rpi_Epaper_wiring.jpg)
+![Images/IMG_epaper_wiring_part1.png](Images/IMG_epaper_wiring_part1.png)
 
 Please doble-check before re-powering and starting the Raspberry Pi W Zero. It should look like on this photo:
 
-![Images/IMG_Epaper_wired.jpg](Images/IMG_Epaper_wired.jpg)
+![Images/IMG_epaper_wiring_photo.png](Images/IMG_epaper_wiring_photo.png)
 
 #### Installation of required libaraies
 
