@@ -500,7 +500,7 @@ Place the file `meteobike_epaper.py` on the Raspberry Pi's desktop. Open the fil
 
 You can start the e-Paper version of Meteobike by typing the following command into LXTerminal:
 
-$ python ~/Desktop/meteobike_epaper.py 
+	$ python ~/Desktop/meteobike_epaper.py 
 
 There will be no on-screen window anymore, but the program should display all its output on the e-Paper instead:
 
