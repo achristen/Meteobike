@@ -480,13 +480,13 @@ Go to the directory to run a factory test:
 	$ cd e-Paper/RaspberryPi\&JetsonNano/python/examples/
 	$ python epd_2in7b_test.py
 	
-If you connected the e-Paper correctly, you should now see a number of fancy test and visualisations on the e-Paper in black and red.
+If you connected the e-Paper correctly, you should now see a number of fancy test and visualisations on the e-Paper in black and red. 
 	
 For experts - Further details on the set-up can be found on the [Wireframe webpage] (https://www.waveshare.com/wiki/2.7inch_e-Paper_HAT) under the "Hardware / Software setup" section.
 
 ### Update the Meteobike program to the e-Paper version
 
-Use the e-Paper version of the Meteobike program called `meteobike_epaper.py` which can be found [here](https://github.com/achristen/Meteobike/blob/master/Code/meteobike_epaper.py).
+From now on, use the e-Paper version of the Meteobike program called `meteobike_epaper.py` which can be found [here](https://github.com/achristen/Meteobike/blob/master/Code/meteobike_epaper.py).
 
 Place the file `meteobike_epaper.py` on the Raspberry Pi's desktop. Open the file and change on lines 41 - 46 the system-specific information (your Meteobike No, your name, and [calibration coefficients](https://github.com/achristen/Meteobike/tree/master/Sensor-Calibration/2020))
 
@@ -497,12 +497,11 @@ Place the file `meteobike_epaper.py` on the Raspberry Pi's desktop. Open the fil
 	vappress_cal_a1 = 1.00000 # enter the calibration coefficient slope for vapour pressure
 	vappress_cal_a0 = 0.00000 # enter the calibration coefficient offset for vapour pressure
 
-
 You can start the e-Paper version of Meteobike by typing the following command into LXTerminal:
 
 	$ python ~/Desktop/meteobike_epaper.py 
 
-There will be no on-screen window anymore, but the program should display all its output on the e-Paper instead:
+In `meteobike_epaper.py` there is no on-screen window anymore, so you do not see anything on-screen happening, but the program should display all its output on the e-Paper instead:
 
 ![Images/IMG_epaper_display.png](Images/IMG_epaper_display.png)
 
@@ -514,15 +513,19 @@ Next change the `meteobike.sh` script to point to `meteobike_epaper.py` instead 
 
 Make sure the file `meteobike.sh` has the permission set, so it can run:
 
+As an update `meteobike_epaper.py` will only write one file per day. If a file already exists for a given date, data will be appended to it. The file will be written to the desktop.
+
 #### Enabling Keys
 
 Connect the wires as the image below is showing.
 
-![Images/IMG_Keys_Epaper.jpg](Images/IMG_Keys_Epaper.jpg)
+![Images/IMG_epaper_wiring_part2.jpg](Images/IMG_epaper_wiring_part2.jpg)
 
 When you are using an e-Paper screen, the final system should look similar to the image below. There is no need for using a mobile device anymore.
 
-![Images/IMG_final_epaper](Images/IMG_final_epaper.jpg)
+![Images/IMG_epaper_final.jpg](Images/IMG_epaper_final.jpg)
+
+Make sure the GPS does not move *under* the e-Paper. Also ensure the GPS and e-Paper do not touch their connectors (which could cause a short-cut). You can use tape to tie the cables and GPS in place.
 
 ## Workshop 4 - Detailed analysis is a geographic information system
 
