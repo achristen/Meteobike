@@ -433,6 +433,17 @@ Next, turn off your Raspberry Pi W Zero and disconnect the power cable. There ar
 
  Plug the white plastic connection to the back 
 
+| E-Paper  | Cable Color | Raspberry Pi Zero |
+| ------------------ | ----------- | ----------------- |
+| VCC | Grey Cable | PIN 17 (3.3V) |
+| GND | Brown Cable | PIN 20 (Ground) |
+| DIN | Blue Cable | PIN 19 (GPIO10) |
+| CLK | Yellow Cable | PIN 23 (GPIO11) |
+| CS  | Orange Cable | PIN 24 (GPIO8)) |
+| DC  | Green Cable | PIN 22 (GPIO25) |
+| RST | White Cable | PIN 11 (GPIO17) |
+| BUSY | Purple Cable | PIN 18 (GPIO24) |
+
 | Wire color | e-Paper  | Raspberry Pi Zero Board |
 | ------------------ | ------------------ | ----------- |
 | Grey | VCC  | 3.3V |
