@@ -419,30 +419,36 @@ There are also option to export it into Google Earth.
 
 ## Workshop 3 - Installing an E-Paper display and feedback buttons
 
-Information for the 2020 class: Do not attempt to install the E-Paper now. The instructions below refer to an older version of the E-paper. This section will be updated for the Workshop 3 next week.
+In this workshop we will finalize the Meteobike by adding an E-Paper display with responsive buttons, so the instrument is independent of any computer or smartphone.
 
-In the last workshop we will add an E-paper device. An E-Paper uses an image display technology called  "microencapsulated electrophoretic display" (MED). An E-paper displays patterns by reflecting the ambient light, so it has no background light. 
+An E-Paper uses an imaging display technology called  "microencapsulated electrophoretic display" (MED). An E-paper displays patterns by reflecting the ambient light, so it has no background light. This is similar to an e-Reader, it requires little power is readable with full sunlight but also slow to update.
 
 #### Wiring the e-Paper 
 
-So this is how your screen should look like:
+We are using the [https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT_(B)](Wireframe 2.7inch e-Paper) hat that can display black and red color with a resolution of 800 x 480 pixels. Here is how your screen should look like from the back:
 
 ![Images/IMG_epaper2.7.jpg](Images/IMG_epaper2.7.jpg )
 
-As you can see there are 8 different wires ready to be adjusted on your Raspberry Pi. So, just take a look to the following tables. 
+Next, turn off your Raspberry Pi W Zero and disconnect the power cable. There are 8 different wires ready to be connected to your Raspberry Pi as follows:
 
-| Wire color | e-Paper  | BCM2835 | Raspberry Pi Zero Board |
+ Plug the white plastic connection to the back 
+
+| Wire color | e-Paper  | Raspberry Pi Zero Board |
 | ------------------ | ------------------ | ----------- | ----------------- |
-| Grey | VCC  | 3.3V  | 	3.3V
-| Brown | GND  | GND  | 	GND
-| Blue | DIN  | MOSI  | 	19
-| Yellow | CLK  | SCLK  | 	23
-| Orange | CS   | CE0  |		24
-| Green | DC   | 25  | 		22
-| White | RST  | 17  | 		11
-| Purple | BUSY | 24  | 		18
+| Grey | VCC  | 3.3V
+| Brown | GND  | GND
+| Blue | DIN  | 19
+| Yellow | CLK  | 23
+| Orange | CS   | 24
+| Green | DC   | 22
+| White | RST  | 11
+| Purple | BUSY | 18
+
+On the Raspberry Pi W Zero you connect the wires exactly according to this map.
 
 ![Images/IMG_Rpi_Epaper_wiring.jpg](Images/IMG_Rpi_Epaper_wiring.jpg)
+
+Please doble-check before re-powering and starting the Raspberry Pi W Zero. It should look like on this photo:
 
 ![Images/IMG_Epaper_wired.jpg](Images/IMG_Epaper_wired.jpg)
 
