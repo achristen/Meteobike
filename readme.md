@@ -423,9 +423,9 @@ In this workshop we will finalize the Meteobike by adding an E-Paper display wit
 
 An E-Paper uses an imaging display technology called  "microencapsulated electrophoretic display" (MED). An E-paper displays patterns by reflecting the ambient light, so it has no background light. This is similar to an e-Reader, it requires little power is readable with full sunlight but also slow to update.
 
-#### Wiring the e-Paper 
+### Wiring the e-Paper 
 
-We are using the [Wireframe 2.7inch e-Paper Hat](https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT_(B)) hat that can display black and red color with a resolution of 800 x 480 pixels. Here is how your screen should look like from the back:
+We are using the [Wireframe 2.7inch e-Paper Hat](https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT_(B)) hat that can display black and red color with a resolution of 176 x 264 pixels. Here is how your screen should look like from the back:
 
 ![Images/IMG_epaper2.7.jpg](Images/IMG_epaper2.7.jpg )
 
@@ -439,21 +439,10 @@ Next, turn off your Raspberry Pi W Zero and disconnect the power cable. There ar
 | GND | Brown Cable | PIN 20 (Ground) |
 | DIN | Blue Cable | PIN 19 (GPIO10) |
 | CLK | Yellow Cable | PIN 23 (GPIO11) |
-| CS  | Orange Cable | PIN 24 (GPIO8)) |
+| CS  | Orange Cable | PIN 24 (GPIO8) |
 | DC  | Green Cable | PIN 22 (GPIO25) |
 | RST | White Cable | PIN 11 (GPIO17) |
 | BUSY | Purple Cable | PIN 18 (GPIO24) |
-
-| Wire color | e-Paper  | Raspberry Pi Zero Board |
-| ------------------ | ------------------ | ----------- |
-| Grey | VCC  | 3.3V |
-| Brown | GND  | GND |
-| Blue | DIN  | 19 |
-| Yellow | CLK  | 23 |
-| Orange | CS   | 24 |
-| Green | DC   | 22 |
-| White | RST  | 11 |
-| Purple | BUSY | 18 |
 
 On the Raspberry Pi W Zero you connect the wires exactly according to this map.
 
@@ -463,12 +452,13 @@ Please doble-check before re-powering and starting the Raspberry Pi W Zero. It s
 
 ![Images/IMG_epaper_wiring_photo.png](Images/IMG_epaper_wiring_photo.png)
 
-#### Installation of required libaraies
+### Programming and testing the e-Paper
 
-Follow this link: https://www.waveshare.com/wiki/2.7inch_e-Paper_HAT 
-Then visit the "Hardware / Software setup" section and follow all the steps from
+If you chave double-checked the connection cable, boot up (i.e. power) the Raspberry Pi W Zero and connect to it via VNC or alternatively thought a Screen / Keyboard / Mouse. 
 
-##### Libraries Installation
+#### Installation of required libraries
+
+Open the LXTerminal and enter the following commands - updating the Python 2 environment and downloading the required libraries. Make sure the Raspberry Pi Zero W has a connection to the internet to download the drivers. 
 
 	$ sudo apt-get update
 	$ sudo apt-get install python-pip
@@ -477,12 +467,44 @@ Then visit the "Hardware / Software setup" section and follow all the steps from
 	$ sudo pip install RPi.GPIO
 	$ sudo pip install spidev
 
-##### Download examples 
+Next, download the python e-Paper library () and its examples. 
 
 	$ sudo git clone https://github.com/waveshare/e-Paper
-	$ cd e-Paper/RaspberryPi\&JetsonNano/
+	
+This will place the e-Paper software into `home/pi/e-Paper/`. 
 
-##### Enabling Keys
+#### Test the e-Paper
+
+Go to the directory to run a factory test:
+	
+	$ cd e-Paper/RaspberryPi\&JetsonNano/python/examples/
+	$ python epd_2in7b_test.py
+	
+If you connected the e-Paper correctly, you should now see a number of fancy test and visualisations on the e-Paper in black and red.
+	
+For experts - Further details on the set-up can be found on the [Wireframe webpage] (https://www.waveshare.com/wiki/2.7inch_e-Paper_HAT) under the "Hardware / Software setup" section.
+
+### Update the Meteobike program to the e-Paper version
+
+Use the e-Paper version of the Meteobike program called `meteobike_epaper.py` which can be found [here](https://github.com/achristen/Meteobike/blob/master/Code/meteobike_epaper.py).
+
+Place the file `meteobike_epaper.py`. You can start the e-Paper version of Meteobike by typing the following command into LXTerminal:
+
+$ python ~/Desktop/meteobike_epaper.py 
+
+There will be no on-screen window anymore, but the program should display all its output on the e-Paper instead:
+
+![Images/IMG_epaper_display.png](Images/IMG_epaper_display.png)
+
+First, the ePaper will display a welcome screen ("Boot screen", left), instruction on the sue of the command keys below the screen (we will install them next, they do not yet work). After about 10 seconds the e-Paper will every five measurements refresh and display the latest data ("Measurement screen", right). The arrows next to the measurement values will indicate if a variable is increasing, being unchanged or decreasing. Any displayed line in red will show that there is an error (for example if the GPS has not found enough satellites yet).
+
+Next change the `meteobike.sh` script to point to `meteobike_epaper.py` instead of `meteobike03.py`, so at every start-up of the Raspberry Pi W Zero, the e-Paper version is started instead of the old version.
+
+![Images/IMG_change_sh_epaper.png](Images/IMG_change_sh_epaper.png)
+
+Make sure the file `meteobike.sh` has the permission set, so it can run:
+
+#### Enabling Keys
 
 Connect the wires as the image below is showing.
 
