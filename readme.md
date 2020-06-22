@@ -523,7 +523,7 @@ Connect the wires as the image below is showing.
 
 The connections should look like on the following photos:
 
-![Images/IMG_epaper_wiring_photo.png](Images/IMG_epaper_wiring_photo.png) 
+![Images/IMG_epaper_wiring_photo_2.png](Images/IMG_epaper_wiring_photo.png) 
 
 When you are using an e-Paper screen, the final system should look similar to the image below. There is no need for using a mobile device anymore.
 
