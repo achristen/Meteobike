@@ -486,7 +486,7 @@ For experts - Further details on the set-up and programming can be found on the 
 
 ### Update the Meteobike program to the e-Paper version
 
-From now on, you will use the e-Paper version of the Meteobike program called `meteobike_epaper.py` which can be found [here](https://github.com/achristen/Meteobike/blob/master/Code/meteobike_epaper.py). For students of the University of Freiburg, the python script is also available under Ilias [here](https://ilias.uni-freiburg.de/goto.php?target=fold_1679553&client_id=unifreiburg).
+From now on, you will use the e-Paper version of the Meteobike program called `meteobike_epaper.py` which can be found [here](https://github.com/achristen/Meteobike/blob/master/Code/meteobike_epaper.py). For students of the University of Freiburg, the python script is also available under Ilias [here](https://ilias.uni-freiburg.de/goto.php?target=fold_1634218&client_id=unifreiburg).
 
 Place the file `meteobike_epaper.py` on the Raspberry Pi's desktop. Open the file and change on lines 41 - 46 the system-specific information (your Meteobike No, your name, and again your [calibration coefficients](https://github.com/achristen/Meteobike/tree/master/Sensor-Calibration/2020))
 
