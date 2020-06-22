@@ -117,7 +117,6 @@ dht22_sensor = Adafruit_DHT.DHT22
 
 #callback functions
 def exit_program():
-         master.destroy()
          sys.exit()
 def record_data():
          global recording
@@ -207,8 +206,6 @@ while True:
          dht22_humidity_raw=round(dht22_humidity,3)
          dht22_humidity = round(100 * (dht22_vappress_calib / saturation_vappress_calib),3)
          if dht22_humidity >100:dht22_humidity=100
-         
-         print(cnt)
          
          if cnt == 0:
              global temperature_prev,humidity_prev,vappress_prev
@@ -391,31 +388,31 @@ while True:
              drawblack.text((left_spacing,last_line-1*line_spacing_14), 'Record No: '+str(cnt), font = font14, fill = 0)
              
              if key1state == False:
-                 stop_data()
                  drawred.text((left_spacing, first_line), 'Recording \npaused' , font = font18, fill = 0)
                  drawred.text((left_spacing,last_line-2*line_spacing_14), 'Recording : Paused', font = font14, fill = 0)
                  epd.display(epd.getbuffer(LBlackimage),epd.getbuffer(LRedimage))
                  print('Key1 Pressed')
+                 stop_data()
                  break
              if key2state == False:
-                 record_data()
                  drawblack.text((left_spacing, first_line), 'Recording started' , font = font18, fill = 0)
                  drawblack.text((left_spacing,last_line-2*line_spacing_14), 'Recording : On', font = font14, fill = 0)
                  epd.display(epd.getbuffer(LBlackimage),epd.getbuffer(LRedimage))
                  print('Key2 Pressed')
+                 record_data()
                  break
              if key3state == False:
                  print('Key3 Pressed')
                  break
              if key4state == False:
                  drawred.text((left_spacing, first_line+0*line_spacing_18), 'Meteobike' , font = font18, fill = 0)
-                 drawred.text((left_spacing, first_line+0*line_spacing_18), 'stopped' , font = font18, fill = 0)
+                 drawred.text((left_spacing, first_line+1*line_spacing_18), 'stopped' , font = font18, fill = 0)
                  drawblack.text((left_spacing, first_line+10+3*line_spacing_18+1*line_spacing_14), 'To resume logging, you' , font = font14, fill = 0)
-                 drawblack.text((left_spacing, first_line+10+3*line_spacing_18+1*line_spacing_14), 'must reboot your system' , font = font14, fill = 0)
+                 drawblack.text((left_spacing, first_line+10+3*line_spacing_18+2*line_spacing_14), 'must reboot your system' , font = font14, fill = 0)
                  drawred.text((left_spacing,last_line-2*line_spacing_14), 'Recording : Off', font = font14, fill = 0)
                  epd.display(epd.getbuffer(LBlackimage),epd.getbuffer(LRedimage))
+                 print('Key4 Pressed')
                  exit_program()
-                 ('Key4 Pressed')
                  break     
              if t==5:
                  break
