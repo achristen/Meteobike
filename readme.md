@@ -517,6 +517,10 @@ As an update `meteobike_epaper.py` will only write one file per day. If a file a
 
 #### Enabling Keys
 
+You need a 3-wire cable (1 x blue, 1 x green, 1 x yellow) as follows:
+
+![Images/IMG_epaper_wiring_part2_2.png](Images/IMG_epaper_wiring_part2_2.png)
+
 Connect the wires as the image below is showing.
 
 ![Images/IMG_epaper_wiring_part2_2.png](Images/IMG_epaper_wiring_part2_2.png)
