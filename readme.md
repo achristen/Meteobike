@@ -529,7 +529,7 @@ Note `Key 3` is currently not assigned to any function.
 
 To connect the three keys, you need a 3-wire cable (1 x blue, 1 x green, 1 x yellow) as follows:
 
-![Images/IMG_epaper_wiring_part2_2.png](Images/IMG_epaper_wiring_part2_2.png)
+![Images/IMG_epaper_key_wire.png](Images/IMG_epaper_key_wire.png)
 
 Connect the wires as shown in the drawing below:
 
@@ -545,7 +545,15 @@ When you are using an e-Paper screen, you can put in in the top flap behind the 
 
 Make sure the GPS does not move *under* the e-Paper. Also ensure the GPS and e-Paper do not touch their connectors (which could cause a short-cut). You can use tape to tie the cables and GPS in place.
 
-Well done - you are ready for measurements. Please test the system if it fits your bike and works properly by riding around the block. Also make sure you charge the battery for the mapping.
+Well done - you are ready for measurements. Please test the system as follows:
+
+- If you can press `Key 4` to exit the program and then reboot
+- If it automatically reboots  measurements if you take power off
+- If it fits your bike 
+- Can you see data and GPS while you measure?
+- It it records properly data by riding around the block. 
+
+Also make sure you charge the battery in the end for the group exercise to come.
 
 ## Workshop 4 - Detailed analysis in a geographic information system
 
