@@ -53,9 +53,10 @@ Table 1: Calibration coefficients for air temperature to be entered for each of 
 | 46 |     -0.201254 |       1.01750 |
 | 47 |    -0.0224968 |       1.01417 |
 | 48 |    -0.0187260 |       1.01715 |
-| 49 |      -1.35115 |       1.09011 |
-| 50 |      -1.38285 |       1.08729 |
-| 52 |     0.0256644 |      0.996788 |
+| 49 |    -0.0948123 |       1.01355 |
+| 50 |     -0.237114 |       1.01757 |
+| 51 |           N/A |           N/A |
+| 52 |     -0.357499 |       1.01972 |
 
 Table 2: Root mean square error (RMSE) of the raw and calibrated temperatures relative to the climate station in K.
 
@@ -109,9 +110,10 @@ Table 2: Root mean square error (RMSE) of the raw and calibrated temperatures re
 | 46 |      0.131047 |      0.174536 |
 | 47 |      0.161917 |      0.274628 |
 | 48 |      0.142207 |      0.305145 |
-| 49 |      0.808225 |      0.862712 |
-| 50 |      0.736533 |      0.772829 |
-| 52 |      0.554499 |      0.557862 |
+| 49 |     0.0696573 |      0.188993 |
+| 50 |     0.0634646 |      0.134208 |
+| 51 |           N/A |           N/A |
+| 52 |     0.0779676 |      0.100363 |
 
 Vapour pressure
 ====================================================
@@ -168,9 +170,10 @@ Table 3: Calibration coefficients to be entered for each of the meteobike system
 | 46 |      0.104446 |      0.893537 |
 | 47 |     0.0707377 |      0.872296 |
 | 48 |     0.0438585 |      0.988729 |
-| 49 |     -0.129317 |       1.12704 |
-| 50 |     -0.115142 |       1.07468 |
-| 52 |     -0.160540 |       1.06083 |
+| 49 |   -0.00335241 |       1.03045 |
+| 50 |     0.0321215 |      0.972306 |
+| 51 |           N/A |           N/A |
+| 52 |    -0.0731263 |       1.00697 |
 
 Table 4: Root mean square error (RMSE) of the raw and calibrated vapour pressures relative to the climate station in K.
 
@@ -224,9 +227,10 @@ Table 4: Root mean square error (RMSE) of the raw and calibrated vapour pressure
 | 46 |     0.0253656 |     0.0699506 |
 | 47 |     0.0406352 |      0.144346 |
 | 48 |     0.0163658 |     0.0322503 |
-| 49 |     0.0677029 |     0.0666802 |
-| 50 |     0.0672602 |     0.0651741 |
-| 52 |     0.0666752 |     0.0995552 |
+| 49 |     0.0261899 |     0.0464207 |
+| 50 |     0.0258266 |     0.0280672 |
+| 51 |           N/A |           N/A |
+| 52 |     0.0216852 |     0.0668530 |
 
 Measurement frequency
 ===========================
@@ -283,6 +287,7 @@ Table 5: Average number of measurements made per system.
 | 46 |       8.20687 |
 | 47 |       8.22708 |
 | 48 |       8.11424 |
-| 49 |       8.09224 |
-| 50 |       8.17005 |
-| 52 |       4.89494 |
+| 49 |       8.08951 |
+| 50 |       8.18433 |
+| 51 |           N/A |
+| 52 |       4.81737 |
