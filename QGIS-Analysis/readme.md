@@ -4,11 +4,11 @@
 
 ## Installing QGIS
 
-Download [QGIS](https://qgis.org) and follow installation instructions, incluing the correct Python version.
+Download [QGIS](https://qgis.org) and follow installation instructions, incluing the correct Python version. Here is a [short video](https://youtu.be/b9FwI0GyAGQ), explaining the installation process.
 
 ## Importing and map Meteobike data in QGIS
 
-In a first step we would like to import and map your Meteobike dataset.
+In a first step, we would like to import and map your Meteobike dataset.
 
 ### Set-up OSM as background map in QGIS
 
