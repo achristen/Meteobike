@@ -251,7 +251,7 @@ To ensure it works, you must change permissions of the file as follows (make it 
     
 Now you can double-click `meteobike.sh` to start the user interface. Later, we will automate the start-up during the boot process.
 
-Now the system is ready to be calibrated. Please return the system to our HiWi who will place it for you in the calibration chamber. You are done with the first workshop - congratulations.
+Now the system is ready to record data. Next week you will then in Workshop 2 put the system in a portable bik-bag and attach an E-paper. You are done for today with the first workshop - congratulations.
 
 ## Workshop 2 - Build the mobile unit and attach the E-Paper
 
