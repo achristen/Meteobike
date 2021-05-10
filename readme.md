@@ -253,20 +253,9 @@ Now you can double-click `meteobike.sh` to start the user interface. Later, we w
 
 Now the system is ready to be calibrated. Please return the system to our HiWi who will place it for you in the calibration chamber. You are done with the first workshop - congratulations.
 
-## Workshop 2 - Calibrating the system and finalize the mobile unit
+## Workshop 2 - Build the mobile unit and attach the E-Paper
 
-In the second practical workshop you will enter the calibration coefficients from our [Sensor-Calibration/2020/readme.md](calibration in the weather hut) into your system, then install the system in a protable bike-bag, insert the sensor in a radiation shield and power the system from a battery, so it is mobile.
-
-### Entering the calibration coefficients
-
-After you watched the online lecture on or calibration results, you should enter the calibration coefficients we derived from the intercomparison directly into the python code. Open the file `meteobike03.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
-
-		temperature_cal_a1 = 1.00000
-		temperature_cal_a0 = 0.00000
-		vappress_cal_a1 = 1.00000 
-		vappress_cal_a0 = 0.00000 
-		
-Replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in [Sensor-Calibration/2020/readme.md](Tables 1 and 3 of the calibration diretory, respecively). Make sure you use a `.` and not a `,` as the delimiter.	
+In the second practical workshop you will install the system in a protable bike-bag, insert the sensor in a radiation shield and power the system from a battery, so it is mobile. You will also attach an E-Paper to display the data while taking measurements.
 
 ### Assembly of the protable system
 
@@ -417,13 +406,13 @@ Then click on `Draw the map`. Here is an example
 
 There are also option to export it into Google Earth.
 
-## Workshop 3 - Installing an E-Paper display and feedback buttons
+### E-Paper 
 
-In this workshop we will finalize the Meteobike by adding an E-Paper display with responsive buttons, so the instrument is independent of any computer or smartphone.
+Now we will be adding an E-Paper display with responsive buttons, so the instrument is independent of any computer or smartphone.
 
 An E-Paper uses an imaging display technology called  "microencapsulated electrophoretic display" (MED). An E-paper displays patterns by reflecting the ambient light, so it has no background light. This is similar to an e-Reader, it requires little power is readable with full sunlight but also slow to update.
 
-### Wiring the e-Paper 
+#### Wiring the e-Paper 
 
 We are using the [Wireframe 2.7inch e-Paper Hat](https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT_(B)) hat that can display black and red color with a resolution of 176 x 264 pixels. Here is how your screen should look like from the back:
 
@@ -452,11 +441,9 @@ Please doble-check before re-powering and starting the Raspberry Pi W Zero. The 
 
 ![Images/IMG_epaper_wiring_photo.png](Images/IMG_epaper_wiring_photo.png)
 
-### Programming and testing the e-Paper
+#### Programming and testing the e-Paper
 
 If you have double-checked the connection cable, boot up (i.e. re-power) the Raspberry Pi W Zero and connect to it via VNC or alternatively through a screen / keyboard / mouse. 
-
-#### Installation of required libraries
 
 Open the LXTerminal and enter the following commands - updating the Python 2 environment and downloading the required libraries. Make sure the Raspberry Pi Zero W has a connection to the internet to download the drivers. 
 
@@ -517,7 +504,7 @@ Make sure the file `meteobike.sh` has the permissions set (done previously), so 
 
 As an new feature, `meteobike_epaper.py` will only write one file per day. If a file already exists for a given date, data will be appended to it. The file will be written to the desktop. there is also a new column called "speed" where from the GPS  and the time between measurements the actual speed of the system will be calculated.
 
-#### Enabling Keys
+### Enabling Keys
 
 Finally, we will add three feedback buttons as follows:
 
@@ -554,6 +541,18 @@ Well done - you are ready for measurements. Please test the system as follows:
 - It it records properly data by riding around the block. 
 
 Also make sure you charge the battery in the end for the group exercise to come.
+
+## Workshop 3 - Entering the calibration coefficients
+
+After you watched the online lecture on or calibration results, you should enter the calibration coefficients we derived from the intercomparison directly into the python code. Open the file `meteobike03.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
+
+		temperature_cal_a1 = 1.00000
+		temperature_cal_a0 = 0.00000
+		vappress_cal_a1 = 1.00000 
+		vappress_cal_a0 = 0.00000 
+		
+Replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in [Sensor-Calibration/2020/readme.md](Tables 1 and 3 of the calibration diretory, respecively). Make sure you use a `.` and not a `,` as the delimiter.	
+
 
 ## Workshop 4 - Detailed analysis in a geographic information system
 
