@@ -413,9 +413,11 @@ Please doble-check before re-powering and starting the Raspberry Pi W Zero. The 
 
 ![Images/IMG_epaper_wiring_photo.png](Images/IMG_epaper_wiring_photo.png)
 
-#### Programming and testing the e-Paper
+#### Installing the e-Paper libraries (if needed)
 
-If you have double-checked the connection cable, boot up (i.e. re-power) the Raspberry Pi W Zero and connect to it via VNC or alternatively through a screen / keyboard / mouse. 
+If you have double-checked the connection cable, boot up (i.e. re-power) the Raspberry Pi W Zero and connect to it via VNC (or alternatively through a screen / keyboard / mouse). 
+
+If the E-Paper has alredy been installed on your system, you can skip the folloing installation and directly go to the section below "Test the e-Paper"
 
 Open the LXTerminal and enter the following commands - updating the Python 2 environment and downloading the required libraries. Make sure the Raspberry Pi Zero W has a connection to the internet to download the drivers. 
 
