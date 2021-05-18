@@ -432,9 +432,6 @@ Next, download the python e-Paper library from waveshare and its examples:
 	
 This will place the e-Paper software into `home/pi/e-Paper/` on your Raspberry Pi.
 
-Now you are ready to install the system on your bike. Let's go for a test drive. Make sure the indicator changes from red to yellow, as soon as you are outdoors. The recording will only start if you have a good GPS connection. Drive for about 15 - 20 minutes, and come back to see if the data has been recorded.
-
-
 #### Test the e-Paper
 
 Go to the directory to run a factory test:
@@ -507,15 +504,19 @@ When you are using an e-Paper screen, you can put in in the top flap behind the 
 
 Make sure the GPS does not move *under* the e-Paper. Also ensure the GPS and e-Paper do not touch their connectors (which could cause a short-cut). You can use tape to tie the cables and GPS in place.
 
-Well done - you are ready for measurements. Please test the system as follows:
+Well done - you are ready for measurements. 
+
+Now you are ready to install the system on your bike. Let's go for a test drive. Please test the system as follows:
 
 - If you can press `Key 4` to exit the program and then reboot
 - If it automatically reboots  measurements if you take power off
 - If it fits your bike 
-- Can you see data and GPS while you measure?
+- Can you see data and GPS while you measure? The recording will only start if you have a good GPS connection. 
 - It it records properly data by riding around the block. 
 
-Also make sure you charge the battery in the end for the group exercise to come.
+Drive for about 15 - 20 minutes, and come back to see if the data has been recorded.
+
+Also make sure you charge the battery in the end for the group exercises to come.
 
 ### Display and analyze the recorded GPS track
 
