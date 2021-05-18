@@ -348,7 +348,7 @@ When the system is complete, it should look similar to the image below.
 
 ### Connecting the Raspberry Pi with your Smartphone
 
-Once the system is set up similar to what is arranged above, you can optionally connect your mobile device to the VNC viewer in order to see the progress as you are collecting your data. If you do not have a mobile device, you can skip this step. Next week, we will anyway install an e-Paper.
+Once the system is set up similar to what is arranged above, you can optionally connect your mobile device to the VNC viewer in order to see the progress as you are collecting your data. If you do not have a mobile device, you can skip this step. In the next step, we will anyway install the e-Paper.
 
 You could place your mobile device in the front pocket behind the GPS. 
 
