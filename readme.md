@@ -510,21 +510,19 @@ Well done - you are ready for measurements.
 
 Now you are ready to install the system on your bike. Let's go for a test drive. Please test the system as follows:
 
-- If you can press `Key 4` to exit the program and then reboot
-- If it automatically reboots  measurements if you take power off
+- If you can press `Key 4` to exit the program and if you can then reboot
+- If it automatically reboots measurements if you take power off and put power on again
 - If it fits your bike 
 - Can you see data and GPS while you measure? The recording will only start if you have a good GPS connection. 
-- It it records properly data by riding around the block. 
+- It it records proper data by riding around the block. 
 
-Drive for about 15 - 20 minutes, and come back to see if the data has been recorded.
-
-Also make sure you charge the battery in the end for the group exercises to come.
+Drive for a about 15 - 20 minutes, and come back to see if the data has been recorded.
 
 ### Display and analyze the recorded GPS track
 
 The GPS track is stored by the Raspberry on the desktop as a comma-separated file.
 
-If the Raspberry is on the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (for example with the free [CyberDuck](https://cyberduck.io) or the free [FileZilla](https://filezilla-project.org)). You can also use the VNC software to tranfer files.
+If the Raspberry is on the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (for example with the free [CyberDuck](https://cyberduck.io) or the free [FileZilla](https://filezilla-project.org)). You can also use the VNC software on your laptop or on a mobile device to tranfer files.
 
 A first graphical representation of the track can be done place on the website http://www.gpsvisualizer.com/map_input
 
@@ -544,18 +542,22 @@ Then click on `Draw the map`. Here is an example
 
 ![Images/IMG_GPStrack](Images/IMG_GPStrack.jpg)
 
-There are also option to export it into Google Earth.
+There are also options to export it into Google Earth.
 
-## Workshop 3 - Entering the calibration coefficients
+You are now done with Workshop '2
 
-After you watched the online lecture on or calibration results, you should enter the calibration coefficients we derived from the intercomparison directly into the python code. Open the file `meteobike03.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
+## Workshop 3 - Calibration
+
+This year this workshop will be handeled differently and we will enter the calibration coefficients for you.
+
+We will enter the calibration coefficients we derived from the intercomparison directly into the python code. For that we open the file `meteobike_epaper.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
 
 		temperature_cal_a1 = 1.00000
 		temperature_cal_a0 = 0.00000
 		vappress_cal_a1 = 1.00000 
 		vappress_cal_a0 = 0.00000 
 		
-Replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in [Sensor-Calibration/2020/readme.md](Tables 1 and 3 of the calibration diretory, respecively). Make sure you use a `.` and not a `,` as the delimiter.	
+We replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in [Sensor-Calibration/2020/readme.md](Tables 1 and 3 of the calibration diretory, respecively). One must take care to use a `.` and not a `,` as the delimiter.	
 
 
 ## Workshop 4 - Detailed analysis in a geographic information system
