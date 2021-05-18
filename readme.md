@@ -449,7 +449,7 @@ For experts - Further details on the set-up and programming can be found on the 
 
 From now on, you will use the e-Paper version of the Meteobike program called `meteobike_epaper.py` which can be found [here](https://github.com/achristen/Meteobike/blob/master/Code/meteobike_epaper.py). For students of the University of Freiburg, the python script is also available under Ilias [here](https://ilias.uni-freiburg.de/goto.php?target=file_2206813&client_id=unifreiburg).
 
-Place the file `meteobike_epaper.py` on the Raspberry Pi's desktop. Open the file and change on lines 41 - 46 the system-specific information (your Meteobike No, your name, and again your [calibration coefficients](https://github.com/achristen/Meteobike/tree/master/Sensor-Calibration/2020))
+Place the file `meteobike_epaper.py` on the Raspberry Pi's desktop. Open the file and change on lines 41 - 46 the system-specific information (your Meteobike No, your name, and if  available your [calibration coefficients](https://github.com/achristen/Meteobike/tree/master/Sensor-Calibration/2020)). Students at tUni Freiburg will determine new calibration coefficients in the next workshop and can just leave them at `a1 = 1.00000` and `a0 = 0.0000`.
 
 	raspberryid = "52" # enter your raspberry's number
 	studentname = "Andreas" # enter your first name - no spaces and no special characters
@@ -462,17 +462,17 @@ You can start the e-Paper version of Meteobike by typing the following command i
 
 	$ python ~/Desktop/meteobike_epaper.py 
 
-In `meteobike_epaper.py` there is no on-screen window anymore, so you do not see anything on-screen happening, but the program should display all its output on the e-Paper instead:
+In `meteobike_epaper.py` there is no on-screen window anymore, so you do not see anything on-screen happening, but the program instead displays all its output on the e-Paper:
 
 ![Images/IMG_epaper_display.png](Images/IMG_epaper_display.png)
 
 First, the ePaper will display a welcome screen ("Boot screen", left), with instructions on how to use the keys below the screen (we will install them next, they do not yet work). After about 10 seconds the e-Paper will refresh and display the latest data ("Measurement screen", right). It will refresh every 5 measurements (about every 40 seconds). The arrows next to the measurement values will indicate if a variable is increasing, is unchanged or decreasing. Any information displayed in red will show alerts (for example if the GPS has not found enough satellites yet or if there is no WiFi network).
 
-Next change the `meteobike.sh` script to point to `meteobike_epaper.py` instead of `meteobike03.py`, so at every start-up of the Raspberry Pi W Zero, the e-Paper version is started instead of the old version.
+Next change the `meteobike.sh` script to point to `meteobike_epaper.py` instead of `meteobike03.py`, so at every start-up of the Raspberry Pi W Zero, the e-Paper version is started atomatically instead of the old version.
 
 ![Images/IMG_change_sh_epaper.png](Images/IMG_change_sh_epaper.png)
 
-Make sure the file `meteobike.sh` has the permissions set (done previously), so it can run: 
+Make sure the file `meteobike.sh` has the permissions set (likely done previously), so it can run: 
 
 	$ chmod +x  ~/Desktop/meteobike.sh
 
