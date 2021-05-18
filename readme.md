@@ -378,34 +378,6 @@ Go back to your phone and start the VNC app. In the VNC app create a new connect
 
 You can put the phone into the transparent lid of the bag. You can also use the second outlet of the power bank to keep your phone charged during measurements, but in this case, you must bring your own charger-cable.
 
-Now you are ready to install the system on your bike. Let's go for a test drive. Make sure the indicator changes from red to yellow, as soon as you are outdoors. The recording will only start if you have a good GPS connection. Drive for about 15 - 20 minutes, and come back to see if the data has been recorded.
-
-### Display and analyze the recorded GPS track
-
-The GPS track is stored by the Raspberry on the desktop as a comma-separated file.
-
-If the Raspberry is on the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (for example with the free [CyberDuck](https://cyberduck.io) or the free [FileZilla](https://filezilla-project.org)). You can also use the VNC software to tranfer files.
-
-A first graphical representation of the track can be done place on the website http://www.gpsvisualizer.com/map_input
-
-At top left choose "With: 1400", then at the top right under "Upload" choose your file  and Click on `Draw the map`.
-
-Color-coded drawing by temperature: Under "Track options" click on "advanced options" and make the following settings below:
-
-```
-Colorize by: custom field
-Custom colorization field: temperature
-Spectrum direction: down
-Hue 1: 120
-Hue 2: 0
-```
-
-Then click on `Draw the map`. Here is an example
-
-![Images/IMG_GPStrack](Images/IMG_GPStrack.jpg)
-
-There are also option to export it into Google Earth.
-
 ### E-Paper 
 
 Now we will be adding an E-Paper display with responsive buttons, so the instrument is independent of any computer or smartphone.
@@ -459,6 +431,9 @@ Next, download the python e-Paper library from waveshare and its examples:
 	$ sudo git clone https://github.com/waveshare/e-Paper
 	
 This will place the e-Paper software into `home/pi/e-Paper/` on your Raspberry Pi.
+
+Now you are ready to install the system on your bike. Let's go for a test drive. Make sure the indicator changes from red to yellow, as soon as you are outdoors. The recording will only start if you have a good GPS connection. Drive for about 15 - 20 minutes, and come back to see if the data has been recorded.
+
 
 #### Test the e-Paper
 
@@ -541,6 +516,32 @@ Well done - you are ready for measurements. Please test the system as follows:
 - It it records properly data by riding around the block. 
 
 Also make sure you charge the battery in the end for the group exercise to come.
+
+### Display and analyze the recorded GPS track
+
+The GPS track is stored by the Raspberry on the desktop as a comma-separated file.
+
+If the Raspberry is on the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (for example with the free [CyberDuck](https://cyberduck.io) or the free [FileZilla](https://filezilla-project.org)). You can also use the VNC software to tranfer files.
+
+A first graphical representation of the track can be done place on the website http://www.gpsvisualizer.com/map_input
+
+At top left choose "With: 1400", then at the top right under "Upload" choose your file  and Click on `Draw the map`.
+
+Color-coded drawing by temperature: Under "Track options" click on "advanced options" and make the following settings below:
+
+```
+Colorize by: custom field
+Custom colorization field: temperature
+Spectrum direction: down
+Hue 1: 120
+Hue 2: 0
+```
+
+Then click on `Draw the map`. Here is an example
+
+![Images/IMG_GPStrack](Images/IMG_GPStrack.jpg)
+
+There are also option to export it into Google Earth.
 
 ## Workshop 3 - Entering the calibration coefficients
 
