@@ -34,23 +34,25 @@ The result may look like:
          3:             Windows_FAT_32 boot                    72.4 MB    disk2s6
          4:                      Linux                         30.0 GB    disk2s7
    
-Here `/dev/disk2`refers to a 32 GB SD Card. You can tell based on name, size and formatting.
+Here `/dev/disk2`refers to a 32 GB SD Card. You could tell this based on its name, size and formatting.
 
 If you instead of `/dev/diskN` use `/dev/rdiskN`, where `N` is the muber, the process of copying is much faster. The letter "r" stands for "für "raw".
 
-Then copy the raw content from the SD card into a disk image, here called `sdcard.img`
+To copy the raw content from the SD card into a disk image, use the `dd` command, where `if=` is the input, `of=` is the output image, here an image file called `sdcard.img`. `bs=` determines the block-size of the copying, here 1 MB.
 
-imac:~ yourname$ sudo dd if=/dev/rdisk2 of=/Users/yourname/Desktop/sdcard.img bs=1m
-Password:
-30436+1 records in
-30436+1 records out
-31914983424 bytes transferred in 372.269240 secs (85730917 bytes/sec)
-imac:~ yourname$
+        imac:~ yourname$ sudo dd if=/dev/rdisk2 of=/Users/yourname/Desktop/sdcard.img bs=1m
+        Password:
+        30436+1 records in
+        30436+1 records out
+        31914983424 bytes transferred in 372.269240 secs (85730917 bytes/sec)
+        imac:~ yourname$
+        
+Once completed, you find a disk image on your Deskto.        
 
 You don't need an unmount command, just insert the SD card into the Mac via the slot or an adapter and then check in the terminal which disc number corresponds to the SD card. In the example it is `disk2` but could be different on each system.
 
 Copying back on an empty SD card (or one that will be overwritten) is done accordingly with the command:
 
-sudo dd if=/Users/christen/Desktop/sdcard.img of=/dev/rdisk2 bs=1m
+        sudo dd if=/Users/yourname/Desktop/sdcard.img of=/dev/rdisk2 bs=1m
 
-`bs=1`
+Make sure you are correctly pointing the `of=` to the SD-Card to be written / overwritten.
