@@ -7,31 +7,32 @@ Insert the SD card in the card slot of your computer (or an adapter).
 
 Open `Terminal` on a Mac. Type `diskutil list` into the command line to see the current disks and partitions. 
 
-  imac:~ yourname$ diskutil list
+        imac:~ yourname$ diskutil list
   
 The result may look like:
-  /dev/disk0 (internal):
-     #:                       TYPE NAME                    SIZE       IDENTIFIER
-     0:      GUID_partition_scheme                         500.3 GB   disk0
-     1:                        EFI EFI                     314.6 MB   disk0s1
-     2:                 Apple_APFS Container disk1         500.0 GB   disk0s2
-  
-  /dev/disk1 (synthesized):
-     #:                       TYPE NAME                    SIZE       IDENTIFIER
-     0:      APFS Container Scheme -                      +500.0 GB   disk1
-                                   Physical Store disk0s2
-    1:                APFS Volume Macintosh HD            131.7 GB   disk1s1
-    2:                APFS Volume Preboot                 24.3 MB    disk1s2
-     3:                APFS Volume Recovery                519.6 MB   disk1s3 
-     4:                APFS Volume VM                      4.3 GB     disk1s4
 
-  /dev/disk2 (internal, physical):
-     #:                       TYPE NAME                    SIZE       IDENTIFIER
-     0:     FDisk_partition_scheme                        *31.9 GB    disk2
-     1:             Windows_FAT_16 RECOVERY                1.8 GB     disk2s1
-     2:                      Linux                         33.6 MB    disk2s5
-     3:             Windows_FAT_32 boot                    72.4 MB    disk2s6
-     4:                      Linux                         30.0 GB    disk2s7
+      /dev/disk0 (internal):
+         #:                       TYPE NAME                    SIZE       IDENTIFIER
+         0:      GUID_partition_scheme                         500.3 GB   disk0
+         1:                        EFI EFI                     314.6 MB   disk0s1
+         2:                 Apple_APFS Container disk1         500.0 GB   disk0s2
+
+      /dev/disk1 (synthesized):
+         #:                       TYPE NAME                    SIZE       IDENTIFIER
+         0:      APFS Container Scheme -                      +500.0 GB   disk1
+                                       Physical Store disk0s2
+        1:                APFS Volume Macintosh HD            131.7 GB   disk1s1
+        2:                APFS Volume Preboot                 24.3 MB    disk1s2
+         3:                APFS Volume Recovery                519.6 MB   disk1s3 
+         4:                APFS Volume VM                      4.3 GB     disk1s4
+
+      /dev/disk2 (internal, physical):
+         #:                       TYPE NAME                    SIZE       IDENTIFIER
+         0:     FDisk_partition_scheme                        *31.9 GB    disk2
+         1:             Windows_FAT_16 RECOVERY                1.8 GB     disk2s1
+         2:                      Linux                         33.6 MB    disk2s5
+         3:             Windows_FAT_32 boot                    72.4 MB    disk2s6
+         4:                      Linux                         30.0 GB    disk2s7
    
 Here `/dev/disk2`refers to a 32 GB SD Card. You can tell based on name, size and formatting.
 
