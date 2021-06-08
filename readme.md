@@ -251,22 +251,11 @@ To ensure it works, you must change permissions of the file as follows (make it 
     
 Now you can double-click `meteobike.sh` to start the user interface. Later, we will automate the start-up during the boot process.
 
-Now the system is ready to be calibrated. Please return the system to our HiWi who will place it for you in the calibration chamber. You are done with the first workshop - congratulations.
+Now the system is ready to record data. Next week you will then in Workshop 2 put the system in a portable bik-bag and attach an E-paper. You are done for today with the first workshop - congratulations.
 
-## Workshop 2 - Calibrating the system and finalize the mobile unit
+## Workshop 2 - Build the mobile unit and attach the E-Paper
 
-In the second practical workshop you will enter the calibration coefficients from our [Sensor-Calibration/2020/readme.md](calibration in the weather hut) into your system, then install the system in a protable bike-bag, insert the sensor in a radiation shield and power the system from a battery, so it is mobile.
-
-### Entering the calibration coefficients
-
-After you watched the online lecture on or calibration results, you should enter the calibration coefficients we derived from the intercomparison directly into the python code. Open the file `meteobike03.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
-
-		temperature_cal_a1 = 1.00000
-		temperature_cal_a0 = 0.00000
-		vappress_cal_a1 = 1.00000 
-		vappress_cal_a0 = 0.00000 
-		
-Replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in [Sensor-Calibration/2020/readme.md](Tables 1 and 3 of the calibration diretory, respecively). Make sure you use a `.` and not a `,` as the delimiter.	
+In the second practical workshop you will install the system in a protable bike-bag, insert the sensor in a radiation shield and power the system from a battery, so it is mobile. You will also attach an E-Paper to display the data while taking measurements.
 
 ### Assembly of the protable system
 
@@ -359,7 +348,7 @@ When the system is complete, it should look similar to the image below.
 
 ### Connecting the Raspberry Pi with your Smartphone
 
-Once the system is set up similar to what is arranged above, you can optionally connect your mobile device to the VNC viewer in order to see the progress as you are collecting your data. If you do not have a mobile device, you can skip this step. Next week, we will anyway install an e-Paper.
+Once the system is set up similar to what is arranged above, you can optionally connect your mobile device to the VNC viewer in order to see the progress as you are collecting your data. If you do not have a mobile device, you can skip this step. In the next step, we will anyway install the e-Paper.
 
 You could place your mobile device in the front pocket behind the GPS. 
 
@@ -389,13 +378,151 @@ Go back to your phone and start the VNC app. In the VNC app create a new connect
 
 You can put the phone into the transparent lid of the bag. You can also use the second outlet of the power bank to keep your phone charged during measurements, but in this case, you must bring your own charger-cable.
 
-Now you are ready to install the system on your bike. Let's go for a test drive. Make sure the indicator changes from red to yellow, as soon as you are outdoors. The recording will only start if you have a good GPS connection. Drive for about 15 - 20 minutes, and come back to see if the data has been recorded.
+### E-Paper 
+
+Now we will be adding an E-Paper display with responsive buttons, so the instrument is independent of any computer or smartphone.
+
+An E-Paper uses an imaging display technology called  "microencapsulated electrophoretic display" (MED). An E-paper displays patterns by reflecting the ambient light, so it has no background light. This is similar to an e-Reader, it requires little power is readable with full sunlight but also slow to update.
+
+#### Wiring the e-Paper 
+
+We are using the [Wireframe 2.7inch e-Paper Hat](https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT_(B)) hat that can display black and red color with a resolution of 176 x 264 pixels. Here is how your screen should look like from the back:
+
+![Images/IMG_epaper2.7.jpg](Images/IMG_epaper2.7.jpg )
+
+First, turn off your Raspberry Pi W Zero and disconnect the power cable. There are 8 different wires ready to be connected to your Raspberry Pi as follows:
+
+Plug the white plastic connection to the back 
+
+| E-Paper  | Cable Color | Raspberry Pi Zero |
+| ------------------ | ----------- | ----------------- |
+| VCC | Grey Cable | PIN 17 (3.3V) |
+| GND | Brown Cable | PIN 20 (Ground) |
+| DIN | Blue Cable | PIN 19 (GPIO10) |
+| CLK | Yellow Cable | PIN 23 (GPIO11) |
+| CS  | Orange Cable | PIN 24 (GPIO8) |
+| DC  | Green Cable | PIN 22 (GPIO25) |
+| RST | White Cable | PIN 11 (GPIO17) |
+| BUSY | Purple Cable | PIN 18 (GPIO24) |
+
+On the Raspberry Pi W Zero you connect the wires exactly according to this drawing:
+
+![Images/IMG_epaper_wiring_part1.png](Images/IMG_epaper_wiring_part1.png)
+
+Please doble-check before re-powering and starting the Raspberry Pi W Zero. The connections should look like on this photo:
+
+![Images/IMG_epaper_wiring_photo.png](Images/IMG_epaper_wiring_photo.png)
+
+#### Installing the e-Paper libraries (if needed)
+
+If you have double-checked the connection cable, boot up (i.e. re-power) the Raspberry Pi W Zero and connect to it via VNC (or alternatively through a screen / keyboard / mouse). 
+
+If the E-Paper has alredy been installed on your system, you can skip the folloing installation and directly go to the section below "Test the e-Paper"
+
+Open the LXTerminal and enter the following commands - updating the Python 2 environment and downloading the required libraries. Make sure the Raspberry Pi Zero W has a connection to the internet to download the drivers. 
+
+	$ sudo apt-get update
+	$ sudo apt-get install python-pip
+	$ sudo apt-get install python-pil
+	$ sudo apt-get install python-numpy
+	$ sudo pip install RPi.GPIO
+	$ sudo pip install spidev
+
+Next, download the python e-Paper library from waveshare and its examples:
+
+	$ sudo git clone https://github.com/waveshare/e-Paper
+	
+This will place the e-Paper software into `home/pi/e-Paper/` on your Raspberry Pi.
+
+#### Test the e-Paper
+
+Go to the directory to run a factory test:
+	
+	$ cd e-Paper/RaspberryPi\&JetsonNano/python/examples/
+	$ python epd_2in7b_test.py
+	
+If you connected the e-Paper correctly, you should now see a number of fancy tests and visualisations on the e-Paper in black and red. 
+	
+For experts - Further details on the set-up and programming can be found on the [Wireframe webpage] (https://www.waveshare.com/wiki/2.7inch_e-Paper_HAT) under the "Hardware / Software setup" section. 
+
+### Update the Meteobike program to the e-Paper version
+
+From now on, you will use the e-Paper version of the Meteobike program called `meteobike_epaper.py` which can be found [here](https://github.com/achristen/Meteobike/blob/master/Code/meteobike_epaper.py). For students of the University of Freiburg, the python script is also available under Ilias [here](https://ilias.uni-freiburg.de/goto.php?target=fold_2149209&client_id=unifreiburg).
+
+Place the file `meteobike_epaper.py` on the Raspberry Pi's desktop. Open the file and change on lines 41 - 46 the system-specific information (your Meteobike No, your name, and if  available your [calibration coefficients](https://github.com/achristen/Meteobike/tree/master/Sensor-Calibration/2020)). Students at tUni Freiburg will determine new calibration coefficients in the next workshop and can just leave them at `a1 = 1.00000` and `a0 = 0.0000`.
+
+	raspberryid = "52" # enter your raspberry's number
+	studentname = "Andreas" # enter your first name - no spaces and no special characters
+	temperature_cal_a1 = 1.00000 # enter the calibration coefficient slope for temperature
+	temperature_cal_a0 = 0.00000 # enter the calibration coefficient offset for temperature
+	vappress_cal_a1 = 1.00000 # enter the calibration coefficient slope for vapour pressure
+	vappress_cal_a0 = 0.00000 # enter the calibration coefficient offset for vapour pressure
+
+You can start the e-Paper version of Meteobike by typing the following command into LXTerminal:
+
+	$ python ~/Desktop/meteobike_epaper.py 
+
+In `meteobike_epaper.py` there is no on-screen window anymore, so you do not see anything on-screen happening, but the program instead displays all its output on the e-Paper:
+
+![Images/IMG_epaper_display.png](Images/IMG_epaper_display.png)
+
+First, the ePaper will display a welcome screen ("Boot screen", left), with instructions on how to use the keys below the screen (we will install them next, they do not yet work). After about 10 seconds the e-Paper will refresh and display the latest data ("Measurement screen", right). It will refresh every 5 measurements (about every 40 seconds). The arrows next to the measurement values will indicate if a variable is increasing, is unchanged or decreasing. Any information displayed in red will show alerts (for example if the GPS has not found enough satellites yet or if there is no WiFi network).
+
+Next change the `meteobike.sh` script to point to `meteobike_epaper.py` instead of `meteobike03.py`, so at every start-up of the Raspberry Pi W Zero, the e-Paper version is started atomatically instead of the old version.
+
+![Images/IMG_change_sh_epaper.png](Images/IMG_change_sh_epaper.png)
+
+Make sure the file `meteobike.sh` has the permissions set (likely done previously), so it can run: 
+
+	$ chmod +x  ~/Desktop/meteobike.sh
+
+As an new feature, `meteobike_epaper.py` will only write one file per day. If a file already exists for a given date, data will be appended to it. The file will be written to the desktop. there is also a new column called "speed" where from the GPS  and the time between measurements the actual speed of the system will be calculated.
+
+### Enabling Keys
+
+Finally, we will add three feedback buttons as follows:
+
+- If you press `Key 1` then the program should pause
+- If you press `Key 2` then the program should resume
+- If you press `Key 4` then the program should exit
+
+Note `Key 3` is currently not assigned to any function. 
+
+To connect the three keys, you need a 3-wire cable (1 x blue, 1 x green, 1 x yellow) as follows:
+
+![Images/IMG_epaper_key_wire.png](Images/IMG_epaper_key_wire.png)
+
+Connect the wires as shown in the drawing below:
+
+![Images/IMG_epaper_wiring_part2_2.png](Images/IMG_epaper_wiring_part2_2.png)
+
+The connections should look similar to the following photos:
+
+![Images/IMG_epaper_wiring_photo_2.png](Images/IMG_epaper_wiring_photo_2.png) 
+
+When you are using an e-Paper screen, you can put in in the top flap behind the transparent protection alongside the GPS. There is no need for using a mobile device anymore.
+
+![Images/IMG_epaper_final.jpg](Images/IMG_epaper_final.jpg)
+
+Make sure the GPS does not move *under* the e-Paper. Also ensure the GPS and e-Paper do not touch their connectors (which could cause a short-cut). You can use tape to tie the cables and GPS in place.
+
+Well done - you are ready for measurements. 
+
+Now you are ready to install the system on your bike. Let's go for a test drive. Please test the system as follows:
+
+- If you can press `Key 4` to exit the program and if you can then reboot
+- If it automatically reboots measurements if you take power off and put power on again
+- If it fits your bike 
+- Can you see data and GPS while you measure? The recording will only start if you have a good GPS connection. 
+- It it records proper data by riding around the block. 
+
+Drive for a about 15 - 20 minutes, and come back to see if the data has been recorded.
 
 ### Display and analyze the recorded GPS track
 
 The GPS track is stored by the Raspberry on the desktop as a comma-separated file.
 
-If the Raspberry is on the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (for example with the free [CyberDuck](https://cyberduck.io) or the free [FileZilla](https://filezilla-project.org)). You can also use the VNC software to tranfer files.
+If the Raspberry is on the same WLAN as the host computer, then you can easily establish an FTP connection and copy this file to the host (for example with the free [CyberDuck](https://cyberduck.io) or the free [FileZilla](https://filezilla-project.org)). You can also use the VNC software on your laptop or on a mobile device to tranfer files.
 
 A first graphical representation of the track can be done place on the website http://www.gpsvisualizer.com/map_input
 
@@ -415,123 +542,25 @@ Then click on `Draw the map`. Here is an example
 
 ![Images/IMG_GPStrack](Images/IMG_GPStrack.jpg)
 
-There are also option to export it into Google Earth.
+There are also options to export it into Google Earth.
 
-## Workshop 3 - Installing an E-Paper display and feedback buttons
+You are now done with Workshop '2
 
-In this workshop we will finalize the Meteobike by adding an E-Paper display with responsive buttons, so the instrument is independent of any computer or smartphone.
+## Workshop 3 - Calibration
 
-An E-Paper uses an imaging display technology called  "microencapsulated electrophoretic display" (MED). An E-paper displays patterns by reflecting the ambient light, so it has no background light. This is similar to an e-Reader, it requires little power is readable with full sunlight but also slow to update.
+This year this workshop will be handeled differently and we will enter the calibration coefficients for you.
 
-### Wiring the e-Paper 
+We will enter the calibration coefficients we derived from the intercomparison directly into the python code. For that we open the file `meteobike_epaper.py` in the Python 2 editor on the Raspberry Pi Zero W and change the follwing four lines:
 
-We are using the [Wireframe 2.7inch e-Paper Hat](https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT_(B)) hat that can display black and red color with a resolution of 176 x 264 pixels. Here is how your screen should look like from the back:
+		temperature_cal_a1 = 1.00000
+		temperature_cal_a0 = 0.00000
+		vappress_cal_a1 = 1.00000 
+		vappress_cal_a0 = 0.00000 
+		
+We replace the values `1.00000` and `0.00000` for temperature and vapour pressure based on the individual correction coefficients listed in [Sensor-Calibration/2020/readme.md](Tables 1 and 3 of the calibration diretory, respecively). One must take care to use a `.` and not a `,` as the delimiter.	
 
-![Images/IMG_epaper2.7.jpg](Images/IMG_epaper2.7.jpg )
 
-Next, turn off your Raspberry Pi W Zero and disconnect the power cable. There are 8 different wires ready to be connected to your Raspberry Pi as follows:
-
- Plug the white plastic connection to the back 
-
-| E-Paper  | Cable Color | Raspberry Pi Zero |
-| ------------------ | ----------- | ----------------- |
-| VCC | Grey Cable | PIN 17 (3.3V) |
-| GND | Brown Cable | PIN 20 (Ground) |
-| DIN | Blue Cable | PIN 19 (GPIO10) |
-| CLK | Yellow Cable | PIN 23 (GPIO11) |
-| CS  | Orange Cable | PIN 24 (GPIO8) |
-| DC  | Green Cable | PIN 22 (GPIO25) |
-| RST | White Cable | PIN 11 (GPIO17) |
-| BUSY | Purple Cable | PIN 18 (GPIO24) |
-
-On the Raspberry Pi W Zero you connect the wires exactly according to this map.
-
-![Images/IMG_epaper_wiring_part1.png](Images/IMG_epaper_wiring_part1.png)
-
-Please doble-check before re-powering and starting the Raspberry Pi W Zero. It should look like on this photo:
-
-![Images/IMG_epaper_wiring_photo.png](Images/IMG_epaper_wiring_photo.png)
-
-### Programming and testing the e-Paper
-
-If you chave double-checked the connection cable, boot up (i.e. power) the Raspberry Pi W Zero and connect to it via VNC or alternatively thought a Screen / Keyboard / Mouse. 
-
-#### Installation of required libraries
-
-Open the LXTerminal and enter the following commands - updating the Python 2 environment and downloading the required libraries. Make sure the Raspberry Pi Zero W has a connection to the internet to download the drivers. 
-
-	$ sudo apt-get update
-	$ sudo apt-get install python-pip
-	$ sudo apt-get install python-pil
-	$ sudo apt-get install python-numpy
-	$ sudo pip install RPi.GPIO
-	$ sudo pip install spidev
-
-Next, download the python e-Paper library () and its examples. 
-
-	$ sudo git clone https://github.com/waveshare/e-Paper
-	
-This will place the e-Paper software into `home/pi/e-Paper/`. 
-
-#### Test the e-Paper
-
-Go to the directory to run a factory test:
-	
-	$ cd e-Paper/RaspberryPi\&JetsonNano/python/examples/
-	$ python epd_2in7b_test.py
-	
-If you connected the e-Paper correctly, you should now see a number of fancy test and visualisations on the e-Paper in black and red. 
-	
-For experts - Further details on the set-up can be found on the [Wireframe webpage] (https://www.waveshare.com/wiki/2.7inch_e-Paper_HAT) under the "Hardware / Software setup" section.
-
-### Update the Meteobike program to the e-Paper version
-
-From now on, use the e-Paper version of the Meteobike program called `meteobike_epaper.py` which can be found [here](https://github.com/achristen/Meteobike/blob/master/Code/meteobike_epaper.py).
-
-Place the file `meteobike_epaper.py` on the Raspberry Pi's desktop. Open the file and change on lines 41 - 46 the system-specific information (your Meteobike No, your name, and [calibration coefficients](https://github.com/achristen/Meteobike/tree/master/Sensor-Calibration/2020))
-
-	raspberryid = "52" # enter your raspberry's number
-	studentname = "Andreas" # enter your first name - no spaces and no special characters
-	temperature_cal_a1 = 1.00000 # enter the calibration coefficient slope for temperature
-	temperature_cal_a0 = 0.00000 # enter the calibration coefficient offset for temperature
-	vappress_cal_a1 = 1.00000 # enter the calibration coefficient slope for vapour pressure
-	vappress_cal_a0 = 0.00000 # enter the calibration coefficient offset for vapour pressure
-
-You can start the e-Paper version of Meteobike by typing the following command into LXTerminal:
-
-	$ python ~/Desktop/meteobike_epaper.py 
-
-In `meteobike_epaper.py` there is no on-screen window anymore, so you do not see anything on-screen happening, but the program should display all its output on the e-Paper instead:
-
-![Images/IMG_epaper_display.png](Images/IMG_epaper_display.png)
-
-First, the ePaper will display a welcome screen ("Boot screen", left), with instructions on how to use the keys below the screen (we will install them next, they do not yet work). After about 10 seconds the e-Paper will refresh and display the latest data ("Measurement screen", right). It will refresh every 5 measurements (about every 40 seconds). The arrows next to the measurement values will indicate if a variable is increasing, is unchanged or decreasing. Any line displayed in red will show alerts (for example if the GPS has not found enough satellites yet or if there is no WiFi network).
-
-Next change the `meteobike.sh` script to point to `meteobike_epaper.py` instead of `meteobike03.py`, so at every start-up of the Raspberry Pi W Zero, the e-Paper version is started instead of the old version.
-
-![Images/IMG_change_sh_epaper.png](Images/IMG_change_sh_epaper.png)
-
-Make sure the file `meteobike.sh` has the permission set, so it can run:
-
-As an update `meteobike_epaper.py` will only write one file per day. If a file already exists for a given date, data will be appended to it. The file will be written to the desktop.
-
-#### Enabling Keys
-
-Connect the wires as the image below is showing.
-
-![Images/IMG_epaper_wiring_part2_2.png](Images/IMG_epaper_wiring_part2_2.png)
-
-The connections should look like on the following photos:
-
-![Images/IMG_epaper_wiring_photo_2.png](Images/IMG_epaper_wiring_photo_2.png) 
-
-When you are using an e-Paper screen, the final system should look similar to the image below. There is no need for using a mobile device anymore.
-
-![Images/IMG_epaper_final.jpg](Images/IMG_epaper_final.jpg)
-
-Make sure the GPS does not move *under* the e-Paper. Also ensure the GPS and e-Paper do not touch their connectors (which could cause a short-cut). You can use tape to tie the cables and GPS in place.
-
-## Workshop 4 - Detailed analysis is a geographic information system
+## Workshop 4 - Detailed analysis in a geographic information system
 
 You can use the free and open-source Geographic Information System (GIS) [QGIS](https://qgis.org) to perform advanced geographical analysis, including statistics on specific areas of the track or rasterization of many Meteobike traces.
 
