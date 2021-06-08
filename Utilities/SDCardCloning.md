@@ -1,11 +1,11 @@
-Cloning of a Raspberry PI formatted SD Card (Meteobike)
+Cloning of a Raspberry PI formatted SD Card (Meteobike) 
 ===============
 
-If you have a working system with SD card for one Meteobike, you may want to clone the SD-card to equip multiple systems the same way. The following procedure describes the cloning of a SD-Card for a Raspberry PI using a Mac and the `Terminal` program.
+If you have a working system with SD card for one Meteobike, you may want to clone the SD-card to equip multiple systems the same way. The following procedure describes the cloning of a SD-Card for a Raspberry PI using on a Mac or another Unix system using the `dd` command.
 
 Insert the SD card in the card slot of your computer (or an adapter). 
 
-Open `Terminal` on a Mac. Type `diskutil list` into the command line to see the current disks and partitions. 
+Open the command line, in this example the `Terminal` on a Mac. Type `diskutil list` into the command line to see the current disks and partitions. 
 
         imac:~ yourname$ diskutil list
   
