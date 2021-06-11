@@ -1,7 +1,7 @@
 Coefficients to correct temperatures SoSe 2021
 ====================================================
 
-Table 1: Calibration coefficients for air temperature to be entered for each of the meteobike systems based on the comparison between the sensor and the CS215 in the climate station at Werthmannstrasse 10 in 2020. 
+Table 1: Calibration coefficients for air temperature to be entered for each of the meteobike systems based on the comparison between the sensor and the CS215 in the climate station at Werthmannstrasse 10 in 2021. 
 
 | Meteobike No | a0 (Offset) | a1 (Slope) | 
 | --- | ---: | ---: | 
@@ -120,7 +120,7 @@ Table 2: Root mean square error (RMSE) of the raw and calibrated temperatures re
 Vapour pressure
 ====================================================
 
-Table 3: Calibration coefficients to be entered for each of the meteobike systems based on the comparison between the sensor and the CS215 in the climate station at Werthmannstrasse 10 in 2020.
+Table 3: Calibration coefficients to be entered for each of the meteobike systems based on the comparison between the sensor and the CS215 in the climate station at Werthmannstrasse 10 in 2021.
 
 | Meteobike No | a0 (Offset) | a1 (Slope) | 
 | --- | ---: | ---: 
