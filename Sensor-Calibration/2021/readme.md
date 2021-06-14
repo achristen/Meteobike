@@ -51,7 +51,7 @@ Table 1: Calibration coefficients for air temperature to be entered for each of 
 | 44 |           NaN |           NaN |
 | 45 |           NaN |           NaN |
 | 46 |           NaN |           NaN |
-| 47 |      -1.25807 |       1.05064 |
+| 47 |      -1.24347 |       1.04981 |
 | 48 |           NaN |           NaN |
 | 49 |           NaN |           NaN |
 | 50 |           NaN |           NaN |
@@ -109,7 +109,7 @@ Table 2: Root mean square error (RMSE) of the raw and calibrated temperatures re
 | 44 |           NaN |           NaN |
 | 45 |           NaN |           NaN |
 | 46 |           NaN |           NaN |
-| 47 |      0.234725 |      0.346766 |
+| 47 |      0.228124 |      0.342797 |
 | 48 |           NaN |           NaN |
 | 49 |           NaN |           NaN |
 | 50 |           NaN |           NaN |
@@ -170,7 +170,7 @@ Table 3: Calibration coefficients to be entered for each of the meteobike system
 | 44 |           NaN |           NaN |
 | 45 |           NaN |           NaN |
 | 46 |           NaN |           NaN |
-| 47 |     -0.153580 |       1.12760 |
+| 47 |     -0.153921 |       1.12791 |
 | 48 |           NaN |           NaN |
 | 49 |           NaN |           NaN |
 | 50 |           NaN |           NaN |
@@ -228,7 +228,7 @@ Table 4: Root mean square error (RMSE) of the raw and calibrated vapour pressure
 | 44 |           NaN |           NaN |
 | 45 |           NaN |           NaN |
 | 46 |           NaN |           NaN |
-| 47 |     0.0334810 |     0.0440226 |
+| 47 |     0.0334371 |     0.0440121 |
 | 48 |           NaN |           NaN |
 | 49 |           NaN |           NaN |
 | 50 |           NaN |           NaN |
@@ -289,7 +289,7 @@ Table 5: Average number of measurements made per system.
 | 44 |           NaN |
 | 45 |           NaN |
 | 46 |           NaN |
-| 47 |       4.86429 |
+| 47 |       4.86441 |
 | 48 |           NaN |
 | 49 |           NaN |
 | 50 |           NaN |
