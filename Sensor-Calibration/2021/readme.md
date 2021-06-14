@@ -244,7 +244,7 @@ Table 5: Average number of measurements made per system.
 | Meteobike No | Average Measurements per Second |
 | --- | ---: |
 | 01 |       4.94045 |
-| 02 |           NaN |
+| 02 |       4.99592 |
 | 03 |       4.89117 |
 | 04 |       4.93797 |
 | 05 |       5.00754 |
@@ -257,12 +257,12 @@ Table 5: Average number of measurements made per system.
 | 12 |       4.84997 |
 | 13 |       4.79697 |
 | 14 |           NaN |
-| 15 |           NaN |
+| 15 |       8.17087 |
 | 16 |       8.12587 |
 | 17 |       5.05474 |
 | 18 |       4.84121 |
 | 19 |       8.09620 |
-| 20 |           NaN |
+| 20 |       4.81845 |
 | 21 |       4.82894 |
 | 22 |       4.88186 |
 | 23 |       4.93659 |
@@ -289,7 +289,7 @@ Table 5: Average number of measurements made per system.
 | 44 |           NaN |
 | 45 |           NaN |
 | 46 |           NaN |
-| 47 |       8.17087 |
+| 47 |       4.86429 |
 | 48 |           NaN |
 | 49 |           NaN |
 | 50 |           NaN |
