@@ -150,4 +150,12 @@ Note that the meteobikes already measured elevation (GPS Altitude) that should a
 
 For a further statitical analysis, it can be advantageous to export calculated statistics and joined attributes into another high-level programming language such as R.
 
-To export data from a layer you right-click the corresponding layer and select `Save as...
+To export data from a layer you right-click the corresponding joined layer and select `Export` > `Save Frature as...`. In the Dialog that appears, choose under `Format`: `Comma Separated Values`, choose a save location and  name under `File name` (clicking on the `...` button) and confirm by clicking `OK`. A comma separated value list is then saved that can be imported in the statistics software `R`.
+
+Open `R Studio` and use the `read_csv` function to read the exported data from the layer into a data frame.
+
+      meteobike <- read.csv(file = '/Users/Your/Desktop/Fractions-Meteobike.csv') 
+
+The path must be adjusted to the save location of the above exported `.csv` file.
+
+You can now perform any statistical analysis or graphing in `R` using the data in the `meteobike` data frame.
