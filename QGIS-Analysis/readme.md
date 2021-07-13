@@ -145,3 +145,9 @@ Choose the Meteobike Dataset as the 'Points' and the DEM as the 'Grid'. As point
 ![Images/QGIS_SampleDEMPoints.png](Images/QGIS_SampleDEMPoints.png)
 
 Note that the meteobikes already measured elevation (GPS Altitude) that should actually match the elevation data from the DEM - so there is currently no added value of doing this. Nevetheless, you can apply this procedure to any raster dataset (slope, catchment area, land cover data). There is a whole range of useful terrain analysis tools available in QGIS / SAGA for further analysis.
+
+## Export Data into R
+
+For a further statitical analysis, it can be advantageous to export calculated statistics and joined attributes into another high-level programming language such as R.
+
+To export data from a layer you right-click the corresponding layer and select `Save as...
