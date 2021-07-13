@@ -146,6 +146,19 @@ Choose the Meteobike Dataset as the 'Points' and the DEM as the 'Grid'. As point
 
 Note that the meteobikes already measured elevation (GPS Altitude) that should actually match the elevation data from the DEM - so there is currently no added value of doing this. Nevetheless, you can apply this procedure to any raster dataset (slope, catchment area, land cover data). There is a whole range of useful terrain analysis tools available in QGIS / SAGA for further analysis.
 
+## Analyzing land cover fractions
+
+Land cover fractions define plan area of a particular land cover per total plan area (of the grid cell). The following land cover fractions for example are available for Freiburg at 50 x 50 m and 500 x 500 m resolution:
+
+| Variable name | Description | Value range |
+| ---- | ---- | ---- | 
+| lc_bldn | Plan area fraction of buildings | 0 ... 1 |
+| lc_pavd | Plan area fraction of paved / impervious ground | 0 ... 1 |
+| lc_tree | Plan area fraction of tree crowns | 0 ... 1 |
+| lc_grss | Plan area fraction of grass | 0 ... 1 |
+| lc_soil | Plan area fraction of bare soil | 0 ... 1 |
+| lc_watr | Plan area fraction of water bodies (lakes, rivers, ponds, pools) | 0 ... 1 |
+
 ## Export Data into R
 
 For a further statitical analysis, it can be advantageous to export calculated statistics and joined attributes into another high-level programming language such as R.
