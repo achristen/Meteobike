@@ -110,7 +110,7 @@ Some data sources such as Digital Elevation Models (DEM) or vegetation indices a
 
 As an example, we can import a DEM and combine it with the measurements from our Meteobikes. There are several free, globla DEMs available including
 
-- [ALOS Global Digital Surface Model of JAXA Japanese Space Agency](https://www.eorc.jaxa.jp/ALOS/en/aw3d30/
+- [ALOS Global Digital Surface Model of JAXA Japanese Space Agency](https://www.eorc.jaxa.jp/ALOS/en/aw3d30/)
 - [ASTER Global Digital Elevation Model](https://asterweb.jpl.nasa.gov/gdem.asp)
 - [Space Shuttle Radar Topography Mission (SRTM)](https://earthexplorer.usgs.gov)
 
