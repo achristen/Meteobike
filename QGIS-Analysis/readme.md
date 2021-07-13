@@ -148,7 +148,9 @@ Note that the meteobikes already measured elevation (GPS Altitude) that should a
 
 ## Analyzing land cover fractions
 
-Land cover fractions define plan area of a particular land cover per total plan area (of the grid cell). The following land cover fractions for example are available for Freiburg at 50 x 50 m and 500 x 500 m resolution:
+As a last exercise you may not only combine elevation information with temperatures, but also combine information on urban density and green cover with the meteobike temperature measurements. For example you may be interested whether the amount of greenspace in a given area has an influence on nocturnal temperatures. Or is the density of buildings a driving factor that explains the urban heat island?
+
+Land cover fractions define plan area of a particular land cover per total plan area (of the grid cell). The following land cover fractions for example are available for Freiburg at 50 x 50 m and 500 x 500 m resolution. Students at Uni Freiburg can download the relevant datasets from their Ilias course account.
 
 Variable name | Description | Value range 
 ---- | ---- | ----
@@ -159,11 +161,15 @@ lc_grss | Plan area fraction of grass | 0 ... 1
 lc_soil | Plan area fraction of bare soil | 0 ... 1 
 lc_watr | Plan area fraction of water bodies (lakes, rivers, ponds, pools) | 0 ... 1 
 
+You can load the corresponding raster files into QGIS an then perform a spatial join. For example to attribute all meteobike measurements in a given grid cell of the land cover classification, you choose again `Join attributes by location`.
+
+![Images/QGIS_SampleDEMPoints.png](Images/QGIS_LandCoverJoin.png)
+
 ## Export Data into R
 
 For a further statitical analysis, it can be advantageous to export calculated statistics and joined attributes into another high-level programming language such as R.
 
-To export data from a layer you right-click the corresponding joined layer and select `Export` > `Save Frature as...`. In the Dialog that appears, choose under `Format`: `Comma Separated Values`, choose a save location and  name under `File name` (clicking on the `...` button) and confirm by clicking `OK`. 
+To export data from any layer you right-click the corresponding joined layer and select `Export` > `Save Frature as...`. In the Dialog that appears, choose under `Format`: `Comma Separated Values`, choose a save location and  name under `File name` (clicking on the `...` button) and confirm by clicking `OK`. 
 
 ![Images/QGIS_SampleDEMPoints.png](Images/QGIS_Export.png)
 
