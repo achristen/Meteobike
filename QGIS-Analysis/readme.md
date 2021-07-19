@@ -146,32 +146,42 @@ Choose the Meteobike Dataset as the 'Points' and the DEM as the 'Grid'. As point
 
 Note that the meteobikes already measured elevation (GPS Altitude) that should actually match the elevation data from the DEM - so there is currently no added value of doing this. Nevetheless, you can apply this procedure to any raster dataset (slope, catchment area, land cover data). There is a whole range of useful terrain analysis tools available in QGIS / SAGA for further analysis.
 
-## Analyzing land cover fractions
+## Combining your meteobike data with other geodata.
 
-As a last exercise you may not only combine elevation information with temperatures, but also combine information on urban density and green cover with the meteobike temperature measurements. For example we may be interested whether the amount of greenspace in an urban neighborhood has an influence on nocturnal air temperatures. Or is the density of buildings explaining the differences of nocturnal air temperatures?
+As a last exercise you may not only combine elevation information with temperatures, but also combine information on urban density, green cover with the meteobike temperature measurements. There are hundreds of different datasets available in cities.
 
-In many cities, vector or raster data on the urban form is available. This can be extracted from aerial photos, surveys (digital city models) or even laser scanning from aircrafts (LIDAR). Here is an example of land cover information for Freiburg, Germany at 1 x 1 m resolution:
+For example we may be interested whether the amount of greenspace in an urban neighborhood has an influence on nocturnal air temperatures. Or is the density of buildings explaining the differences of nocturnal air temperatures?
+
+In many cities, vector or raster data on the urban form, urban land use and three-dimensional structure is available. For Freiburg for example check out the [Catalogue of FreiGIS](https://geodaten.freiburg.de/geonetwork/srv/eng/catalog.search#/search?facet.q=type%2Fdataset)). Data can also be extracted from aerial photos, surveys (digital city models such as [CityGML](https://en.wikipedia.org/wiki/CityGML)) or even 3D laser scanning from aircrafts ([LIDAR](https://en.wikipedia.org/wiki/Lidar)). Here is an example of land cover information for Freiburg, Germany at 1 x 1 m resolution:
 
 ![Images/QGIS_LandCoverSample.png](Images/QGIS_LandCoverSample.png)
 
-Land cover fractions define plan area of a particular land cover per total plan area (of the grid cell). The following land cover fractions for example are available for Freiburg at 50 x 50 m and 500 x 500 m resolution. Students at Uni Freiburg can download the relevant datasets from their Ilias course account.
+### Analyzing land cover fractions
+
+The dataset shown above is very detailed, every building, tree, driveway etc. is reflected. However, as air temperatures do not only depend on the  specific 1 x 1 m2 pixel they are measured over, but due to turbulent mixing, they are the response of a larger neighbood-scale energy balance, we cannot use this information directly. Instead we need data that is less detailed, yet retaines the statistics of the typical mix of buidlings, vegetation or impervious ground.
+
+One common approach to describe the urban form and structure is to classify larger areas at the local-scale (50 m - 0,5 km) and derive *land cover fractions*. Land cover fractions describe the plan area covered by a particular land cover (e.g buildings) per total area. If a grid cell has a land cover fraction of 1 then the entire grid cell is equal to the corresponding land cover. 
+
+The following land cover fractions for example are available for Freiburg at 50 x 50 m and 500 x 500 m resolution. Students at Uni Freiburg can download the relevant raster datasets from their Ilias course account.
 
 Variable name | Description | Value range 
 ---- | ---- | ----
-lc_bldn | Plan area fraction of buildings | 0 ... 1 
-lc_pavd | Plan area fraction of paved / impervious ground | 0 ... 1 
-lc_tree | Plan area fraction of tree crowns | 0 ... 1 
-lc_grss | Plan area fraction of grass | 0 ... 1 
-lc_soil | Plan area fraction of bare soil | 0 ... 1 
-lc_watr | Plan area fraction of water bodies (lakes, rivers, ponds, pools) | 0 ... 1 
+`lc_bldn` | Plan area fraction of buildings | 0 ... 1 
+`lc_pavd` | Plan area fraction of paved / impervious ground | 0 ... 1 
+`lc_tree` | Plan area fraction of tree crowns | 0 ... 1 
+`lc_grss` | Plan area fraction of grass | 0 ... 1 
+`lc_soil` | Plan area fraction of bare soil | 0 ... 1 
+`lc_watr` | Plan area fraction of water bodies (lakes, rivers, ponds, pools) | 0 ... 1 
 
-You can load the corresponding raster files into QGIS an then perform a spatial join. For example to attribute all meteobike measurements in a given grid cell of the land cover classification, you choose again `Join attributes by location`.
+You can load the corresponding raster files into QGIS and map them. As an exercise create maps of lc_bldn or lc_tree.
+
+Now we can combine the measured air temperatures with the land cover fractions and answer the question if land cover fractions influence nocturnal air temperatures. We can again use a spatial join. For example to attribute all meteobike measurements in a given grid cell of the land cover classification, you choose teh function `Join attributes by location` in QGIS.
 
 ![Images/QGIS_LandCoverJoin.png](Images/QGIS_LandCoverJoin.png)
 
 ## Export Data into R
 
-For a further statitical analysis, it can be advantageous to export calculated statistics and joined attributes into another high-level programming language such as R.
+For a further statitical analysis, it can now be advantageous to export calculated statistics and joined attributes into another high-level programming language such as R.
 
 To export data from any layer you right-click the corresponding joined layer and select `Export` > `Save Frature as...`. In the Dialog that appears, choose under `Format`: `Comma Separated Values`, choose a save location and  name under `File name` (clicking on the `...` button) and confirm by clicking `OK`. 
 
@@ -179,10 +189,12 @@ To export data from any layer you right-click the corresponding joined layer and
 
 A comma separated value list is then saved that can be imported in the statistics software `R`.
 
+
+
 Open `R Studio` and use the `read.csv` function to read the exported data from the layer into a data frame.
 
       meteobike <- read.csv(file = '/Users/Your/Desktop/Fractions-Meteobike.csv') 
 
-The path must be adjusted to the save location of the above exported `.csv` file.
+The path must be adjusted to the save location of the above exported `.csv` file. The dataset in the `.csv` will be read into a data frame. You can now perform any statistical analysis or graphing in `R` using the data in the `meteobike` data frame.
 
-You can now perform any statistical analysis or graphing in `R` using the data in the `meteobike` data frame.
+First create a scatter-plot of `lc_tree`
