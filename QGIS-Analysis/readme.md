@@ -181,15 +181,17 @@ You can load land cover rasters at 50 x 50 m or 500 x 500 m as [ESRI Shapefiles]
 
 ![Images/QGIS_LoadShapefile.png](Images/QGIS_LoadShapefile.png)
 
-You can display the raster of land cover fractions by right-clicking on the added layer and choose `Properties....`. Choose a graduated scheme, select Mode: `Equal interval` and select the proper number of classes and the desired color ramp. Click `Apply`.
+You can display the raster of land cover fractions by right-clicking on the added layer and choose `Properties....`. Choose a `Graduated`, select Mode: `Equal interval` and select a meaningful number of classes (at least 10) and the desired color ramp. 
 
 ![Images/QGIS_GraduatedLandCover.png](Images/QGIS_GraduatedLandCover.png)
 
+Click `Apply`.
+
 ![Images/QGIS_LandCoverFractionExample.png](Images/QGIS_LandCoverFractionExample.png)
 
-Example of a subset of visualized `lc_tree` at 50 x 50 m resolution for Freiburg. Dark green grid cells contain a lot of trees (parks, forests), white grid cells have none to few trees. Note that in this example the colors of the color ramp have been set to a transparancy of 50%. Further the map in the background has been set to a stauration of 0.
+Example of a subset of visualized `lc_tree` at 50 x 50 m resolution for Freiburg. Dark green grid cells contain a lot of trees (parks, forests), white grid cells have none to few trees. Dots are Meteobike measurements. Note that in this example the colors of the color ramp have been set to a transparancy of 50%. Further the map in the background has been set to a stauration of `-100` (right-click on the `OpenStreetMap` layer, select `Properties....`, then under `Symbology` in the section `Color Rendering` set `Saturation` to the mininunm). 
 
-Now we can combine the measured air temperatures with the land cover fractions and answer the question if land cover fractions influence nocturnal air temperatures. We can again use a spatial join. For example to attribute all meteobike measurements in a given grid cell of the land cover classification, you choose teh function `Join attributes by location` in QGIS.
+Now we can combine measured air temperatures with the land cover fractions and answer the question if land cover fractions influence nocturnal air temperatures. We can again use a spatial join. For example to attribute all meteobike measurements in a given grid cell of the land cover classification, you choose teh function `Join attributes by location` in QGIS.
 
 ![Images/QGIS_LandCoverJoin.png](Images/QGIS_LandCoverJoin.png)
 
