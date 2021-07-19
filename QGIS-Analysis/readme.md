@@ -146,7 +146,7 @@ Choose the Meteobike Dataset as the 'Points' and the DEM as the 'Grid'. As point
 
 Note that the meteobikes already measured elevation (GPS Altitude) that should actually match the elevation data from the DEM - so there is currently no added value of doing this. Nevetheless, you can apply this procedure to any raster dataset (slope, catchment area, land cover data). There is a whole range of useful terrain analysis tools available in QGIS / SAGA for further analysis.
 
-## Combining your meteobike data with other geodata.
+## Combining your meteobike data with other geodata
 
 As a last exercise you may not only combine elevation information with temperatures, but also combine information on urban density, green cover with the meteobike temperature measurements. There are hundreds of different datasets available in cities.
 
@@ -191,7 +191,7 @@ Click `Apply`.
 
 The figure shows an example of a subset of visualized `lc_tree` at 50 x 50 m resolution for Freiburg. Dark green grid cells contain a lot of trees (parks, forests), white grid cells have none to few trees. Dots are Meteobike measurements. Note that in this example the colors of the color ramp have been set to a transparancy of 50%. Further the map in the background has been set to a stauration of `-100` (right-click on the `OpenStreetMap` layer, select `Properties....`, then under `Symbology` in the section `Color Rendering` set `Saturation` to the mininunm). 
 
-### Combine land cover fractions and air temperature measurements
+### Merge land cover fractions with the Meteobike data
 
 Similar to what we did with the DEM, we can now attribute to each measurement location of air temperature the corresponding land cover fractions at 50 x 50 km or 500 km x 500 km. This will help us to answer questions if a particular land cover fraction controls the magnitude of the nocturnal heat island within cites. For that we will again use a spatial join. For example to attribute all meteobike measurements in a given land cover grid cell, you choose the function `Join attributes by location` in QGIS.
 
@@ -205,11 +205,11 @@ The following graph shows the joined layer, once color-coded by temperature diff
 
 ![Images/QGIS_TemperatureTreeCover.png](Images/QGIS_TemperatureTreeCover.png)
 
-### Export Data into R for further statistical analysis
+### Export Data back into R for further statistical analysis
 
-For a further statitical analysis, it can be advantageous to export calculated statistics and joined attributes into another high-level programming language such as R.
+For a further statitical analysis, it can be advantageous to export calculated statistics and joined attributes in QGIS into another high-level programming language such as `R`.
 
-To export data from any layer you right-click the corresponding joined layer and select `Export` > `Save Frature as...`. 
+To export data from any layer you right-click the corresponding layer and select `Export` > `Save Frature as...`. For example the joined layer 'ALL-SYSTEMS-2021-06-15-LC' can be exported to statistically analyze whether there is a significant correlation between `lc_tree` and air temperatures.
 
 ![Images/QGIS_ExportMenu.png](Images/QGIS_ExportMenu.png)
 
@@ -219,8 +219,8 @@ In the Dialog that appears, choose under `Format`: `Comma Separated Values`, cho
 
 A comma separated value list is then saved that can be imported in the statistics software `R`.
 
-For example in `R Studio` you can use the `read.csv` function to read the exported data from the layer into a data frame.
+For example in `R Studio` you can use the `read.csv` function to read the exported `.csv` file into a data frame:
 
-      meteobike <- read.csv(file = '/Users/Your/Desktop/Fractions-Meteobike.csv') 
+      meteobike <- read.csv(file = '/Users/YourName/Desktop/Fractions-Meteobike.csv') 
 
 The path must be adjusted to the save location of the above exported `.csv` file. The dataset in the `.csv` will be read into a data frame. You can now perform simple and fancy statistical analysis or graphing in `R` using the data in the `meteobike` data frame.
