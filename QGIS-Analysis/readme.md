@@ -164,7 +164,7 @@ One common approach to describe the urban form and structure is to classify larg
 
 ![Images/QGIS_LandCoverConcept.png](Images/QGIS_LandCoverConcept.png)
 
-Conceptual illustration of land cover fractions of buildings (λb), vegetation (λv), and paved / impervious ground (λi). In all cases AT is the total area of the grid cell. Ab, Av and Ai is the projected area of buildings, vegetation and paved / impervious ground in the grid cell. Source: [Oke et al., 2017](https://www.cambridge.org/oke/)
+Conceptual illustration of land cover fractions of buildings (λb), vegetation (λv), and paved / impervious ground (λi). In all cases AT is the total area of the grid cell. Ab, Av and Ai is the projected area of buildings, vegetation and paved / impervious ground in the grid cell (Modified after: [Oke et al., 2017](https://www.cambridge.org/oke/), with permission from authors).
 
 The following detailed land cover fractions for example are available for Freiburg at 50 x 50 m and 500 x 500 m resolution. Students at Uni Freiburg can download the relevant raster datasets from their Ilias course account.
 
