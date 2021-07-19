@@ -177,7 +177,17 @@ Variable name | Description | Value range
 `lc_soil` | Plan area fraction of bare soil | 0 ... 1 
 `lc_watr` | Plan area fraction of water bodies (lakes, rivers, ponds, pools) | 0 ... 1 
 
-You can load the corresponding raster files into QGIS and map them. As an exercise create maps of lc_bldn or lc_tree.
+You can load land cover rasters at 50 x 50 m or 500 x 500 m as [ESRI Shapefiles](https://en.wikipedia.org/wiki/Shapefile) into QGIS. Choose `Layer` > `Add layer` > `Add vector layer...`. Then choose the downloaded land cover shape file (`.shp`) for the resolution you prefer. Make sure you have also downloaded the corresponding projection description (`.prj`) file, the attribute file (`.dbf`) and the shape index format file (`.shx`) in the same directory:
+
+![Images/QGIS_LoadShapefile.png](Images/QGIS_LoadShapefile.png)
+
+You can display the raster of land cover fractions by right-clicking on the added layer and choose `Properties....`. Choose a graduated scheme, select Mode: `Equal interval` and select the proper number of classes and the desired color ramp. Click `Apply`.
+
+![Images/QGIS_GraduatedLandCover.png](Images/QGIS_GraduatedLandCover.png)
+
+![Images/QGIS_LandCoverFractionExample.png](Images/QGIS_LandCoverFractionExample.png)
+
+Example of a subset of visualized `lc_tree` at 50 x 50 m resolution for Freiburg. Dark green grid cells contain a lot of trees (parks, forests), white grid cells have none to few trees. Note that in this example the colors of the color ramp have been set to a transparancy of 50%. Further the map in the background has been set to a stauration of 0.
 
 Now we can combine the measured air temperatures with the land cover fractions and answer the question if land cover fractions influence nocturnal air temperatures. We can again use a spatial join. For example to attribute all meteobike measurements in a given grid cell of the land cover classification, you choose teh function `Join attributes by location` in QGIS.
 
