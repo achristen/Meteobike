@@ -193,28 +193,34 @@ The figure shows an example of a subset of visualized `lc_tree` at 50 x 50 m res
 
 ### Combine land cover fractions and air temperature measurements
 
-Now we can combine our measured air temperatures with the land cover fractions and try to answer questions if land cover fractions control the magnitude of the nocturnal heat island within cites. We can again use a spatial join. For example to attribute all meteobike measurements in a given land cover grid cell, you choose teh function `Join attributes by location` in QGIS.
+Similar to what we did with the DEM, we can now attribute to each measurement location of air temperature the corresponding land cover fractions at 50 x 50 km or 500 km x 500 km. This will help us to answer questions if a particular land cover fraction controls the magnitude of the nocturnal heat island within cites. For that we will again use a spatial join. For example to attribute all meteobike measurements in a given land cover grid cell, you choose the function `Join attributes by location` in QGIS.
+
+As 'Input Layer' choose your Meteobike Measurements (i.e. 'ALL-SYSTEMS-2021-06-15'). As join layer choose the land cover fractions. Under 'Geometric predictate' you should choose `within`. 
 
 ![Images/QGIS_LandCoverJoin.png](Images/QGIS_LandCoverJoin.png)
 
-Run the (with 50 x 50 m this may take a while).
+Click on `Run`. With 50 x 50 m raster this may take a while. This will for each measurement points attribute the corresponding land cover grid cell it falls into. A new layer `Joined layer` will be created. Again, you can rename the layer, e.g. 'ALL-SYSTEMS-2021-06-15-LC'.
+
+The following graph shows the joined layer, once color-coded by temperature difference (field `Temperature_diff_K`) and once by tree cover fraction (field `lc_tree`):
+
+![Images/QGIS_TemperatureTreeCover.png](Images/QGIS_TemperatureTreeCover.png)
 
 ### Export Data into R for further statistical analysis
 
-For a further statitical analysis without georeferences, it can be advantageous to export calculated statistics and joined attributes into another high-level programming language such as R.
+For a further statitical analysis, it can be advantageous to export calculated statistics and joined attributes into another high-level programming language such as R.
 
-To export data from any layer you right-click the corresponding joined layer and select `Export` > `Save Frature as...`. In the Dialog that appears, choose under `Format`: `Comma Separated Values`, choose a save location and  name under `File name` (clicking on the `...` button) and confirm by clicking `OK`. For example you can export the joined layer of air temperatures with land cover fractions (`TEXT`).
+To export data from any layer you right-click the corresponding joined layer and select `Export` > `Save Frature as...`. 
+
+![Images/QGIS_ExportMenu.png](Images/QGIS_ExportMenu.png)
+
+In the Dialog that appears, choose under `Format`: `Comma Separated Values`, choose a save location and  name under `File name` (clicking on the `...` button) and confirm by clicking `OK`. For example you can export the joined layer of air temperatures with land cover fractions (`TEXT`).
 
 ![Images/QGIS_Export.png](Images/QGIS_Export.png)
 
 A comma separated value list is then saved that can be imported in the statistics software `R`.
 
-
-
-Open `R Studio` and use the `read.csv` function to read the exported data from the layer into a data frame.
+For example in `R Studio` you can use the `read.csv` function to read the exported data from the layer into a data frame.
 
       meteobike <- read.csv(file = '/Users/Your/Desktop/Fractions-Meteobike.csv') 
 
-The path must be adjusted to the save location of the above exported `.csv` file. The dataset in the `.csv` will be read into a data frame. You can now perform any statistical analysis or graphing in `R` using the data in the `meteobike` data frame.
-
-First create a scatter-plot of `lc_tree`
+The path must be adjusted to the save location of the above exported `.csv` file. The dataset in the `.csv` will be read into a data frame. You can now perform simple and fancy statistical analysis or graphing in `R` using the data in the `meteobike` data frame.
