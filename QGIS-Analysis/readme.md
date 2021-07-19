@@ -148,9 +148,9 @@ Note that the meteobikes already measured elevation (GPS Altitude) that should a
 
 ## Analyzing land cover fractions
 
-As a last exercise you may not only combine elevation information with temperatures, but also combine information on urban density and green cover with the meteobike temperature measurements. For example you may be interested whether the amount of greenspace in a given area has an influence on nocturnal temperatures. Or is the density of buildings a driving factor that explains the urban heat island?
+As a last exercise you may not only combine elevation information with temperatures, but also combine information on urban density and green cover with the meteobike temperature measurements. For example we may be interested whether the amount of greenspace in an urban neighborhood has an influence on nocturnal air temperatures. Or is the density of buildings explaining the differences of nocturnal air temperatures?
 
-For example data from aerial photos or digital city models may be available, as shown here for Freiburg, Germany at 1 m resolution:
+In many cities, vector or raster data on the urban form is available. This can be extracted from aerial photos, surveys (digital city models) or even laser scanning from aircrafts (LIDAR). Here is an example of land cover information for Freiburg, Germany at 1 x 1 m resolution:
 
 ![Images/QGIS_LandCoverSample.png](Images/QGIS_LandCoverSample.png)
 
