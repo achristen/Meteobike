@@ -48,9 +48,9 @@ Under 'Column' select the field from the Meteobike dataset you would like to col
 
 ## Create statistics of temperatures in a specific area.
 
-Next assume, you would like to calculate average temperatures measured in different parks and contrast them. To d this, you need to select points based on geographic location - in some areas in complex, irregular shapes. One option to achieve this is through a 'spatial join' - a basic geographic operation selecting elements that are within another one. 
+Next assume, you would like to calculate average temperatures measured in different parks and contrast them. To do this, you need to select points based on geographic location - in some areas in complex, irregular shapes. One option to achieve this is through a 'spatial join' - a basic geographic operation selecting elements that are within another one. 
 
-First you have to define the geographic areas in which you would like to sample measurements. In our example we will select temperatures in different parks, however, this approach can be applied to any other geographic dataset - including imported shape files, 'Local Climate Zones' (LCZ) or raster elements (see below for raster examples).
+First you have to define the geographic areas in which you would like to sample measurements. In our example we will select temperatures in different parks, however, this approach can be applied to any other geographic dataset - including imported shape files, 'Local Climate Zones' (LCZ) or raster datasets on land cover classes (see below for examples).
 
 ### Create polygons of the areas of interest
 
@@ -156,7 +156,7 @@ In many cities, vector or raster data on the urban form, urban land use and thre
 
 ![Images/QGIS_LandCoverSample.png](Images/QGIS_LandCoverSample.png)
 
-### Analyzing land cover fractions
+### Displaying land cover fractions
 
 The dataset shown above is very detailed, every building, tree, driveway etc. is reflected. However, as air temperatures do not only depend on the  specific 1 x 1 m2 pixel they are measured over, but due to turbulent mixing, they are the response of a larger neighbood-scale energy balance, we cannot use this information directly. Instead we need data that is less detailed, yet retaines the statistics of the typical mix of buidlings, vegetation or impervious ground.
 
@@ -189,17 +189,21 @@ Click `Apply`.
 
 ![Images/QGIS_LandCoverFractionExample.png](Images/QGIS_LandCoverFractionExample.png)
 
-Example of a subset of visualized `lc_tree` at 50 x 50 m resolution for Freiburg. Dark green grid cells contain a lot of trees (parks, forests), white grid cells have none to few trees. Dots are Meteobike measurements. Note that in this example the colors of the color ramp have been set to a transparancy of 50%. Further the map in the background has been set to a stauration of `-100` (right-click on the `OpenStreetMap` layer, select `Properties....`, then under `Symbology` in the section `Color Rendering` set `Saturation` to the mininunm). 
+The figure shows an example of a subset of visualized `lc_tree` at 50 x 50 m resolution for Freiburg. Dark green grid cells contain a lot of trees (parks, forests), white grid cells have none to few trees. Dots are Meteobike measurements. Note that in this example the colors of the color ramp have been set to a transparancy of 50%. Further the map in the background has been set to a stauration of `-100` (right-click on the `OpenStreetMap` layer, select `Properties....`, then under `Symbology` in the section `Color Rendering` set `Saturation` to the mininunm). 
 
-Now we can combine measured air temperatures with the land cover fractions and answer the question if land cover fractions influence nocturnal air temperatures. We can again use a spatial join. For example to attribute all meteobike measurements in a given grid cell of the land cover classification, you choose teh function `Join attributes by location` in QGIS.
+### Combine land cover fractions and air temperature measurements
+
+Now we can combine our measured air temperatures with the land cover fractions and try to answer questions if land cover fractions control the magnitude of the nocturnal heat island within cites. We can again use a spatial join. For example to attribute all meteobike measurements in a given land cover grid cell, you choose teh function `Join attributes by location` in QGIS.
 
 ![Images/QGIS_LandCoverJoin.png](Images/QGIS_LandCoverJoin.png)
 
-## Export Data into R
+Run the (with 50 x 50 m this may take a while).
 
-For a further statitical analysis, it can now be advantageous to export calculated statistics and joined attributes into another high-level programming language such as R.
+### Export Data into R for further statistical analysis
 
-To export data from any layer you right-click the corresponding joined layer and select `Export` > `Save Frature as...`. In the Dialog that appears, choose under `Format`: `Comma Separated Values`, choose a save location and  name under `File name` (clicking on the `...` button) and confirm by clicking `OK`. 
+For a further statitical analysis without georeferences, it can be advantageous to export calculated statistics and joined attributes into another high-level programming language such as R.
+
+To export data from any layer you right-click the corresponding joined layer and select `Export` > `Save Frature as...`. In the Dialog that appears, choose under `Format`: `Comma Separated Values`, choose a save location and  name under `File name` (clicking on the `...` button) and confirm by clicking `OK`. For example you can export the joined layer of air temperatures with land cover fractions (`TEXT`).
 
 ![Images/QGIS_Export.png](Images/QGIS_Export.png)
 
