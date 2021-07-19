@@ -162,6 +162,8 @@ The dataset shown above is very detailed, every building, tree, driveway etc. is
 
 One common approach to describe the urban form and structure is to classify larger areas at the local-scale (50 m - 0,5 km) and derive *land cover fractions*. Land cover fractions describe the plan area covered by a particular land cover (e.g buildings) per total area. If a grid cell has a land cover fraction of 1 then the entire grid cell is equal to the corresponding land cover. 
 
+![Images/QGIS_LandCoverConcept.png](Images/QGIS_LandCoverConcept.png)
+
 Conceptual illustration of land cover fractions of buildings (λb), vegetation (λv), and paved / impervious ground (λi). In all cases AT is the total area of the grid cell. Ab, Av and Ai is the projected area of buildings, vegetation and paved / impervious ground in the grid cell. Source: [Oke et al., 2017](https://www.cambridge.org/oke/)
 
 The following detailed land cover fractions for example are available for Freiburg at 50 x 50 m and 500 x 500 m resolution. Students at Uni Freiburg can download the relevant raster datasets from their Ilias course account.
