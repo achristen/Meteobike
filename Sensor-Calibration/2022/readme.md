@@ -61,7 +61,6 @@ Table 1: Calibration coefficients for air temperature to be entered for each of 
 | 54 |           NaN |           NaN |
 | 55 |           NaN |           NaN |
 | 56 |      0.736509 |       1.00532 |
-| 57 |           NaN |           NaN |
 
 Table 2: Root mean square error (RMSE) of the raw and calibrated temperatures relative to the climate station in K.
 
@@ -123,7 +122,6 @@ Table 2: Root mean square error (RMSE) of the raw and calibrated temperatures re
 | 54 |           NaN |           NaN |
 | 55 |           NaN |           NaN |
 | 56 |      0.227028 |      0.870867 |
-| 57 |           NaN |           NaN |
 
 Vapour pressure
 ====================================================
@@ -188,7 +186,6 @@ Table 3: Calibration coefficients to be entered for each of the meteobike system
 | 54 |           NaN |           NaN |
 | 55 |           NaN |           NaN |
 | 56 |    -0.0137575 |       1.04149 |
-| 57 |           NaN |           NaN |
 
 Table 4: Root mean square error (RMSE) of the raw and calibrated vapour pressures relative to the climate station in K.
 
@@ -250,7 +247,6 @@ Table 4: Root mean square error (RMSE) of the raw and calibrated vapour pressure
 | 54 |           NaN |           NaN |
 | 55 |           NaN |           NaN |
 | 56 |     0.0239493 |     0.0442949 |
-| 57 |           NaN |           NaN |
 
 Measurement frequency
 ===========================
@@ -315,6 +311,5 @@ Table 5: Average number of measurements made per system.
 | 54 |           NaN |
 | 55 |           NaN |
 | 56 |       8.13622 |
-| 57 |           NaN |
 
 30.05.2022 12:05
