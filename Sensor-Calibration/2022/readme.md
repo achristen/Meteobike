@@ -1,4 +1,4 @@
-Coefficients to correct temperatures SoSe 2022
+Coefficients to correct your sensors SoSe 2022
 ====================================================
 
 Table 1: Calibration coefficients for air temperature to be entered for each of the meteobike systems based on the comparison between the sensor and the CS215 in the climate station at Werthmannstrasse 10 in 2022. 
