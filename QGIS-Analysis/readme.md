@@ -134,7 +134,7 @@ To attribute data from a raster dataset to the point-measurements, go to the men
 
 ![Images/QGIS_RasterToPoints.png](Images/QGIS_RasterToPoints.png)
 
-Choose the Meteobike Dataset as the 'Points' and the DEM as the 'Grid'. As points do not fall directly in teh center of pixels, you may ant to interpolate the data between pixels (e.g. here 'Interpolation' `[1] Bilinear interpolation`). Click `Run` to create a new point layer that has the original Meteobike data combined with the data from the DEM (elevation). You find the elevation from the DEM in the very last column of the 'Attribute Table'. You can now display the data with the elevation from the DEM. 
+Choose the Meteobike Dataset as the 'Points' and the DEM as the 'Grid'. As points do not fall directly in the center of pixels, you may want to interpolate the data between pixels (e.g. here 'Resampling' `[1] Bilinear interpolation`). Click `Run` to create a new point layer that has the original Meteobike data combined with the data from the DEM (elevation). You find the elevation from the DEM in the very last column of the 'Attribute Table'. You can now display the data with the elevation from the DEM. 
 
 ![Images/QGIS_SampleDEMPoints.png](Images/QGIS_SampleDEMPoints.png)
 
