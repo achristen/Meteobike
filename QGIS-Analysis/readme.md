@@ -114,9 +114,9 @@ As an example, we can import a DEM and combine it with the measurements from our
 - [ASTER Global Digital Elevation Model](https://asterweb.jpl.nasa.gov/gdem.asp)
 - [Space Shuttle Radar Topography Mission (SRTM)](https://www.earthdata.nasa.gov/sensors/srtm)
 
-Both datasets can be downloaded from the [USGS EarthExplorer](https://earthexplorer.usgs.gov) (free user account required). Use the map and zoom into your study area. Under 'Search Criteria' > 'Polygon' select `Use Map` and adjust the corner points of the polygon to your study area. Under 'Data Sets' search for `SRTM1 Arc-Second Global` or `ASTER Global DEM V3`. Click on `Results` and download the corresponding files in the GeoTIFF format.
+Both datasets can be downloaded from the [USGS EarthExplorer](https://earthexplorer.usgs.gov) (free user account required). There, use the map and zoom into your study area. Under 'Search Criteria' > 'Polygon' select `Use Map` and adjust the corner points of the polygon to your study area. Under 'Data Sets' search for `SRTM1 Arc-Second Global` or `ASTER Global DEM V3`. Click on `Results` and download the corresponding files in the GeoTIFF format.
 
-Save the '.tif' file locally on your machine. Then import the ASTER DEM into QGIS using the menu `Layer` > `Add Layer` > `Add Raster Layer`. Choose the previous '.tif' file with the ASTER Global DEM V2 as source:
+Save the '.tif' file locally on your machine. Then import the DEM into QGIS by using the menu `Layer` > `Add Layer` > `Add Raster Layer`. Choose the previous '.tif' file with the DEM as source:
 
 ![Images/QGIS_ImportRaster.png](Images/QGIS_ImportRaster.png)
 
