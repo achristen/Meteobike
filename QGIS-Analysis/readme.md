@@ -130,7 +130,7 @@ You can now display your Meteobike data along the digital elevation model:
 
 ### Merge data from the DEM with the Meteobike data
 
-To attribute data from a raster dataset to the point-measurements, go to the menu `Processing` > `Toolbox`. As an example, we will now attribute the elevation from the DEM to each measurement location of the Meteobike. In the Toolbox choose `SAGA` > `Vector <-> raster` > `Add raster values to points`. SAGA (System for Automated Geoscientific Analyses) is a free, hybrid, cross-platform GIS software that is included in QGIS as a plug-in. It contains many more specific scientific tools to analyze data.
+To attribute data from a raster dataset to the point-measurements, go to the menu `Processing` > `Toolbox`. As an example, we will now attribute the elevation from the DEM to each measurement location of the Meteobike. In the Toolbox choose `SAGA` > `Vector <-> raster` > `Add raster values to points`. SAGA (System for Automated Geoscientific Analyses) is a free, hybrid, cross-platform GIS software that is included in QGIS as a plug-in. If you do not find this SAGA tool in QGIS, please install the QGIS Plugin 'Processing Saga NextGen Provider' ( menu `Plugins` > `Manage and Install Plugins`). Go to the menu `Settings` > `Options` > `Processing` and include under `Providers` > `SAGANG` > `SAGA folder` a path to the folder where SAGA is installed together with QGIS (e.g., C:/Program Files/QGIS 3.34.5/apps/saga9).
 
 ![Images/QGIS_RasterToPoints.png](Images/QGIS_RasterToPoints.png)
 
