@@ -89,7 +89,7 @@ Essentially the same procedure can also be used to aggregate the measured datapo
 
 ![Images/QGIS_CreateGrid.png](Images/QGIS_CreateGrid.png)
 
-Because it is trendy, you can choose as grid type `Hexagon (polygon)`. To define the area that should be gridded, you can `Select canvas extent` by clicking on the `...` button. Choose an appropriate grid size, e.g. 250 m and click `Run`. A new grid layer will be generated.
+Because it is trendy, you can choose as grid type `Hexagon (polygon)`. To define the area that should be gridded, you can `Select canvas extent` by clicking on the icon with the cursor and the map right to the 'Grid extent' field (newer QGIS versions). Choose an appropriate grid size, e.g. 250 m and click `Run`. A new grid layer will be generated.
 
 ![Images/QGIS_HexagonGrid.png](Images/QGIS_HexagonGrid.png)
 
