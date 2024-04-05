@@ -26,7 +26,7 @@ You can import any .csv file into QGIS. This means, you can directly input the r
 
 Select the file of your interest (by clicking on the `...`-button in the upper right). 
 
-Under 'File Format' select `CSV (comma separated values)`, under 'Record and Field Options' select `First record has field names` and `Detect field types`. Under 'Geometry Definition' it should automatically select 'Longitude' as `x field` and 'Latitude' as `y field`. 'Sample Data' displays your measurement dataset. Make sure that 'EPSG:4326 - WGS 84' is selected as your 'Geometry CRS'.
+Under 'File Format' select `CSV (comma separated values)`, under 'Record and Field Options' select `First record has field names` and `Detect field types`. Under 'Geometry Definition' it should automatically select 'Longitude' as `x field` and 'Latitude' as `y field`. 'Sample Data' displays your measurement dataset. Make sure that 'EPSG:4326 - WGS 84' is selected as your `Geometry CRS`.
 Check if everything looks OK and then click `Add`.
 
 Your measurements will be displayed as single points. Right click on the new layer and select `Properties...` to customize the display.
