@@ -114,9 +114,7 @@ As an example, we can import a DEM and combine it with the measurements from our
 - [ASTER Global Digital Elevation Model](https://asterweb.jpl.nasa.gov/gdem.asp)
 - [Space Shuttle Radar Topography Mission (SRTM)](https://www.earthdata.nasa.gov/sensors/srtm)
 
-For elevation data you can also use the USGS [Global Data Explorer](https://earthexplorer.usgs.gov). Use the navigation tools on the website to zoom to the area of your interest. With the rectangular selection tool you can select an area to be downloaded:
-
-![Images/QGIS_DataExplorer.png](Images/QGIS_DataExplorer.png)
+For elevation data you can also use the USGS [Global Data Explorer](https://earthexplorer.usgs.gov). 
 
 If you create a free user account, you can download the ASTER Global DEM V2 in GeoTIFF format:
 
