@@ -109,11 +109,10 @@ Some data sources such as Digital Elevation Models (DEM) or vegetation indices a
 
 ### Importing a DEM and displaying the countour lines
 
-As an example, we can import a DEM and combine it with the measurements from our Meteobikes. There are several free, globa´l DEMs available including
+As an example, we can import a DEM and combine it with the measurements from our Meteobikes. There are several free, global DEMs available including
 
-- [Copernicus Data EU DEM 1.1](https://land.copernicus.eu/imagery-in-situ/eu-dem/eu-dem-v1.1)
 - [ASTER Global Digital Elevation Model](https://asterweb.jpl.nasa.gov/gdem.asp)
-- [Space Shuttle Radar Topography Mission (SRTM)](https://earthexplorer.usgs.gov)
+- [Space Shuttle Radar Topography Mission (SRTM)]((https://www.earthdata.nasa.gov/sensors/srtm)
 
 For elevation data you can also use the USGS [Global Data Explorer](https://earthexplorer.usgs.gov). Use the navigation tools on the website to zoom to the area of your interest. With the rectangular selection tool you can select an area to be downloaded:
 
