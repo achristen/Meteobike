@@ -31,7 +31,7 @@ Check if everything looks OK and then click `Add`.
 
 Your measurements will be displayed as single points. Right click on the new layer and select `Properties...` to customize the display.
 
-You can display the measured values as numeric labels next to the points. To do this, select 'Labels' and choose for example the 'Temperature' field to show numeric values of temperatures measured at that point:
+You can display the measured values as numeric labels next to the points. To do this, select 'Labels', activate `Single labels` and choose for example the 'Temperature' field to show numeric values of temperatures measured at that point:
 
 ![Images/QGIS_LayerOptions.png](Images/QGIS_LayerOptions.png)
 
