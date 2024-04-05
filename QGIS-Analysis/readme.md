@@ -93,13 +93,13 @@ Because it is trendy, you can choose as grid type `Hexagon (polygon)`. To define
 
 ![Images/QGIS_HexagonGrid.png](Images/QGIS_HexagonGrid.png)
 
-In the next step you can repeat what has been described above for the parks, but replace the parks with the grid polygons - Go to the `Toolbox` and select again `Vector general` > `Join attributes by location (summary)`. As 'Input Layer' choose the newly created grid layer )(the hexagons). As join layer choose again your points with temperatures from the meteobike dataset. It is recommended to select a limited number fields for startstics (only the ones you need) otherwise the operation will take a long time to be computed.
+In the next step you can repeat what has been described above for the parks, but replace the parks with the grid polygons - Go to the `Toolbox` and select again `Vector general` > `Join attributes by location (summary)`. As 'Input Layer' choose the newly created grid layer (the hexagons). As join layer choose again your points with temperatures from the meteobike dataset. It is recommended to select a limited number fields for statistics (only the ones you need). Otherwise, the operation will take a long time to be computed.
 
 A new grid layer will be generated which is showing only cells where measurements are located within. You can right-click the new layer and choose `Properties...` attribute a color coding to the grid cells under `Symbology`. Choose `Graduated` as the model.
 
 ![Images/QGIS_GridColoring.png](Images/QGIS_GridColoring.png)
 
-This way you finally get fancy heat map:
+This way you finally get a fancy heat map:
 
 ![Images/QGIS_HexagonHeatMap.png](Images/QGIS_HexagonHeatMap.png)
 
@@ -109,13 +109,13 @@ Some data sources such as Digital Elevation Models (DEM) or vegetation indices a
 
 ### Importing a DEM and displaying the countour lines
 
-As an example, we can import a DEM and combine it with the measurements from our Meteobikes. There are several free, globla DEMs available including
+As an example, we can import a DEM and combine it with the measurements from our Meteobikes. There are several free, globa´l DEMs available including
 
 - [Copernicus Data EU DEM 1.1](https://land.copernicus.eu/imagery-in-situ/eu-dem/eu-dem-v1.1)
 - [ASTER Global Digital Elevation Model](https://asterweb.jpl.nasa.gov/gdem.asp)
 - [Space Shuttle Radar Topography Mission (SRTM)](https://earthexplorer.usgs.gov)
 
-for elevation data you can also use the USGS [Global Data Explorer](https://earthexplorer.usgs.gov). Use the navigation tools on the website to zoom to the area of your interest. With the rectangular selection tool you can select an area to be downloaded:
+For elevation data you can also use the USGS [Global Data Explorer](https://earthexplorer.usgs.gov). Use the navigation tools on the website to zoom to the area of your interest. With the rectangular selection tool you can select an area to be downloaded:
 
 ![Images/QGIS_DataExplorer.png](Images/QGIS_DataExplorer.png)
 
@@ -123,7 +123,7 @@ If you create a free user account, you can download the ASTER Global DEM V2 in G
 
 ![Images/QGIS_DataExplorerDownload.png](Images/QGIS_DataExplorerDownload.png)
 
-Save the '.tif' file locally on your machine. Then import the ASTER DEM into QGIS using the menu `Layer` > `Add Layer` > `Àdd Raster Layer`. Choose the previous '.tif' file with the ASTER Global DEM V2 as source:
+Save the '.tif' file locally on your machine. Then import the ASTER DEM into QGIS using the menu `Layer` > `Add Layer` > `Add Raster Layer`. Choose the previous '.tif' file with the ASTER Global DEM V2 as source:
 
 ![Images/QGIS_ImportRaster.png](Images/QGIS_ImportRaster.png)
 
