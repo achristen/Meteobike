@@ -4,7 +4,7 @@
 
 ## Installing QGIS
 
-Download [QGIS](https://qgis.org) and follow installation instructions, incluing the correct Python version. Here is a [short video](https://youtu.be/b9FwI0GyAGQ), explaining the installation process.
+Download [QGIS](https://qgis.org/en/site/forusers/download.html) and follow installation instructions. You can choose between the current version and the long-term release (most stable).
 
 ## Importing and map Meteobike data in QGIS
 
