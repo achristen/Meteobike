@@ -171,9 +171,7 @@ Variable name | Description | Value range
 `lc_soil` | Plan area fraction of bare soil | 0 ... 1 
 `lc_watr` | Plan area fraction of water bodies (lakes, rivers, ponds, pools) | 0 ... 1 
 
-You can load land cover rasters at 50 x 50 m or 500 x 500 m as [ESRI Shapefiles](https://en.wikipedia.org/wiki/Shapefile) into QGIS. Choose `Layer` > `Add layer` > `Add vector layer...`. Then choose the downloaded land cover shape file (`.shp`) for the resolution you prefer. Make sure you have also downloaded the corresponding projection description (`.prj`) file, the attribute file (`.dbf`) and the shape index format file (`.shx`) in the same directory:
-
-![Images/QGIS_LoadShapefile.png](Images/QGIS_LoadShapefile.png)
+You can load land cover rasters at 50 x 50 m or 500 x 500 m as [ESRI Shapefiles](https://en.wikipedia.org/wiki/Shapefile) into QGIS. Choose `Layer` > `Add layer` > `Add vector layer...`. Then choose the downloaded land cover shape file (`.shp`) for the resolution you prefer. Make sure you have also downloaded the corresponding projection description (`.prj`) file, the attribute file (`.dbf`) and the shape index format file (`.shx`) in the same directory.
 
 You can display the raster of land cover fractions by right-clicking on the added layer and choose `Properties....`. Choose a `Graduated`, select Mode: `Equal interval` and select a meaningful number of classes (at least 10) and the desired color ramp. 
 
@@ -189,7 +187,7 @@ The figure shows an example of a subset of visualized `lc_tree` at 50 x 50 m res
 
 Similar to what we did with the DEM, we can now attribute to each measurement location of air temperature the corresponding land cover fractions at 50 x 50 km or 500 km x 500 km. This will help us to answer questions if a particular land cover fraction controls the magnitude of the nocturnal heat island within cites. For that we will again use a spatial join. For example to attribute all meteobike measurements in a given land cover grid cell, you choose the function `Join attributes by location` in QGIS.
 
-As 'Input Layer' choose your Meteobike Measurements (i.e. 'ALL-SYSTEMS-2021-06-15'). As join layer choose the land cover fractions. Under 'Geometric predictate' you should choose `within`. 
+As 'Input Layer' choose your Meteobike Measurements (i.e. 'ALL-SYSTEMS-2021-06-15'). As join layer choose the land cover fractions. Under 'Features they (geometric predicate)' you should choose `are within`. 
 
 ![Images/QGIS_LandCoverJoin.png](Images/QGIS_LandCoverJoin.png)
 
@@ -203,11 +201,11 @@ The following graph shows the joined layer, once color-coded by temperature diff
 
 For a further statitical analysis, it can be advantageous to export calculated statistics and joined attributes in QGIS into another high-level programming language such as `R`.
 
-To export data from any layer you right-click the corresponding layer and select `Export` > `Save Frature as...`. For example the joined layer 'ALL-SYSTEMS-2021-06-15-LC' can be exported to statistically analyze whether there is a significant correlation between `lc_tree` and air temperatures.
+To export data from any layer you right-click the corresponding layer and select `Export` > `Save Features as...`. For example the joined layer 'ALL-SYSTEMS-2021-06-15-LC' can be exported to statistically analyze whether there is a significant correlation between `lc_tree` and air temperatures.
 
 ![Images/QGIS_ExportMenu.png](Images/QGIS_ExportMenu.png)
 
-In the Dialog that appears, choose under `Format`: `Comma Separated Values`, choose a save location and  name under `File name` (clicking on the `...` button) and confirm by clicking `OK`. For example you can export the joined layer of air temperatures with land cover fractions (`TEXT`).
+In the Dialog that appears, choose under `Format`: `Comma Separated Values`, choose a save location and name under `File name` (clicking on the `...` button) and confirm by clicking `OK`. For example you can export the joined layer of air temperatures with land cover fractions (`TEXT`).
 
 ![Images/QGIS_Export.png](Images/QGIS_Export.png)
 
