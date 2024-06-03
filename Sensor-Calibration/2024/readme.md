@@ -111,8 +111,6 @@ Table 5: Average number of measurements made per system.
 
 | Meteobike No | Average Measurements per Second |
 | --- | ---: |
-ALL METEOBIKES: Average Measurements per Second
-====================================================
 | 04 |       8.16367 |
 | 05 |       8.01814 |
 | 06 |       8.12677 |
