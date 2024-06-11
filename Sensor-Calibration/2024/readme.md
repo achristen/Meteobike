@@ -5,6 +5,7 @@ Table 1: Calibration coefficients for air temperature to be entered for each of 
 
 | Meteobike No | a0 (Offset) | a1 (Slope) | 
 | --- | ---: | ---: | 
+| 01 |     -0.248548 |       1.01990 |
 | 04 |     -0.412062 |       1.02573 |
 | 05 |    0.00265280 |       1.01679 |
 | 06 |     -0.126442 |       1.01886 |
@@ -32,6 +33,7 @@ Table 2: Root mean square error (RMSE) of the raw and calibrated temperatures re
 
 | Meteobike No | RMSE, corrected (K) | RMSE, uncorrected (K) | 
 | --- | ---: | ---: |
+| 01 |      0.229622 |      0.249567 |
 | 04 |      0.216539 |      0.229944 |
 | 05 |      0.131623 |      0.307672 |
 | 06 |     0.0926151 |      0.209462 |
@@ -62,6 +64,7 @@ Table 3: Calibration coefficients to be entered for each of the meteobike system
 
 | Meteobike No | a0 (Offset) | a1 (Slope) | 
 | --- | ---: | ---: 
+| 01 |      0.113019 |      0.850083 |
 | 04 |     0.0911366 |      0.928697 |
 | 05 |      0.136325 |      0.857296 |
 | 06 |      0.105005 |      0.922194 |
@@ -89,6 +92,7 @@ Table 4: Root mean square error (RMSE) of the raw and calibrated vapour pressure
 
 | Meteobike No | RMSE, corrected (kPa) | RMSE, uncorrected (kPa) | 
 | --- | ---: | ---: |
+| 01 |     0.0548777 |      0.145349 |
 | 04 |     0.0344555 |     0.0403169 |
 | 05 |     0.0436192 |     0.0995213 |
 | 06 |     0.0356434 |     0.0411191 |
@@ -119,6 +123,7 @@ Table 5: Average number of measurements made per system.
 
 | Meteobike No | Average Measurements per Second |
 | --- | ---: |
+| 01 |       8.12790 |
 | 04 |       8.16367 |
 | 05 |       8.01814 |
 | 06 |       8.12677 |
@@ -142,6 +147,6 @@ Table 5: Average number of measurements made per system.
 | 41 |       8.06045 |
 | 48 |       8.16411 |
 
-03.06.2025 15:05
+11.06.2025 09:05
 
 
