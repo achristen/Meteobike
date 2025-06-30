@@ -41,9 +41,9 @@ Each point is displayed along with the measured temperature:
 
 You can further color-code the points based on measured temperatures. Right click again on the new layer and select `Properties...`. Here you can select `Symbology` and choose `Graduated` as the model:
 
-![Images/QGIS_ColorByValue.png](Images/QGIS_ColorByValue.png)
+![Images/QGIS_ColorByValue.png](Images/QGIS_ColorByValue_new.png)
 
-Under 'Column' select the field from the Meteobike dataset you would like to colorize (e.g. temperature differences). Unter 'Method' choose `Color`. Under 'Color ramp' you can choose from a variety of color bars (and also invert them, as done in the example). Below is the list that assigns colors to values. The example uses Quantile mapping with 13 classes. Click `Classify` to update the color ramp, then `OK` to apply it to the map:
+Under 'Value' select the field from the Meteobike dataset you would like to colorize (e.g. temperature differences). Unter 'Method' choose `Color`. Under 'Color ramp' you can choose from a variety of color bars (and also invert them, as done in the example). Below is the list that assigns colors to values. The example uses `Equal Count (Quantile)` mapping with 13 classes. Click `Classify` to update the color ramp, then `OK` to apply it to the map:
 
 ![Images/QGIC_SampleGraduated.png](Images/QGIS_SampleGraduated.png)
 
