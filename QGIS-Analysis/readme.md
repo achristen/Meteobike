@@ -18,6 +18,8 @@ In the 'Browser' to the left, click on `XYZ Tiles` and double click `OpenStreetM
 
 ![Images/QGIS_OSMFull.png](Images/QGIS_OSMFull.png)
 
+Other QGIS basemap can be found, for instance, with the Plugin [QuickMapServices](https://plugins.qgis.org/plugins/quick_map_services/).
+
 ### Importing Meteobike data to QGIS
 
 You can import any .csv file into QGIS. This means, you can directly input the raw datafiles from the Meteobike system. Alternatively, you can also data that has been filtered and merged into a single file from multiple systems. Use Menu `Layer` > `Add Layer` > `Add Delimited Text Layer...` to add data from one or multiple meteobike systems.
