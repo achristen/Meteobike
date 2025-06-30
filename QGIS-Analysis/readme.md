@@ -4,7 +4,7 @@
 
 ## Installing QGIS
 
-Download [QGIS](https://qgis.org/en/site/forusers/download.html) and follow installation instructions. You can choose between the current version and the long-term release (most stable).
+Download [QGIS](https://qgis.org/en/site/forusers/download.html) and follow installation instructions. You can choose between the current version and the long-term release (most stable). This manual is tested with QGIS version 3.34.5 (Prizren).
 
 ## Importing and map Meteobike data in QGIS
 
@@ -95,11 +95,11 @@ Because it is trendy, you can choose as grid type `Hexagon (polygon)`. To define
 
 ![Images/QGIS_HexagonGrid.png](Images/QGIS_HexagonGrid.png)
 
-In the next step you can repeat what has been described above for the parks, but replace the parks with the grid polygons - Go to the `Toolbox` and select again `Vector general` > `Join attributes by location (summary)`. As 'Input Layer' choose the newly created grid layer (the hexagons). As join layer choose again your points with temperatures from the meteobike dataset. It is recommended to select a limited number fields for statistics (only the ones you need). Otherwise, the operation will take a long time to be computed.
+In the next step you can repeat what has been described above for the parks, but replace the parks with the grid polygons - Go to the `Toolbox` and select again `Vector general` > `Join attributes by location (summary)`. As `Join to features in` choose the newly created grid layer (the hexagons). As `By comparing to` choose again your points with temperatures from the meteobike dataset. It is recommended to select a limited number fields for statistics (only the ones you need). Otherwise, the operation will take a long time to be computed.
 
 A new grid layer will be generated which is showing only cells where measurements are located within. You can right-click the new layer and choose `Properties...` attribute a color coding to the grid cells under `Symbology`. Choose `Graduated` as the model.
 
-![Images/QGIS_GridColoring.png](Images/QGIS_GridColoring.png)
+![Images/QGIS_GridColoring_new.png](Images/QGIS_GridColoring_new.png)
 
 This way you finally get a fancy heat map:
 
