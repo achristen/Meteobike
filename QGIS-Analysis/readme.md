@@ -87,7 +87,7 @@ Right-click on the new `Joined layer` and select `Open Attribute Table`. You wil
 
 ### Create a gridded map of the heat island
 
-Essentially the same procedure can also be used to aggregate the measured datapoints in a gridded map. QGIS has an option to create different grids as polygon layers. To create a grid, select menu `Vector` > `Research Tools` > `Create grid...`:
+Essentially the same procedure can also be used to aggregate the measured datapoints in a gridded map. QGIS has an option to create different grids as polygon layers. To create a grid, select menu `Vector` > `Research Tools` > `Create Grid...`:
 
 ![Images/QGIS_CreateGrid.png](Images/QGIS_CreateGrid.png)
 
