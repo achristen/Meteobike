@@ -77,13 +77,13 @@ In a next step you would like to select all measurements inside the selected pol
 
 In the toolbox choose select `Vector general` > `Join attributes by location (summary)`:
 
-![Images/QGIS_JoinAttributesLoc.png](Images/QGIS_JoinAttributesLoc.png)
+![Images/QGIS_JoinAttributesLoc_new.png](Images/QGIS_JoinAttributesLoc_new.png)
 
-As 'Input Layer' choose your polygon-layer (i.e. 'parks.shp'). As join layer choose your points with temperatures from the meteobike dataset. Under 'Geometric predictate' you should choose `contains` and under 'Fields to summarize' you select the field from the meteobike dataset to create statistics from (i.e. Temperature). Then click on `run`. This will first select all points that fall within the polygon and then calculate statistics from those points and write them to the polygon as attributes. A new layer `Joined layer` will be created. You can rename the layer.
+As `Join to features in` choose your polygon-layer (i.e. 'parks.shp'). For `By comparing to` choose your points with temperatures from the meteobike dataset. Under `Where the feastures` you should choose `contain` and under 'Fields to summarize' you select the field from the meteobike dataset to create statistics from (i.e. Temperature). Then click on `run`. This will first select all points that fall within the polygon and then calculate statistics from those points and write them to the polygon as attributes. A new layer `Joined layer` will be created. You can rename the layer.
 
-Right-click on the new `Joined layer` and select `Open Attribute Table`. You will now see a list of all parks with the statistics of the points (i.e. temperatures) displayed:
+Right-click on the new `Joined layer` and select `Open Attribute Table`. You will now see a list of all parks with the statistics of the points (i.e. temperatures) displayed.
 
-![Images/QGIS_Table.png](Images/QGIS_Table.png)
+<!-- ![Images/QGIS_Table.png](Images/QGIS_Table.png)-->
 
 ### Create a gridded map of the heat island
 
