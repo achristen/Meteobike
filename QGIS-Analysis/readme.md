@@ -4,7 +4,7 @@
 
 ## Installing QGIS
 
-Download [QGIS](https://qgis.org/en/site/forusers/download.html) and follow installation instructions. You can choose between the current version and the long-term release (most stable). This manual is tested with QGIS version 3.34.5 (Prizren).
+Download [QGIS](https://qgis.org/en/site/forusers/download.html) and follow installation instructions. You can choose between the current version and the long-term release (most stable). This manual is tested with QGIS version 3.44.11 (Solothun) (LTR).
 
 ## Importing and map Meteobike data in QGIS
 
@@ -18,7 +18,7 @@ In the 'Browser' to the left, click on `XYZ Tiles` and double click `OpenStreetM
 
 ![Images/QGIS_OSMFull.png](Images/QGIS_OSMFull.png)
 
-Other QGIS basemap can be found, for instance, with the Plugin [QuickMapServices](https://plugins.qgis.org/plugins/quick_map_services/).
+Other QGIS basemap can be found, for instance, with the Plugin [Next GIS QuickMapServices](https://plugins.qgis.org/plugins/quick_map_services/).
 
 ### Importing Meteobike data to QGIS
 
@@ -28,12 +28,12 @@ You can import any .csv file into QGIS. This means, you can directly input the r
 
 Select the file of your interest (by clicking on the `...`-button in the upper right). 
 
-Under 'File Format' select `CSV (comma separated values)`, under 'Record and Field Options' select `First record has field names` and `Detect field types`. Under 'Geometry Definition' it should automatically select 'Longitude' as `x field` and 'Latitude' as `y field`. 'Sample Data' displays your measurement dataset. Make sure that 'EPSG:4326 - WGS 84' is selected as your `Geometry CRS`.
+Under 'File Format' select `CSV (comma separated values)`, under 'Record and Field Options' select `First record has field names` and `Detect field types`. Under 'Geometry Definition' it should automatically select 'Longitude' as `x field` and 'Latitude' as `y field`. 'Sample Data' displays your measurement dataset and should recognize the different data types for each column. Make sure that 'EPSG:4326 - WGS 84' is selected as your `Geometry CRS`.
 Check if everything looks OK and then click `Add`.
 
 Your measurements will be displayed as single points. Right click on the new layer and select `Properties...` to customize the display.
 
-You can display the measured values as numeric labels next to the points. To do this, select 'Labels', activate `Single labels` and choose for example the 'Temperature' field to show numeric values of temperatures measured at that point:
+You can display the measured values as numeric labels next to the points. To do this, select 'Labels', activate `Single labels` and choose for example the 'Temperature_diff' field to show numeric values of temperatures measured at that point:
 
 ![Images/QGIS_LayerOptions.png](Images/QGIS_LayerOptions.png)
 
@@ -45,7 +45,7 @@ You can further color-code the points based on measured temperatures. Right clic
 
 ![Images/QGIS_ColorByValue_new.png](Images/QGIS_ColorByValue_new.png)
 
-Under 'Value' select the field from the Meteobike dataset you would like to colorize (e.g. temperature differences). Unter 'Method' choose `Color`. Under 'Color ramp' you can choose from a variety of color bars (and also invert them, as done in the example). Below is the list that assigns colors to values. The example uses `Equal Count (Quantile)` mapping with 13 classes. Click `Classify` to update the color ramp, then `OK` to apply it to the map:
+Under 'Value' select the field from the Meteobike dataset you would like to colorize (e.g. temperature differences). Unter 'Method' choose `Color`. Under 'Color ramp' you can choose from a variety of color scales (in this example: RdBu) (and also invert them, as done in the example). Below is the list that assigns colors to values. The example uses `Equal Count (Quantile)` mapping with 13 classes. Click `Classify` to update the color ramp, then `OK` to apply it to the map:
 
 ![Images/QGIC_SampleGraduated.png](Images/QGIS_SampleGraduated.png)
 
@@ -59,9 +59,9 @@ First you have to define the geographic areas in which you would like to sample 
 
 Before you draw the areas, you must create a new layer. Select Menu `Layer` > `Create Layer` > `New Shapefile Layer...`. Under 'File name' select an appropriate name (here, we will call it `parks.shp`) and use the `...`-button to store the shape file locally. As 'Geometry type' choose `Polygon`.
 
-You can later add properties to each polygon such as a name of the park (or LCZ, size of the park etc.). As an example, we will now simply create a field `Name` to enter the known local name of each park. Enter "Name" and and click `Add to Fields List`. Then click `OK` to create the shape file.
+You can later add properties to each polygon such as a name of the park (or LCZ, size of the park etc.). As an example, we will now simply create a new field `Name` to enter the known local name of each park. Enter "Name", choose `Text (string)` as Type  and and click `Add to Fields List`. Then click `OK` to create the shape file.
 
-Under `Layers` you will now see a new layer called "Parks". Right-click on the 'Parks'-layer and select `Toggle Editing`. Then click the polygon-drawing icon (![Images/QGIS_Polygon.png](Images/QGIS_Polygon.png)) to draw a first park area:
+Under `Layers` you will now see a new layer called "Parks". Right-click on the 'Parks'-layer and select `Toggle Editing`. Then click the polygon-drawing icon (`Add Polygon Feature`) (![Images/QGIS_Polygon.png](Images/QGIS_Polygon.png)) to draw a first park area:
 
 ![Images/QGIS_DrawPolygon.png](Images/QGIS_DrawPolygon.png)
 
@@ -73,7 +73,7 @@ You can finish here, or add additional polygons for additional parks. In the end
 
 ### Calculate statistics from points within polygon
 
-In a next step you would like to select all measurements inside the selected polygon and calculate statistics based on only those points taht fall within the area. This is a more complex task, so you need the "Toolbox" for this. Select menu `Processing` > `Toolbox`. The toolbox appears on the right hand side of the map:
+In a next step you would like to select all measurements inside the selected polygon and calculate statistics based on only those points that fall within the area. This is a more complex task, so you need the "Toolbox" for this. Select menu `Processing` > `Toolbox`. The toolbox appears on the right hand side of the map:
 
 In the toolbox choose select `Vector general` > `Join attributes by location (summary)`:
 
@@ -91,17 +91,17 @@ Essentially the same procedure can also be used to aggregate the measured datapo
 
 ![Images/QGIS_CreateGrid.png](Images/QGIS_CreateGrid.png)
 
-Because it is trendy, you can choose as grid type `Hexagon (polygon)`. To define the area that should be gridded, you can `Set to current map canvas extent` by clicking on the icon with the cursor and the map right to the 'Grid extent' field (newer QGIS versions). Choose an appropriate grid size, e.g. 250 m and click `Run`. A new grid layer will be generated.
+Because it is trendy, you can choose as grid type `Hexagon (polygon)`. Zoom to the extent of your measurement data by right-clicking on the meaurement data layer in the Layers window and selecting `Zoom to Layer(s)`. To define the area that should be gridded, you can `Set to current map canvas extent` by clicking on the icon with the cursor and the map right to the 'Grid extent' field (newer QGIS versions). Choose an appropriate grid size, e.g. 250 m and click `Run`. A new grid layer will be generated.
 
 ![Images/QGIS_HexagonGrid.png](Images/QGIS_HexagonGrid.png)
 
-In the next step you can repeat what has been described above for the parks, but replace the parks with the grid polygons - Go to the `Toolbox` and select again `Vector general` > `Join attributes by location (summary)`. As `Join to features in` choose the newly created grid layer (the hexagons). As `By comparing to` choose again your points with temperatures from the meteobike dataset. It is recommended to select a limited number fields for statistics (only the ones you need). Otherwise, the operation will take a long time to be computed.
+In the next step you can repeat what has been described above for the parks, but replace the parks with the grid polygons - Go to the `Toolbox` and select again `Vector general` > `Join attributes by location (summary)`. As `Join to features in` choose the newly created grid layer (the hexagons). As `By comparing to` choose again your points with temperatures from the meteobike dataset. Under the section `Where the features` use again `contain`. It is recommended to select a limited number fields for statistics (only the ones you need, such as mean, median, stddev, min, max, or count). Otherwise, the operation will take a longer time to be computed. This tool might take some minutes. Make sure to save your project file regularly.
 
 A new grid layer will be generated which is showing only cells where measurements are located within. You can right-click the new layer and choose `Properties...` attribute a color coding to the grid cells under `Symbology`. Choose `Graduated` as the model.
 
 ![Images/QGIS_GridColoring_new.png](Images/QGIS_GridColoring_new.png)
 
-This way you finally get a fancy heat map:
+This way you finally get a fancy heat map (the background OSM map has a grayscale: for this, adapt the Symbology of the OSM layer and set the `Saturation` to -100):
 
 ![Images/QGIS_HexagonHeatMap.png](Images/QGIS_HexagonHeatMap.png)
 
