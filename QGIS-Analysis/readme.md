@@ -107,7 +107,7 @@ This way you finally get a fancy heat map (the background OSM map has a grayscal
 
 ## Combining the Meteobike data with raster data
 
-Some data sources such as Digital Elevation Models (DEM) or vegetation indices are provided in raster format, rather than vector format. In some application we would like to attribute values from rasters to our Meteobike measurements, or perform more detailed relief analysis.
+Some data sources such as Digital Elevation Models (DEMs) or vegetation indices are provided in raster format, rather than vector format. In some application we would like to attribute values from rasters to our Meteobike measurements, or perform more detailed relief analysis.
 
 ### Importing a DEM and displaying the countour lines
 
@@ -116,13 +116,19 @@ As an example, we can import a DEM and combine it with the measurements from our
 - [ASTER Global Digital Elevation Model](https://asterweb.jpl.nasa.gov/gdem.asp)
 - [Space Shuttle Radar Topography Mission (SRTM)](https://www.earthdata.nasa.gov/sensors/srtm)
 
-Both datasets can be downloaded from the [USGS EarthExplorer](https://earthexplorer.usgs.gov) (free user account required). There, use the map and zoom into your study area. Under 'Search Criteria' > 'Polygon' select `Use Map` and adjust the corner points of the polygon to your study area. Under 'Data Sets' search for `SRTM1 Arc-Second Global` or `ASTER Global DEM V3`. Click on `Results` and download the corresponding files in the GeoTIFF format.
+The SRTM dataset can be downloaded from the [USGS EarthExplorer](https://earthexplorer.usgs.gov) (free user account required). There, use the map and zoom into your study area. Under 'Search Criteria' > 'Polygon' select `Use Map` and adjust the corner points of the polygon to your study area. Under 'Data Sets' navigate to `Digital Elevation` and `SRTM` and use `SRTM1 Arc-Second Global`. Click on `Results` and download the corresponding files in the GeoTIFF format.
 
-Save the '.tif' file locally on your machine. Then import the DEM into QGIS by using the menu `Layer` > `Add Layer` > `Add Raster Layer`. Choose the previous '.tif' file with the DEM as source:
+The ASTER dataset can be obtained from the [NASA Earthdata website](https://search.earthdata.nasa.gov/) (free user account required). Search for `ASTER Global DEM` and select `ASTER Global Digital Elevation Model V003`. On the left side, click on `Spatial` and `Polygon` or `Rectangle`. Mark your study area on the map. Download the resulting data files.
+
+Please note that neither SRTM nor ASTER provide a worldwide DEM in one file. Therefore you might have to download several files, depending on the size of your study area.
+
+Save the '.tif' file locally on your machine. Then import the DEM into QGIS by using the menu `Layer` > `Add Layer` > `Add Raster Layer` (or simply use drag-and-drop). Choose the previous '.tif' file with the DEM as source:
 
 ![Images/QGIS_ImportRaster.png](Images/QGIS_ImportRaster.png)
 
-Right-click to change the appearance of the DEM to have different elevations displayed differently. To add countour lines go to the menu `Raster` > `Extraction` > `Contour...`.
+If you have several raster files, you can merge them by using `Raster` (Menu bar) > `Miscellaneous` > `Merge`. Select the individual raster files in the tool setting as `Input layers` and run the tool.
+
+Right-click on the merged raster layer to change the appearance of the DEM to have different elevations displayed differently. To add countour lines go to the menu `Raster` > `Extraction` > `Contour...`.
 
 ![Images/QGIS_Contour.png](Images/QGIS_Contour.png)
 
@@ -130,37 +136,41 @@ You can now display your Meteobike data along the digital elevation model:
 
 ![Images/QGIS_DEMSample.png](Images/QGIS_DEMSample.png)
 
+In this figure, a white color is used for symbolizing the contour lines and the DEM uses a color scale (choose `Singleband pseudocolor` and a `Color ramp` in the `Symbology` section of the DEM layer).
+
 ### Merge data from the DEM with the Meteobike data
 
-To attribute data from a raster dataset to the point measurements, go to the menu `Processing` > `Toolbox`. As an example, we will now attribute the elevation from the DEM to each measurement location of the Meteobike. In the Toolbox choose `SAGA` > `Vector <-> raster` > `Add raster values to points`. SAGA (System for Automated Geoscientific Analyses) is a free, hybrid, cross-platform GIS software that is included in QGIS as a plug-in. If you do not find this SAGA tool in QGIS, please install the QGIS Plugin 'Processing Saga NextGen Provider' ( menu `Plugins` > `Manage and Install Plugins`). Go to the menu `Settings` > `Options` > `Processing` and include under `Providers` > `SAGANG` > `SAGA folder` a path to the folder where SAGA is installed together with QGIS (e.g., C:/Program Files/QGIS 3.34.5/apps/saga9). As an alternative to this tool, you could use as well the Plugin 'Point Sampling Tool'.
+To attribute data from a raster dataset to the point measurements, go to the menu `Processing` > `Toolbox`. As an example, we will now attribute the elevation from the DEM to each measurement location of the Meteobike. In the Toolbox choose `SAGA` > `Vector <-> raster` > `Add raster values to points`. SAGA (System for Automated Geoscientific Analyses) is a free, hybrid, cross-platform GIS software that is included in QGIS as a plug-in. If you do not find this SAGA tool in QGIS, please install the QGIS Plugin 'Processing Saga NextGen Provider' ( menu `Plugins` > `Manage and Install Plugins`). Go to the menu `Settings` > `Options` > `Processing` and include under `Providers` > `SAGANG` > `SAGA folder` a path to the folder where SAGA is installed together with QGIS (e.g., C:/Program Files/QGIS 3.34.5/apps/saga9). In newer versions of QGIS, SAGA is no longer bundled with QGIS. Therefore, you need to download the SAGA binaries from the [SAGA SourceForge page](https://sourceforge.net/projects/saga-gis/files/) and point QGIS to the folder containing the extracted files (see description above: `Providers` > ...).
+
+As an alternative to this tool, you could use as well the Plugin 'Point Sampling Tool'.
 
 ![Images/QGIS_RasterToPoints.png](Images/QGIS_RasterToPoints.png)
 
-Choose the Meteobike Dataset as the 'Points' and the DEM as the 'Grid'. As points do not fall directly in the center of pixels, you may want to interpolate the data between pixels (e.g. here 'Resampling' `[1] Bilinear Interpolation`). Make sure that the point data and the raster use the same Coordinate Reference System (CRS). Otherwise, the tool might not work properly. If the raster has a different CRS, you can use the tool `Warp (repoject)` to reproject the layer. Click `Run` to create a new point layer that has the original Meteobike data combined with the data from the DEM (elevation). You find the elevation from the DEM in the very last column of the 'Attribute Table'. You can now display the data with the elevation from the DEM. 
+Choose the Meteobike Dataset as the 'Points' and the DEM as the 'Grid'. As points do not fall directly in the center of pixels, you may want to interpolate the data between pixels (e.g. here 'Resampling' `[1] Bilinear Interpolation`). Make sure that the point data and the raster use the same Coordinate Reference System (CRS) (e.g., EPSG:4326). Otherwise, the tool might not work properly. If the raster has a different CRS, you can use the tool `Warp (repoject)` to reproject the layer. Click `Run` to create a new point layer that has the original Meteobike data combined with the data from the DEM (elevation). You find the elevation from the DEM in the very last column of the 'Attribute Table'. You can now display the data with the elevation from the DEM. 
 
 ![Images/QGIS_SampleDEMPoints.png](Images/QGIS_SampleDEMPoints.png)
 
-Note that the meteobikes already measured elevation (GPS Altitude) that should actually match the elevation data from the DEM. Since the GPS altitude may be incorrect or inaccurate, this is a good way to compare it with the elevation model. You can apply this procedure to any raster dataset (slope, catchment area, land cover data). There is a whole range of useful terrain analysis tools available in QGIS / SAGA for further analysis.
+Note that the meteobikes already measured elevation (GPS Altitude) that should actually match the elevation data from the DEM. Since the GPS altitude may be incorrect or inaccurate, this is a good way to compare it with the elevation model. The elevation data could be used, for instance, for calculating the potential temperature. You can apply this procedure to any raster dataset (slope, catchment area, land cover data). There is a whole range of useful terrain analysis tools available in QGIS / SAGA for further analysis.
 
 ## Combining your meteobike data with other geodata
 
-As a last exercise you may not only combine elevation information with temperatures, but also combine information on urban density, green cover with the meteobike temperature measurements. There are hundreds of different datasets available in cities.
+As a last exercise you may not only combine elevation information with temperatures, but also to combine information on urban density or green cover with the meteobike temperature measurements. There are hundreds of different datasets available in cities.
 
 For example, we may be interested whether the amount of greenspace in an urban neighborhood has an influence on nocturnal air temperatures. Or is the density of buildings explaining the differences of nocturnal air temperatures?
 
-In many cities, vector or raster data on the urban form, urban land use and three-dimensional structure are available. For Freiburg, for example, check out the [Catalogue of FreiGIS](https://geodaten.freiburg.de/geonetwork/srv/eng/catalog.search#/search?facet.q=type%2Fdataset). Data can also be extracted from aerial photos, surveys (digital city models such as [CityGML](https://en.wikipedia.org/wiki/CityGML)) or even 3D laser scanning from aircrafts ([LIDAR](https://en.wikipedia.org/wiki/Lidar)). Here is an example of land cover information for Freiburg, Germany at 1 x 1 m resolution:
+In many cities, vector or raster data on the urban form, urban land use and three-dimensional structure are available. For Freiburg, for example, check out the [Catalogue of FreiGIS](https://geodaten.freiburg.de/geonetwork/srv/eng/catalog.search#/home). Data can also be extracted from aerial photos, surveys (digital city models such as [CityGML](https://en.wikipedia.org/wiki/CityGML)) or even 3D laser scanning from aircrafts ([LIDAR](https://en.wikipedia.org/wiki/Lidar)). Here is an example of land cover information for Freiburg, Germany at 1 x 1 m resolution:
 
 ![Images/QGIS_LandCoverSample.png](Images/QGIS_LandCoverSample.png)
 
 ### Displaying land cover fractions
 
-The dataset shown above is very detailed, every building, tree, driveway etc. is reflected. However, as air temperatures do not only depend on the specific 1 x 1 m2 pixel they are measured over, but due to turbulent mixing, they are the response of a larger neighbood-scale energy balance, we cannot use this information directly. Instead, we need data that is less detailed, yet retaines the statistics of the typical mix of buidlings, vegetation or impervious ground.
+The dataset shown above is very detailed: i.e., every building, tree, driveway etc. is reflected. However, as air temperatures do not only depend on the specific 1 m<sup>2</sup> pixel they are measured over, but due to turbulent mixing, they are the response of a larger neighbood-scale energy balance, we cannot use this information directly. Instead, we need data that is less detailed, yet retains the statistics of the typical mix of buildings, vegetation, or impervious ground.
 
-One common approach to describe the urban form and structure is to classify larger areas at the local-scale (50 m - 0,5 km) and derive *land cover fractions*. Land cover fractions describe the plan area covered by a particular land cover (e.g buildings) per total area. If a grid cell has a land cover fraction of 1 then the entire grid cell is equal to the corresponding land cover. 
+One common approach to describe the urban form and structure is to classify larger areas at the local-scale (50 m - 0,5 km) and derive *land cover fractions*. Land cover fractions describe the plan area covered by a particular land cover (e.g., buildings) per total area. If a grid cell has a land cover fraction of 1 then the entire grid cell is equal to the corresponding land cover. 
 
 ![Images/QGIS_LandCoverConcept.png](Images/QGIS_LandCoverConcept.png)
 
-Conceptual illustration of land cover fractions of buildings (λb), vegetation (λv), and paved / impervious ground (λi). In all cases AT is the total area of the grid cell. Ab, Av and Ai is the projected area of buildings, vegetation and paved / impervious ground in the grid cell (Modified after: [Oke et al., 2017](https://www.cambridge.org/oke/), with permission from authors).
+Conceptual illustration of land cover fractions of buildings (λ<sub>b</sub>), vegetation (λ<sub>v</sub>), and paved / impervious ground (λ<sub>i</sub>). In all cases A<sub>T</sub> is the total area of the grid cell. A<sub>b</sub>, A<sub>v</sub> and A<sub>i</sub> is the projected area of buildings, vegetation and paved / impervious ground in the grid cell (Modified after: [Oke et al., 2017](https://www.cambridge.org/oke/), with permission from authors).
 
 The following detailed land cover fractions for example are available for Freiburg at 50 x 50 m, 100 x 100 m, 250 x 250 m, and 500 x 500 m resolution (vectorized data). Students at Uni Freiburg can download the relevant raster datasets from their ILIAS course account.
 
@@ -173,7 +183,7 @@ Variable name | Description | Value range
 `lc_soil` | Plan area fraction of bare soil | 0 ... 1 
 `lc_watr` | Plan area fraction of water bodies (lakes, rivers, ponds, pools) | 0 ... 1 
 
-You can load land cover layers at 50 x 50 m, 100 x 100 m, 250 x 250 m, or 500 x 500 m as [ESRI Shapefiles](https://en.wikipedia.org/wiki/Shapefile) into QGIS. Choose `Layer` > `Add layer` > `Add vector layer...`. Then choose the downloaded land cover shape file (`.shp`) for the resolution you prefer. Make sure you have also downloaded the corresponding projection description (`.prj`) file, the attribute file (`.dbf`) and the shape index format file (`.shx`) in the same directory.
+You can load land cover layers at 50 x 50 m, 100 x 100 m, 250 x 250 m, or 500 x 500 m as [ESRI Shapefiles](https://en.wikipedia.org/wiki/Shapefile) into QGIS. Choose `Layer` > `Add layer` > `Add vector layer...` (or simply use drag-and-drop). Then choose the downloaded land cover shape file (`.shp`) for the resolution you prefer. Make sure you have also downloaded the corresponding projection description (`.prj`) file, the attribute file (`.dbf`) and the shape index format file (`.shx`) in the same directory.
 
 You can display the raster of land cover fractions by right-clicking on the added layer and choose `Properties....`. Choose `Graduated`, select Mode: `Equal interval` and select a meaningful number of classes (at least 10) and the desired color ramp. 
 
@@ -183,7 +193,7 @@ Click `Apply`.
 
 ![Images/QGIS_LandCoverFractionExample.png](Images/QGIS_LandCoverFractionExample.png)
 
-The figure shows an example of a subset of visualized `lc_tree` at 50 x 50 m resolution for Freiburg. Dark green grid cells contain a lot of trees (parks, forests), white grid cells have none to few trees. Dots are Meteobike measurements. Note that in this example the colors of the color ramp have been set to a transparency of 50%. Further the map in the background has been set to a stauration of `-100` (right-click on the `OpenStreetMap` layer, select `Properties....`, then under `Symbology` in the section `Color Rendering` set `Saturation` to the minimum). 
+The figure shows an example of a subset of visualized `lc_tree` at 50 x 50 m resolution for Freiburg. Dark green grid cells contain a lot of trees (parks, forests), white grid cells have no to few trees. Dots are Meteobike measurements. Note that in this example the colors of the color ramp have been set to a opacity of 50 %. Further, the map in the background has been set to a stauration of `-100` (right-click on the `OpenStreetMap` layer, select `Properties....`, then under `Symbology` in the section `Color Rendering` set `Saturation` to the minimum). 
 
 ### Merge land cover fractions with the Meteobike data
 
@@ -195,7 +205,7 @@ As `Join to features in` choose your Meteobike Measurements (i.e. 'ALL-SYSTEMS-2
 
 Click on `Run`. With 50 x 50 m resolution this may take a while. This will for each measurement point attribute the corresponding land cover grid cell (actually: polygon) it falls into. A new layer `Joined layer` will be created. Again, you can rename the layer, e.g. 'ALL-SYSTEMS-2021-06-15-LC'.
 
-The following graph shows the joined layer, once color-coded by temperature difference (field `Temperature_diff_K`) and once by tree cover fraction (field `lc_tree`):
+The following maps shows the joined layer, once color-coded by temperature difference (field `Temperature_diff_K`) and once by tree cover fraction (field `lc_tree`):
 
 ![Images/QGIS_TemperatureTreeCover.png](Images/QGIS_TemperatureTreeCover.png)
 
@@ -207,7 +217,7 @@ To export data from any layer you right-click the corresponding layer and select
 
 ![Images/QGIS_ExportMenu.png](Images/QGIS_ExportMenu.png)
 
-In the Dialog that appears, choose under `Format`: `Comma Separated Values`, choose a save location and name under `File name` (clicking on the `...` button) and confirm by clicking `OK`. For example you can export the joined layer of air temperatures with land cover fractions (`TEXT`).
+In the Dialog that appears, choose under `Format`: `Comma Separated Values`, choose a save location and name under `File name` (clicking on the `...` button) and confirm by clicking `OK`. For example you can export the joined layer of air temperatures with land cover fractions.
 
 ![Images/QGIS_Export.png](Images/QGIS_Export.png)
 
